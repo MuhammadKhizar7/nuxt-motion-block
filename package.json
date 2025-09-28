@@ -1,8 +1,8 @@
 {
-  "name": "my-module",
+  "name": "nuxt-motion-block",
   "version": "1.0.0",
-  "description": "My new Nuxt module",
-  "repository": "your-org/my-module",
+  "description": "A streamlined UI library that extends Nuxt UI with motion capabilities powered by motion-v",
+  "repository": "your-org/nuxt-motion-block",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -37,7 +37,9 @@
     "docs:preview": "pnpm --filter nuxt-ui-template-docs preview"
   },
   "dependencies": {
-    "@nuxt/kit": "^4.1.2"
+    "@nuxt/kit": "^4.1.2",
+    "defu": "^6.1.4",
+    "motion-v": "^1.7.2"
   },
   "devDependencies": {
     "@nuxt/devtools": "^2.6.5",
@@ -45,6 +47,7 @@
     "@nuxt/module-builder": "^1.0.2",
     "@nuxt/schema": "^4.1.2",
     "@nuxt/test-utils": "^3.19.2",
+    "@nuxt/ui": "^4.0.0",
     "@types/node": "latest",
     "changelogen": "^0.6.2",
     "eslint": "^9.36.0",

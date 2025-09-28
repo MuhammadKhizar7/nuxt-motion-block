@@ -1,5 +1,7 @@
 import { defineNuxtPlugin } from '#app'
+// import { MotionPlugin } from 'motion-v'
 
-export default defineNuxtPlugin((_nuxtApp) => {
-  console.log('Plugin injected by my-module!')
+export default defineNuxtPlugin(() => {
+  // nuxtApp.vueApp.use(MotionPlugin)
+  console.log('Nuxt Motion Block plugin initialized!')
 })

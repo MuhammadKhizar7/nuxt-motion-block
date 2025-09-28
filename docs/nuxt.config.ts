@@ -6,7 +6,8 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxt/content',
     'nuxt-og-image',
-    'nuxt-llms'
+    'nuxt-llms',
+    '../src/module'
   ],
 
   devtools: {
@@ -49,6 +50,10 @@ export default defineNuxtConfig({
 
   icon: {
     provider: 'iconify'
+  },
+
+  motionBlock: {
+    prefix: 'M'
   },
 
   llms: {
