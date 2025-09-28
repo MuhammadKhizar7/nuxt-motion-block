@@ -1,0 +1,91 @@
+<template>
+  <div
+    ref="containerRef"
+    :class="spotlightClasses"
+    :style="spotlightStyle"
+  />
+</template>
+
+<script setup lang="ts">
+import { ref, onUnmounted, computed, withDefaults, defineProps, watch } from 'vue'
+import { useMotionValue, useSpring, useTransform } from 'motion-v'
+import type { SpringOptions } from 'motion-v'
+
+const props = withDefaults(defineProps<{
+  class?: string
+  size?: number
+  springOptions?: SpringOptions
+}>(), {
+  class: 'bg-primary-300/20 dark:bg-primary-600/20',
+  size: 200,
+  springOptions: () => ({ bounce: 0 }),
+})
+
+const containerRef = ref<HTMLElement | null>(null)
+const isHovered = ref(false)
+const parentElement = ref<HTMLElement | null>(null)
+
+const mouseX = useSpring(0, props.springOptions)
+const mouseY = useSpring(0, props.springOptions)
+
+const spotlightLeft = useTransform(mouseX, (x) => `${x - props.size / 2}px`)
+const spotlightTop = useTransform(mouseY, (y) => `${y - props.size / 2}px`)
+
+const left = ref(spotlightLeft.get())
+const top = ref(spotlightTop.get())
+
+const handleMouseMove = (event: MouseEvent) => {
+  if (!parentElement.value) return
+  const { left, top } = parentElement.value.getBoundingClientRect()
+  mouseX.set(event.clientX - left)
+  mouseY.set(event.clientY - top)
+}
+
+const handleMouseEnter = () => isHovered.value = true
+const handleMouseLeave = () => isHovered.value = false
+
+watch(containerRef, (el, prevEl, onCleanup) => {
+  if (!el) return
+
+  const parent = el.parentElement
+  if (parent) {
+    parent.style.position = 'relative'
+    parent.style.overflow = 'hidden'
+    parentElement.value = parent
+
+    parent.addEventListener('mousemove', handleMouseMove)
+    parent.addEventListener('mouseenter', handleMouseEnter)
+    parent.addEventListener('mouseleave', handleMouseLeave)
+  }
+
+  const unsubscribeLeft = spotlightLeft.on("change", (latest) => {
+    left.value = latest
+  })
+  const unsubscribeTop = spotlightTop.on("change", (latest) => {
+    top.value = latest
+  })
+
+  onCleanup(() => {
+    if (parent) {
+      parent.removeEventListener('mousemove', handleMouseMove)
+      parent.removeEventListener('mouseenter', handleMouseEnter)
+      parent.removeEventListener('mouseleave', handleMouseLeave)
+    }
+    unsubscribeLeft()
+    unsubscribeTop()
+  })
+})
+
+const spotlightClasses = computed(() => [
+  'pointer-events-none absolute rounded-full blur-xl transition-opacity duration-200',
+  isHovered.value ? 'opacity-100' : 'opacity-0',
+  props.class,
+])
+
+const spotlightStyle = computed(() => ({
+  width: `${props.size}px`,
+  height: `${props.size}px`,
+  left: left.value,
+  top: top.value,
+}))
+</script>
