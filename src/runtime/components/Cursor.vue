@@ -1,11 +1,11 @@
 <template>
-  <motion.div
+  <Motion
     ref="cursorRef"
     :class="['pointer-events-none fixed left-0 top-0 z-50', props.class]"
     :style="cursorStyle"
   >
     <AnimatePresence>
-      <motion.div
+      <Motion
         v-if="isVisible"
         initial="initial"
         animate="animate"
@@ -14,14 +14,14 @@
         :transition="transition"
       >
         <slot />
-      </motion.div>
+      </Motion>
     </AnimatePresence>
-  </motion.div>
+  </Motion>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, watch, nextTick } from 'vue'
-import { useMotionValue, useSpring, AnimatePresence, motion } from 'motion-v'
+import { useMotionValue, useSpring, AnimatePresence, Motion } from 'motion-v'
 
 // Types
 interface SpringOptions {
@@ -59,7 +59,7 @@ const props = withDefaults(defineProps<CursorProps>(), {
 })
 
 // Refs
-const cursorRef = ref<HTMLElement | null>(null)
+const cursorRef = ref<InstanceType<typeof Motion> | null>(null)
 const isVisible = ref(!props.attachToParent)
 const parentElement = ref<HTMLElement | null>(null)
 const isInsideParent = ref(false)
@@ -78,6 +78,24 @@ const cursorStyle = {
   y: cursorYSpring,
   translateX: '-50%',
   translateY: '-50%',
+}
+
+// Get the actual DOM element from the Motion component
+const getDomElement = () => {
+  if (!cursorRef.value) return null
+  
+  // Try to get the DOM element from the Motion component
+  // This might vary depending on the motion-v version
+  if ('$el' in cursorRef.value) {
+    return (cursorRef.value as any).$el as HTMLElement
+  }
+  
+  // Fallback: try to get the first child element
+  if (cursorRef.value && 'firstElementChild' in cursorRef.value) {
+    return cursorRef.value.firstElementChild as HTMLElement
+  }
+  
+  return null
 }
 
 // Check if cursor is inside parent container
@@ -110,8 +128,9 @@ onMounted(() => {
     
     // Wait for DOM to be fully rendered before getting parent
     nextTick(() => {
-      if (cursorRef.value && cursorRef.value.$el && cursorRef.value.$el.parentElement) {
-        parentElement.value = cursorRef.value.$el.parentElement
+      const element = getDomElement()
+      if (element && element.parentElement) {
+        parentElement.value = element.parentElement
         parentElement.value.style.cursor = 'auto'
       }
     })
@@ -165,8 +184,9 @@ watch(() => props.attachToParent, (newValue) => {
     
     // Get parent element when attachToParent becomes true
     nextTick(() => {
-      if (cursorRef.value && cursorRef.value.$el && cursorRef.value.$el.parentElement) {
-        parentElement.value = cursorRef.value.$el.parentElement
+      const element = getDomElement()
+      if (element && element.parentElement) {
+        parentElement.value = element.parentElement
         parentElement.value.style.cursor = 'auto'
       }
     })

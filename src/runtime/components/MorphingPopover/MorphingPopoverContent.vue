@@ -5,7 +5,7 @@
       class="fixed inset-0 z-40"
     >
       <!-- Enhanced motion component with advanced animations -->
-      <motion.div
+      <Motion
         ref="contentRef"
         :layout-id="`popover-trigger-${uniqueId}`"
         :initial="computedInitialVariant"
@@ -34,13 +34,13 @@
         <div class="relative z-10">
           <slot />
         </div>
-      </motion.div>
+      </Motion>
     </div>
   </Teleport>
 </template>
 
 <script setup lang="ts">
-import { motion } from 'motion-v'
+import { Motion } from 'motion-v'
 import { onClickOutside } from '@vueuse/core'
 
 interface Props {

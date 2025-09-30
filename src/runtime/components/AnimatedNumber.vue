@@ -1,4 +1,5 @@
 <template>
+  <!-- @vue-ignore -->
   <Motion
     :as="as"
     :class="['inline-block tabular-nums', props.class]"
@@ -25,10 +26,10 @@ const props = withDefaults(defineProps<AnimatedNumberProps>(), {
   springOptions: () => ({
     stiffness: 300,
     damping: 30,
-    mass: 1
+    mass: 1,
   }),
   as: 'span',
-  format: (value: number) => Math.round(value).toLocaleString()
+  format: (value: number) => Math.round(value).toLocaleString(),
 })
 
 // State for the current display value
@@ -52,7 +53,7 @@ watch(() => props.value, (newValue) => {
 // Initialize the motion value and subscribe to changes on mount
 onMounted(() => {
   motionNumber.set(props.value)
-  
+
   // Subscribe to spring value changes
   unsubscribe = springValue.on('change', (latest: number) => {
     currentValue.value = latest

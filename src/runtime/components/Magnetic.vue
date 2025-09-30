@@ -1,17 +1,17 @@
 <template>
-  <motion.div
+  <Motion
     ref="magneticRef"
     :style="{ x: springX, y: springY }"
     @mouseenter="handleMouseEnter"
     @mouseleave="handleMouseLeave"
   >
     <slot />
-  </motion.div>
+  </Motion>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, watch } from 'vue'
-import { motion, useMotionValue, useSpring } from 'motion-v'
+import { Motion, useMotionValue, useSpring } from 'motion-v'
 
 // Types
 interface SpringOptions {
@@ -35,8 +35,8 @@ const props = withDefaults(defineProps<MagneticProps>(), {
 })
 
 // Refs
-const magneticRef = ref<HTMLElement | null>(null)
-const isHovered = ref(false)
+const magneticRef = ref<InstanceType<typeof Motion> | null>(null)
+const domElement = ref<HTMLElement | null>(null)
 
 // Motion values
 const x = useMotionValue(0)
@@ -46,11 +46,30 @@ const y = useMotionValue(0)
 const springX = useSpring(x, props.springOptions)
 const springY = useSpring(y, props.springOptions)
 
+// Get the actual DOM element from the Motion component
+const getDomElement = () => {
+  if (!magneticRef.value) return null
+  
+  // Try to get the DOM element from the Motion component
+  // This might vary depending on the motion-v version
+  if ('$el' in magneticRef.value) {
+    return (magneticRef.value as any).$el as HTMLElement
+  }
+  
+  // Fallback: try to get the first child element
+  if (magneticRef.value && 'firstElementChild' in magneticRef.value) {
+    return magneticRef.value.firstElementChild as HTMLElement
+  }
+  
+  return null
+}
+
 // Calculate distance and update position
 const calculateDistance = (e: MouseEvent) => {
-  if (!magneticRef.value) return
+  const element = getDomElement()
+  if (!element) return
 
-  const rect = magneticRef.value.$el.getBoundingClientRect()
+  const rect = element.getBoundingClientRect()
   const centerX = rect.left + rect.width / 2
   const centerY = rect.top + rect.height / 2
   const distanceX = e.clientX - centerX
@@ -67,6 +86,8 @@ const calculateDistance = (e: MouseEvent) => {
     y.set(0)
   }
 }
+
+const isHovered = ref(false)
 
 // Event handlers
 const handleMouseEnter = () => {
@@ -89,8 +110,9 @@ onMounted(() => {
   document.addEventListener('mousemove', calculateDistance)
 
   // Setup parent event listeners if needed
-  if (props.actionArea === 'parent' && magneticRef.value?.parentElement) {
-    const parent = magneticRef.value.parentElement
+  const element = getDomElement()
+  if (props.actionArea === 'parent' && element?.parentElement) {
+    const parent = element.parentElement
 
     const handleParentEnter = () => {
       isHovered.value = true

@@ -2,6 +2,13 @@
   <div
     ref="container"
     :class="containerClasses"
+    :style="containerStyles"
+    role="img"
+    :aria-label="props.ariaLabel"
+    :aria-valuenow="Math.round(sliderPosition)"
+    aria-valuemin="0"
+    aria-valuemax="100"
+    tabindex="0"
     @mousemove="handleDrag"
     @mousedown="!enableHover && startDrag()"
     @mouseup="stopDrag"
@@ -12,39 +19,44 @@
     @touchcancel="stopDrag"
     @wheel="handleWheel"
     @keydown="handleKeyDown"
-    :style="containerStyles"
-    role="img"
-    :aria-label="props.ariaLabel"
-    :aria-valuenow="Math.round(sliderPosition)"
-    aria-valuemin="0"
-    aria-valuemax="100"
-    tabindex="0"
   >
     <slot />
-    
+
     <!-- Overlay controls -->
-    <div v-if="showControls" class="absolute top-4 right-4 z-20 flex gap-2">
-      <UButton 
+    <div
+      v-if="showControls"
+      class="absolute top-4 right-4 z-20 flex gap-2"
+    >
+      <UButton
         v-if="enableZoom"
+        size="xs"
+        variant="outline"
+        class="bg-white/80 backdrop-blur-sm"
         @click="resetZoom"
-        size="xs"
-        variant="outline"
-        class="bg-white/80 backdrop-blur-sm"
       >
-        <UIcon name="i-lucide-zoom-out" class="w-3 h-3" />
+        <UIcon
+          name="i-lucide-zoom-out"
+          class="w-3 h-3"
+        />
       </UButton>
-      <UButton 
-        @click="resetPosition"
+      <UButton
         size="xs"
         variant="outline"
         class="bg-white/80 backdrop-blur-sm"
+        @click="resetPosition"
       >
-        <UIcon name="i-lucide-refresh-cw" class="w-3 h-3" />
+        <UIcon
+          name="i-lucide-refresh-cw"
+          class="w-3 h-3"
+        />
       </UButton>
     </div>
-    
+
     <!-- Position indicator -->
-    <div v-if="showPosition" class="absolute bottom-4 left-4 z-20">
+    <div
+      v-if="showPosition"
+      class="absolute bottom-4 left-4 z-20"
+    >
       <div class="bg-black/60 text-white px-2 py-1 rounded text-xs backdrop-blur-sm">
         {{ Math.round(sliderPosition) }}%
       </div>
@@ -55,9 +67,7 @@
 <script setup lang="ts">
 import { useMotionValue, useSpring } from 'motion-v'
 import type { SpringOptions } from 'motion-v'
-import { ref, computed, watch, readonly, provide, onMounted, onUnmounted } from 'vue'
-import { usePerformanceMonitor } from '~/composables/usePerformance'
-import { useAccessibility } from '~/composables/useAccessibility'
+import { ref, computed, watch, readonly, provide, onUnmounted } from 'vue'
 
 type ComparisonMode = 'slide' | 'fade' | 'curtain' | 'circle'
 type SliderOrientation = 'horizontal' | 'vertical'
@@ -95,7 +105,7 @@ const props = withDefaults(defineProps<ImageComparisonProps>(), {
   steps: () => [0, 25, 50, 75, 100],
   ariaLabel: 'Image comparison slider',
   leftImageLabel: 'Before image',
-  rightImageLabel: 'After image'
+  rightImageLabel: 'After image',
 })
 
 const emit = defineEmits<{
@@ -116,34 +126,20 @@ const autoPlayInterval = ref<number | null>(null)
 const motionValue = useMotionValue(props.initialPosition)
 const motionSliderPosition = useSpring(
   motionValue,
-  props.springOptions ?? DEFAULT_SPRING_OPTIONS
+  props.springOptions ?? DEFAULT_SPRING_OPTIONS,
 )
 const sliderPosition = ref(props.initialPosition)
-
-// Performance monitoring
-const { startMonitoring, stopMonitoring } = usePerformanceMonitor()
-const { prefersReducedMotion } = useAccessibility()
-
-// Start performance monitoring on mount
-onMounted(() => {
-  startMonitoring()
-})
-
-onUnmounted(() => {
-  stopMonitoring()
-  stopAutoPlay()
-})
 
 const containerClasses = computed(() => [
   'relative select-none overflow-hidden image-comparison-container',
   props.enableHover && 'cursor-ew-resize',
   props.orientation === 'vertical' && 'cursor-ns-resize',
-  props.class
+  props.class,
 ])
 
 const containerStyles = computed(() => ({
   transform: props.enableZoom ? `scale(${zoomLevel.value})` : undefined,
-  transformOrigin: 'center'
+  transformOrigin: 'center',
 }))
 
 const handleDrag = (event: MouseEvent | TouchEvent) => {
@@ -151,24 +147,25 @@ const handleDrag = (event: MouseEvent | TouchEvent) => {
   if (!container.value) return
 
   event.preventDefault()
-  
+
   const containerRect = container.value.getBoundingClientRect()
   let percentage: number
-  
+
   if (props.orientation === 'vertical') {
     const clientY = 'touches' in event ? event.touches[0].clientY : (event as MouseEvent).clientY
     const y = clientY - containerRect.top
     percentage = Math.max(0, Math.min(100, (y / containerRect.height) * 100))
-  } else {
+  }
+  else {
     const clientX = 'touches' in event ? event.touches[0].clientX : (event as MouseEvent).clientX
     const x = clientX - containerRect.left
     percentage = Math.max(0, Math.min(100, (x / containerRect.width) * 100))
   }
-  
+
   // Snap to steps if enabled
   if (props.snapToSteps) {
-    const closestStep = props.steps.reduce((prev, curr) => 
-      Math.abs(curr - percentage) < Math.abs(prev - percentage) ? curr : prev
+    const closestStep = props.steps.reduce((prev, curr) =>
+      Math.abs(curr - percentage) < Math.abs(prev - percentage) ? curr : prev,
     )
     percentage = closestStep
   }
@@ -180,7 +177,7 @@ const handleDrag = (event: MouseEvent | TouchEvent) => {
 
 const handleWheel = (event: WheelEvent) => {
   if (!props.enableZoom) return
-  
+
   event.preventDefault()
   const delta = event.deltaY > 0 ? -0.1 : 0.1
   zoomLevel.value = Math.max(0.5, Math.min(3, zoomLevel.value + delta))
@@ -219,7 +216,7 @@ const resetZoom = () => {
 const handleKeyDown = (event: KeyboardEvent) => {
   const step = 5 // 5% step for keyboard navigation
   let newPosition = sliderPosition.value
-  
+
   switch (event.key) {
     case 'ArrowLeft':
     case 'ArrowDown':
@@ -245,7 +242,7 @@ const handleKeyDown = (event: KeyboardEvent) => {
       resetPosition()
       return
   }
-  
+
   if (newPosition !== sliderPosition.value) {
     motionValue.set(newPosition)
     sliderPosition.value = newPosition
@@ -255,7 +252,7 @@ const handleKeyDown = (event: KeyboardEvent) => {
 
 const startAutoPlay = () => {
   if (!props.autoPlay) return
-  
+
   stopAutoPlay()
   autoPlayInterval.value = setInterval(() => {
     const newPosition = (sliderPosition.value + 10) % 100
@@ -276,7 +273,8 @@ const stopAutoPlay = () => {
 watch(() => props.autoPlay, (enabled) => {
   if (enabled) {
     startAutoPlay()
-  } else {
+  }
+  else {
     stopAutoPlay()
   }
 }, { immediate: true })
@@ -294,7 +292,7 @@ const context = {
   containerRef: container,
   mode: props.mode,
   orientation: props.orientation,
-  zoomLevel: readonly(zoomLevel)
+  zoomLevel: readonly(zoomLevel),
 }
 
 provide('imageComparisonContext', context)
@@ -312,7 +310,7 @@ defineExpose({
   resetPosition,
   resetZoom,
   startAutoPlay,
-  stopAutoPlay
+  stopAutoPlay,
 })
 </script>
 

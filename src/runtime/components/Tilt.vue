@@ -1,5 +1,5 @@
 <template>
-  <motion.div
+  <Motion
     ref="tiltRef"
     :class="className"
     :style="combinedStyles"
@@ -7,18 +7,12 @@
     @mouseleave="handleMouseLeave"
   >
     <slot />
-  </motion.div>
+  </Motion>
 </template>
 
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue'
-import { 
-  motion,
-  useMotionTemplate,
-  useMotionValue,
-  useSpring,
-  useTransform 
-} from 'motion-v'
+import { Motion, useMotionTemplate, useMotionValue, useSpring, useTransform } from 'motion-v'
 
 // Types
 interface SpringOptions {
@@ -42,7 +36,8 @@ const props = withDefaults(defineProps<TiltProps>(), {
 })
 
 // Refs
-const tiltRef = ref<HTMLElement | null>(null)
+const tiltRef = ref<InstanceType<typeof Motion> | null>(null)
+const domElement = ref<HTMLElement | null>(null)
 
 // Motion values
 const x = useMotionValue(0)
@@ -79,11 +74,30 @@ const combinedStyles = computed(() => ({
   transform
 }))
 
+// Get the actual DOM element from the Motion component
+const getDomElement = () => {
+  if (!tiltRef.value) return null
+  
+  // Try to get the DOM element from the Motion component
+  // This might vary depending on the motion-v version
+  if ('$el' in tiltRef.value) {
+    return (tiltRef.value as any).$el as HTMLElement
+  }
+  
+  // Fallback: try to get the first child element
+  if (tiltRef.value && 'firstElementChild' in tiltRef.value) {
+    return tiltRef.value.firstElementChild as HTMLElement
+  }
+  
+  return null
+}
+
 // Event handlers
 const handleMouseMove = (e: MouseEvent) => {
-  if (!tiltRef.value) return
+  const element = getDomElement()
+  if (!element) return
 
-  const rect = tiltRef.value.$el.getBoundingClientRect()
+  const rect = element.getBoundingClientRect()
   const width = rect.width
   const height = rect.height
   const mouseX = e.clientX - rect.left

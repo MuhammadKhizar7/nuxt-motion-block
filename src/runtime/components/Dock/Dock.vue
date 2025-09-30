@@ -1,28 +1,28 @@
 <template>
   <div :class="containerClasses">
-    <div 
+    <div
       class="flex items-end justify-center pointer-events-auto transition-all duration-300 ease-out"
       :style="{ height: currentHeight + 'px' }"
     >
       <div
         ref="dockRef"
-        @mousemove="handleMouseMove"
-        @mouseleave="handleMouseLeave"
-        @keydown="handleKeyDown"
         :class="dockClasses"
-        :style="{ 
+        :style="{
           height: props.panelHeight + 'px',
-          transform: `translateY(${heightOffset}px)`
+          transform: `translateY(${heightOffset}px)`,
         }"
-        class="flex items-center justify-center gap-3 px-4 py-2 
+        class="flex items-center justify-center gap-3 px-4 py-2
                backdrop-blur-xl
                border border-black/10 dark:border-white/10
-               rounded-2xl 
+               rounded-2xl
                shadow-2xl shadow-black/20
                transition-transform duration-300 ease-out"
         role="toolbar"
         :aria-label="ariaLabel"
         :aria-orientation="orientation"
+        @mousemove="handleMouseMove"
+        @mouseleave="handleMouseLeave"
+        @keydown="handleKeyDown"
       >
         <slot />
       </div>
@@ -32,7 +32,7 @@
 
 <script setup lang="ts">
 import { useMotionValue, type SpringOptions } from 'motion-v'
-import { computed, ref, watch, onMounted, onUnmounted } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { provideDockContext } from './useDock'
 import { useThrottle } from '../../composables/usePerformance'
 import { useKeyboardNavigation } from '../../composables/useAccessibility'
@@ -69,7 +69,7 @@ const props = withDefaults(defineProps<DockProps>(), {
   ariaLabel: 'Application dock',
   showLabels: true,
   background: 'glass',
-  animation: 'spring'
+  animation: 'spring',
 })
 
 const dockRef = ref<HTMLDivElement>()
@@ -88,7 +88,7 @@ const sizeConfig = computed(() => {
   const configs = {
     sm: { gap: 2, padding: 3, magnification: 60 },
     md: { gap: 3, padding: 4, magnification: 80 },
-    lg: { gap: 4, padding: 5, magnification: 100 }
+    lg: { gap: 4, padding: 5, magnification: 100 },
   }
   return configs[props.size]
 })
@@ -101,16 +101,16 @@ const orientation = computed(() => {
 // Container classes based on variant
 const containerClasses = computed(() => {
   const baseClasses = 'z-[1000] pointer-events-none'
-  
+
   const variantClasses = {
     bottom: 'fixed bottom-5 left-1/2 -translate-x-1/2',
     top: 'fixed top-5 left-1/2 -translate-x-1/2',
     left: 'fixed left-5 top-1/2 -translate-y-1/2',
     right: 'fixed right-5 top-1/2 -translate-y-1/2',
     floating: 'fixed bottom-20 left-1/2 -translate-x-1/2',
-    compact: 'fixed bottom-3 left-1/2 -translate-x-1/2'
+    compact: 'fixed bottom-3 left-1/2 -translate-x-1/2',
   }
-  
+
   return [baseClasses, variantClasses[props.variant]].join(' ')
 })
 
@@ -119,7 +119,7 @@ const backgroundClasses = computed(() => {
   const backgrounds = {
     glass: 'bg-white/80 dark:bg-black/80',
     solid: 'bg-white dark:bg-black',
-    none: 'bg-transparent'
+    none: 'bg-transparent',
   }
   return backgrounds[props.background]
 })
@@ -133,7 +133,8 @@ watch(isHovered, (hovered) => {
   if (hovered) {
     currentHeight.value = maxHeight.value
     heightOffset.value = -(maxHeight.value - props.panelHeight) / 2
-  } else {
+  }
+  else {
     currentHeight.value = props.panelHeight
     heightOffset.value = 0
   }
@@ -146,24 +147,24 @@ const dockClasses = computed(() => {
     'border border-black/10 dark:border-white/10',
     'rounded-2xl',
     'shadow-2xl shadow-black/20',
-    'transition-transform duration-300 ease-out'
+    'transition-transform duration-300 ease-out',
   ]
-  
+
   // Add background classes
   baseClasses.push(backgroundClasses.value)
-  
+
   // Add orientation classes
   if (orientation.value === 'vertical') {
     baseClasses[0] = 'flex flex-col items-center justify-center gap-3 px-2 py-4'
   }
-  
+
   // Add size-specific classes
   const sizeClasses = {
     sm: `gap-${sizeConfig.value.gap} px-${sizeConfig.value.padding} py-${sizeConfig.value.padding}`,
     md: `gap-${sizeConfig.value.gap} px-${sizeConfig.value.padding} py-${sizeConfig.value.padding}`,
-    lg: `gap-${sizeConfig.value.gap} px-${sizeConfig.value.padding} py-${sizeConfig.value.padding}`
+    lg: `gap-${sizeConfig.value.gap} px-${sizeConfig.value.padding} py-${sizeConfig.value.padding}`,
   }
-  
+
   return [baseClasses.join(' '), props.class, sizeClasses[props.size]].filter(Boolean).join(' ')
 })
 
@@ -178,16 +179,17 @@ provideDockContext({
 // Enhanced mouse handling with performance optimization
 const handleMouseMove = throttle((event: MouseEvent) => {
   if (!dockRef.value) return
-  
+
   const dockRect = dockRef.value.getBoundingClientRect()
-  
+
   let relativePosition: number
   if (orientation.value === 'vertical') {
     relativePosition = event.clientY - dockRect.top
-  } else {
+  }
+  else {
     relativePosition = event.clientX - dockRect.left
   }
-  
+
   isHovered.value = true
   mouseX.set(relativePosition)
 }, 16) // 60fps throttling
@@ -203,7 +205,7 @@ const handleKeyDown = createArrowNavigation({
   onRight: () => {
     const items = dockRef.value?.children
     if (!items) return
-    
+
     if (orientation.value === 'horizontal') {
       focusedItemIndex.value = Math.min(focusedItemIndex.value + 1, items.length - 1)
       focusItem()
@@ -212,7 +214,7 @@ const handleKeyDown = createArrowNavigation({
   onLeft: () => {
     const items = dockRef.value?.children
     if (!items) return
-    
+
     if (orientation.value === 'horizontal') {
       focusedItemIndex.value = Math.max(focusedItemIndex.value - 1, 0)
       focusItem()
@@ -221,7 +223,7 @@ const handleKeyDown = createArrowNavigation({
   onDown: () => {
     const items = dockRef.value?.children
     if (!items) return
-    
+
     if (orientation.value === 'vertical') {
       focusedItemIndex.value = Math.min(focusedItemIndex.value + 1, items.length - 1)
       focusItem()
@@ -230,7 +232,7 @@ const handleKeyDown = createArrowNavigation({
   onUp: () => {
     const items = dockRef.value?.children
     if (!items) return
-    
+
     if (orientation.value === 'vertical') {
       focusedItemIndex.value = Math.max(focusedItemIndex.value - 1, 0)
       focusItem()
@@ -250,13 +252,13 @@ const handleKeyDown = createArrowNavigation({
   onEscape: () => {
     focusedItemIndex.value = -1
     dockRef.value?.blur()
-  }
+  },
 })
 
 const focusItem = () => {
   const items = dockRef.value?.children
   if (!items || focusedItemIndex.value < 0) return
-  
+
   const item = items[focusedItemIndex.value] as HTMLElement
   item?.focus()
 }

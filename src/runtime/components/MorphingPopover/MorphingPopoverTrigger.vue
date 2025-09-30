@@ -1,5 +1,5 @@
 <template>
-  <motion.button
+  <Motion
     ref="triggerRef"
     :layout-id="`popover-trigger-${uniqueId}`"
     :data-layout-id="`popover-trigger-${uniqueId}`"
@@ -11,11 +11,12 @@
     v-bind="$attrs"
   >
     <slot />
-  </motion.button>
+  </Motion>
 </template>
 
 <script setup lang="ts">
-import { motion } from 'motion-v'
+import { ref, inject, watch } from 'vue'
+import { Motion } from 'motion-v'
 
 // No props needed - everything comes from context
 const emit = defineEmits<{

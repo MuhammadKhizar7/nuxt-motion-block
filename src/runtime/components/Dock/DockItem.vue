@@ -1,27 +1,27 @@
 <template>
   <div
     ref="dockRef"
-    :style="{ 
-      width: currentWidth + 'px', 
-      height: currentWidth + 'px'
+    :style="{
+      width: currentWidth + 'px',
+      height: currentWidth + 'px',
     }"
+    :class="itemClasses"
+    class="relative flex items-center justify-center cursor-pointer
+           rounded-full transition-all duration-200 ease-out
+           focus:outline-none focus:ring-2 focus:ring-primary-500/50"
+    tabindex="0"
+    role="button"
     @mouseenter="handleMouseEnter"
+    :aria-label="ariaLabel"
     @mouseleave="handleMouseLeave"
     @focus="handleFocus"
     @blur="handleBlur"
     @click="handleClick"
     @keydown.enter="handleClick"
     @keydown.space.prevent="handleClick"
-    :class="itemClasses"
-    class="relative flex items-center justify-center cursor-pointer 
-           rounded-full transition-all duration-200 ease-out
-           focus:outline-none focus:ring-2 focus:ring-primary-500/50"
-    tabindex="0"
-    role="button"
-    :aria-label="ariaLabel"
   >
-    <slot 
-      :width="currentWidth" 
+    <slot
+      :width="currentWidth"
       :is-hovered="localIsHovered"
       :scale="currentScale"
     />
@@ -67,25 +67,26 @@ const updateSize = () => {
   try {
     const rect = dockRef.value.getBoundingClientRect()
     const dockRect = dockRef.value.closest('[role="toolbar"]')?.getBoundingClientRect()
-    
+
     if (!rect || !dockRect) return
 
     const itemCenter = rect.left - dockRect.left + rect.width / 2
     const mouseDistance = Math.abs(currentMouseX - itemCenter)
-    
+
     // Calculate size based on distance with smooth curve
     let newWidth: number
     if (mouseDistance <= distance) {
       const factor = 1 - Math.pow(mouseDistance / distance, 2) // Quadratic easing
       newWidth = MIN_SIZE + (magnification - MIN_SIZE) * factor
-    } else {
+    }
+    else {
       newWidth = MIN_SIZE
     }
-    
+
     currentWidth.value = Math.max(MIN_SIZE, Math.round(newWidth))
     currentScale.value = newWidth / BASE_SIZE
-    
-   } catch (error) {
+  }
+  catch (error) {
     console.error('Error calculating size:', error)
   }
 }
@@ -93,7 +94,7 @@ const updateSize = () => {
 // Use requestAnimationFrame for smooth updates
 const startAnimation = () => {
   if (animationFrame) return
-  
+
   const animate = () => {
     updateSize()
     animationFrame = requestAnimationFrame(animate)
@@ -117,21 +118,23 @@ onMounted(() => {
           startAnimation()
         }
       })
-      
+
       onUnmounted(() => {
         stopAnimation()
         if (typeof unsubscribe === 'function') {
           unsubscribe()
         }
       })
-    } else {
+    }
+    else {
       // Fallback: continuous animation
       startAnimation()
       onUnmounted(() => {
         stopAnimation()
       })
     }
-  } catch (error) {
+  }
+  catch (error) {
     console.warn('Motion-v subscription failed, using fallback animation:', error)
     startAnimation()
     onUnmounted(() => {
@@ -142,7 +145,7 @@ onMounted(() => {
 
 const itemClasses = computed(() => {
   return [
-    props.class
+    props.class,
   ].filter(Boolean).join(' ')
 })
 

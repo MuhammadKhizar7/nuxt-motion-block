@@ -1,5 +1,5 @@
 <template>
-  <motion.div
+  <Motion
     :style="computedStyles"
     :animate="currentAnimation"
     :class="glowClasses"
@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { motion } from 'motion-v'
+import { Motion } from 'motion-v'
 import type { Transition } from 'motion-v'
 
 // Define props

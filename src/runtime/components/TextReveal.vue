@@ -15,14 +15,14 @@
       :style="getCharStyle(index)"
       aria-hidden="true"
     >
-      <motion.span
+      <Motion
         :initial="initialVariant"
         :animate="shouldAnimate ? getCharAnimateVariant(index) : initialVariant"
-        :transition="getCharTransition(index) as any"
+        :transition="getCharTransition(index)"
         class="inline-block"
       >
         {{ char === ' ' ? '\u00A0' : char }}
-      </motion.span>
+      </Motion>
     </span>
     <!-- Screen reader accessible text -->
     <span class="sr-only">{{ props.text }}</span>
@@ -30,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import { motion } from 'motion-v'
+import { Motion } from 'motion-v'
 import { ref, computed, watch, onMounted, nextTick } from 'vue'
 import { useElementVisibility } from '@vueuse/core'
 
@@ -201,65 +201,31 @@ const getCharTransition = (index: number) => {
     return {
       ...baseTransition,
       type: 'spring',
-      bounce: 0.4
+      stiffness: 300,
+      damping: 10
     }
   }
   
   return baseTransition
 }
 
-const getCharStyle = (index: number) => {
-  return {
-    transitionDelay: `${props.delay + (index * props.stagger)}s`
-  }
-}
-
+// Handle click event
 const handleClick = () => {
   emit('click')
 }
 
-// Watch for animation trigger
-watch(shouldAnimate, (newVal, oldVal) => {
-  // Trigger animation when shouldAnimate becomes true
-  if (newVal && !isAnimating.value) {
-    // For manual triggers with once=false, reset hasAnimated to allow repeated animations
-    if (props.trigger !== undefined && !props.once && oldVal === false) {
-      hasAnimated.value = false
-    }
-    
-    // Only animate if not already animated (or if once=false)
-    if (!hasAnimated.value || !props.once) {
-      isAnimating.value = true
-      
-      // Calculate total animation time
-      const totalTime = props.delay + (chars.value.length * props.stagger) + props.duration
-      
-      // Mark as animated after starting the animation
-      setTimeout(() => {
-        hasAnimated.value = true
-        isAnimating.value = false
-        emit('complete')
-      }, totalTime * 1000)
-    }
+// Watch for animation completion
+watch(hasAnimated, (newVal) => {
+  if (newVal) {
+    emit('complete')
   }
 })
 
-// Auto-trigger if not using in-view
+// Lifecycle hooks
 onMounted(() => {
-  if (!props.startOnView && props.trigger === undefined) {
-    // Animation will be triggered by the shouldTriggerAnimation watcher
-    // No need to manually trigger here
+  // Set initial animation state
+  if (!props.startOnView && !props.once) {
+    hasAnimated.value = false
   }
 })
 </script>
-
-<style scoped>
-.text-reveal-container {
-  overflow: hidden;
-}
-
-.text-reveal-char {
-  display: inline-block;
-  white-space: pre;
-}
-</style>

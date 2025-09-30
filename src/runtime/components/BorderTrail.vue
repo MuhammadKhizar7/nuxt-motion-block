@@ -1,10 +1,10 @@
 <template>
   <div class="pointer-events-none absolute inset-0 rounded-[inherit] border border-transparent [mask-clip:padding-box,border-box] [mask-composite:intersect] [mask-image:linear-gradient(transparent,transparent),linear-gradient(#000,#000)]">
-    <motion.div
+    <Motion
       :class="['absolute aspect-square', trailClass]"
       :style="motionStyle"
       :animate="{
-        offsetDistance: ['0%', '100%']
+        offsetDistance: ['0%', '100%'],
       }"
       :transition="finalTransition"
       @animationcomplete="onAnimationComplete"
@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import { motion } from 'motion-v'
+import { Motion } from 'motion-v'
 import { computed } from 'vue'
 
 // Types
@@ -33,7 +33,7 @@ interface BorderTrailProps {
 }
 
 const props = withDefaults(defineProps<BorderTrailProps>(), {
-  size: 60
+  size: 60,
 })
 
 // Default transition
@@ -46,13 +46,13 @@ const defaultTransition: Transition = {
 // Computed properties
 const finalTransition = computed(() => ({
   ...defaultTransition,
-  ...props.transition
+  ...props.transition,
 }))
 
 const motionStyle = computed(() => ({
   width: `${props.size}px`,
   offsetPath: `rect(0 auto auto 0 round ${props.size}px)`,
-  ...props.style
+  ...props.style,
 }))
 
 const trailClass = computed(() => {

@@ -1,5 +1,5 @@
 <template>
-  <motion.div
+  <Motion
     :class="progressClasses"
     :style="progressStyle"
   />
@@ -7,7 +7,7 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted, withDefaults, defineProps } from 'vue'
-import { motion, useScroll, useSpring } from 'motion-v'
+import { Motion, useScroll, useSpring, useMotionValueEvent } from 'motion-v'
 import type { SpringOptions } from 'motion-v'
 
 const props = withDefaults(defineProps<{
@@ -39,11 +39,8 @@ const scaleX = useSpring(scrollYProgress, {
 const scaleXValue = ref(scaleX.get())
 
 onMounted(() => {
-  const unsubscribe = scaleX.on("change", (latest) => {
-    scaleXValue.value = latest
-  })
-  onUnmounted(() => {
-    unsubscribe()
+  useMotionValueEvent(scaleX, "change", (latest) => {
+    scaleXValue.value = latest as number
   })
 })
 

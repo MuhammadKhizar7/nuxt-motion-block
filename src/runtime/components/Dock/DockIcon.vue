@@ -1,11 +1,11 @@
 <template>
   <div
-    :style="{ 
-      width: iconSize + 'px', 
+    :style="{
+      width: iconSize + 'px',
       height: iconSize + 'px',
       transform: `scale(${scale})`,
     }"
-    class="flex items-center justify-center overflow-hidden 
+    class="flex items-center justify-center overflow-hidden
            transition-transform duration-200 ease-out"
     :class="iconClasses"
   >
@@ -24,12 +24,12 @@ interface DockIconProps {
 
 const props = withDefaults(defineProps<DockIconProps>(), {
   width: 48,
-  scale: 1
+  scale: 1,
 })
 
 const iconClasses = computed(() => {
   return [
-    props.class
+    props.class,
   ].filter(Boolean).join(' ')
 })
 

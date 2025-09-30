@@ -20,9 +20,9 @@ import { computed } from 'vue'
 import { Motion } from 'motion-v'
 
 interface TextShimmerProps {
-  children: string
+  children?: string
   as?: string
-  className?: string
+  class?: string
   duration?: number
   spread?: number
 }
@@ -30,9 +30,9 @@ interface TextShimmerProps {
 const props = withDefaults(defineProps<TextShimmerProps>(), {
   children: '',
   as: 'p',
-  className: '',
+  class: '',
   duration: 2,
-  spread: 2
+  spread: 2,
 })
 
 // Compute dynamic spread based on text length
@@ -47,7 +47,7 @@ const computedClass = computed(() => {
     'text-transparent [--base-color:#a1a1aa] [--base-gradient-color:#000]',
     '[background-repeat:no-repeat,padding-box] [--bg:linear-gradient(90deg,#0000_calc(50%-var(--spread)),var(--base-gradient-color),#0000_calc(50%+var(--spread)))]',
     'dark:[--base-color:#71717a] dark:[--base-gradient-color:#ffffff] dark:[--bg:linear-gradient(90deg,#0000_calc(50%-var(--spread)),var(--base-gradient-color),#0000_calc(50%+var(--spread)))]',
-    props.className
+    props.class,
   ].join(' ')
 })
 
@@ -55,7 +55,7 @@ const computedClass = computed(() => {
 const computedStyle = computed(() => {
   return {
     '--spread': `${dynamicSpread.value}px`,
-    backgroundImage: `var(--bg), linear-gradient(var(--base-color), var(--base-color))`,
+    'backgroundImage': `var(--bg), linear-gradient(var(--base-color), var(--base-color))`,
   }
 })
 

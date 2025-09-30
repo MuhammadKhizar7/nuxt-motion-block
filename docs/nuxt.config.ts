@@ -52,10 +52,6 @@ export default defineNuxtConfig({
     provider: 'iconify'
   },
 
-  motionBlock: {
-    prefix: 'M'
-  },
-
   llms: {
     domain: 'https://docs-template.nuxt.dev/',
     title: 'Nuxt Docs Template',
@@ -80,5 +76,9 @@ export default defineNuxtConfig({
         ]
       }
     ]
+  },
+
+  motionBlock: {
+    prefix: 'M'
   }
 })

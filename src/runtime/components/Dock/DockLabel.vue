@@ -10,25 +10,26 @@
     <div
       v-if="isVisible"
       :class="labelClasses"
-      class="absolute -top-10 left-1/2 -translate-x-1/2 
-             w-fit whitespace-nowrap 
-             rounded-lg border 
+      class="absolute -top-10 left-1/2 -translate-x-1/2
+             w-fit whitespace-nowrap
+             rounded-lg border
              border-gray-200 dark:border-neutral-700
-             bg-gray-100 dark:bg-neutral-800 
-             px-2 py-1 
-             text-xs text-neutral-700 dark:text-white 
-             z-50 shadow-lg 
+             bg-gray-100 dark:bg-neutral-800
+             px-2 py-1
+             text-xs text-neutral-700 dark:text-white
+             z-50 shadow-lg
              backdrop-blur-sm"
       role="tooltip"
       :aria-hidden="!isVisible"
     >
       <slot />
       <!-- Tooltip arrow -->
-      <div class="absolute top-full left-1/2 -translate-x-1/2 
-                  border-l-4 border-r-4 border-t-4 
-                  border-l-transparent border-r-transparent 
-                  border-t-gray-100 dark:border-t-neutral-800">
-      </div>
+      <div
+        class="absolute top-full left-1/2 -translate-x-1/2
+                  border-l-4 border-r-4 border-t-4
+                  border-l-transparent border-r-transparent
+                  border-t-gray-100 dark:border-t-neutral-800"
+      />
     </div>
   </Transition>
 </template>
@@ -47,7 +48,7 @@ const isVisible = computed(() => props.isHovered || false)
 
 const labelClasses = computed(() => {
   return [
-    props.class
+    props.class,
   ].filter(Boolean).join(' ')
 })
 </script>

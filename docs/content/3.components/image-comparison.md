@@ -272,7 +272,7 @@ label: Preview
 ---
   :::MImageComparison
   ---
-  enable-hover
+  enable-hover="true"
   :spring-options="{ bounce: 0.2, duration: 0.3 }"
   ---
     :::MImageComparisonImage{src="https://picsum.photos/seed/plain/600/400" alt="Plain design" position="left"}

@@ -1,5 +1,5 @@
 <template>
-  <motion.div
+  <Motion
     class="relative"
     :class="className"
     :style="containerStyle"
@@ -8,7 +8,7 @@
     :variants="containerVariants"
     :transition="finalTransition"
   >
-    <motion.span
+    <Motion
       v-for="(letter, index) in letters"
       :key="`${index}-${letter}`"
       aria-hidden="true"
@@ -17,13 +17,13 @@
       :style="getLetterStyle(index)"
     >
       {{ letter }}
-    </motion.span>
+    </Motion>
     <span class="sr-only">{{ children }}</span>
-  </motion.div>
+  </Motion>
 </template>
 
 <script setup lang="ts">
-import { motion } from 'motion-v'
+import { Motion } from 'motion-v'
 import { computed } from 'vue'
 
 // Types
@@ -59,7 +59,7 @@ const props = withDefaults(defineProps<SpinningTextProps>(), {
   fontSize: 1,
   radius: 5,
   transition: () => ({}),
-  variants: () => ({})
+  variants: () => ({}),
 })
 
 // Constants
@@ -105,19 +105,19 @@ const containerStyle = computed(() => ({
 const getLetterStyle = (index: number) => {
   const rotateDegree = (360 / totalLetters.value * index)
   const translateY = `calc(var(--radius, ${props.radius}) * -1ch)`
-  
+
   return {
     '--index': index,
     '--total': totalLetters.value,
     '--font-size': props.fontSize,
     '--radius': props.radius,
-    fontSize: `calc(var(--font-size, 2) * 1rem)`,
-    transform: `
+    'fontSize': `calc(var(--font-size, 2) * 1rem)`,
+    'transform': `
       translate(-50%, -50%)
       rotate(${rotateDegree}deg)
       translateY(${translateY})
     `,
-    transformOrigin: 'center',
+    'transformOrigin': 'center',
   }
 }
 </script>

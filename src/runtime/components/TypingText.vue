@@ -49,7 +49,7 @@ const props = withDefaults(defineProps<TypingTextProps>(), {
   startOnView: true,
   once: false,
   inViewMargin: '0px',
-  animation: 'fadeIn'
+  animation: 'fadeIn',
 })
 
 const emit = defineEmits(['complete'])
@@ -119,7 +119,7 @@ const targetAnimationState = computed(() => {
 const containerTransition = computed(() => {
   return {
     duration: 0.6,
-    easing: 'ease-out'
+    easing: 'ease-out',
   }
 })
 
@@ -165,7 +165,8 @@ function typeText() {
       currentIndex.value++
       typeText()
     }, props.speed)
-  } else {
+  }
+  else {
     // Typing complete
     emit('complete')
     props.onComplete?.()
@@ -206,7 +207,7 @@ function handleClick() {
           duration: 1,
           repeat: Infinity,
           easing: 'linear',
-          times: [0, 0.5, 0.5, 1]
+          times: [0, 0.5, 0.5, 1],
         }"
         :class="['typing-cursor', 'inline-block ms-1 font-normal select-none w-px', cursorClass]"
       >

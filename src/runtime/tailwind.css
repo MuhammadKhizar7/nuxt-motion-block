@@ -1,0 +1,4 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@source "./components"; /* relative to this CSS file in your module */
