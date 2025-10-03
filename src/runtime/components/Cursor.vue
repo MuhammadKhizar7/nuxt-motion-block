@@ -55,7 +55,7 @@ interface CursorProps {
 }
 
 const props = withDefaults(defineProps<CursorProps>(), {
-  attachToParent: false
+  attachToParent: false,
 })
 
 // Refs
@@ -83,31 +83,31 @@ const cursorStyle = {
 // Get the actual DOM element from the Motion component
 const getDomElement = () => {
   if (!cursorRef.value) return null
-  
+
   // Try to get the DOM element from the Motion component
   // This might vary depending on the motion-v version
   if ('$el' in cursorRef.value) {
     return (cursorRef.value as any).$el as HTMLElement
   }
-  
+
   // Fallback: try to get the first child element
   if (cursorRef.value && 'firstElementChild' in cursorRef.value) {
     return cursorRef.value.firstElementChild as HTMLElement
   }
-  
+
   return null
 }
 
 // Check if cursor is inside parent container
 const checkIfInsideParent = (x: number, y: number): boolean => {
   if (!parentElement.value || !props.attachToParent) return false
-  
+
   const rect = parentElement.value.getBoundingClientRect()
   return (
-    x >= rect.left &&
-    x <= rect.right &&
-    y >= rect.top &&
-    y <= rect.bottom
+    x >= rect.left
+    && x <= rect.right
+    && y >= rect.top
+    && y <= rect.bottom
   )
 }
 
@@ -122,10 +122,11 @@ onMounted(() => {
   if (!props.attachToParent) {
     document.body.style.cursor = 'none'
     isVisible.value = true
-  } else {
+  }
+  else {
     document.body.style.cursor = 'auto'
     isVisible.value = false
-    
+
     // Wait for DOM to be fully rendered before getting parent
     nextTick(() => {
       const element = getDomElement()
@@ -142,11 +143,11 @@ const updatePosition = (e: MouseEvent) => {
   cursorX.set(e.clientX)
   cursorY.set(e.clientY)
   props.onPositionChange?.(e.clientX, e.clientY)
-  
+
   // Check if cursor is inside parent when attachToParent is true
   if (props.attachToParent && parentElement.value) {
     const inside = checkIfInsideParent(e.clientX, e.clientY)
-    
+
     // Only update visibility if it changed
     if (inside !== isInsideParent.value) {
       isInsideParent.value = inside
@@ -164,7 +165,7 @@ onMounted(() => {
 onUnmounted(() => {
   document.removeEventListener('mousemove', updatePosition)
   document.body.style.cursor = 'auto'
-  
+
   // Reset parent cursor style
   if (parentElement.value) {
     parentElement.value.style.cursor = 'auto'
@@ -177,11 +178,12 @@ watch(() => props.attachToParent, (newValue) => {
     document.body.style.cursor = 'none'
     isVisible.value = true
     isInsideParent.value = false
-  } else {
+  }
+  else {
     document.body.style.cursor = 'auto'
     isVisible.value = false
     isInsideParent.value = false
-    
+
     // Get parent element when attachToParent becomes true
     nextTick(() => {
       const element = getDomElement()

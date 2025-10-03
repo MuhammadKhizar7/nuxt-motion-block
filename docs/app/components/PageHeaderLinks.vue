@@ -6,7 +6,6 @@ const toast = useToast()
 const { copy, copied } = useClipboard()
 const site = useSiteConfig()
 const isCopying = ref(false)
-console.log(site)
 
 const mdPath = computed(() => `${site.url}/raw${route.path}.md`)
 
