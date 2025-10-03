@@ -16,48 +16,78 @@ The Dock component provides a macOS-style dock with magnification effects and sm
 label: Preview
 ---
   :::div{class="p-4"}
-    :::MDock{variant="bottom" size="md"}
-      :::MDockItem
-        :::MDockIcon{name="i-lucide-home"}
-        :::
-        :::MDockLabel
-        Home
-        :::
-      :::
-      :::MDockItem
-        :::MDockIcon{name="i-lucide-settings"}
-        :::
-        :::MDockLabel
-        Settings
-        :::
-      :::
-      :::MDockItem
-        :::MDockIcon{name="i-lucide-user"}
-        :::
-        :::MDockLabel
-        Profile
-        :::
-      :::
+    :::component-example{name="dock-example"}
     :::
   :::
 #code
 ```vue
 <template>
-  <MDock variant="bottom" size="md">
-    <MDockItem>
-      <MDockIcon name="i-lucide-home" />
-      <MDockLabel>Home</MDockLabel>
-    </MDockItem>
-    <MDockItem>
-      <MDockIcon name="i-lucide-settings" />
-      <MDockLabel>Settings</MDockLabel>
-    </MDockItem>
-    <MDockItem>
-      <MDockIcon name="i-lucide-user" />
-      <MDockLabel>Profile</MDockLabel>
+  <MDock
+    :magnification="dockSettings.magnification"
+    :distance="dockSettings.distance"
+    :panel-height="dockSettings.panelHeight"
+    class="dock-custom"
+    variant="bottom"
+  >
+    <MDockItem
+      v-for="(app, index) in apps"
+      :key="index"
+      v-slot="{ width, isHovered, scale }"
+      :aria-label="app.name"
+      class="dock-item-custom"
+      @click="handleAppClick(app)"
+    >
+      <MDockLabel :is-hovered="isHovered">
+        {{ app.name }}
+      </MDockLabel>
+      <MDockIcon
+        :width="width"
+        :scale="scale"
+        :name="app.icon"
+        class="text-black dark:text-gray-50 aspect-square rounded-full hover:bg-black/5 dark:hover:bg-white/5"
+      >
+        <div
+          :class="[
+            'w-full h-full aspect-square rounded-full flex items-center justify-center text-2xl'
+          ]"
+          :style="{ fontSize: Math.max(16, width * 0.4) + 'px' }"
+        />
+      </MDockIcon>
     </MDockItem>
   </MDock>
 </template>
+
+<script setup lang="ts">
+const apps = ref([
+  { name: 'Home', icon: 'i-lucide-home' },
+  { name: 'Products', icon: 'i-lucide-package' },
+  { name: 'Messages', icon: 'i-lucide-message-circle' },
+  { name: 'Mail', icon: 'i-lucide-mail' },
+  { name: 'Photos', icon: 'i-lucide-image' },
+  { name: 'Music', icon: 'i-lucide-music' },
+  { name: 'Calendar', icon: 'i-lucide-calendar' },
+  { name: 'Notes', icon: 'i-lucide-file' },
+  { name: 'Settings', icon: 'i-lucide-settings' }
+])
+
+const dockSettings = reactive({
+  magnification: 80,
+  distance: 150,
+  panelHeight: 64
+})
+
+const handleAppClick = (app: typeof apps.value[0]) => {
+  const title = `Opening ${app.name}`
+  const description = `Launching ${app.name} application...`
+  const toast = useToast()
+  toast.add({
+    title,
+    description,
+    duration: 2000
+  })
+}
+</script>
+
 ```
 ::
 
@@ -149,223 +179,3 @@ label: Preview
   ::
 ::
 
-## Examples
-
-### Basic Dock
-
-::code-preview
----
-label: Preview
----
-  :::MDock
-    :::MDockItem
-      :::MDockIcon{name="i-lucide-home"}
-      :::
-      :::MDockLabel
-      Home
-      :::
-    :::
-    :::MDockItem
-      :::MDockIcon{name="i-lucide-search"}
-      :::
-      :::MDockLabel
-      Search
-      :::
-    :::
-    :::MDockItem
-      :::MDockIcon{name="i-lucide-settings"}
-      :::
-      :::MDockLabel
-      Settings
-      :::
-    :::
-  :::
-#code
-```vue
-<template>
-  <MDock>
-    <MDockItem>
-      <MDockIcon name="i-lucide-home" />
-      <MDockLabel>Home</MDockLabel>
-    </MDockItem>
-    <MDockItem>
-      <MDockIcon name="i-lucide-search" />
-      <MDockLabel>Search</MDockLabel>
-    </MDockItem>
-    <MDockItem>
-      <MDockIcon name="i-lucide-settings" />
-      <MDockLabel>Settings</MDockLabel>
-    </MDockItem>
-  </MDock>
-</template>
-```
-::
-
-### Top Positioned Dock
-
-::code-preview
----
-label: Preview
----
-  :::MDock{variant="top"}
-    :::MDockItem
-      :::MDockIcon{name="i-lucide-folder"}
-      :::
-      :::MDockLabel
-      Files
-      :::
-    :::
-    :::MDockItem
-      :::MDockIcon{name="i-lucide-mail"}
-      :::
-      :::MDockLabel
-      Mail
-      :::
-    :::
-    :::MDockItem
-      :::MDockIcon{name="i-lucide-calendar"}
-      :::
-      :::MDockLabel
-      Calendar
-      :::
-    :::
-  :::
-#code
-```vue
-<template>
-  <MDock variant="top">
-    <MDockItem>
-      <MDockIcon name="i-lucide-folder" />
-      <MDockLabel>Files</MDockLabel>
-    </MDockItem>
-    <MDockItem>
-      <MDockIcon name="i-lucide-mail" />
-      <MDockLabel>Mail</MDockLabel>
-    </MDockItem>
-    <MDockItem>
-      <MDockIcon name="i-lucide-calendar" />
-      <MDockLabel>Calendar</MDockLabel>
-    </MDockItem>
-  </MDock>
-</template>
-```
-::
-
-### Compact Dock
-
-::code-preview
----
-label: Preview
----
-  :::MDock{variant="floating" size="sm" :show-labels="false"}
-    :::MDockItem
-      :::MDockIcon{name="i-lucide-home"}
-      :::
-    :::
-    :::MDockItem
-      :::MDockIcon{name="i-lucide-heart"}
-      :::
-    :::
-    :::MDockItem
-      :::MDockIcon{name="i-lucide-star"}
-      :::
-    :::
-    :::MDockItem
-      :::MDockIcon{name="i-lucide-user"}
-      :::
-    :::
-  :::
-#code
-```vue
-<template>
-  <MDock variant="floating" size="sm" :show-labels="false">
-    <MDockItem>
-      <MDockIcon name="i-lucide-home" />
-    </MDockItem>
-    <MDockItem>
-      <MDockIcon name="i-lucide-heart" />
-    </MDockItem>
-    <MDockItem>
-      <MDockIcon name="i-lucide-star" />
-    </MDockItem>
-    <MDockItem>
-      <MDockIcon name="i-lucide-user" />
-    </MDockItem>
-  </MDock>
-</template>
-```
-::
-
-### Custom Styled Dock
-
-::code-preview
----
-label: Preview
----
-  :::MDock
-  ---
-  variant="left"
-  size="lg"
-  background="solid"
-  :distance="200"
-  :magnification="100"
-  ---
-    :::MDockItem
-      :::MDockIcon{name="i-lucide-monitor"}
-      :::
-      :::MDockLabel
-      Dashboard
-      :::
-    :::
-    :::MDockItem
-      :::MDockIcon{name="i-lucide-bar-chart-3"}
-      :::
-      :::MDockLabel
-      Analytics
-      :::
-    :::
-    :::MDockItem
-      :::MDockIcon{name="i-lucide-users"}
-      :::
-      :::MDockLabel
-      Users
-      :::
-    :::
-    :::MDockItem
-      :::MDockIcon{name="i-lucide-settings"}
-      :::
-      :::MDockLabel
-      Settings
-      :::
-    :::
-  :::
-#code
-```vue
-<template>
-  <MDock 
-    variant="left" 
-    size="lg"
-    background="solid"
-    :distance="200"
-    :magnification="100"
-  >
-    <MDockItem>
-      <MDockIcon name="i-lucide-monitor" />
-      <MDockLabel>Dashboard</MDockLabel>
-    </MDockItem>
-    <MDockItem>
-      <MDockIcon name="i-lucide-bar-chart-3" />
-      <MDockLabel>Analytics</MDockLabel>
-    </MDockItem>
-    <MDockItem>
-      <MDockIcon name="i-lucide-users" />
-      <MDockLabel>Users</MDockLabel>
-    </MDockItem>
-    <MDockItem>
-      <MDockIcon name="i-lucide-settings" />
-      <MDockLabel>Settings</MDockLabel>
-    </MDockItem>
-  </MDock>
-</template>
-```
-::

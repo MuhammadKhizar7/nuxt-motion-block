@@ -13,7 +13,7 @@ import type { Transition } from 'motion-v'
 // Define props
 const props = withDefaults(defineProps<{
   class?: string
-  style?: Object
+  style?: object
   colors?: string[]
   mode?: 'rotate' | 'pulse' | 'breathe' | 'colorShift' | 'flowHorizontal' | 'static'
   blur?: number | 'softest' | 'soft' | 'medium' | 'strong' | 'stronger' | 'strongest' | 'none'
@@ -25,54 +25,54 @@ const props = withDefaults(defineProps<{
   mode: 'rotate',
   blur: 'medium',
   scale: 1,
-  duration: 5
+  duration: 5,
 })
 
 // Base transition configuration
 const BASE_TRANSITION = {
   repeat: Infinity,
   duration: props.duration,
-  ease: 'linear'
+  ease: 'linear',
 } as Transition
 
 // Animation configurations
 const animations = computed(() => {
   const { colors, mode, scale, transition } = props
-  
+
   const configs = {
     rotate: {
       background: [
         `conic-gradient(from 0deg at 50% 50%, ${colors.join(', ')})`,
-        `conic-gradient(from 360deg at 50% 50%, ${colors.join(', ')})`
+        `conic-gradient(from 360deg at 50% 50%, ${colors.join(', ')})`,
       ],
       transition: {
-        ...(transition || BASE_TRANSITION)
-      }
+        ...(transition || BASE_TRANSITION),
+      },
     },
     pulse: {
       background: colors.map(
-        color => `radial-gradient(circle at 50% 50%, ${color} 0%, transparent 100%)`
+        color => `radial-gradient(circle at 50% 50%, ${color} 0%, transparent 100%)`,
       ),
       scale: [1 * scale, 1.1 * scale, 1 * scale],
       opacity: [0.5, 0.8, 0.5],
       transition: {
         ...(transition || {
           ...BASE_TRANSITION,
-          repeatType: 'mirror'
-        })
-      }
+          repeatType: 'mirror',
+        }),
+      },
     },
     breathe: {
       background: colors.map(
-        color => `radial-gradient(circle at 50% 50%, ${color} 0%, transparent 100%)`
+        color => `radial-gradient(circle at 50% 50%, ${color} 0%, transparent 100%)`,
       ),
       scale: [1 * scale, 1.05 * scale, 1 * scale],
       transition: {
         ...(transition || {
           ...BASE_TRANSITION,
-          repeatType: 'mirror'
-        })
-      }
+          repeatType: 'mirror',
+        }),
+      },
     },
     colorShift: {
       background: colors.map((color, index) => {
@@ -82,9 +82,9 @@ const animations = computed(() => {
       transition: {
         ...(transition || {
           ...BASE_TRANSITION,
-          repeatType: 'mirror'
-        })
-      }
+          repeatType: 'mirror',
+        }),
+      },
     },
     flowHorizontal: {
       background: colors.map((color) => {
@@ -94,15 +94,15 @@ const animations = computed(() => {
       transition: {
         ...(transition || {
           ...BASE_TRANSITION,
-          repeatType: 'mirror'
-        })
-      }
+          repeatType: 'mirror',
+        }),
+      },
     },
     static: {
-      background: `linear-gradient(to right, ${colors.join(', ')})`
-    }
+      background: `linear-gradient(to right, ${colors.join(', ')})`,
+    },
   }
-  
+
   return configs[mode]
 })
 
@@ -117,7 +117,7 @@ const blurClasses = {
   strong: 'blur-lg',
   stronger: 'blur-xl',
   strongest: 'blur-2xl',
-  none: 'blur-none'
+  none: 'blur-none',
 }
 
 // Compute blur class based on prop
@@ -133,13 +133,13 @@ const glowClasses = computed(() => [
   'pointer-events-none absolute inset-0 h-full w-full',
   `scale-[${props.scale}] transform-gpu`,
   blurClass.value,
-  props.class
+  props.class,
 ])
 
 // Computed styles
 const computedStyles = computed(() => ({
   ...props.style,
   willChange: 'transform',
-  backfaceVisibility: 'hidden'
+  backfaceVisibility: 'hidden',
 }))
 </script>

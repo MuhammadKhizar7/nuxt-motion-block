@@ -1,5 +1,6 @@
 <template>
-  <div
+  <UIcon
+    :name="name"
     :style="{
       width: iconSize + 'px',
       height: iconSize + 'px',
@@ -10,7 +11,7 @@
     :class="iconClasses"
   >
     <slot />
-  </div>
+  </UIcon>
 </template>
 
 <script setup lang="ts">
@@ -20,11 +21,13 @@ interface DockIconProps {
   class?: string
   width?: number
   scale?: number
+  name?: string
 }
 
 const props = withDefaults(defineProps<DockIconProps>(), {
   width: 48,
   scale: 1,
+  name: 'i-lucide-home',
 })
 
 const iconClasses = computed(() => {

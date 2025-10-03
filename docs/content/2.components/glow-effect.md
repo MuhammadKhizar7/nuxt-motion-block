@@ -15,27 +15,29 @@ The GlowEffect component creates a glowing effect around elements with customiza
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
+  :::div{class="relative"}
     :::MGlowEffect
-      :::div{class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow"}
+    :::
+      :::UCard{class="relative"}
         :::h3{class="text-lg font-medium mb-2"}
-        Glowing Card
+          Glowing Card
         :::
         :::p
         This card has a glowing effect around it.
         :::
       :::
-    :::
   :::
 #code
 ```vue
 <template>
+  <div class="relative">
   <MGlowEffect>
-    <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
+    <UCard class="relative">
       <h3 class="text-lg font-medium mb-2">Glowing Card</h3>
       <p>This card has a glowing effect around it.</p>
-    </div>
+    </UCard>
   </MGlowEffect>
+  </div>
 </template>
 ```
 ::
@@ -80,28 +82,19 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MGlowEffect
-      :::div{class="p-6 bg-gradient-to-r from-purple-500 to-indigo-600 text-white rounded-lg"}
-        :::h3{class="text-lg font-medium mb-2"}
-        Purple Glow
-        :::
-        :::p
-        This card has a purple glowing effect.
-        :::
-      :::
+  :::div{class="relative"}
+    :::MGlowEffect{mode='colorShift' blur='soft' duration="3" scale="0.9"}
     :::
+      :::UButton{class="relative" color="neutral" size="sm"}
+        Glowing Button
+      :::
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MGlowEffect>
-      <div class="p-6 bg-gradient-to-r from-purple-500 to-indigo-600 text-white rounded-lg">
-        <h3 class="text-lg font-medium mb-2">Purple Glow</h3>
-        <p>This card has a purple glowing effect.</p>
-      </div>
-    </MGlowEffect>
+  <div class="reactive">
+    <MGlowEffect mode='colorShift' blur='soft' duration="3" scale="0.9" />
+     <UButton class="relative">Glowing Button</UButton>
   </div>
 </template>
 ```
@@ -113,7 +106,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
+  <!-- :::div{class="p-4"}
     :::MGlowEffect{:colors="['#3498db', '#2ecc71', '#e74c3c']" mode="pulse"}
       :::div{class="p-6 bg-white dark:bg-gray-800 rounded-lg"}
         :::h3{class="text-lg font-medium mb-2"}
@@ -124,7 +117,7 @@ label: Preview
         :::
       :::
     :::
-  :::
+  ::: -->
 #code
 ```vue
 <template>
@@ -149,9 +142,10 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
+  :::div{class="relative"}
     :::MGlowEffect{blur="strong" :scale="1.2"}
-      :::div{class="p-6 bg-gradient-to-r from-amber-400 to-orange-500 text-white rounded-lg"}
+    :::
+      :::UCard{class="relative"}
         :::h3{class="text-lg font-medium mb-2"}
         Strong Glow
         :::
@@ -159,21 +153,19 @@ label: Preview
         This card has a strong glowing effect.
         :::
       :::
-    :::
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
+  <div class="relative">
     <MGlowEffect 
       blur="strong" 
       :scale="1.2"
-    >
-      <div class="p-6 bg-gradient-to-r from-amber-400 to-orange-500 text-white rounded-lg">
+    />
+      <UCard class="relative">
         <h3 class="text-lg font-medium mb-2">Strong Glow</h3>
         <p>This card has a strong glowing effect.</p>
-      </div>
-    </MGlowEffect>
+      </UCard>
   </div>
 </template>
 ```

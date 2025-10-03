@@ -12,12 +12,8 @@
       :class="labelClasses"
       class="absolute -top-10 left-1/2 -translate-x-1/2
              w-fit whitespace-nowrap
-             rounded-lg border
-             border-gray-200 dark:border-neutral-700
-             bg-gray-100 dark:bg-neutral-800
-             px-2 py-1
-             text-xs text-neutral-700 dark:text-white
-             z-50 shadow-lg
+             flex items-center gap-1 bg-default text-highlighted shadow-sm rounded-sm ring ring-default h-6 px-2.5 py-1 text-xs select-none
+             z-50
              backdrop-blur-sm"
       role="tooltip"
       :aria-hidden="!isVisible"
