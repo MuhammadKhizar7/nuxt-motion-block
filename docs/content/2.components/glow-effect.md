@@ -106,30 +106,24 @@ label: Preview
 ---
 label: Preview
 ---
-  <!-- :::div{class="p-4"}
-    :::MGlowEffect{:colors="['#3498db', '#2ecc71', '#e74c3c']" mode="pulse"}
-      :::div{class="p-6 bg-white dark:bg-gray-800 rounded-lg"}
-        :::h3{class="text-lg font-medium mb-2"}
-        Pulsing Glow
-        :::
-        :::p
-        This card has a pulsing glow effect.
-        :::
-      :::
+  :::div{class="p-4"}
+    :::component-example{name="glow-effect-example"}
     :::
-  ::: -->
+  :::
 #code
 ```vue
 <template>
-  <div class="p-4">
+  <div class="relative">
     <MGlowEffect 
       :colors="['#3498db', '#2ecc71', '#e74c3c']" 
       mode="pulse"
     >
-      <div class="p-6 bg-white dark:bg-gray-800 rounded-lg">
-        <h3 class="text-lg font-medium mb-2">Pulsing Glow</h3>
-        <p>This card has a pulsing glow effect.</p>
-      </div>
+    <UCard class="relative">
+      <h3 class="text-lg font-medium mb-2">
+        Pulsing Glow
+      </h3>
+      <p>This card has a pulsing glow effect.</p>
+    </UCard>
     </MGlowEffect>
   </div>
 </template>
