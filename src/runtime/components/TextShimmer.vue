@@ -1,6 +1,7 @@
 <template>
+  <!-- @vue-ignore -->
   <Motion
-    :is="component"
+    :as="component"
     :class="computedClass"
     :style="computedStyle"
     :initial="{ backgroundPosition: '100% center' }"
@@ -11,7 +12,7 @@
       ease: 'linear',
     }"
   >
-    {{ children }}
+    {{ text }}
   </Motion>
 </template>
 
@@ -20,7 +21,7 @@ import { computed } from 'vue'
 import { Motion } from 'motion-v'
 
 interface TextShimmerProps {
-  children?: string
+  text?: string
   as?: string
   class?: string
   duration?: number
@@ -28,7 +29,7 @@ interface TextShimmerProps {
 }
 
 const props = withDefaults(defineProps<TextShimmerProps>(), {
-  children: '',
+  text: 'no text provided',
   as: 'p',
   class: '',
   duration: 2,
@@ -37,7 +38,7 @@ const props = withDefaults(defineProps<TextShimmerProps>(), {
 
 // Compute dynamic spread based on text length
 const dynamicSpread = computed(() => {
-  return props.children.length * props.spread
+  return props.text.length * props.spread
 })
 
 // Compute component class

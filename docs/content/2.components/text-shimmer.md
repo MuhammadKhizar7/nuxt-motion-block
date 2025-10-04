@@ -15,17 +15,14 @@ The TextShimmer component creates text with a shimmer effect that moves across t
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MTextShimmer
-      Shimmer Text
+  :::div{class="p-4 w-full"}
+    :::MTextShimmer{ text="Shimmering Text Effect" :duration="3" :spread="1.5" class="text-4xl font-bold"}
     :::
   :::
 #code
 ```vue
 <template>
-  <MTextShimmer>
-    Shimmer Text
-  </MTextShimmer>
+  <MTextShimmer text="Shimmer Text" />
 </template>
 ```
 ::
@@ -33,7 +30,7 @@ label: Preview
 ## Props
 
 ::field-group
-  ::field{name="children" type="string" :required="true"}
+  ::field{name="text" type="string" :required="true"}
   Text to shimmer.
   ::
   
@@ -41,7 +38,7 @@ label: Preview
   HTML element to render as.
   ::
   
-  ::field{name="className" type="string" default="''"}
+  ::field{name="class" type="string" default="''"}
   CSS classes to apply to the container.
   ::
   
@@ -62,18 +59,15 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MTextShimmer
-      Basic Shimmer
+  :::div{class="p-4 w-full"}
+    :::MTextShimmer{ text="Basic Shimmer"}
     :::
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MTextShimmer>
-      Basic Shimmer
-    </MTextShimmer>
+  <div class="p-4 w-full">
+    <MTextShimmer text="Basic Shimmer" />
   </div>
 </template>
 ```
@@ -85,18 +79,15 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MTextShimmer{:duration="4"}
-      Slow Shimmer
+  :::div{class="p-4 w-full"}
+    :::MTextShimmer{ text="Slow Shimmer" :duration="4"}
     :::
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MTextShimmer :duration="4">
-      Slow Shimmer
-    </MTextShimmer>
+  <div class="p-4 w-full">
+    <MTextShimmer text="Slow Shimmer" :duration="4" />
   </div>
 </template>
 ```
@@ -108,18 +99,15 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MTextShimmer{as="h1" class="text-3xl font-bold"}
-      Heading Shimmer
+  :::div{class="p-4 w-full"}
+    :::MTextShimmer{ text="Heading Shimmer" as="h1" class="text-3xl font-bold"}
     :::
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MTextShimmer as="h1" class="text-3xl font-bold">
-      Heading Shimmer
-    </MTextShimmer>
+  <div class="p-4 w-full">
+    <MTextShimmer text="Heading Shimmer" as="h1" class="text-3xl font-bold" />
   </div>
 </template>
 ```
@@ -131,18 +119,15 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MTextShimmer{:spread="5"}
-      Wide Shimmer
+  :::div{class="p-4 w-full"}
+    :::MTextShimmer{ text="Wide Shimmer" :spread="5"}
     :::
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MTextShimmer :spread="5">
-      Wide Shimmer
-    </MTextShimmer>
+  <div class="p-4 w-full">
+    <MTextShimmer text="Wide Shimmer" :spread="5" />
   </div>
 </template>
 ```
@@ -154,18 +139,15 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MTextShimmer{class="text-2xl font-bold text-blue-600"}
-      Styled Shimmer
+  :::div{class="p-4 w-full"}
+    :::MTextShimmer{ text="Styled Shimmer" class="text-2xl font-bold text-blue-600"}
     :::
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MTextShimmer class="text-2xl font-bold text-blue-600">
-      Styled Shimmer
-    </MTextShimmer>
+  <div class="p-4 w-full">
+    <MTextShimmer text="Styled Shimmer" class="text-2xl font-bold text-blue-600" />
   </div>
 </template>
 ```
