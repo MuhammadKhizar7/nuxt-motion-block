@@ -15,8 +15,8 @@ The WordRotate component creates words that rotate with 3D effects. It's perfect
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MWordRotate{:words="['First', 'Second', 'Third']"}
+  :::div{class="p-4 w-full"}
+    :::component-example{name="word-rotate-basic"}
     :::
   :::
 #code
@@ -80,7 +80,7 @@ label: Preview
 label: Preview
 ---
   :::div{class="p-4"}
-    :::MWordRotate{:words="['Hello', 'World', 'Nuxt']"}
+    :::component-example{name="word-rotate-basic"}
     :::
   :::
 #code
@@ -100,7 +100,7 @@ label: Preview
 label: Preview
 ---
   :::div{class="p-4"}
-    :::MWordRotate{:words="['Flip', 'Rotate', 'Words']" animation-style="flip"}
+    :::component-example{name="word-rotate-flip"}
     :::
   :::
 #code
@@ -120,7 +120,7 @@ label: Preview
 label: Preview
 ---
   :::div{class="p-4"}
-    :::MWordRotate{:words="['Slide', 'Up', 'Text']" animation-style="slide-up"}
+    :::component-example{name="word-rotate-slide"}
     :::
   :::
 #code
@@ -140,7 +140,7 @@ label: Preview
 label: Preview
 ---
   :::div{class="p-4"}
-    :::MWordRotate{:words="['Fast', 'Words']" :duration="800" :pause-duration="200"}
+    :::component-example{name="word-rotate-pause"}
     :::
   :::
 #code
@@ -160,7 +160,7 @@ label: Preview
 label: Preview
 ---
   :::div{class="p-4"}
-    :::MWordRotate{:words="['Styled', 'Words']" class="text-2xl font-bold text-blue-600"}
+    :::component-example{name="word-rotate-style"}
     :::
   :::
 #code
@@ -180,7 +180,7 @@ label: Preview
 label: Preview
 ---
   :::div{class="p-4"}
-    :::MWordRotate{:words="['One', 'Two', 'Three']" :loop="false"}
+    :::component-example{name="word-rotate-loop"}
     :::
   :::
 #code
