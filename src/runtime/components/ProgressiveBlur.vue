@@ -19,10 +19,10 @@ import { defineComponent, type PropType } from 'vue'
 import { Motion } from 'motion-v'
 
 const GRADIENT_ANGLES = {
-  top: 180,
-  right: 270,
-  bottom: 0,
-  left: 90,
+  top: 0,
+  right: 90,
+  bottom: 180,
+  left: 270,
 }
 
 export default defineComponent({

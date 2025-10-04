@@ -15,8 +15,8 @@ The ScrollProgress component creates a progress bar that tracks scroll position 
 ---
 label: Preview
 ---
-  :::div{class="relative"}
-    :::MScrollProgress{class="bg-blue-500"}
+  :::div{class="w-full"}
+    :::MScrollProgress{class="bg-primary fixed top-0 z-50"}
     :::
     :::div{class="p-4 space-y-4"}
       :::h3{class="text-lg font-medium"}
