@@ -16,7 +16,7 @@ The AnimatedBackground component creates animated background effects that follow
 label: Preview
 ---
   :::div{class="p-4"}
-    :::MAnimatedBackground{:transition="{ duration: 300 }" background-class="bg-blue-500 rounded-lg"}
+    :::MAnimatedBackground{:transition="{ duration: 300 }" background-class="bg-blue-500 rounded-lg -z-1"}
       :::div{class="flex space-x-2"}
         :::button{data-id="home" class="px-4 py-2 rounded-md"}
         Home
@@ -35,7 +35,7 @@ label: Preview
 <template>
   <MAnimatedBackground
     :transition="{ duration: 300 }"
-    background-class="bg-blue-500 rounded-lg"
+    background-class="bg-blue-500 rounded-lg -z-1"
   >
     <div class="flex space-x-2">
       <button 
@@ -143,7 +143,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::MAnimatedBackground{background-class="bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" :transition="{ duration: 500, ease: 'ease-in-out' }"}
+  :::MAnimatedBackground{background-class="bg-gradient-to-r from-purple-500 to-pink-500 rounded-full -z-1" :transition="{ duration: 500, ease: 'ease-in-out' }"}
     :::div{class="flex space-x-4 p-2"}
       :::button{data-id="tab1" class="px-6 py-3 font-medium transition-colors"}
       Tab 1
@@ -194,7 +194,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::MAnimatedBackground{enable-hover background-class="bg-emerald-500 rounded-lg shadow-lg"}
+  :::MAnimatedBackground{enable-hover background-class="bg-emerald-500 rounded-lg shadow-lg -z-1"}
     :::div{class="flex space-x-3"}
       :::div{data-id="nav1" class="px-4 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 rounded"}
       Navigation 1
@@ -212,7 +212,7 @@ label: Preview
 <template>
   <MAnimatedBackground
     enable-hover
-    background-class="bg-emerald-500 rounded-lg shadow-lg"
+    background-class="bg-emerald-500 rounded-lg shadow-lg -z-1"
   >
     <div class="flex space-x-3">
       <div 
@@ -236,5 +236,148 @@ label: Preview
     </div>
   </MAnimatedBackground>
 </template>
+```
+::
+
+### With Custom Transition
+
+::code-preview
+---
+label: Preview
+---
+::div
+  ::MAnimatedBackground{  background-class="rounded-lg bg-zinc-100 dark:bg-zinc-800 -z-1" :transition="{type: 'spring', bounce: 0.2, duration: 0.6}" enableHover }
+   ::div{class="grid grid-cols-2 p-10 md:grid-cols-3"}
+      ::div{data-id="card-0"}
+        ::div{class="flex select-none flex-col space-y-1 p-4"}
+          ::h3{class="text-base font-medium text-zinc-800 dark:text-zinc-50"}
+            Dialog
+          ::
+          ::p{class="text-base text-zinc-600 dark:text-zinc-400"}
+            Enhances modal presentations.
+          ::
+        ::
+      ::
+
+      ::div{data-id="card-1"}
+        ::div{class="flex select-none flex-col space-y-1 p-4"}
+          ::h3{class="text-base font-medium text-zinc-800 dark:text-zinc-50"}
+            Popover
+          ::
+          ::p{class="text-base text-zinc-600 dark:text-zinc-400"}
+            For small interactive overlays.
+          ::
+        ::
+      ::
+
+      ::div{data-id="card-2"}
+        ::div{class="flex select-none flex-col space-y-1 p-4"}
+          ::h3{class="text-base font-medium text-zinc-800 dark:text-zinc-50"}
+            Accordion
+          ::
+          ::p{class="text-base text-zinc-600 dark:text-zinc-400"}
+            Collapsible sections for more content.
+          ::
+        ::
+      ::
+
+      ::div{data-id="card-3"}
+        ::div{class="flex select-none flex-col space-y-1 p-4"}
+          ::h3{class="text-base font-medium text-zinc-800 dark:text-zinc-50"}
+            Collapsible
+          ::
+          ::p{class="text-base text-zinc-600 dark:text-zinc-400"}
+            Collapsible sections for more content.
+          ::
+        ::
+      ::
+
+      ::div{data-id="card-4"}
+        ::div{class="flex select-none flex-col space-y-1 p-4"}
+          ::h3{class="text-base font-medium text-zinc-800 dark:text-zinc-50"}
+            Drag to Reorder
+          ::
+          ::p{class="text-base text-zinc-600 dark:text-zinc-400"}
+            Reorder items with drag and drop.
+          ::
+        ::
+      ::
+
+      ::div{data-id="card-5"}
+      ::div{class="flex select-none flex-col space-y-1 p-4"}
+        ::h3{class="text-base font-medium text-zinc-800 dark:text-zinc-50"}
+          Swipe to Delete
+        ::
+        ::p{class="text-base text-zinc-600 dark:text-zinc-400"}
+          Delete items with swipe gestures.
+        ::
+      ::
+    ::
+    ::
+  ::
+::
+
+#code
+```vue
+<template>
+  <div class='grid grid-cols-2 p-10 md:grid-cols-3'>
+    <MAnimatedBackground
+      class='rounded-lg bg-zinc-100 dark:bg-zinc-800'
+      :transition="{ type: 'spring', bounce: 0.2, duration: 0.6 }"
+      enableHover
+    >
+      <div 
+        v-for="(item, index) in ITEMS" 
+        :key="index" 
+        :data-id="`card-${index}`"
+      >
+        <div class='flex select-none flex-col space-y-1 p-4'>
+          <h3 class='text-base font-medium text-zinc-800 dark:text-zinc-50'>
+            {{ item.title }}
+          </h3>
+          <p class='text-base text-zinc-600 dark:text-zinc-400'>
+            {{ item.description }}
+          </p>
+        </div>
+      </div>
+    </MAnimatedBackground>
+  </div>
+</template>
+
+<script setup lang="ts">
+
+const ITEMS = [
+  {
+    id: 1,
+    title: 'Dialog',
+    description: 'Enhances modal presentations.',
+  },
+  {
+    id: 2,
+    title: 'Popover',
+    description: 'For small interactive overlays.',
+  },
+  {
+    id: 3,
+    title: 'Accordion',
+    description: 'Collapsible sections for more content.',
+  },
+  {
+    id: 4,
+    title: 'Collapsible',
+    description: 'Collapsible sections for more content.',
+  },
+  {
+    id: 5,
+    title: 'Drag to Reorder',
+    description: 'Reorder items with drag and drop.',
+  },
+  {
+    id: 6,
+    title: 'Swipe to Delete',
+    description: 'Delete items with swipe gestures.',
+  },
+];
+</script>
 ```
 ::
