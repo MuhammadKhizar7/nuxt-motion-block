@@ -1,6 +1,7 @@
 <template>
+  <!-- @vue-ignore -->
   <Motion
-    :is="component"
+    :as="component"
     :class="computedClass"
     :style="{ color: 'var(--base-color)' }"
   >
@@ -45,9 +46,9 @@ import { computed } from 'vue'
 import { Motion } from 'motion-v'
 
 interface TextShimmerWaveProps {
-  children: string
+  text?: string
   as?: string
-  className?: string
+  class?: string
   duration?: number
   zDistance?: number
   xDistance?: number
@@ -59,9 +60,9 @@ interface TextShimmerWaveProps {
 }
 
 const props = withDefaults(defineProps<TextShimmerWaveProps>(), {
-  children: '',
+  text: '',
   as: 'p',
-  className: '',
+  class: '',
   duration: 1,
   zDistance: 10,
   xDistance: 2,
@@ -69,12 +70,12 @@ const props = withDefaults(defineProps<TextShimmerWaveProps>(), {
   spread: 1,
   scaleDistance: 1.1,
   rotateYDistance: 10,
-  transition: () => ({})
+  transition: () => ({}),
 })
 
-// Split children into characters
+// Split text into characters
 const characters = computed(() => {
-  return props.children.split('')
+  return props.text.split('')
 })
 
 // Compute component class
@@ -83,7 +84,7 @@ const computedClass = computed(() => {
     'relative inline-block [perspective:500px]',
     '[--base-color:#a1a1aa] [--base-gradient-color:#000]',
     'dark:[--base-color:#71717a] dark:[--base-gradient-color:#ffffff]',
-    props.className
+    props.class,
   ].join(' ')
 })
 

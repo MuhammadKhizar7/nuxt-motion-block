@@ -16,16 +16,13 @@ The TextShimmerWave component creates text with a wave-like shimmer effect. Each
 label: Preview
 ---
   :::div{class="p-4"}
-    :::MTextShimmerWave
-      Wave Shimmer
+    :::MTextShimmerWave{text="Wave Shimmer"}
     :::
   :::
 #code
 ```vue
 <template>
-  <MTextShimmerWave>
-    Wave Shimmer
-  </MTextShimmerWave>
+  <MTextShimmerWave text="Wave Shimmer" /> 
 </template>
 ```
 ::
@@ -33,7 +30,7 @@ label: Preview
 ## Props
 
 ::field-group
-  ::field{name="children" type="string" :required="true"}
+  ::field{name="text" type="string" :required="true"}
   Text to shimmer with wave effect.
   ::
   
@@ -87,17 +84,14 @@ label: Preview
 label: Preview
 ---
   :::div{class="p-4"}
-    :::MTextShimmerWave
-      Basic Wave
+    :::MTextShimmerWave{text="Basic Wave"}
     :::
   :::
 #code
 ```vue
 <template>
   <div class="p-4">
-    <MTextShimmerWave>
-      Basic Wave
-    </MTextShimmerWave>
+    <MTextShimmerWave text="Basic Wave" />
   </div>
 </template>
 ```
@@ -110,17 +104,14 @@ label: Preview
 label: Preview
 ---
   :::div{class="p-4"}
-    :::MTextShimmerWave{:duration="2"}
-      Slow Wave
+    :::MTextShimmerWave{:duration="2" text:"Slow Wave"}
     :::
   :::
 #code
 ```vue
 <template>
   <div class="p-4">
-    <MTextShimmerWave :duration="2">
-      Slow Wave
-    </MTextShimmerWave>
+    <MTextShimmerWave :text="Slow Wave":duration="2">
   </div>
 </template>
 ```
@@ -133,17 +124,14 @@ label: Preview
 label: Preview
 ---
   :::div{class="p-4"}
-    :::MTextShimmerWave{as="h1" class="text-3xl font-bold"}
-      Heading Wave
+    :::MTextShimmerWave{as="h1" class="text-3xl font-bold" text="Heading Wave"}
     :::
   :::
 #code
 ```vue
 <template>
   <div class="p-4">
-    <MTextShimmerWave as="h1" class="text-3xl font-bold">
-      Heading Wave
-    </MTextShimmerWave>
+    <MTextShimmerWave as="h1" class="text-3xl font-bold" text="Heading Wave" />
   </div>
 </template>
 ```
@@ -156,8 +144,7 @@ label: Preview
 label: Preview
 ---
   :::div{class="p-4"}
-    :::MTextShimmerWave{:z-distance="20" :x-distance="5" :y-distance="-5" :scale-distance="1.3" :rotate-y-distance="20"}
-      Big Wave
+    :::MTextShimmerWave{ text:"Big Wave" :z-distance="20" :x-distance="5" :y-distance="-5" :scale-distance="1.3" :rotate-y-distance="20"}
     :::
   :::
 #code
@@ -165,14 +152,13 @@ label: Preview
 <template>
   <div class="p-4">
     <MTextShimmerWave 
+      text="Big Wave" 
       :z-distance="20" 
       :x-distance="5" 
       :y-distance="-5" 
       :scale-distance="1.3" 
       :rotate-y-distance="20"
     >
-      Big Wave
-    </MTextShimmerWave>
   </div>
 </template>
 ```
@@ -185,17 +171,14 @@ label: Preview
 label: Preview
 ---
   :::div{class="p-4"}
-    :::MTextShimmerWave{class="text-2xl font-bold text-purple-600"}
-      Styled Wave
+    :::MTextShimmerWave{text="Styled Wave text" class="text-2xl font-bold text-purple-600"}
     :::
   :::
 #code
 ```vue
 <template>
   <div class="p-4">
-    <MTextShimmerWave class="text-2xl font-bold text-purple-600">
-      Styled Wave
-    </MTextShimmerWave>
+    <MTextShimmerWave class="text-2xl font-bold text-purple-600" text="Styled Wave text" /> 
   </div>
 </template>
 ```
