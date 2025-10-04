@@ -16,8 +16,7 @@ The TextLoop component creates text that loops through different values with smo
 label: Preview
 ---
   :::div{class="p-4"}
-    :::MTextLoop{:items="['First', 'Second', 'Third']"}
-    :::
+    <component-example name="text-loop-usage" />
   :::
 #code
 ```vue
@@ -68,8 +67,7 @@ label: Preview
 label: Preview
 ---
   :::div{class="p-4"}
-    :::MTextLoop{:items="['Hello', 'World', 'Nuxt']"}
-    :::
+    <component-example name="text-loop-basic" />
   :::
 #code
 ```vue
@@ -88,8 +86,7 @@ label: Preview
 label: Preview
 ---
   :::div{class="p-4"}
-    :::MTextLoop{:items="['Fast', 'Loop', 'Text']" :interval="0.5"}
-    :::
+    <component-example name="text-loop-custom-interval" />
   :::
 #code
 ```vue
@@ -108,8 +105,7 @@ label: Preview
 label: Preview
 ---
   :::div{class="p-4"}
-    :::MTextLoop{:items="['Styled', 'Loop', 'Text']" class="text-2xl font-bold text-blue-600"}
-    :::
+    <component-example name="text-loop-custom-styling" />
   :::
 #code
 ```vue
@@ -128,8 +124,7 @@ label: Preview
 label: Preview
 ---
   :::div{class="p-4"}
-    :::MTextLoop{:items="['Bounce', 'Effect', 'Text']" :transition="{ type: 'spring', stiffness: 300, damping: 10 }"}
-    :::
+    <component-example name="text-loop-custom-transition" />
   :::
 #code
 ```vue
@@ -151,8 +146,7 @@ label: Preview
 label: Preview
 ---
   :::div{class="p-4"}
-    :::MTextLoop{:items="['Fade', 'In', 'Out']" :variants="{ initial: { opacity: 0, scale: 0.8 }, animate: { opacity: 1, scale: 1 }, exit: { opacity: 0, scale: 0.8 } }"}
-    :::
+    <component-example name="text-loop-custom-variants" />
   :::
 #code
 ```vue

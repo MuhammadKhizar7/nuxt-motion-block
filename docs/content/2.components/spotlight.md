@@ -15,9 +15,10 @@ The Spotlight component creates a spotlight effect that follows cursor movement.
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
+  :::div{class="w-full"}
     :::MSpotlight
-      :::div{class="p-8 bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-lg"}
+    :::
+      :::UCard
         :::h3{class="text-xl font-bold mb-2"}
         Spotlight Effect
         :::
@@ -25,17 +26,17 @@ label: Preview
         Move your cursor over this area to see the spotlight effect.
         :::
       :::
-    :::
   :::
 #code
 ```vue
 <template>
-  <MSpotlight>
-    <div class="p-8 bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-lg">
+ <div>
+  <MSpotlight />
+    <UCard>
       <h3 class="text-xl font-bold mb-2">Spotlight Effect</h3>
       <p>Move your cursor over this area to see the spotlight effect.</p>
-    </div>
-  </MSpotlight>
+    </UCard>
+  </div>
 </template>
 ```
 ::
@@ -64,9 +65,10 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MSpotlight
-      :::div{class="p-8 bg-gradient-to-br from-emerald-500 to-teal-600 text-white rounded-lg"}
+  :::div{class="w-full"}
+    :::MSpotlight{class="bg-gradient-to-br from-emerald-500 to-teal-600"}
+    :::
+      :::UCard
         :::h3{class="text-xl font-bold mb-2"}
         Emerald Spotlight
         :::
@@ -74,18 +76,16 @@ label: Preview
         Move your cursor to see the emerald spotlight effect.
         :::
       :::
-    :::
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
+  <div>
     <MSpotlight>
-      <div class="p-8 bg-gradient-to-br from-emerald-500 to-teal-600 text-white rounded-lg">
+      <UCard>
         <h3 class="text-xl font-bold mb-2">Emerald Spotlight</h3>
         <p>Move your cursor to see the emerald spotlight effect.</p>
-      </div>
-    </MSpotlight>
+      </UCard>
   </div>
 </template>
 ```
@@ -97,8 +97,9 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
+  :::div{class="w-full"}
     :::MSpotlight{:size="300"}
+    :::
       :::div{class="p-8 bg-gradient-to-br from-amber-500 to-orange-600 text-white rounded-lg"}
         :::h3{class="text-xl font-bold mb-2"}
         Large Spotlight
@@ -107,18 +108,16 @@ label: Preview
         This spotlight is larger than the default size.
         :::
       :::
-    :::
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MSpotlight :size="300">
+  <div>
+    <MSpotlight :size="300" />
       <div class="p-8 bg-gradient-to-br from-amber-500 to-orange-600 text-white rounded-lg">
         <h3 class="text-xl font-bold mb-2">Large Spotlight</h3>
         <p>This spotlight is larger than the default size.</p>
       </div>
-    </MSpotlight>
   </div>
 </template>
 ```
@@ -130,8 +129,9 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
+  :::div
     :::MSpotlight{class="bg-rose-500/30"}
+    :::
       :::div{class="p-8 bg-gradient-to-br from-purple-500 to-pink-600 text-white rounded-lg"}
         :::h3{class="text-xl font-bold mb-2"}
         Custom Spotlight
@@ -140,18 +140,16 @@ label: Preview
         This spotlight has custom styling.
         :::
       :::
-    :::
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MSpotlight class="bg-rose-500/30">
+  <div>
+    <MSpotlight class="bg-rose-500/30" />
       <div class="p-8 bg-gradient-to-br from-purple-500 to-pink-600 text-white rounded-lg">
         <h3 class="text-xl font-bold mb-2">Custom Spotlight</h3>
         <p>This spotlight has custom styling.</p>
       </div>
-    </MSpotlight>
   </div>
 </template>
 ```
@@ -163,8 +161,9 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
+  :::div
     :::MSpotlight{:spring-options="{ bounce: 0.5, stiffness: 300 }"}
+    :::
       :::div{class="p-8 bg-gradient-to-br from-cyan-500 to-blue-600 text-white rounded-lg"}
         :::h3{class="text-xl font-bold mb-2"}
         Bouncy Spotlight
@@ -173,18 +172,16 @@ label: Preview
         This spotlight has custom spring animation.
         :::
       :::
-    :::
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MSpotlight :spring-options="{ bounce: 0.5, stiffness: 300 }">
+  <div>
+    <MSpotlight :spring-options="{ bounce: 0.5, stiffness: 300 }" />
       <div class="p-8 bg-gradient-to-br from-cyan-500 to-blue-600 text-white rounded-lg">
         <h3 class="text-xl font-bold mb-2">Bouncy Spotlight</h3>
         <p>This spotlight has custom spring animation.</p>
       </div>
-    </MSpotlight>
   </div>
 </template>
 ```
