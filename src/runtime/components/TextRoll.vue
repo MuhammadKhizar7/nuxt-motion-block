@@ -1,11 +1,12 @@
 <template>
-  <span :class="className">
+  <span :class="props.class">
     <span
       v-for="(letter, i) in letters"
       :key="i"
       class="relative inline-block [perspective:10000px] [transform-style:preserve-3d] [width:auto]"
       aria-hidden="true"
     >
+      <!-- @vue-ignore -->
       <Motion
         class="absolute inline-block [backface-visibility:hidden] [transform-origin:50%_25%]"
         :initial="enterInitial"
@@ -18,6 +19,7 @@
       >
         {{ letter === ' ' ? '\u00A0' : letter }}
       </Motion>
+      <!-- @vue-ignore -->
       <Motion
         class="absolute inline-block [backface-visibility:hidden] [transform-origin:50%_100%]"
         :initial="exitInitial"
@@ -41,13 +43,14 @@
 
 <script setup lang="ts">
 import { Motion } from 'motion-v'
+import { computed } from 'vue'
 
 interface TextRollProps {
-  children: string
+  children?: string
   duration?: number
   getEnterDelay?: (index: number) => number
   getExitDelay?: (index: number) => number
-  className?: string
+  class?: string
   transition?: object
   variants?: {
     enter: {
@@ -68,7 +71,7 @@ const props = withDefaults(defineProps<TextRollProps>(), {
   getEnterDelay: (i: number) => i * 0.1,
   getExitDelay: (i: number) => i * 0.1 + 0.2,
   className: '',
-  transition: () => ({ ease: 'easeIn' })
+  transition: () => ({ ease: 'easeIn' }),
 })
 
 // Default variants

@@ -16,14 +16,31 @@ The SlidingNumber component creates animated numbers that slide in with smooth a
 label: Preview
 ---
   :::div{class="p-4"}
-    :::MSlidingNumber{:value="1234"}
-    :::
+    <component-example name="sliding-number-usage" />
   :::
 #code
 ```vue
 <template>
-  <MSlidingNumber :value="1234" />
+  <div class="p-4 space-y-4 flex flex-col items-center">
+    <MSlidingNumber :value="currentValue" />
+    <button
+      class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+      @click="changeNumber"
+    >
+      Change Number
+    </button>
+  </div>
 </template>
+
+<script setup>
+import { ref } from 'vue'
+
+const currentValue = ref(1234)
+
+const changeNumber = () => {
+  currentValue.value = Math.floor(Math.random() * 10000)
+}
+</script>
 ```
 ::
 
@@ -55,14 +72,8 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4 space-y-4"}
-    :::div
-      :::h3{class="text-lg font-medium mb-2"}
-      Basic Sliding Number
-      :::
-      :::MSlidingNumber{:value="1234"}
-      :::
-    :::
+  :::div{class="p-4"}
+    <component-example name="sliding-number-basic" />
   :::
 #code
 ```vue
@@ -70,10 +81,26 @@ label: Preview
   <div class="p-4 space-y-4">
     <div>
       <h3 class="text-lg font-medium mb-2">Basic Sliding Number</h3>
-      <MSlidingNumber :value="1234" />
+      <MSlidingNumber :value="currentValue" />
     </div>
+    <button
+      class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+      @click="changeNumber"
+    >
+      Change Number
+    </button>
   </div>
 </template>
+
+<script setup>
+import { ref } from 'vue'
+
+const currentValue = ref(1234)
+
+const changeNumber = () => {
+  currentValue.value = Math.floor(Math.random() * 10000)
+}
+</script>
 ```
 ::
 
@@ -83,14 +110,8 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4 space-y-4"}
-    :::div
-      :::h3{class="text-lg font-medium mb-2"}
-      With Decimals
-      :::
-      :::MSlidingNumber{:value="1234.56"}
-      :::
-    :::
+  :::div{class="p-4"}
+    <component-example name="sliding-number-decimals" />
   :::
 #code
 ```vue
@@ -98,10 +119,26 @@ label: Preview
   <div class="p-4 space-y-4">
     <div>
       <h3 class="text-lg font-medium mb-2">With Decimals</h3>
-      <MSlidingNumber :value="1234.56" />
+      <MSlidingNumber :value="currentValue" />
     </div>
+    <button
+      class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+      @click="changeNumber"
+    >
+      Change Number
+    </button>
   </div>
 </template>
+
+<script setup>
+import { ref } from 'vue'
+
+const currentValue = ref(1234.56)
+
+const changeNumber = () => {
+  currentValue.value = Math.random() * 10000
+}
+</script>
 ```
 ::
 
@@ -111,14 +148,8 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4 space-y-4"}
-    :::div
-      :::h3{class="text-lg font-medium mb-2"}
-      Custom Precision
-      :::
-      :::MSlidingNumber{:value="1234.5" :precision="2"}
-      :::
-    :::
+  :::div{class="p-4"}
+    <component-example name="sliding-number-custom-precision" />
   :::
 #code
 ```vue
@@ -126,10 +157,26 @@ label: Preview
   <div class="p-4 space-y-4">
     <div>
       <h3 class="text-lg font-medium mb-2">Custom Precision</h3>
-      <MSlidingNumber :value="1234.5" :precision="2" />
+      <MSlidingNumber :value="currentValue" :precision="2" />
     </div>
+    <button
+      class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+      @click="changeNumber"
+    >
+      Change Number
+    </button>
   </div>
 </template>
+
+<script setup>
+import { ref } from 'vue'
+
+const currentValue = ref(1234.5)
+
+const changeNumber = () => {
+  currentValue.value = Math.random() * 10000
+}
+</script>
 ```
 ::
 
@@ -139,14 +186,8 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4 space-y-4"}
-    :::div
-      :::h3{class="text-lg font-medium mb-2"}
-      With Padding
-      :::
-      :::MSlidingNumber{:value="7" :pad-start="true"}
-      :::
-    :::
+  :::div{class="p-4"}
+    <component-example name="sliding-number-padding" />
   :::
 #code
 ```vue
@@ -154,10 +195,26 @@ label: Preview
   <div class="p-4 space-y-4">
     <div>
       <h3 class="text-lg font-medium mb-2">With Padding</h3>
-      <MSlidingNumber :value="7" :pad-start="true" />
+      <MSlidingNumber :value="currentValue" :pad-start="true" />
     </div>
+    <button
+      class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+      @click="changeNumber"
+    >
+      Change Number
+    </button>
   </div>
 </template>
+
+<script setup>
+import { ref } from 'vue'
+
+const currentValue = ref(7)
+
+const changeNumber = () => {
+  currentValue.value = Math.floor(Math.random() * 10)
+}
+</script>
 ```
 ::
 
@@ -167,14 +224,8 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4 space-y-4"}
-    :::div
-      :::h3{class="text-lg font-medium mb-2"}
-      Negative Number
-      :::
-      :::MSlidingNumber{:value="-123"}
-      :::
-    :::
+  :::div{class="p-4"}
+    <component-example name="sliding-number-negative" />
   :::
 #code
 ```vue
@@ -182,9 +233,25 @@ label: Preview
   <div class="p-4 space-y-4">
     <div>
       <h3 class="text-lg font-medium mb-2">Negative Number</h3>
-      <MSlidingNumber :value="-123" />
+      <MSlidingNumber :value="currentValue" />
     </div>
+    <button
+      class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+      @click="changeNumber"
+    >
+      Change Number
+    </button>
   </div>
 </template>
+
+<script setup>
+import { ref } from 'vue'
+
+const currentValue = ref(-123)
+
+const changeNumber = () => {
+  currentValue.value = -Math.floor(Math.random() * 1000)
+}
+</script>
 ```
 ::

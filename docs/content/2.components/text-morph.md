@@ -16,14 +16,33 @@ The TextMorph component creates text that morphs between different strings with 
 label: Preview
 ---
   :::div{class="p-4"}
-    :::MTextMorph{text="Hello"}
-    :::
+    <component-example name="text-morph-usage" />
   :::
 #code
 ```vue
 <template>
-  <MTextMorph text="Hello" />
+  <div class="p-4 space-y-4 flex flex-col items-center">
+    <MTextMorph :text="currentText" />
+    <button
+      class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+      @click="cycleText"
+    >
+      Change Text
+    </button>
+  </div>
 </template>
+
+<script setup>
+import { ref, computed } from 'vue'
+
+const texts = ['Hello', 'World', 'Vue', 'Nuxt']
+const currentIndex = ref(0)
+const currentText = computed(() => texts[currentIndex.value])
+
+const cycleText = () => {
+  currentIndex.value = (currentIndex.value + 1) % texts.length
+}
+</script>
 ```
 ::
 
@@ -64,16 +83,33 @@ label: Preview
 label: Preview
 ---
   :::div{class="p-4"}
-    :::MTextMorph{text="Morphing Text"}
-    :::
+    <component-example name="text-morph-basic" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MTextMorph text="Morphing Text" />
+  <div class="p-4 space-y-4 flex flex-col items-center">
+    <MTextMorph :text="currentText" />
+    <button
+      class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+      @click="cycleText"
+    >
+      Change Text
+    </button>
   </div>
 </template>
+
+<script setup>
+import { ref, computed } from 'vue'
+
+const texts = ['Morphing Text', 'Is Super Cool', 'And Easy', 'To Use']
+const currentIndex = ref(0)
+const currentText = computed(() => texts[currentIndex.value])
+
+const cycleText = () => {
+  currentIndex.value = (currentIndex.value + 1) % texts.length
+}
+</script>
 ```
 ::
 
@@ -84,16 +120,33 @@ label: Preview
 label: Preview
 ---
   :::div{class="p-4"}
-    :::MTextMorph{text="Heading Morph" as="h1" class="text-3xl font-bold"}
-    :::
+    <component-example name="text-morph-heading" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MTextMorph text="Heading Morph" as="h1" class="text-3xl font-bold" />
+  <div class="p-4 space-y-4 flex flex-col items-center">
+    <MTextMorph :text="currentText" as="h1" class="text-3xl font-bold" />
+    <button
+      class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+      @click="cycleText"
+    >
+      Change Text
+    </button>
   </div>
 </template>
+
+<script setup>
+import { ref, computed } from 'vue'
+
+const texts = ['Heading Morph', 'Is Powerful', 'And Looks Great']
+const currentIndex = ref(0)
+const currentText = computed(() => texts[currentIndex.value])
+
+const cycleText = () => {
+  currentIndex.value = (currentIndex.value + 1) % texts.length
+}
+</script>
 ```
 ::
 
@@ -104,19 +157,33 @@ label: Preview
 label: Preview
 ---
   :::div{class="p-4"}
-    :::MTextMorph{text="Bouncy Morph" :transition="{ type: 'spring', stiffness: 500, damping: 10 }"}
-    :::
+    <component-example name="text-morph-custom-transition" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MTextMorph 
-      text="Bouncy Morph" 
-      :transition="{ type: 'spring', stiffness: 500, damping: 10 }"
-    />
+  <div class="p-4 space-y-4 flex flex-col items-center">
+    <MTextMorph :text="currentText" :transition="{ type: 'spring', stiffness: 500, damping: 10 }" />
+    <button
+      class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+      @click="cycleText"
+    >
+      Change Text
+    </button>
   </div>
 </template>
+
+<script setup>
+import { ref, computed } from 'vue'
+
+const texts = ['Bouncy Morph', 'Has Custom', 'Spring Physics']
+const currentIndex = ref(0)
+const currentText = computed(() => texts[currentIndex.value])
+
+const cycleText = () => {
+  currentIndex.value = (currentIndex.value + 1) % texts.length
+}
+</script>
 ```
 ::
 
@@ -127,23 +194,33 @@ label: Preview
 label: Preview
 ---
   :::div{class="p-4"}
-    :::MTextMorph{text="Custom Morph" :variants="{ initial: { opacity: 0, x: -20 }, animate: { opacity: 1, x: 0 }, exit: { opacity: 0, x: 20 } }"}
-    :::
+    <component-example name="text-morph-custom-variants" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MTextMorph 
-      text="Custom Morph"
-      :variants="{
-        initial: { opacity: 0, x: -20 },
-        animate: { opacity: 1, x: 0 },
-        exit: { opacity: 0, x: 20 }
-      }"
-    />
+  <div class="p-4 space-y-4 flex flex-col items-center">
+    <MTextMorph :text="currentText" :variants="{ initial: { opacity: 0, x: -20 }, animate: { opacity: 1, x: 0 }, exit: { opacity: 0, x: 20 } }" />
+    <button
+      class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+      @click="cycleText"
+    >
+      Change Text
+    </button>
   </div>
 </template>
+
+<script setup>
+import { ref, computed } from 'vue'
+
+const texts = ['Custom Morph', 'With Variants', 'Is Awesome']
+const currentIndex = ref(0)
+const currentText = computed(() => texts[currentIndex.value])
+
+const cycleText = () => {
+  currentIndex.value = (currentIndex.value + 1) % texts.length
+}
+</script>
 ```
 ::
 
@@ -153,12 +230,8 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4 space-y-4"}
-    :::MTextMorph{:text="currentText"}
-    :::
-    :::button{class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors" @click="cycleText"}
-    Change Text
-    :::
+  :::div{class="p-4"}
+    <component-example name="text-morph-dynamic" />
   :::
 #code
 ```vue
@@ -175,7 +248,7 @@ label: Preview
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 const texts = ['First Text', 'Second Text', 'Third Text', 'Final Text']
 const currentIndex = ref(0)

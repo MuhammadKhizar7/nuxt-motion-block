@@ -12,7 +12,6 @@
       v-for="(char, index) in chars"
       :key="`${char}-${index}`"
       :class="charClasses"
-      :style="getCharStyle(index)"
       aria-hidden="true"
     >
       <Motion

@@ -16,16 +16,12 @@ The TextRoll component creates text that rolls in with 3D effects. It's perfect 
 label: Preview
 ---
   :::div{class="p-4"}
-    :::MTextRoll
-      Rolling Text
-    :::
+    <component-example name="text-roll-usage" />
   :::
 #code
 ```vue
 <template>
-  <MTextRoll>
-    Rolling Text
-  </MTextRoll>
+  <MTextRoll children="Rolling Text" />
 </template>
 ```
 ::
@@ -75,17 +71,13 @@ label: Preview
 label: Preview
 ---
   :::div{class="p-4"}
-    :::MTextRoll
-      Basic Roll
-    :::
+    <component-example name="text-roll-basic" />
   :::
 #code
 ```vue
 <template>
   <div class="p-4">
-    <MTextRoll>
-      Basic Roll
-    </MTextRoll>
+    <MTextRoll children="Basic Roll" />
   </div>
 </template>
 ```
@@ -98,17 +90,13 @@ label: Preview
 label: Preview
 ---
   :::div{class="p-4"}
-    :::MTextRoll{:duration="1"}
-      Slow Roll
-    :::
+    <component-example name="text-roll-custom-duration" />
   :::
 #code
 ```vue
 <template>
   <div class="p-4">
-    <MTextRoll :duration="1">
-      Slow Roll
-    </MTextRoll>
+    <MTextRoll children="Slow Roll" :duration="1" />
   </div>
 </template>
 ```
@@ -121,20 +109,17 @@ label: Preview
 label: Preview
 ---
   :::div{class="p-4"}
-    :::MTextRoll{:get-enter-delay="(i) => i * 0.2" :get-exit-delay="(i) => i * 0.2 + 0.5"}
-      Staggered Roll
-    :::
+    <component-example name="text-roll-custom-delay" />
   :::
 #code
 ```vue
 <template>
   <div class="p-4">
     <MTextRoll 
+      children="Staggered Roll"
       :get-enter-delay="(i) => i * 0.2" 
       :get-exit-delay="(i) => i * 0.2 + 0.5"
-    >
-      Staggered Roll
-    </MTextRoll>
+    />
   </div>
 </template>
 ```
@@ -147,17 +132,13 @@ label: Preview
 label: Preview
 ---
   :::div{class="p-4"}
-    :::MTextRoll{class="text-2xl font-bold text-blue-600"}
-      Styled Roll
-    :::
+    <component-example name="text-roll-custom-styling" />
   :::
 #code
 ```vue
 <template>
   <div class="p-4">
-    <MTextRoll class="text-2xl font-bold text-blue-600">
-      Styled Roll
-    </MTextRoll>
+    <MTextRoll children="Styled Roll" className="text-2xl font-bold text-blue-600" />
   </div>
 </template>
 ```
@@ -170,22 +151,19 @@ label: Preview
 label: Preview
 ---
   :::div{class="p-4"}
-    :::MTextRoll{:variants="{ enter: { initial: { rotateX: 0 }, animate: { rotateX: 180 } }, exit: { initial: { rotateX: 180 }, animate: { rotateX: 0 } } }"}
-      Custom Roll
-    :::
+    <component-example name="text-roll-custom-variants" />
   :::
 #code
 ```vue
 <template>
   <div class="p-4">
     <MTextRoll 
+      children="Custom Roll"
       :variants="{
         enter: { initial: { rotateX: 0 }, animate: { rotateX: 180 } },
         exit: { initial: { rotateX: 180 }, animate: { rotateX: 0 } }
       }"
-    >
-      Custom Roll
-    </MTextRoll>
+    />
   </div>
 </template>
 ```

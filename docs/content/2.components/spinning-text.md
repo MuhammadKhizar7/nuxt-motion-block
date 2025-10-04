@@ -16,13 +16,12 @@ The SpinningText component creates text that spins with 3D effects. It's perfect
 label: Preview
 ---
   :::div{class="p-4 flex justify-center"}
-    :::MSpinningText{children="SPIN"}
-    :::
+    <component-example name="spinning-text-usage" />
   :::
 #code
 ```vue
 <template>
-  <MSpinningText children="SPIN" />
+  <MSpinningText children="SPINNING-TEXT-IS-AWESOME" />
 </template>
 ```
 ::
@@ -76,14 +75,13 @@ label: Preview
 label: Preview
 ---
   :::div{class="p-4 flex justify-center"}
-    :::MSpinningText{children="HELLO"}
-    :::
+    <component-example name="spinning-text-basic" />
   :::
 #code
 ```vue
 <template>
   <div class="p-4 flex justify-center">
-    <MSpinningText children="HELLO" />
+    <MSpinningText children="HELLO-WORLD-FROM-NUXT-MOTION" />
   </div>
 </template>
 ```
@@ -96,14 +94,13 @@ label: Preview
 label: Preview
 ---
   :::div{class="p-4 flex justify-center"}
-    :::MSpinningText{children="FAST" :duration="3"}
-    :::
+    <component-example name="spinning-text-custom-duration" />
   :::
 #code
 ```vue
 <template>
   <div class="p-4 flex justify-center">
-    <MSpinningText children="FAST" :duration="3" />
+    <MSpinningText children="FAST-SPINNING-TEXT" :duration="3" />
   </div>
 </template>
 ```
@@ -116,14 +113,13 @@ label: Preview
 label: Preview
 ---
   :::div{class="p-4 flex justify-center"}
-    :::MSpinningText{children="REVERSE" :reverse="true"}
-    :::
+    <component-example name="spinning-text-reverse" />
   :::
 #code
 ```vue
 <template>
   <div class="p-4 flex justify-center">
-    <MSpinningText children="REVERSE" :reverse="true" />
+    <MSpinningText children="REVERSE-SPINNING-TEXT" :reverse="true" />
   </div>
 </template>
 ```
@@ -136,14 +132,13 @@ label: Preview
 label: Preview
 ---
   :::div{class="p-4 flex justify-center"}
-    :::MSpinningText{children="LARGE" :font-size="2" :radius="8"}
-    :::
+    <component-example name="spinning-text-custom-size" />
   :::
 #code
 ```vue
 <template>
   <div class="p-4 flex justify-center">
-    <MSpinningText children="LARGE" :font-size="2" :radius="8" />
+    <MSpinningText children="LARGE-SPINNING-TEXT" :font-size="2" :radius="8" />
   </div>
 </template>
 ```
@@ -156,14 +151,13 @@ label: Preview
 label: Preview
 ---
   :::div{class="p-4 flex justify-center"}
-    :::MSpinningText{children="STYLED" class="text-blue-500 font-bold"}
-    :::
+    <component-example name="spinning-text-custom-styling" />
   :::
 #code
 ```vue
 <template>
   <div class="p-4 flex justify-center">
-    <MSpinningText children="STYLED" class="text-blue-500 font-bold" />
+    <MSpinningText children="STYLED-SPINNING-TEXT" className="text-blue-500 font-bold" />
   </div>
 </template>
 ```

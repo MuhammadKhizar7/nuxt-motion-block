@@ -15,17 +15,14 @@ The TextReveal component animates text with various reveal effects. It's perfect
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MTextReveal
-    Reveal this text with animation
+  :::div{class="w-full"}
+    :::MTextReveal{text="Reveal this text with animation"}
     :::
   :::
 #code
 ```vue
 <template>
-  <MTextReveal>
-    Reveal this text with animation
-  </MTextReveal>
+  <MTextReveal text="Reveal this text with animation" />
 </template>
 ```
 ::
@@ -33,32 +30,23 @@ label: Preview
 ## Props
 
 ::field-group
-  ::field{name="effect" type="'fade' | 'slide' | 'typewriter'" default="'fade'"}
+  ::field{name="text" type="string" :required="true"}
+  Text to reveal.
+  ::
+  ::field{name="effect" type="'fade' | 'slide' | 'bounce' | 'rotate' | 'scale' | 'blur'" default="'slide'"}
   Reveal effect.
   ::
-  
-  ::field{name="duration" type="number" default="1000"}
-  Animation duration.
+  ::field{name="direction" type="'up' | 'down' | 'left' | 'right' | 'random'" default="'up'"}
+  Reveal direction.
   ::
-  
+  ::field{name="duration" type="number" default="0.6"}
+  Animation duration in seconds.
+  ::
   ::field{name="delay" type="number" default="0"}
-  Animation delay.
+  Animation delay in seconds.
   ::
-  
   ::field{name="stagger" type="number" default="0.05"}
-  Delay between characters.
-  ::
-  
-  ::field{name="easing" type="string" default="'easeOutCubic'"}
-  Animation easing.
-  ::
-::
-
-## Slots
-
-::field-group
-  ::field{name="default" type="none"}
-  Text to reveal.
+  Delay between characters in seconds.
   ::
 ::
 
@@ -70,18 +58,15 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MTextReveal{effect="fade"}
-    This text fades in character by character
+  :::div{class="w-full"}
+    :::MTextReveal{effect="fade" text="This text fades in character by character"}
     :::
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MTextReveal effect="fade">
-      This text fades in character by character
-    </MTextReveal>
+  <div class="w-full">
+    <MTextReveal effect="fade" text="This text fades in character by character" />
   </div>
 </template>
 ```
@@ -93,18 +78,15 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MTextReveal{effect="slide" :duration="800"}
-    This text slides in from below
+  :::div{class="w-full"}
+    :::MTextReveal{effect="slide" :duration="0.8" text="This text slides in from below"}
     :::
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MTextReveal effect="slide" :duration="800">
-      This text slides in from below
-    </MTextReveal>
+  <div class="w-full">
+    <MTextReveal effect="slide" :duration="0.8" text="This text slides in from below" />
   </div>
 </template>
 ```
@@ -112,26 +94,27 @@ label: Preview
 
 ### Typewriter Effect
 
+This example simulates a typewriter effect by using the `fade` effect with a longer stagger between characters.
+
 ::code-preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MTextReveal{effect="typewriter" :duration="2000" :delay="500"}
-    This text is typed out like a typewriter
+  :::div{class="w-full"}
+    :::MTextReveal{effect="fade" :duration="2" :delay="0.5" :stagger="0.1" text="This text is typed out like a typewriter"}
     :::
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
+  <div class="w-full">
     <MTextReveal 
-      effect="typewriter" 
-      :duration="2000" 
-      :delay="500"
-    >
-      This text is typed out like a typewriter
-    </MTextReveal>
+      effect="fade" 
+      :duration="2" 
+      :delay="0.5"
+      :stagger="0.1"
+      text="This text is typed out like a typewriter"
+    />
   </div>
 </template>
 ```
@@ -144,25 +127,19 @@ label: Preview
 label: Preview
 ---
   :::div{class="p-4 space-y-6"}
-    :::MTextReveal{:stagger="0.1"}
-    Slow stagger effect
+    :::MTextReveal{:stagger="0.1" text="Slow stagger effect"}
     :::
     
-    :::MTextReveal{:stagger="0.02"}
-    Fast stagger effect
+    :::MTextReveal{:stagger="0.02" text="Fast stagger effect"}
     :::
   :::
 #code
 ```vue
 <template>
   <div class="p-4 space-y-6">
-    <MTextReveal :stagger="0.1">
-      Slow stagger effect
-    </MTextReveal>
+    <MTextReveal :stagger="0.1" text="Slow stagger effect" />
     
-    <MTextReveal :stagger="0.02">
-      Fast stagger effect
-    </MTextReveal>
+    <MTextReveal :stagger="0.02" text="Fast stagger effect" />
   </div>
 </template>
 ```
