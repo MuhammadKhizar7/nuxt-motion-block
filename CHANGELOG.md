@@ -1,6 +1,10 @@
 # Changelog
 
 
+## v0.0.1
+
+[compare changes](https://github.com/MuhammadKhizar7/nuxt-motion-block/compare/v0.0.4...v0.0.1)
+
 ## v0.0.4
 
 [compare changes](https://github.com/your-org/nuxt-motion-block/compare/v0.0.3...v0.0.4)
