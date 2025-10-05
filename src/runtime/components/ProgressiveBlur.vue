@@ -3,6 +3,7 @@
     :class="className"
     :style="offsetStyle"
   >
+    <!-- @vue-ignore -->
     <Motion
       v-for="(style, index) in layerStyles"
       :key="index"
