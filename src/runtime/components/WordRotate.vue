@@ -4,6 +4,7 @@
     :class="['inline-block overflow-hidden', containerClass]"
     v-bind="props"
   >
+    <!-- @vue-ignore -->
     <Motion
       :key="currentWord"
       :initial="variants[animationStyle].initial"
@@ -26,7 +27,7 @@ import { Motion } from 'motion-v'
 import { useElementVisibility } from '@vueuse/core'
 
 interface WordRotateProps {
-  words: string[]
+  words?: string[]
   duration?: number // ms each word is visible
   animationStyle?: 'fade' | 'slide-up' | 'slide-down' | 'scale' | 'flip'
   loop?: boolean

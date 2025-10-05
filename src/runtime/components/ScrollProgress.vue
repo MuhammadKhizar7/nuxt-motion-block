@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted, withDefaults, defineProps } from 'vue'
+import { ref, computed, onMounted, withDefaults, defineProps, type Ref } from 'vue'
 import { Motion, useScroll, useSpring, useMotionValueEvent } from 'motion-v'
 import type { SpringOptions } from 'motion-v'
 

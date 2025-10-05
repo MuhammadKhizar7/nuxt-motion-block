@@ -9,6 +9,7 @@
       mode="popLayout"
       :initial="false"
     >
+      <!-- @vue-ignore -->
       <Motion
         v-for="character in characters"
         :key="character.id"
@@ -30,12 +31,22 @@
 import { computed, ref, watch } from 'vue'
 import { Motion, AnimatePresence } from 'motion-v'
 
+interface Variant {
+  [key: string]: any
+}
+
+interface Variants {
+  initial?: Variant
+  animate?: Variant
+  exit?: Variant
+}
+
 interface TextMorphProps {
   text?: string
   as?: string
   className?: string
   style?: object
-  variants?: object
+  variants?: Variants
   transition?: object
 }
 
@@ -56,7 +67,6 @@ const characters = computed(() => {
   if (!props.text) return []
 
   const charCounts: Record<string, number> = {}
-  renderCount.value++ // Increment on each render to force new animations
 
   return props.text.split('').map((char, index) => {
     const lowerChar = char.toLowerCase()
@@ -124,6 +134,7 @@ const component = computed(() => props.as)
 
 // Force re-render when text changes
 watch(() => props.text, () => {
+  renderCount.value++
   // This ensures new animations are triggered
 })
 </script>

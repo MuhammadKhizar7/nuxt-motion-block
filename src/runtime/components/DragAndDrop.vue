@@ -5,6 +5,7 @@
     @dragover.prevent
     @drop="handleDrop"
   >
+    <!-- @vue-ignore -->
     <Motion
       v-for="(item, index) in sortedItems"
       :key="item.id"
@@ -38,7 +39,7 @@
       <div
         v-if="showHandle"
         class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity cursor-grab"
-        @mousedown.stop="handleMouseDown($event, item, index)"
+        @mousedown.stop="handleMouseDown($event, item)"
       >
         <UIcon
           name="i-lucide-grip-vertical"
@@ -193,7 +194,7 @@ const getItemClasses = (item: DragItem, index: number) => {
   return [classes.join(' '), props.itemClass].filter(Boolean).join(' ')
 }
 
-const getItemStyles = (item: DragItem, index: number) => {
+const getItemStyles = () => {
   const styles: any = {}
 
   if (props.layout === 'masonry') {
@@ -260,12 +261,16 @@ const handleDragEnd = () => {
   if (item && oldIndex !== -1 && newIndex !== -1 && oldIndex !== newIndex) {
     // Reorder items
     const newItems = [...sortedItems.value]
-    const [movedItem] = newItems.splice(oldIndex, 1)
-    newItems.splice(newIndex, 0, movedItem)
+    const movedItem = newItems[oldIndex]
 
-    sortedItems.value = newItems
-    emit('change', newItems)
-    emit('dragEnd', item, oldIndex, newIndex)
+    if (movedItem) {
+      newItems.splice(oldIndex, 1)
+      newItems.splice(newIndex, 0, movedItem)
+
+      sortedItems.value = newItems
+      emit('change', newItems)
+      emit('dragEnd', item, oldIndex, newIndex)
+    }
   }
 
   // Reset drag state
@@ -323,14 +328,14 @@ const handleZoneDrop = (event: DragEvent, zoneIndex: number) => {
   handleDragEnd()
 }
 
-const handleMouseDown = (event: MouseEvent, item: DragItem, index: number) => {
+const handleMouseDown = (event: MouseEvent, item: DragItem) => {
   if (props.allowMultiSelect && (event.ctrlKey || event.metaKey)) {
     event.preventDefault()
     toggleSelection(item)
   }
 }
 
-const handleItemClick = (item: DragItem, index: number) => {
+const handleItemClick = (item: DragItem) => {
   if (props.allowMultiSelect) {
     toggleSelection(item)
   }

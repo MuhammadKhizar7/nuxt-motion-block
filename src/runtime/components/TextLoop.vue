@@ -44,7 +44,7 @@ import { ref, computed, onMounted, onUnmounted, watch, nextTick } from 'vue'
 import { Motion, AnimatePresence } from 'motion-v'
 
 interface TextLoopProps {
-  items: any[]
+  items?: any[]
   className?: string
   interval?: number
   transition?: any

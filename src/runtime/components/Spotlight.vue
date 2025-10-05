@@ -7,8 +7,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onUnmounted, computed, withDefaults, defineProps, watch } from 'vue'
-import { useMotionValue, useSpring, useTransform } from 'motion-v'
+import { ref, computed, withDefaults, defineProps, watch } from 'vue'
+import { useSpring, useTransform } from 'motion-v'
 import type { SpringOptions } from 'motion-v'
 
 const props = withDefaults(defineProps<{

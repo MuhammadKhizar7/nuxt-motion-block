@@ -6,6 +6,7 @@
     @mouseleave="stopGlitch"
   >
     <!-- Main text -->
+    <!-- @vue-ignore -->
     <Motion
       :initial="{ opacity: 1 }"
       :animate="mainTextVariant"
@@ -16,6 +17,7 @@
     </Motion>
 
     <!-- Glitch layers -->
+    <!-- @vue-ignore -->
     <Motion
       v-for="(layer, index) in glitchLayers"
       :key="`glitch-${index}`"
@@ -60,7 +62,7 @@ type GlitchTrigger = 'hover' | 'auto' | 'inView' | 'manual'
 type GlitchIntensity = 'low' | 'medium' | 'high' | 'extreme' | number
 
 interface TextGlitchProps {
-  text: string
+  text?: string
   trigger?: GlitchTrigger
   intensity?: GlitchIntensity
   duration?: number
@@ -90,7 +92,7 @@ const emit = defineEmits(['glitchStart', 'glitchEnd'])
 const containerRef = ref<HTMLElement>()
 const isVisible = useElementVisibility(containerRef)
 const isGlitching = ref(false)
-const glitchInterval = ref<number | null>(null)
+const glitchInterval = ref<ReturnType<typeof setInterval> | null>(null)
 
 // Glitch configuration based on intensity
 const intensityConfig = computed(() => {
@@ -162,7 +164,7 @@ const textClasses = computed(() => {
   ].join(' ')
 })
 
-const getLayerClasses = (index: number) => {
+const getLayerClasses = () => {
   return [
     'text-glitch-layer',
     'absolute',
@@ -221,7 +223,7 @@ const mainTransition = computed(() => {
   }
 })
 
-const getLayerVariant = (index: number) => {
+const getLayerVariant = () => {
   if (!isGlitching.value) {
     return { opacity: 0, x: 0, y: 0 }
   }

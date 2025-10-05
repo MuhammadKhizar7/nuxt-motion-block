@@ -1,13 +1,4 @@
-import { ref, computed, reactive, watch, type Ref } from 'vue'
-import { useEventListener } from '@vueuse/core'
-
-// Enhanced type definitions with advanced features
-interface PopoverState {
-  isOpen: boolean
-  uniqueId: string
-  variants?: Variants
-  position?: PopoverPosition
-}
+import { ref, computed, watch, type InjectionKey } from 'vue'
 
 interface MorphingPopoverProps {
   defaultOpen?: boolean
@@ -23,7 +14,7 @@ interface MorphingPopoverProps {
   arrowEnabled?: boolean
 }
 
-interface Variants {
+export interface Variants {
   initial?: Record<string, any>
   animate?: Record<string, any>
   exit?: Record<string, any>
@@ -31,7 +22,7 @@ interface Variants {
   focus?: Record<string, any>
 }
 
-interface Transition {
+export interface Transition {
   type?: 'spring' | 'tween' | 'ease' | 'custom'
   bounce?: number
   duration?: number
@@ -49,7 +40,7 @@ interface PopoverPosition {
 
 interface PositioningConfig {
   side?: 'top' | 'bottom' | 'left' | 'right'
-  align?: 'start' | 'center' | 'end'
+  align: 'start' | 'center' | 'end'
   sideOffset?: number
   alignOffset?: number
   autoPositioning?: boolean
@@ -63,6 +54,13 @@ interface MorphingPath {
   steps?: number
   controlPoints?: Array<{ x: number, y: number }>
 }
+
+export type PopoverContextValue = ReturnType<typeof useMorphingPopover> & {
+  closeOnClickOutside?: boolean
+  closeOnEscape?: boolean
+}
+
+export const popoverContextKey = Symbol('popoverContext') as InjectionKey<PopoverContextValue>
 
 // Enhanced composable with advanced features
 export const useMorphingPopover = (props: MorphingPopoverProps = {}) => {
@@ -263,9 +261,9 @@ export const useMorphingPopoverManager = () => {
     if (!(triggerElement instanceof HTMLElement)) {
       console.error('Trigger element is not a valid HTMLElement:', {
         element: triggerElement,
-        nodeType: triggerElement?.nodeType,
+        nodeType: (triggerElement as HTMLElement)?.nodeType,
         type: typeof triggerElement,
-        constructor: triggerElement?.constructor?.name,
+        constructor: (triggerElement as HTMLElement)?.constructor?.name,
       })
       return
     }

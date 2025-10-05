@@ -40,7 +40,7 @@ const props = withDefaults(defineProps<CountingNumberProps>(), {
 const emit = defineEmits(['complete'])
 
 const containerRef = ref<HTMLElement | null>(null)
-const isInView = useElementVisibility(containerRef, { margin: props.inViewMargin })
+const isInView = useElementVisibility(containerRef, { rootMargin: props.inViewMargin })
 const hasAnimated = ref(false)
 const displayValue = ref(props.from)
 
@@ -62,7 +62,6 @@ function animateNumber({ from, to, duration, onUpdate, onComplete }: {
   onComplete: () => void
 }) {
   const start = performance.now()
-  const end = start + duration * 1000
 
   function frame(now: number) {
     const progress = Math.min((now - start) / (duration * 1000), 1)

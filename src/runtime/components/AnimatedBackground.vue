@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, nextTick, onMounted, onUnmounted } from 'vue'
+import { ref, nextTick, onMounted } from 'vue'
 
 interface Props {
   defaultValue?: string | null
@@ -132,10 +132,5 @@ onMounted(() => {
   if (props.defaultValue) {
     updateBackgroundPosition()
   }
-})
-
-// Cleanup
-onUnmounted(() => {
-  // Any cleanup if needed
 })
 </script>

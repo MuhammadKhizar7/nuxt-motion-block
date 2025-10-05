@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent, h, useSlots, computed, type PropType, type VNode, Comment, Text, Fragment } from 'vue'
 import { Motion } from 'motion-v'
-import type { Variant, Variants as MotionVariants } from 'motion-v'
+import type { Variant } from 'motion-v'
 
 // Defines a type for a variants object that holds multiple animation states.
 type Variants = Record<string, Variant>
@@ -159,6 +159,7 @@ export default defineComponent({
 
       const motionChildren = children.map((child) => {
         return h(
+          // @ts-ignore
           Motion,
           {
             as: props.asChild,
@@ -169,6 +170,7 @@ export default defineComponent({
       })
 
       return h(
+        // @ts-ignore
         Motion,
         {
           as: props.as,

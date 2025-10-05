@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, watch } from 'vue'
+import { ref, onMounted, onUnmounted, watch, type ComponentPublicInstance } from 'vue'
 import { Motion, useMotionValue, useSpring } from 'motion-v'
 
 // Types
@@ -35,8 +35,7 @@ const props = withDefaults(defineProps<MagneticProps>(), {
 })
 
 // Refs
-const magneticRef = ref<InstanceType<typeof Motion> | null>(null)
-const domElement = ref<HTMLElement | null>(null)
+const magneticRef = ref<ComponentPublicInstance | HTMLElement | null>(null)
 
 // Motion values
 const x = useMotionValue(0)
@@ -46,19 +45,16 @@ const y = useMotionValue(0)
 const springX = useSpring(x, props.springOptions)
 const springY = useSpring(y, props.springOptions)
 
-// Get the actual DOM element from the Motion component
 const getDomElement = () => {
-  if (!magneticRef.value) return null
+  const instanceOrElement = magneticRef.value
+  if (!instanceOrElement) return null
 
-  // Try to get the DOM element from the Motion component
-  // This might vary depending on the motion-v version
-  if ('$el' in magneticRef.value) {
-    return (magneticRef.value as any).$el as HTMLElement
+  if (instanceOrElement instanceof HTMLElement) {
+    return instanceOrElement
   }
 
-  // Fallback: try to get the first child element
-  if (magneticRef.value && 'firstElementChild' in magneticRef.value) {
-    return magneticRef.value.firstElementChild as HTMLElement
+  if ('$el' in instanceOrElement && instanceOrElement.$el instanceof HTMLElement) {
+    return instanceOrElement.$el
   }
 
   return null

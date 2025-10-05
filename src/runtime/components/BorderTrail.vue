@@ -1,5 +1,6 @@
 <template>
   <div class="pointer-events-none absolute inset-0 rounded-[inherit] border border-transparent [mask-clip:padding-box,border-box] [mask-composite:intersect] [mask-image:linear-gradient(transparent,transparent),linear-gradient(#000,#000)]">
+    <!-- @vue-ignore -->
     <Motion
       :class="['absolute aspect-square', trailClass]"
       :style="motionStyle"

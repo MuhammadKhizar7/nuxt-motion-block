@@ -1,13 +1,4 @@
-import { ref, computed, reactive, watch, type Ref } from 'vue'
-import { useEventListener } from '@vueuse/core'
-
-// Enhanced type definitions with advanced features
-interface PopoverState {
-  isOpen: boolean
-  uniqueId: string
-  variants?: Variants
-  position?: PopoverPosition
-}
+import { ref, computed, watch } from 'vue'
 
 interface MorphingPopoverProps {
   defaultOpen?: boolean
@@ -263,9 +254,9 @@ export const useMorphingPopoverManager = () => {
     if (!(triggerElement instanceof HTMLElement)) {
       console.error('Trigger element is not a valid HTMLElement:', {
         element: triggerElement,
-        nodeType: triggerElement?.nodeType,
+        nodeType: (triggerElement as HTMLElement)?.nodeType,
         type: typeof triggerElement,
-        constructor: triggerElement?.constructor?.name,
+        constructor: (triggerElement as HTMLElement)?.constructor?.name,
       })
       return
     }

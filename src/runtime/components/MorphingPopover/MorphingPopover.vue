@@ -1,34 +1,26 @@
 <template>
   <div class="relative inline-block">
     <slot
-      :is-open="isOpen"
-      :open="open"
-      :close="close"
-      :toggle="toggle"
-      :unique-id="uniqueId"
+      :is-open="popover.isOpen"
+      :open="popover.open"
+      :close="popover.close"
+      :toggle="popover.toggle"
+      :unique-id="popover.uniqueId"
     />
   </div>
 </template>
 
 <script setup lang="ts">
-import { useMorphingPopover } from './useMorphingPopover'
-import { useEventListener, onClickOutside } from '@vueuse/core'
+import { useMorphingPopover, popoverContextKey, type Variants, type Transition } from './useMorphingPopover'
+import { useEventListener } from '@vueuse/core'
+import { provide } from 'vue'
 
 // Props interface matching design documentation
 interface Props {
   defaultOpen?: boolean
   open?: boolean // controlled state
-  transition?: {
-    type?: string
-    bounce?: number
-    duration?: number
-    ease?: number[] | string
-  }
-  variants?: {
-    initial?: Record<string, any>
-    animate?: Record<string, any>
-    exit?: Record<string, any>
-  }
+  transition?: Transition
+  variants?: Variants
   closeOnClickOutside?: boolean
   closeOnEscape?: boolean
 }
@@ -54,29 +46,20 @@ const popover = useMorphingPopover({
   closeOnEscape: props.closeOnEscape,
 })
 
-// Extract reactive properties
-const { isOpen, uniqueId, open, close, toggle, variants, transition } = popover
-
 // Provide context to child components
 const popoverContext = {
-  isOpen,
-  uniqueId,
-  open,
-  close,
-  toggle,
-  variants,
-  transition,
+  ...popover,
   closeOnClickOutside: props.closeOnClickOutside,
   closeOnEscape: props.closeOnEscape,
 }
 
-provide('morphingPopoverContext', popoverContext)
+provide(popoverContextKey, popoverContext)
 
 // Handle keyboard escape when enabled
 if (props.closeOnEscape) {
   useEventListener('keydown', (event: KeyboardEvent) => {
-    if (event.key === 'Escape' && isOpen.value) {
-      close()
+    if (event.key === 'Escape' && popover.isOpen.value) {
+      popover.close()
     }
   })
 }

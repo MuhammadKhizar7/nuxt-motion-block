@@ -17,6 +17,7 @@
 <script setup lang="ts">
 import { ref, inject, watch } from 'vue'
 import { Motion } from 'motion-v'
+import { popoverContextKey } from './useMorphingPopover'
 
 // No props needed - everything comes from context
 const emit = defineEmits<{
@@ -25,12 +26,12 @@ const emit = defineEmits<{
 }>()
 
 // Inject context from parent MorphingPopover
-const context = inject('morphingPopoverContext')
+const context = inject(popoverContextKey)
 if (!context) {
   throw new Error('MorphingPopoverTrigger must be used within a MorphingPopover component')
 }
 
-const { isOpen, uniqueId, open, close, toggle } = context
+const { isOpen, uniqueId, open, close } = context
 
 const triggerRef = ref<HTMLElement>()
 

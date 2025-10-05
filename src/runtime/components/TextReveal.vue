@@ -14,6 +14,7 @@
       :class="charClasses"
       aria-hidden="true"
     >
+      <!-- @vue-ignore -->
       <Motion
         :initial="initialVariant"
         :animate="shouldAnimate ? getCharAnimateVariant(index) : initialVariant"
@@ -30,14 +31,14 @@
 
 <script setup lang="ts">
 import { Motion } from 'motion-v'
-import { ref, computed, watch, onMounted, nextTick } from 'vue'
+import { ref, computed, watch, onMounted } from 'vue'
 import { useElementVisibility } from '@vueuse/core'
 
 type RevealDirection = 'up' | 'down' | 'left' | 'right' | 'random'
 type RevealEffect = 'fade' | 'slide' | 'bounce' | 'rotate' | 'scale' | 'blur'
 
 interface TextRevealProps {
-  text: string
+  text?: string
   direction?: RevealDirection
   effect?: RevealEffect
   stagger?: number
@@ -175,7 +176,7 @@ const initialVariant = computed(() => {
   return getBaseVariant(props.effect, props.direction, true)
 })
 
-const getCharAnimateVariant = (index: number) => {
+const getCharAnimateVariant = () => {
   // Always return the final variant - Motion will handle the animation
   return getBaseVariant(props.effect, props.direction, false)
 }

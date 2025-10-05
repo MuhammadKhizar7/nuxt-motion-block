@@ -1,14 +1,15 @@
 <template>
   <Teleport to="body">
     <div
-      v-if="isOpen"
+      v-if="context?.isOpen"
       class="fixed inset-0 z-40"
     >
       <!-- Enhanced motion component with advanced animations -->
+      <!-- @vue-ignore -->
       <Motion
-        :id="`popover-content-${uniqueId}`"
+        :id="`popover-content-${context?.uniqueId}`"
         ref="contentRef"
-        :layout-id="`popover-trigger-${uniqueId}`"
+        :layout-id="`popover-trigger-${context?.uniqueId}`"
         :initial="computedInitialVariant"
         :animate="computedAnimateVariant"
         :exit="computedExitVariant"
@@ -19,7 +20,7 @@
         :style="enhancedContentStyles"
         role="dialog"
         :aria-modal="true"
-        :aria-labelledby="`popover-trigger-${uniqueId}`"
+        :aria-labelledby="`popover-trigger-${context?.uniqueId}`"
         tabindex="-1"
         v-bind="filteredAttrs"
       >
@@ -42,6 +43,8 @@
 <script setup lang="ts">
 import { Motion } from 'motion-v'
 import { onClickOutside } from '@vueuse/core'
+import { useAttrs, computed, ref, inject, nextTick, watch } from 'vue'
+import { popoverContextKey } from './useMorphingPopover'
 
 interface Props {
   side?: 'top' | 'bottom' | 'left' | 'right'
@@ -76,20 +79,10 @@ const filteredAttrs = computed(() => {
 })
 
 // Inject enhanced context
-const context = inject('morphingPopoverContext')
+const context = inject(popoverContextKey)
 if (!context) {
   throw new Error('MorphingPopoverContent must be used within a MorphingPopover component')
 }
-
-const {
-  isOpen,
-  uniqueId,
-  close,
-  variants,
-  transition,
-  positioningConfig,
-  closeOnClickOutside,
-} = context
 
 const contentRef = ref<HTMLElement>()
 const currentSide = ref(props.side)
@@ -175,7 +168,7 @@ const calculateAdvancedPosition = (triggerElement: HTMLElement) => {
 
 // Enhanced content styles with improved positioning
 const enhancedContentStyles = computed(() => {
-  if (!isOpen.value) return {}
+  if (!context.isOpen.value) return {}
 
   const triggerElement = getTriggerElement()
   if (!triggerElement) {
@@ -192,19 +185,26 @@ const enhancedContentStyles = computed(() => {
 
   let transformOrigin = 'center'
   switch (position.side) {
-    case 'top': transformOrigin = 'bottom center'; break
-    case 'bottom': transformOrigin = 'top center'; break
-    case 'left': transformOrigin = 'right center'; break
-    case 'right': transformOrigin = 'left center'; break
+    case 'top': transformOrigin = 'bottom center'
+      break
+    case 'bottom': transformOrigin = 'top center'
+      break
+    case 'left': transformOrigin = 'right center'
+      break
+    case 'right': transformOrigin = 'left center'
+      break
   }
 
   // Transform adjustment based on align
   let transform = ''
   if (position.side === 'top' || position.side === 'bottom') {
     switch (position.align) {
-      case 'start': transform = 'translateX(0)'; break
-      case 'center': transform = 'translateX(-50%)'; break
-      case 'end': transform = 'translateX(-100%)'; break
+      case 'start': transform = 'translateX(0)'
+        break
+      case 'center': transform = 'translateX(-50%)'
+        break
+      case 'end': transform = 'translateX(-100%)'
+        break
     }
   }
 
@@ -265,7 +265,7 @@ const arrowClasses = computed(() => {
 
 // Enhanced animation variants with morphing effects
 const computedInitialVariant = computed(() => {
-  const baseVariant = variants.value?.initial || {
+  const baseVariant = context.variants.value?.initial || {
     opacity: 0,
     scale: 0.8,
     y: currentSide.value === 'top' ? 10 : -10,
@@ -285,7 +285,7 @@ const computedInitialVariant = computed(() => {
 })
 
 const computedAnimateVariant = computed(() => {
-  return variants.value?.animate || {
+  return context.variants.value?.animate || {
     opacity: 1,
     scale: 1,
     y: 0,
@@ -294,7 +294,7 @@ const computedAnimateVariant = computed(() => {
 })
 
 const computedExitVariant = computed(() => {
-  return variants.value?.exit || {
+  return context.variants.value?.exit || {
     opacity: 0,
     scale: 0.8,
     y: currentSide.value === 'top' ? 10 : -10,
@@ -302,21 +302,21 @@ const computedExitVariant = computed(() => {
 })
 
 const computedHoverVariant = computed(() => {
-  return variants.value?.hover || {
+  return context.variants.value?.hover || {
     scale: 1.02,
     boxShadow: '0 10px 25px rgba(0, 0, 0, 0.15)',
   }
 })
 
 const computedFocusVariant = computed(() => {
-  return variants.value?.focus || {
+  return context.variants.value?.focus || {
     boxShadow: '0 0 0 2px rgba(59, 130, 246, 0.5)',
   }
 })
 
 // Enhanced transition with morphing effects
 const enhancedTransition = computed(() => {
-  const baseTransition = transition.value || {
+  const baseTransition = context.transition.value || {
     type: 'spring',
     bounce: 0.1,
     duration: 0.4,
@@ -332,16 +332,16 @@ const enhancedTransition = computed(() => {
 
 // Get trigger element with enhanced detection
 const getTriggerElement = () => {
-  const triggerSelector = `[data-layout-id="popover-trigger-${uniqueId}"]`
+  const triggerSelector = `[data-layout-id="popover-trigger-${context.uniqueId}"]`
   let triggerElement = document.querySelector(triggerSelector) as HTMLElement
 
   if (!triggerElement) {
-    const fallbackSelector = `[aria-controls="popover-content-${uniqueId}"]`
+    const fallbackSelector = `[aria-controls="popover-content-${context.uniqueId}"]`
     triggerElement = document.querySelector(fallbackSelector) as HTMLElement
   }
 
   if (!triggerElement) {
-    const buttonSelector = `button[data-popover="${uniqueId}"]`
+    const buttonSelector = `button[data-popover="${context.uniqueId}"]`
     triggerElement = document.querySelector(buttonSelector) as HTMLElement
   }
 
@@ -378,19 +378,19 @@ const contentClasses = computed(() => {
 })
 
 // Click outside handling
-if (closeOnClickOutside) {
+if (context.closeOnClickOutside) {
   onClickOutside(contentRef, () => {
-    if (isOpen.value) {
-      close()
+    if (context.isOpen.value) {
+      context.close()
     }
   })
 }
 
 // Enhanced focus management
-watch(isOpen, async (open) => {
+watch(context.isOpen, async (open) => {
   if (open) {
     await nextTick()
-
+    // @ts-ignore
     const element = contentRef.value?.$el || contentRef.value
     if (element && typeof element.focus === 'function') {
       element.focus()

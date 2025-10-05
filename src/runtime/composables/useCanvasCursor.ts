@@ -8,7 +8,7 @@ export const useCanvasCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { co
       return
     }
 
-    let ctx, f, pos, lines, animationFrameId
+    let ctx, f, lines, animationFrameId
 
     const config = {
       friction: 0.5,
@@ -18,7 +18,7 @@ export const useCanvasCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { co
       tension: 0.98,
     }
 
-    pos = {}
+    const pos = {}
     lines = []
 
     function Wave(e) {
@@ -123,7 +123,7 @@ export const useCanvasCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { co
             ctx.strokeStyle = 'hsla(' + Math.round(f.update()) + ',50%,50%,0.2)'
           }
         }
-        catch (e) {
+        catch {
           ctx.strokeStyle = 'hsla(' + Math.round(f.update()) + ',50%,50%,0.2)'
         }
       }
