@@ -1,6 +1,9 @@
 <template>
   <div>
-    <component :is="exampleComponent" v-if="exampleComponent" />
+    <component
+      :is="exampleComponent"
+      v-if="exampleComponent"
+    />
   </div>
 </template>
 
@@ -10,8 +13,8 @@ import { computed, defineAsyncComponent } from 'vue'
 const props = defineProps({
   name: {
     type: String,
-    required: true
-  }
+    required: true,
+  },
 })
 
 const toPascalCase = (str) => {

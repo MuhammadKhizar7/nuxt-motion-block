@@ -1,5 +1,8 @@
 <template>
-  <div :class="['relative inline-block whitespace-nowrap', className]" :style="{ height: containerHeight }">
+  <div
+    :class="['relative inline-block whitespace-nowrap', className]"
+    :style="{ height: containerHeight }"
+  >
     <AnimatePresence exit-before-enter>
       <Motion
         :key="currentIndex"
@@ -20,10 +23,16 @@
         {{ currentItem }}
       </Motion>
     </AnimatePresence>
-    
+
     <!-- Hidden element to measure text height -->
-    <div ref="measureRef" class="invisible absolute">
-      <div v-for="(item, index) in items" :key="'measure-' + index">
+    <div
+      ref="measureRef"
+      class="invisible absolute"
+    >
+      <div
+        v-for="(item, index) in items"
+        :key="'measure-' + index"
+      >
         {{ item }}
       </div>
     </div>
@@ -48,13 +57,13 @@ const props = withDefaults(defineProps<TextLoopProps>(), {
   items: () => [],
   className: '',
   interval: 2,
-  transition: () => ({ 
+  transition: () => ({
     type: 'spring',
     stiffness: 150,
     damping: 19,
-    mass: 1.2
+    mass: 1.2,
   }),
-  trigger: true
+  trigger: true,
 })
 
 const emit = defineEmits(['indexChange'])
@@ -72,12 +81,12 @@ const currentItem = computed(() => {
 // Compute variants with direction
 const computedVariants = computed(() => {
   const dir = direction.value
-  
+
   if (props.variants) {
     // Handle string-based direction expressions
     const processVariant = (variant: any) => {
       if (!variant || typeof variant !== 'object') return variant
-      
+
       const processed = { ...variant }
       for (const key in processed) {
         if (typeof processed[key] === 'string') {
@@ -86,14 +95,14 @@ const computedVariants = computed(() => {
       }
       return processed
     }
-    
+
     return {
       initial: processVariant(props.variants.initial),
       animate: processVariant(props.variants.animate),
-      exit: processVariant(props.variants.exit)
+      exit: processVariant(props.variants.exit),
     }
   }
-  
+
   // Default variants
   return {
     initial: {
@@ -120,29 +129,29 @@ const computedVariants = computed(() => {
 // Measure the height of the tallest text item
 function measureTextHeight() {
   if (!measureRef.value) return
-  
+
   let maxHeight = 0
   const children = measureRef.value.children
-  
+
   for (let i = 0; i < children.length; i++) {
     const child = children[i] as HTMLElement
     maxHeight = Math.max(maxHeight, child.offsetHeight)
   }
-  
+
   containerHeight.value = `${maxHeight}px`
 }
 
 // Set up the interval for cycling through items
 function startInterval() {
   if (!props.trigger || props.items.length <= 1) return
-  
+
   clearInterval(intervalId as ReturnType<typeof setInterval>)
-  
+
   const intervalMs = props.interval * 1000
   intervalId = setInterval(() => {
     // Update direction
     direction.value = 1
-    
+
     // Update index
     currentIndex.value = (currentIndex.value + 1) % props.items.length
     emit('indexChange', currentIndex.value)
@@ -171,7 +180,7 @@ onMounted(() => {
   nextTick(() => {
     measureTextHeight()
   })
-  
+
   startInterval()
 })
 
@@ -181,7 +190,7 @@ watch(() => [props.trigger, props.items], () => {
   nextTick(() => {
     measureTextHeight()
   })
-  
+
   startInterval()
 })
 </script>

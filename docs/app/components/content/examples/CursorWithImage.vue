@@ -2,17 +2,17 @@
 const variants = {
   initial: { height: 0, opacity: 0, scale: 0.3 },
   animate: { height: 'auto', opacity: 1, scale: 1 },
-  exit: { height: 0, opacity: 0, scale: 0.3 }
+  exit: { height: 0, opacity: 0, scale: 0.3 },
 }
 
 const transition = {
   type: 'spring',
   duration: 0.3,
-  bounce: 0.1
+  bounce: 0.1,
 }
 
 const springConfig = {
-  bounce: 0.01
+  bounce: 0.01,
 }
 </script>
 

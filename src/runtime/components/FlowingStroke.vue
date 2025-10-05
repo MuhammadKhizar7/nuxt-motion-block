@@ -1,14 +1,14 @@
 <script setup>
-import { ref, computed, onMounted, onBeforeUnmount } from "vue"
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 
 const props = defineProps({
   width: { type: Number, default: 1200 },
   height: { type: Number, default: 220 },
-  ribbon: { type: Number, default: 18 },     // base ribbon stroke width
-  stripeInset: { type: Number, default: 4 },  // how much thinner the stripe layer is
-  dash: { type: Number, default: 34 },        // dash length
-  gap: { type: Number, default: 22 },         // gap length
-  speed: { type: Number, default: 1 },        // multiplier for stripe travel speed
+  ribbon: { type: Number, default: 18 }, // base ribbon stroke width
+  stripeInset: { type: Number, default: 4 }, // how much thinner the stripe layer is
+  dash: { type: Number, default: 34 }, // dash length
+  gap: { type: Number, default: 22 }, // gap length
+  speed: { type: Number, default: 1 }, // multiplier for stripe travel speed
 })
 
 // hovered state
@@ -105,4 +105,3 @@ onBeforeUnmount(() => {
   }
 }
 </style>
-

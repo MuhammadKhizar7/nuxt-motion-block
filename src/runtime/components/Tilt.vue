@@ -32,7 +32,7 @@ interface TiltProps {
 const props = withDefaults(defineProps<TiltProps>(), {
   rotationFactor: 15,
   isReverse: false,
-  springOptions: () => ({})
+  springOptions: () => ({}),
 })
 
 // Refs
@@ -53,7 +53,7 @@ const rotateX = useTransform(
   [-0.5, 0.5],
   props.isReverse
     ? [props.rotationFactor, -props.rotationFactor]
-    : [-props.rotationFactor, props.rotationFactor]
+    : [-props.rotationFactor, props.rotationFactor],
 )
 
 const rotateY = useTransform(
@@ -61,7 +61,7 @@ const rotateY = useTransform(
   [-0.5, 0.5],
   props.isReverse
     ? [-props.rotationFactor, props.rotationFactor]
-    : [props.rotationFactor, -props.rotationFactor]
+    : [props.rotationFactor, -props.rotationFactor],
 )
 
 // Template for transform
@@ -71,24 +71,24 @@ const transform = useMotionTemplate`perspective(1000px) rotateX(${rotateX}deg) r
 const combinedStyles = computed(() => ({
   transformStyle: 'preserve-3d',
   ...props.style,
-  transform
+  transform,
 }))
 
 // Get the actual DOM element from the Motion component
 const getDomElement = () => {
   if (!tiltRef.value) return null
-  
+
   // Try to get the DOM element from the Motion component
   // This might vary depending on the motion-v version
   if ('$el' in tiltRef.value) {
     return (tiltRef.value as any).$el as HTMLElement
   }
-  
+
   // Fallback: try to get the first child element
   if (tiltRef.value && 'firstElementChild' in tiltRef.value) {
     return tiltRef.value.firstElementChild as HTMLElement
   }
-  
+
   return null
 }
 

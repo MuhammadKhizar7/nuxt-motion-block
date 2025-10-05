@@ -6,23 +6,23 @@ import type { Variant, Variants as MotionVariants } from 'motion-v'
 // Defines a type for a variants object that holds multiple animation states.
 type Variants = Record<string, Variant>
 
-export type PresetType =
-  | 'fade'
-  | 'slide'
-  | 'scale'
-  | 'blur'
-  | 'blur-slide'
-  | 'zoom'
-  | 'flip'
-  | 'bounce'
-  | 'rotate'
-  | 'swing'
+export type PresetType
+  = | 'fade'
+    | 'slide'
+    | 'scale'
+    | 'blur'
+    | 'blur-slide'
+    | 'zoom'
+    | 'flip'
+    | 'bounce'
+    | 'rotate'
+    | 'swing'
 
 export default defineComponent({
   name: 'AnimatedGroup',
   props: {
     className: String,
-    variants: Object as PropType<{ container?: Variants; item?: Variants }>,
+    variants: Object as PropType<{ container?: Variants, item?: Variants }>,
     preset: String as PropType<PresetType>,
     as: {
       type: String as PropType<keyof HTMLElementTagNameMap>,
@@ -45,9 +45,9 @@ export default defineComponent({
       default: 0.1,
     },
     staggerDirection: {
-        type: Number,
-        default: 1
-    }
+      type: Number,
+      default: 1,
+    },
   },
   setup(props) {
     const slots = useSlots()
@@ -67,16 +67,16 @@ export default defineComponent({
     }
 
     const presetVariants: Record<PresetType, Variants> = {
-      fade: {},
-      slide: {
+      'fade': {},
+      'slide': {
         hidden: { y: 20 },
         visible: { y: 0 },
       },
-      scale: {
+      'scale': {
         hidden: { scale: 0.8 },
         visible: { scale: 1 },
       },
-      blur: {
+      'blur': {
         hidden: { filter: 'blur(4px)' },
         visible: { filter: 'blur(0px)' },
       },
@@ -84,35 +84,35 @@ export default defineComponent({
         hidden: { filter: 'blur(4px)', y: 20 },
         visible: { filter: 'blur(0px)', y: 0 },
       },
-      zoom: {
+      'zoom': {
         hidden: { scale: 0.5 },
         visible: {
           scale: 1,
           transition: { type: 'spring', stiffness: 300, damping: 20 },
         },
       },
-      flip: {
+      'flip': {
         hidden: { rotateX: -90 },
         visible: {
           rotateX: 0,
           transition: { type: 'spring', stiffness: 300, damping: 20 },
         },
       },
-      bounce: {
+      'bounce': {
         hidden: { y: -50 },
         visible: {
           y: 0,
           transition: { type: 'spring', stiffness: 400, damping: 10 },
         },
       },
-      rotate: {
+      'rotate': {
         hidden: { rotate: -180 },
         visible: {
           rotate: 0,
           transition: { type: 'spring', stiffness: 200, damping: 15 },
         },
       },
-      swing: {
+      'swing': {
         hidden: { rotate: -10 },
         visible: {
           rotate: 0,
@@ -136,22 +136,22 @@ export default defineComponent({
     })
 
     function getValidChildren(nodes: VNode[]): VNode[] {
-        const validNodes: VNode[] = []
-        for (const node of nodes) {
-            if (node.type === Comment) {
-                continue
-            }
-            if (node.type === Text && (node.children as string).trim() === '') {
-                continue
-            }
-            if (node.type === Fragment) {
-                validNodes.push(...getValidChildren(node.children as VNode[]))
-            }
-            else {
-                validNodes.push(node)
-            }
+      const validNodes: VNode[] = []
+      for (const node of nodes) {
+        if (node.type === Comment) {
+          continue
         }
-        return validNodes
+        if (node.type === Text && (node.children as string).trim() === '') {
+          continue
+        }
+        if (node.type === Fragment) {
+          validNodes.push(...getValidChildren(node.children as VNode[]))
+        }
+        else {
+          validNodes.push(node)
+        }
+      }
+      return validNodes
     }
 
     return () => {

@@ -61,20 +61,20 @@ interface MorphingPath {
   type: 'bezier' | 'arc' | 'wave' | 'elastic'
   intensity?: number
   steps?: number
-  controlPoints?: Array<{ x: number; y: number }>
+  controlPoints?: Array<{ x: number, y: number }>
 }
 
 // Enhanced composable with advanced features
 export const useMorphingPopover = (props: MorphingPopoverProps = {}) => {
   const uniqueId = Math.random().toString(36).substring(2, 9)
-  
+
   // Enhanced state management
   const isOpen = ref(props.defaultOpen ?? false)
   const variants = ref(props.variants || getDefaultVariants())
   const transition = ref(props.transition || getDefaultTransition())
   const position = ref<PopoverPosition | null>(null)
   const isPositioning = ref(false)
-  
+
   // Advanced positioning configuration
   const positioningConfig = ref<PositioningConfig>({
     side: 'bottom',
@@ -83,25 +83,25 @@ export const useMorphingPopover = (props: MorphingPopoverProps = {}) => {
     alignOffset: 0,
     autoPositioning: true,
     sticky: false,
-    ...props.positioning
+    ...props.positioning,
   })
-  
+
   // Control functions with enhanced features
   const open = async () => {
     if (!isOpen.value) {
       isPositioning.value = true
       isOpen.value = true
-      
+
       // Calculate optimal position if auto-positioning is enabled
       if (positioningConfig.value.autoPositioning) {
         await calculateOptimalPosition()
       }
-      
+
       isPositioning.value = false
       props.onOpenChange?.(true)
     }
   }
-  
+
   const close = () => {
     if (isOpen.value) {
       isOpen.value = false
@@ -109,15 +109,16 @@ export const useMorphingPopover = (props: MorphingPopoverProps = {}) => {
       props.onOpenChange?.(false)
     }
   }
-  
+
   const toggle = () => {
     if (isOpen.value) {
       close()
-    } else {
+    }
+    else {
       open()
     }
   }
-  
+
   // Handle controlled state
   if (props.open !== undefined) {
     watch(() => props.open, (newOpen) => {
@@ -126,7 +127,7 @@ export const useMorphingPopover = (props: MorphingPopoverProps = {}) => {
       }
     }, { immediate: true })
   }
-  
+
   return {
     isOpen,
     uniqueId,
@@ -138,7 +139,7 @@ export const useMorphingPopover = (props: MorphingPopoverProps = {}) => {
     position,
     positioningConfig,
     isPositioning,
-    onOpenChange: props.onOpenChange
+    onOpenChange: props.onOpenChange,
   }
 }
 
@@ -149,24 +150,24 @@ function getDefaultVariants(): Variants {
       opacity: 0,
       scale: 0.8,
       y: -10,
-      transformOrigin: 'center'
+      transformOrigin: 'center',
     },
     animate: {
       opacity: 1,
       scale: 1,
-      y: 0
+      y: 0,
     },
     exit: {
       opacity: 0,
       scale: 0.8,
-      y: -5
+      y: -5,
     },
     hover: {
-      scale: 1.02
+      scale: 1.02,
     },
     focus: {
-      boxShadow: '0 0 0 2px rgba(59, 130, 246, 0.5)'
-    }
+      boxShadow: '0 0 0 2px rgba(59, 130, 246, 0.5)',
+    },
   }
 }
 
@@ -175,7 +176,7 @@ function getDefaultTransition(): Transition {
     type: 'spring',
     bounce: 0.1,
     duration: 0.4,
-    ease: 'easeOut'
+    ease: 'easeOut',
   }
 }
 
@@ -194,31 +195,31 @@ interface LegacyPopoverState {
 
 export const useMorphingPopoverManager = () => {
   const activePopovers = ref(new Map<string, LegacyPopoverState>())
-  
+
   const createPopover = (popoverId: string) => {
     if (activePopovers.value.has(popoverId)) {
       return activePopovers.value.get(popoverId)!
     }
-    
+
     const popoverState: LegacyPopoverState = {
       isOpen: false,
       triggerRect: null,
-      animationState: 'closed'
+      animationState: 'closed',
     }
-    
+
     activePopovers.value.set(popoverId, popoverState)
     return popoverState
   }
-  
+
   const calculatePosition = (
     triggerRect: DOMRect,
     side: 'top' | 'bottom' | 'left' | 'right' = 'bottom',
-    align: 'start' | 'center' | 'end' = 'center'
+    align: 'start' | 'center' | 'end' = 'center',
   ): PopoverPosition => {
     const spacing = 8 // Gap between trigger and popover
     let x = triggerRect.x
     let y = triggerRect.y
-    
+
     // Calculate position based on side
     switch (side) {
       case 'top':
@@ -234,7 +235,7 @@ export const useMorphingPopoverManager = () => {
         x = triggerRect.x + triggerRect.width + spacing
         break
     }
-    
+
     // Adjust for alignment
     if (side === 'top' || side === 'bottom') {
       switch (align) {
@@ -249,63 +250,63 @@ export const useMorphingPopoverManager = () => {
           break
       }
     }
-    
+
     return { x, y, side, align }
   }
-  
+
   const openPopover = async (popoverId: string, triggerElement?: HTMLElement) => {
     if (!triggerElement) {
       console.error('Trigger element is undefined for popover:', popoverId)
       return
     }
-    
+
     if (!(triggerElement instanceof HTMLElement)) {
       console.error('Trigger element is not a valid HTMLElement:', {
         element: triggerElement,
         nodeType: triggerElement?.nodeType,
         type: typeof triggerElement,
-        constructor: triggerElement?.constructor?.name
+        constructor: triggerElement?.constructor?.name,
       })
       return
     }
-    
+
     const popoverState = createPopover(popoverId)
-    
+
     try {
       // Ensure we have a proper element with valid dimensions
       const computedStyle = window.getComputedStyle(triggerElement)
       if (computedStyle.display === 'none' || computedStyle.visibility === 'hidden') {
         console.warn('MorphingPopover: Trigger element is not visible')
       }
-      
+
       const triggerRect = triggerElement.getBoundingClientRect()
-      
+
       if (!triggerRect || triggerRect.width === 0 || triggerRect.height === 0) {
         console.warn('MorphingPopover: Invalid trigger dimensions:', triggerRect)
         return
       }
-      
+
       popoverState.triggerRect = triggerRect
       popoverState.animationState = 'opening'
       popoverState.isOpen = true
-      
+
       // Update animation state after a brief delay
       setTimeout(() => {
         if (popoverState.isOpen) {
           popoverState.animationState = 'open'
         }
       }, 50)
-      
-    } catch (error) {
+    }
+    catch (error) {
       console.error('Failed to open popover:', error)
     }
   }
-  
+
   const closePopover = (popoverId: string) => {
     const popoverState = activePopovers.value.get(popoverId)
     if (popoverState && popoverState.isOpen) {
       popoverState.animationState = 'closing'
-      
+
       // Complete the close after animation
       setTimeout(() => {
         popoverState.isOpen = false
@@ -314,16 +315,16 @@ export const useMorphingPopoverManager = () => {
       }, 400) // Match animation duration
     }
   }
-  
+
   const isPopoverOpen = (popoverId: string): boolean => {
     const popoverState = activePopovers.value.get(popoverId)
     return popoverState?.isOpen || false
   }
-  
+
   const getPopoverState = (popoverId: string): LegacyPopoverState | null => {
     return activePopovers.value.get(popoverId) || null
   }
-  
+
   return {
     createPopover,
     openPopover,
@@ -331,7 +332,7 @@ export const useMorphingPopoverManager = () => {
     calculatePosition,
     isPopoverOpen,
     getPopoverState,
-    activePopovers: computed(() => activePopovers.value)
+    activePopovers: computed(() => activePopovers.value),
   }
 }
 

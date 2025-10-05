@@ -33,17 +33,20 @@
           {{ item.label || item.name || item.id }}
         </div>
       </slot>
-      
+
       <!-- Drag handle -->
       <div
         v-if="showHandle"
         class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity cursor-grab"
         @mousedown.stop="handleMouseDown($event, item, index)"
       >
-        <UIcon name="i-lucide-grip-vertical" class="w-4 h-4 text-gray-400" />
+        <UIcon
+          name="i-lucide-grip-vertical"
+          class="w-4 h-4 text-gray-400"
+        />
       </div>
     </Motion>
-    
+
     <!-- Drop zones -->
     <div
       v-for="(zone, index) in dropZones"
@@ -54,8 +57,14 @@
       @dragleave="handleZoneLeave"
       @drop="handleZoneDrop($event, index)"
     >
-      <div v-if="dragState.isDragging" class="text-center text-gray-500 dark:text-gray-400">
-        <UIcon name="i-lucide-plus" class="w-6 h-6 mx-auto mb-2" />
+      <div
+        v-if="dragState.isDragging"
+        class="text-center text-gray-500 dark:text-gray-400"
+      >
+        <UIcon
+          name="i-lucide-plus"
+          class="w-6 h-6 mx-auto mb-2"
+        />
         Drop here
       </div>
     </div>
@@ -100,7 +109,7 @@ const props = withDefaults(defineProps<DragAndDropProps>(), {
   itemClass: '',
   allowMultiSelect: false,
   snapToGrid: true,
-  animationDuration: 0.3
+  animationDuration: 0.3,
 })
 
 const emit = defineEmits<{
@@ -120,7 +129,7 @@ const dragState = reactive({
   draggedItem: null as DragItem | null,
   draggedIndex: -1,
   dropTarget: -1,
-  dropZone: -1
+  dropZone: -1,
 })
 
 // Drop zones for move/copy modes
@@ -133,24 +142,26 @@ const containerClasses = computed(() => {
   const baseClasses = [
     'drag-drop-container',
     'relative',
-    'min-h-32'
+    'min-h-32',
   ]
-  
+
   if (props.layout === 'grid') {
     baseClasses.push('grid', `grid-cols-${props.columns}`, `gap-${props.gap / 4}`)
-  } else if (props.layout === 'list') {
+  }
+  else if (props.layout === 'list') {
     baseClasses.push('space-y-2')
-  } else if (props.layout === 'masonry') {
+  }
+  else if (props.layout === 'masonry') {
     baseClasses.push('columns-2', 'md:columns-3', 'lg:columns-4', 'gap-4')
   }
-  
+
   return [baseClasses.join(' '), props.class].filter(Boolean).join(' ')
 })
 
 const itemTransition = computed(() => ({
   type: 'spring',
   bounce: 0.2,
-  duration: props.animationDuration
+  duration: props.animationDuration,
 }))
 
 const getItemClasses = (item: DragItem, index: number) => {
@@ -160,36 +171,36 @@ const getItemClasses = (item: DragItem, index: number) => {
     'relative',
     'cursor-pointer',
     'transition-all',
-    'duration-200'
+    'duration-200',
   ]
-  
+
   if (dragState.draggedItem?.id === item.id) {
     classes.push('opacity-50', 'scale-105', 'z-50')
   }
-  
+
   if (dragState.dropTarget === index) {
     classes.push('ring-2', 'ring-primary-500', 'ring-opacity-50')
   }
-  
+
   if (isSelected(item)) {
     classes.push('ring-2', 'ring-blue-500')
   }
-  
+
   if (props.disabled) {
     classes.push('cursor-not-allowed', 'opacity-50')
   }
-  
+
   return [classes.join(' '), props.itemClass].filter(Boolean).join(' ')
 }
 
 const getItemStyles = (item: DragItem, index: number) => {
   const styles: any = {}
-  
+
   if (props.layout === 'masonry') {
     styles.breakInside = 'avoid'
     styles.marginBottom = `${props.gap}px`
   }
-  
+
   return styles
 }
 
@@ -197,7 +208,7 @@ const getItemAnimation = (index: number) => {
   return {
     y: 0,
     scale: dragState.draggedIndex === index ? 1.05 : 1,
-    rotate: dragState.draggedIndex === index ? 2 : 0
+    rotate: dragState.draggedIndex === index ? 2 : 0,
   }
 }
 
@@ -214,13 +225,13 @@ const getDropZoneClasses = (index: number) => {
     'items-center',
     'justify-center',
     'transition-all',
-    'duration-200'
+    'duration-200',
   ]
-  
+
   if (dragState.dropZone === index) {
     classes.push('border-primary-500', 'bg-primary-50', 'dark:bg-primary-900/20')
   }
-  
+
   return classes.join(' ')
 }
 
@@ -230,14 +241,14 @@ const isSelected = (item: DragItem) => {
 
 const handleDragStart = (event: DragEvent, item: DragItem, index: number) => {
   if (props.disabled) return
-  
+
   dragState.isDragging = true
   dragState.draggedItem = item
   dragState.draggedIndex = index
-  
+
   event.dataTransfer!.effectAllowed = props.mode === 'copy' ? 'copy' : 'move'
   event.dataTransfer!.setData('text/plain', JSON.stringify(item))
-  
+
   emit('dragStart', item, index)
 }
 
@@ -245,25 +256,25 @@ const handleDragEnd = () => {
   const oldIndex = dragState.draggedIndex
   const newIndex = dragState.dropTarget
   const item = dragState.draggedItem
-  
+
   if (item && oldIndex !== -1 && newIndex !== -1 && oldIndex !== newIndex) {
     // Reorder items
     const newItems = [...sortedItems.value]
     const [movedItem] = newItems.splice(oldIndex, 1)
     newItems.splice(newIndex, 0, movedItem)
-    
+
     sortedItems.value = newItems
     emit('change', newItems)
     emit('dragEnd', item, oldIndex, newIndex)
   }
-  
+
   // Reset drag state
   Object.assign(dragState, {
     isDragging: false,
     draggedItem: null,
     draggedIndex: -1,
     dropTarget: -1,
-    dropZone: -1
+    dropZone: -1,
   })
 }
 
@@ -297,10 +308,10 @@ const handleZoneLeave = () => {
 
 const handleZoneDrop = (event: DragEvent, zoneIndex: number) => {
   event.preventDefault()
-  
+
   if (dragState.draggedItem) {
     emit('drop', dragState.draggedItem, zoneIndex)
-    
+
     if (props.mode === 'move') {
       // Remove item from list
       const newItems = sortedItems.value.filter(item => item.id !== dragState.draggedItem!.id)
@@ -308,7 +319,7 @@ const handleZoneDrop = (event: DragEvent, zoneIndex: number) => {
       emit('change', newItems)
     }
   }
-  
+
   handleDragEnd()
 }
 
@@ -327,13 +338,14 @@ const handleItemClick = (item: DragItem, index: number) => {
 
 const toggleSelection = (item: DragItem) => {
   const isCurrentlySelected = selectedItems.value.has(item.id)
-  
+
   if (isCurrentlySelected) {
     selectedItems.value.delete(item.id)
-  } else {
+  }
+  else {
     selectedItems.value.add(item.id)
   }
-  
+
   emit('select', item, !isCurrentlySelected)
 }
 
@@ -349,7 +361,7 @@ defineExpose({
     selectedItems.value.clear()
     props.items.forEach(item => selectedItems.value.add(item.id))
   },
-  getSelected: () => Array.from(selectedItems.value)
+  getSelected: () => Array.from(selectedItems.value),
 })
 </script>
 

@@ -1,7 +1,9 @@
 <template>
   <div class="p-4 space-y-4">
     <div>
-      <h3 class="text-lg font-medium mb-2">Basic Sliding Number</h3>
+      <h3 class="text-lg font-medium mb-2">
+        Basic Sliding Number
+      </h3>
       <MSlidingNumber :value="currentValue" />
     </div>
     <button

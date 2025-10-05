@@ -10,5 +10,5 @@ export {
   useMorphingPopover,
   useMorphingPopoverManager,
   // Legacy support
-  useMorphingPopoverManager as useMorphingOverlay
+  useMorphingPopoverManager as useMorphingOverlay,
 }

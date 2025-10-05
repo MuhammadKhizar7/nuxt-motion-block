@@ -6,17 +6,17 @@
     >
       <!-- Enhanced motion component with advanced animations -->
       <Motion
+        :id="`popover-content-${uniqueId}`"
         ref="contentRef"
         :layout-id="`popover-trigger-${uniqueId}`"
         :initial="computedInitialVariant"
         :animate="computedAnimateVariant"
         :exit="computedExitVariant"
-        :whileHover="computedHoverVariant"
-        :whileFocus="computedFocusVariant"
+        :while-hover="computedHoverVariant"
+        :while-focus="computedFocusVariant"
         :transition="enhancedTransition"
         :class="contentClasses"
         :style="enhancedContentStyles"
-        :id="`popover-content-${uniqueId}`"
         role="dialog"
         :aria-modal="true"
         :aria-labelledby="`popover-trigger-${uniqueId}`"
@@ -24,12 +24,12 @@
         v-bind="filteredAttrs"
       >
         <!-- Arrow element if enabled -->
-        <div 
+        <div
           v-if="showArrow"
           :class="arrowClasses"
           :style="arrowStyles"
         />
-        
+
         <!-- Content slot -->
         <div class="relative z-10">
           <slot />
@@ -62,11 +62,11 @@ const props = withDefaults(defineProps<Props>(), {
   arrowEnabled: true,
   collisionDetection: true,
   sticky: false,
-  boundary: 'viewport'
+  boundary: 'viewport',
 })
 
 defineOptions({
-  inheritAttrs: false
+  inheritAttrs: false,
 })
 
 const attrs = useAttrs()
@@ -88,7 +88,7 @@ const {
   variants,
   transition,
   positioningConfig,
-  closeOnClickOutside
+  closeOnClickOutside,
 } = context
 
 const contentRef = ref<HTMLElement>()
@@ -103,36 +103,36 @@ const calculateAdvancedPosition = (triggerElement: HTMLElement) => {
   const viewportHeight = window.innerHeight
   const estimatedWidth = 320
   const estimatedHeight = 200
-  
+
   let bestSide = props.side
-  let bestAlign = props.align
+  const bestAlign = props.align
   let x = triggerRect.left
   let y = triggerRect.bottom + props.sideOffset
-  
+
   // Collision detection logic
   if (props.collisionDetection) {
     const positions = [
       { side: 'bottom', space: viewportHeight - triggerRect.bottom },
       { side: 'top', space: triggerRect.top },
       { side: 'right', space: viewportWidth - triggerRect.right },
-      { side: 'left', space: triggerRect.left }
+      { side: 'left', space: triggerRect.left },
     ]
-    
+
     // Find the side with most space
     const requiredSpace = bestSide === 'top' || bestSide === 'bottom' ? estimatedHeight : estimatedWidth
     const currentSpace = positions.find(p => p.side === bestSide)?.space || 0
-    
+
     if (currentSpace < requiredSpace + props.sideOffset) {
       const alternativeSide = positions
         .filter(p => p.space >= requiredSpace + props.sideOffset)
         .sort((a, b) => b.space - a.space)[0]
-      
+
       if (alternativeSide) {
         bestSide = alternativeSide.side as typeof props.side
       }
     }
   }
-  
+
   // Calculate position based on chosen side
   switch (bestSide) {
     case 'top':
@@ -150,7 +150,7 @@ const calculateAdvancedPosition = (triggerElement: HTMLElement) => {
       y = triggerRect.top
       break
   }
-  
+
   // Alignment adjustments
   if (bestSide === 'top' || bestSide === 'bottom') {
     switch (bestAlign) {
@@ -165,18 +165,18 @@ const calculateAdvancedPosition = (triggerElement: HTMLElement) => {
         break
     }
   }
-  
+
   // Update current positioning for arrow
   currentSide.value = bestSide
   currentAlign.value = bestAlign
-  
+
   return { x, y, side: bestSide, align: bestAlign }
 }
 
 // Enhanced content styles with improved positioning
 const enhancedContentStyles = computed(() => {
   if (!isOpen.value) return {}
-  
+
   const triggerElement = getTriggerElement()
   if (!triggerElement) {
     return {
@@ -184,12 +184,12 @@ const enhancedContentStyles = computed(() => {
       top: '50%',
       transform: 'translate(-50%, -50%)',
       maxWidth: '90vw',
-      maxHeight: '90vh'
+      maxHeight: '90vh',
     }
   }
-  
+
   const position = calculateAdvancedPosition(triggerElement)
-  
+
   let transformOrigin = 'center'
   switch (position.side) {
     case 'top': transformOrigin = 'bottom center'; break
@@ -197,7 +197,7 @@ const enhancedContentStyles = computed(() => {
     case 'left': transformOrigin = 'right center'; break
     case 'right': transformOrigin = 'left center'; break
   }
-  
+
   // Transform adjustment based on align
   let transform = ''
   if (position.side === 'top' || position.side === 'bottom') {
@@ -207,7 +207,7 @@ const enhancedContentStyles = computed(() => {
       case 'end': transform = 'translateX(-100%)'; break
     }
   }
-  
+
   return {
     left: `${position.x}px`,
     top: `${position.y}px`,
@@ -215,7 +215,7 @@ const enhancedContentStyles = computed(() => {
     transformOrigin,
     maxWidth: '90vw',
     maxHeight: '90vh',
-    zIndex: 50
+    zIndex: 50,
   }
 })
 
@@ -227,9 +227,9 @@ const arrowStyles = computed(() => {
     width: `${size * 2}px`,
     height: `${size * 2}px`,
     transform: 'rotate(45deg)',
-    zIndex: -1
+    zIndex: -1,
   }
-  
+
   switch (currentSide.value) {
     case 'top':
       styles.bottom = `-${size}px`
@@ -252,14 +252,14 @@ const arrowStyles = computed(() => {
       styles.transform += ' translateY(-50%)'
       break
   }
-  
+
   return styles
 })
 
 const arrowClasses = computed(() => {
   return [
     'bg-white dark:bg-zinc-700',
-    'border border-zinc-950/10 dark:border-zinc-50/10'
+    'border border-zinc-950/10 dark:border-zinc-50/10',
   ].join(' ')
 })
 
@@ -268,18 +268,19 @@ const computedInitialVariant = computed(() => {
   const baseVariant = variants.value?.initial || {
     opacity: 0,
     scale: 0.8,
-    y: currentSide.value === 'top' ? 10 : -10
+    y: currentSide.value === 'top' ? 10 : -10,
   }
-  
+
   // Add morphing path effects
   if (currentSide.value === 'bottom') {
     baseVariant.y = -20
     baseVariant.rotateX = -15
-  } else if (currentSide.value === 'top') {
+  }
+  else if (currentSide.value === 'top') {
     baseVariant.y = 20
     baseVariant.rotateX = 15
   }
-  
+
   return baseVariant
 })
 
@@ -288,7 +289,7 @@ const computedAnimateVariant = computed(() => {
     opacity: 1,
     scale: 1,
     y: 0,
-    rotateX: 0
+    rotateX: 0,
   }
 })
 
@@ -296,20 +297,20 @@ const computedExitVariant = computed(() => {
   return variants.value?.exit || {
     opacity: 0,
     scale: 0.8,
-    y: currentSide.value === 'top' ? 10 : -10
+    y: currentSide.value === 'top' ? 10 : -10,
   }
 })
 
 const computedHoverVariant = computed(() => {
   return variants.value?.hover || {
     scale: 1.02,
-    boxShadow: '0 10px 25px rgba(0, 0, 0, 0.15)'
+    boxShadow: '0 10px 25px rgba(0, 0, 0, 0.15)',
   }
 })
 
 const computedFocusVariant = computed(() => {
   return variants.value?.focus || {
-    boxShadow: '0 0 0 2px rgba(59, 130, 246, 0.5)'
+    boxShadow: '0 0 0 2px rgba(59, 130, 246, 0.5)',
   }
 })
 
@@ -318,14 +319,14 @@ const enhancedTransition = computed(() => {
   const baseTransition = transition.value || {
     type: 'spring',
     bounce: 0.1,
-    duration: 0.4
+    duration: 0.4,
   }
-  
+
   // Add stagger for morphing elements
   if (showArrow.value) {
     baseTransition.staggerChildren = 0.05
   }
-  
+
   return baseTransition
 })
 
@@ -333,17 +334,17 @@ const enhancedTransition = computed(() => {
 const getTriggerElement = () => {
   const triggerSelector = `[data-layout-id="popover-trigger-${uniqueId}"]`
   let triggerElement = document.querySelector(triggerSelector) as HTMLElement
-  
+
   if (!triggerElement) {
     const fallbackSelector = `[aria-controls="popover-content-${uniqueId}"]`
     triggerElement = document.querySelector(fallbackSelector) as HTMLElement
   }
-  
+
   if (!triggerElement) {
     const buttonSelector = `button[data-popover="${uniqueId}"]`
     triggerElement = document.querySelector(buttonSelector) as HTMLElement
   }
-  
+
   return triggerElement
 }
 
@@ -355,23 +356,24 @@ const contentClasses = computed(() => {
     'dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-50',
     'backdrop-blur-sm',
     'outline-none focus:outline-none',
-    'transition-all duration-200'
+    'transition-all duration-200',
   ]
-  
+
   // Add size classes based on content
   baseClasses.push('min-w-[200px] max-w-[400px] p-4')
-  
+
   // Add animation classes
   baseClasses.push('will-change-transform will-change-opacity')
-  
+
   if (attrs.class) {
     if (typeof attrs.class === 'string') {
       baseClasses.push(attrs.class)
-    } else if (Array.isArray(attrs.class)) {
+    }
+    else if (Array.isArray(attrs.class)) {
       baseClasses.push(...attrs.class)
     }
   }
-  
+
   return baseClasses.join(' ')
 })
 
@@ -388,13 +390,14 @@ if (closeOnClickOutside) {
 watch(isOpen, async (open) => {
   if (open) {
     await nextTick()
-    
+
     const element = contentRef.value?.$el || contentRef.value
     if (element && typeof element.focus === 'function') {
       element.focus()
-    } else {
+    }
+    else {
       const focusableElement = element?.querySelector(
-        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
       )
       if (focusableElement && typeof focusableElement.focus === 'function') {
         focusableElement.focus()

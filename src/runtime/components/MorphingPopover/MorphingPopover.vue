@@ -1,6 +1,6 @@
 <template>
   <div class="relative inline-block">
-    <slot 
+    <slot
       :is-open="isOpen"
       :open="open"
       :close="close"
@@ -17,7 +17,7 @@ import { useEventListener, onClickOutside } from '@vueuse/core'
 // Props interface matching design documentation
 interface Props {
   defaultOpen?: boolean
-  open?: boolean  // controlled state
+  open?: boolean // controlled state
   transition?: {
     type?: string
     bounce?: number
@@ -36,7 +36,7 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   defaultOpen: false,
   closeOnClickOutside: true,
-  closeOnEscape: true
+  closeOnEscape: true,
 })
 
 const emit = defineEmits<{
@@ -51,7 +51,7 @@ const popover = useMorphingPopover({
   transition: props.transition,
   variants: props.variants,
   closeOnClickOutside: props.closeOnClickOutside,
-  closeOnEscape: props.closeOnEscape
+  closeOnEscape: props.closeOnEscape,
 })
 
 // Extract reactive properties
@@ -67,7 +67,7 @@ const popoverContext = {
   variants,
   transition,
   closeOnClickOutside: props.closeOnClickOutside,
-  closeOnEscape: props.closeOnEscape
+  closeOnEscape: props.closeOnEscape,
 }
 
 provide('morphingPopoverContext', popoverContext)

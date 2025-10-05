@@ -31,7 +31,7 @@ const props = withDefaults(defineProps<MagneticProps>(), {
   intensity: 0.6,
   range: 100,
   actionArea: 'self',
-  springOptions: () => ({ stiffness: 26.7, damping: 4.1, mass: 0.2 })
+  springOptions: () => ({ stiffness: 26.7, damping: 4.1, mass: 0.2 }),
 })
 
 // Refs
@@ -49,18 +49,18 @@ const springY = useSpring(y, props.springOptions)
 // Get the actual DOM element from the Motion component
 const getDomElement = () => {
   if (!magneticRef.value) return null
-  
+
   // Try to get the DOM element from the Motion component
   // This might vary depending on the motion-v version
   if ('$el' in magneticRef.value) {
     return (magneticRef.value as any).$el as HTMLElement
   }
-  
+
   // Fallback: try to get the first child element
   if (magneticRef.value && 'firstElementChild' in magneticRef.value) {
     return magneticRef.value.firstElementChild as HTMLElement
   }
-  
+
   return null
 }
 
@@ -81,7 +81,8 @@ const calculateDistance = (e: MouseEvent) => {
     const scale = 1 - absoluteDistance / props.range
     x.set(distanceX * props.intensity * scale)
     y.set(distanceY * props.intensity * scale)
-  } else {
+  }
+  else {
     x.set(0)
     y.set(0)
   }
@@ -132,7 +133,8 @@ onMounted(() => {
       parent.removeEventListener('mouseenter', handleParentEnter)
       parent.removeEventListener('mouseleave', handleParentLeave)
     })
-  } else if (props.actionArea === 'global') {
+  }
+  else if (props.actionArea === 'global') {
     isHovered.value = true
   }
 })
@@ -146,7 +148,8 @@ onUnmounted(() => {
 watch(() => props.actionArea, (newValue) => {
   if (newValue === 'global') {
     isHovered.value = true
-  } else {
+  }
+  else {
     isHovered.value = false
     x.set(0)
     y.set(0)

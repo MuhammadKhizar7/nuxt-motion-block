@@ -1,5 +1,5 @@
 <template>
-  <div 
+  <div
     ref="containerRef"
     :class="containerClasses"
     @mouseenter="startGlitch"
@@ -14,7 +14,7 @@
     >
       {{ text }}
     </Motion>
-    
+
     <!-- Glitch layers -->
     <Motion
       v-for="(layer, index) in glitchLayers"
@@ -27,9 +27,9 @@
     >
       {{ text }}
     </Motion>
-    
+
     <!-- Scan lines -->
-    <div 
+    <div
       v-if="showScanLines && isGlitching"
       class="absolute inset-0 pointer-events-none"
     >
@@ -42,7 +42,7 @@
           duration: 0.1,
           delay: Math.random() * 0.5,
           repeat: Infinity,
-          repeatDelay: Math.random() * 1
+          repeatDelay: Math.random() * 1,
         }"
         class="absolute bg-white/20 h-px left-0 right-0"
         :style="{ top: `${line}%` }"
@@ -82,7 +82,7 @@ const props = withDefaults(defineProps<TextGlitchProps>(), {
   colors: () => ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff'],
   showScanLines: true,
   class: '',
-  autoStart: false
+  autoStart: false,
 })
 
 const emit = defineEmits(['glitchStart', 'glitchEnd'])
@@ -99,28 +99,28 @@ const intensityConfig = computed(() => {
       layers: 2,
       maxOffset: 2,
       flickerChance: 0.1,
-      scanLineCount: 3
+      scanLineCount: 3,
     },
     medium: {
       layers: 3,
       maxOffset: 5,
       flickerChance: 0.2,
-      scanLineCount: 5
+      scanLineCount: 5,
     },
     high: {
       layers: 4,
       maxOffset: 8,
       flickerChance: 0.3,
-      scanLineCount: 8
+      scanLineCount: 8,
     },
     extreme: {
       layers: 6,
       maxOffset: 15,
       flickerChance: 0.5,
-      scanLineCount: 12
-    }
+      scanLineCount: 12,
+    },
   }
-  
+
   // Handle numeric intensity (convert to string equivalent)
   if (typeof props.intensity === 'number') {
     const numericIntensity = Math.max(1, Math.min(10, props.intensity))
@@ -129,7 +129,7 @@ const intensityConfig = computed(() => {
     if (numericIntensity <= 7) return configs.high
     return configs.extreme
   }
-  
+
   // Handle string intensity
   return configs[props.intensity] || configs.medium
 })
@@ -139,8 +139,8 @@ const glitchLayers = computed(() => {
 })
 
 const scanLines = computed(() => {
-  return Array.from({ length: intensityConfig.value.scanLineCount }, () => 
-    Math.random() * 100
+  return Array.from({ length: intensityConfig.value.scanLineCount }, () =>
+    Math.random() * 100,
   )
 })
 
@@ -150,7 +150,7 @@ const containerClasses = computed(() => {
     'relative',
     'inline-block',
     'select-none',
-    props.class
+    props.class,
   ].filter(Boolean).join(' ')
 })
 
@@ -158,7 +158,7 @@ const textClasses = computed(() => {
   return [
     'text-glitch-main',
     'relative',
-    'z-10'
+    'z-10',
   ].join(' ')
 })
 
@@ -170,7 +170,7 @@ const getLayerClasses = (index: number) => {
     'left-0',
     'w-full',
     'h-full',
-    'pointer-events-none'
+    'pointer-events-none',
   ].join(' ')
 }
 
@@ -179,7 +179,7 @@ const getLayerStyles = (index: number) => {
   return {
     color,
     zIndex: 5 - index,
-    mixBlendMode: 'multiply'
+    mixBlendMode: 'multiply',
   }
 }
 
@@ -187,7 +187,7 @@ const mainTextVariant = computed(() => {
   if (!isGlitching.value) {
     return { opacity: 1, x: 0, y: 0 }
   }
-  
+
   return {
     opacity: [1, 0.8, 1, 0.9, 1],
     x: [
@@ -195,15 +195,15 @@ const mainTextVariant = computed(() => {
       Math.random() * intensityConfig.value.maxOffset - intensityConfig.value.maxOffset / 2,
       0,
       Math.random() * intensityConfig.value.maxOffset - intensityConfig.value.maxOffset / 2,
-      0
+      0,
     ],
     y: [
       0,
       Math.random() * 2 - 1,
       0,
       Math.random() * 2 - 1,
-      0
-    ]
+      0,
+    ],
   }
 })
 
@@ -211,13 +211,13 @@ const mainTransition = computed(() => {
   if (!isGlitching.value) {
     return { duration: 0.3 }
   }
-  
+
   const speedMultiplier = 500 / (props.speed || 500) // Normalize speed
   return {
     duration: 0.1 * speedMultiplier,
     repeat: Infinity,
     repeatType: 'reverse',
-    ease: 'linear'
+    ease: 'linear',
   }
 })
 
@@ -225,23 +225,23 @@ const getLayerVariant = (index: number) => {
   if (!isGlitching.value) {
     return { opacity: 0, x: 0, y: 0 }
   }
-  
+
   const maxOffset = intensityConfig.value.maxOffset
   const flickerChance = intensityConfig.value.flickerChance
-  
+
   return {
     opacity: Math.random() < flickerChance ? [0, 0.7, 0] : [0.3, 0.6, 0.3],
     x: [
       Math.random() * maxOffset - maxOffset / 2,
       Math.random() * maxOffset - maxOffset / 2,
-      Math.random() * maxOffset - maxOffset / 2
+      Math.random() * maxOffset - maxOffset / 2,
     ],
     y: [
       Math.random() * 2 - 1,
       Math.random() * 2 - 1,
-      Math.random() * 2 - 1
+      Math.random() * 2 - 1,
     ],
-    scaleX: [0.98, 1.02, 0.99]
+    scaleX: [0.98, 1.02, 0.99],
   }
 }
 
@@ -251,7 +251,7 @@ const getLayerTransition = (index: number) => {
     duration: (0.1 + (index * 0.05)) * speedMultiplier,
     repeat: Infinity,
     ease: 'linear',
-    delay: index * 0.02
+    delay: index * 0.02,
   }
 }
 
@@ -272,7 +272,7 @@ const stopGlitch = () => {
 const triggerAutoGlitch = () => {
   isGlitching.value = true
   emit('glitchStart')
-  
+
   setTimeout(() => {
     isGlitching.value = false
     emit('glitchEnd')
@@ -285,11 +285,12 @@ watch([isVisible, () => props.trigger], ([visible, trigger]) => {
     if (glitchInterval.value) {
       clearInterval(glitchInterval.value)
     }
-    
+
     glitchInterval.value = setInterval(() => {
       triggerAutoGlitch()
     }, props.interval * 1000)
-  } else {
+  }
+  else {
     if (glitchInterval.value) {
       clearInterval(glitchInterval.value)
       glitchInterval.value = null
@@ -322,7 +323,7 @@ onUnmounted(() => {
 defineExpose({
   trigger: triggerAutoGlitch,
   start: () => { isGlitching.value = true },
-  stop: () => { isGlitching.value = false }
+  stop: () => { isGlitching.value = false },
 })
 </script>
 

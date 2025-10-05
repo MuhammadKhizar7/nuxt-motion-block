@@ -5,7 +5,7 @@
       :variants="{
         initial: { scale: 0.3, opacity: 0 },
         animate: { scale: 1, opacity: 1 },
-        exit: { scale: 0.3, opacity: 0 }
+        exit: { scale: 0.3, opacity: 0 },
       }"
       :spring-config="{ bounce: 0.001 }"
       :transition="{ ease: 'easeInOut', duration: 0.15 }"
@@ -14,7 +14,7 @@
       <motion.div
         :animate="{
           width: isHovering ? 80 : 16,
-          height: isHovering ? 32 : 16
+          height: isHovering ? 32 : 16,
         }"
         class="flex items-center justify-center rounded-[24px] bg-neutral-500/40 backdrop-blur-md dark:bg-neutral-300/40"
       >

@@ -16,7 +16,7 @@ const props = withDefaults(defineProps<{
   containerRef?: Ref<HTMLElement | null>
 }>(), {
   springOptions: undefined,
-  containerRef: undefined
+  containerRef: undefined,
 })
 
 const DEFAULT_SPRING_OPTIONS: SpringOptions = {
@@ -39,17 +39,17 @@ const scaleX = useSpring(scrollYProgress, {
 const scaleXValue = ref(scaleX.get())
 
 onMounted(() => {
-  useMotionValueEvent(scaleX, "change", (latest) => {
+  useMotionValueEvent(scaleX, 'change', (latest) => {
     scaleXValue.value = latest as number
   })
 })
 
 const progressClasses = computed(() => [
   'inset-x-0 top-0 h-1 origin-left',
-  props.class
+  props.class,
 ])
 
 const progressStyle = computed(() => ({
-  scaleX: scaleXValue.value
+  scaleX: scaleXValue.value,
 }))
 </script>

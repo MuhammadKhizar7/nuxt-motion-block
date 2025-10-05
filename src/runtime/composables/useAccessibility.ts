@@ -9,30 +9,31 @@ import { ref, onMounted } from 'vue'
  */
 export function useAccessibility() {
   const prefersReducedMotion = ref(false)
-  
+
   onMounted(() => {
     // Check if user prefers reduced motion
     if (typeof window !== 'undefined' && window.matchMedia) {
       const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
       prefersReducedMotion.value = mediaQuery.matches
-      
+
       // Listen for changes
       const listener = (e: MediaQueryListEvent) => {
         prefersReducedMotion.value = e.matches
       }
-      
+
       // Use addEventListener if available, otherwise use deprecated addListener
       if (mediaQuery.addEventListener) {
         mediaQuery.addEventListener('change', listener)
-      } else {
+      }
+      else {
         // @ts-ignore - fallback for older browsers
         mediaQuery.addListener(listener)
       }
     }
   })
-  
+
   return {
-    prefersReducedMotion
+    prefersReducedMotion,
   }
 }
 
@@ -95,8 +96,8 @@ export function useKeyboardNavigation() {
       }
     }
   }
-  
+
   return {
-    createArrowNavigation
+    createArrowNavigation,
   }
 }

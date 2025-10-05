@@ -1,18 +1,18 @@
 <script setup>
-import { ref, onMounted } from "vue"
-import { Motion } from "motion-v"
+import { ref, onMounted } from 'vue'
+import { Motion } from 'motion-v'
 
 const props = defineProps({
-  count: { type: Number, default: 80 },         // number of dots
+  count: { type: Number, default: 80 }, // number of dots
   width: { type: Number, default: 600 },
   height: { type: Number, default: 600 },
-  radius: { type: Number, default: 12 },        // collision radius
-  repel: { type: Boolean, default: true },      // mouse repulsion
-  attract: { type: Boolean, default: false },   // mouse attraction
+  radius: { type: Number, default: 12 }, // collision radius
+  repel: { type: Boolean, default: true }, // mouse repulsion
+  attract: { type: Boolean, default: false }, // mouse attraction
   influenceRadius: { type: Number, default: 250 }, // px distance of mouse effect
-  maxForce: { type: Number, default: 3 },       // strength of mouse effect
-  speed: { type: Number, default: 1 },          // velocity multiplier
-  dotClass: { type: String, default: "fill-neutral-200" }, // style for dots
+  maxForce: { type: Number, default: 3 }, // strength of mouse effect
+  speed: { type: Number, default: 1 }, // velocity multiplier
+  dotClass: { type: String, default: 'fill-neutral-200' }, // style for dots
 })
 
 // --- dots state ---
@@ -20,7 +20,7 @@ const dots = ref(
   Array.from({ length: props.count }, () => ({
     x: Math.random() * props.width,
     y: Math.random() * props.height,
-  }))
+  })),
 )
 
 // --- velocities ---
@@ -74,7 +74,8 @@ onMounted(() => {
           if (props.repel) {
             vx += (dx / dist) * strength
             vy += (dy / dist) * strength
-          } else if (props.attract) {
+          }
+          else if (props.attract) {
             vx -= (dx / dist) * strength
             vy -= (dy / dist) * strength
           }
@@ -129,7 +130,11 @@ onMounted(() => {
     @mousemove="onMouseMove"
     @mouseleave="onMouseLeave"
   >
-    <svg :width="width" :height="height" class="overflow-visible">
+    <svg
+      :width="width"
+      :height="height"
+      class="overflow-visible"
+    >
       <Motion
         v-for="(dot, i) in dots"
         :key="i"
@@ -139,12 +144,14 @@ onMounted(() => {
           type: 'spring',
           stiffness: 120,
           damping: 15,
-          mass: 0.5
+          mass: 0.5,
         }"
       >
-        <circle :r="6" :class="dotClass" />
+        <circle
+          :r="6"
+          :class="dotClass"
+        />
       </Motion>
     </svg>
   </div>
 </template>
-

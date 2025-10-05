@@ -7,11 +7,11 @@ export default defineNuxtConfig({
     '@nuxt/content',
     'nuxt-og-image',
     'nuxt-llms',
-    '../src/module'
+    '../src/module',
   ],
 
   devtools: {
-    enabled: true
+    enabled: true,
   },
 
   css: ['~/assets/css/main.css'],
@@ -21,10 +21,10 @@ export default defineNuxtConfig({
     build: {
       markdown: {
         toc: {
-          searchDepth: 1
-        }
-      }
-    }
+          searchDepth: 1,
+        },
+      },
+    },
   },
 
   compatibilityDate: '2024-07-11',
@@ -32,24 +32,24 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       routes: [
-        '/'
+        '/',
       ],
       crawlLinks: true,
-      autoSubfolderIndex: false
-    }
+      autoSubfolderIndex: false,
+    },
   },
 
   eslint: {
     config: {
       stylistic: {
         commaDangle: 'never',
-        braceStyle: '1tbs'
-      }
-    }
+        braceStyle: '1tbs',
+      },
+    },
   },
 
   icon: {
-    provider: 'iconify'
+    provider: 'iconify',
   },
 
   llms: {
@@ -58,27 +58,27 @@ export default defineNuxtConfig({
     description: 'A streamlined UI library that extends Nuxt UI with motion capabilities powered by motion-v.',
     full: {
       title: 'Nuxt Motion Block - Full Documentation',
-      description: 'This is the full documentation for Nuxt Motion Block, a streamlined UI library that extends Nuxt UI with motion capabilities powered by motion-v.'
+      description: 'This is the full documentation for Nuxt Motion Block, a streamlined UI library that extends Nuxt UI with motion capabilities powered by motion-v.',
     },
     sections: [
       {
         title: 'Getting Started',
         contentCollection: 'docs',
         contentFilters: [
-          { field: 'path', operator: 'LIKE', value: '/getting-started%' }
-        ]
+          { field: 'path', operator: 'LIKE', value: '/getting-started%' },
+        ],
       },
       {
         title: 'Components',
         contentCollection: 'docs',
         contentFilters: [
-          { field: 'path', operator: 'LIKE', value: '/components%' }
-        ]
-      }
-    ]
+          { field: 'path', operator: 'LIKE', value: '/components%' },
+        ],
+      },
+    ],
   },
 
   motionBlock: {
-    prefix: 'M'
-  }
+    prefix: 'M',
+  },
 })

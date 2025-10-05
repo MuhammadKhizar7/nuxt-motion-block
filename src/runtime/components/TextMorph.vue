@@ -5,7 +5,10 @@
     :aria-label="text"
     :style="style"
   >
-    <AnimatePresence mode="popLayout" :initial="false">
+    <AnimatePresence
+      mode="popLayout"
+      :initial="false"
+    >
       <Motion
         v-for="character in characters"
         :key="character.id"
@@ -42,7 +45,7 @@ const props = withDefaults(defineProps<TextMorphProps>(), {
   className: '',
   style: () => ({}),
   variants: () => ({}),
-  transition: () => ({})
+  transition: () => ({}),
 })
 
 // Use a counter to ensure unique IDs across renders
@@ -51,10 +54,10 @@ const renderCount = ref(0)
 // Generate unique characters with IDs
 const characters = computed(() => {
   if (!props.text) return []
-  
+
   const charCounts: Record<string, number> = {}
   renderCount.value++ // Increment on each render to force new animations
-  
+
   return props.text.split('').map((char, index) => {
     const lowerChar = char.toLowerCase()
     charCounts[lowerChar] = (charCounts[lowerChar] || 0) + 1
@@ -68,26 +71,26 @@ const characters = computed(() => {
 
 // Default variants with more pronounced morphing effect
 const defaultVariants = {
-  initial: { 
-    opacity: 0, 
-    y: 20, 
+  initial: {
+    opacity: 0,
+    y: 20,
     scale: 0.8,
     rotateX: -45,
-    filter: 'blur(4px)'
+    filter: 'blur(4px)',
   },
-  animate: { 
-    opacity: 1, 
-    y: 0, 
+  animate: {
+    opacity: 1,
+    y: 0,
     scale: 1,
     rotateX: 0,
-    filter: 'blur(0px)'
+    filter: 'blur(0px)',
   },
-  exit: { 
-    opacity: 0, 
-    y: -20, 
+  exit: {
+    opacity: 0,
+    y: -20,
     scale: 1.2,
     rotateX: 45,
-    filter: 'blur(4px)'
+    filter: 'blur(4px)',
   },
 }
 
@@ -112,7 +115,7 @@ const computedVariants = computed(() => {
 const computedTransition = computed(() => {
   return {
     ...defaultTransition,
-    ...props.transition
+    ...props.transition,
   }
 })
 

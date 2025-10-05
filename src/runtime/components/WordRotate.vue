@@ -11,7 +11,7 @@
       :variants="variants[animationStyle]"
       :transition="{ duration: 0.5 }"
       :style="{
-        perspective: animationStyle === 'flip' ? '1000px' : undefined
+        perspective: animationStyle === 'flip' ? '1000px' : undefined,
       }"
       :class="['inline-block overflow-hidden', props.class]"
     >
@@ -48,7 +48,7 @@ const props = withDefaults(defineProps<WordRotateProps>(), {
   pauseDuration: 300,
   startOnView: true,
   once: false,
-  inViewMargin: '0px'
+  inViewMargin: '0px',
 })
 
 const containerRef = ref<HTMLElement | null>(null)
@@ -62,22 +62,22 @@ let timeoutId: ReturnType<typeof setTimeout> | null = null
 
 // Animation variants
 const variants = {
-  fade: {
+  'fade': {
     initial: { opacity: 0 },
     animate: {
       opacity: 1,
       transition: {
         duration: 0.4,
-        ease: 'easeInOut' // Use a valid easing string
-      }
+        ease: 'easeInOut', // Use a valid easing string
+      },
     },
     exit: {
       opacity: 0,
       transition: {
         duration: 0.3,
-        ease: 'easeOut' // Use a valid easing string
-      }
-    }
+        ease: 'easeOut', // Use a valid easing string
+      },
+    },
   },
   'slide-up': {
     initial: { opacity: 0, y: 24 },
@@ -88,17 +88,17 @@ const variants = {
         type: 'spring',
         stiffness: 300,
         damping: 25,
-        mass: 0.8
-      }
+        mass: 0.8,
+      },
     },
     exit: {
       opacity: 0,
       y: -24,
       transition: {
         duration: 0.25,
-        ease: [0.4, 0.0, 1, 1]
-      }
-    }
+        ease: [0.4, 0.0, 1, 1],
+      },
+    },
   },
   'slide-down': {
     initial: { opacity: 0, y: -24 },
@@ -109,19 +109,19 @@ const variants = {
         type: 'spring',
         stiffness: 300,
         damping: 25,
-        mass: 0.8
-      }
+        mass: 0.8,
+      },
     },
     exit: {
       opacity: 0,
       y: 24,
       transition: {
         duration: 0.25,
-        ease: [0.4, 0.0, 1, 1]
-      }
-    }
+        ease: [0.4, 0.0, 1, 1],
+      },
+    },
   },
-  scale: {
+  'scale': {
     initial: { opacity: 0, scale: 0.8 },
     animate: {
       opacity: 1,
@@ -130,19 +130,19 @@ const variants = {
         type: 'spring',
         stiffness: 400,
         damping: 30,
-        mass: 0.6
-      }
+        mass: 0.6,
+      },
     },
     exit: {
       opacity: 0,
       scale: 0.9,
       transition: {
         duration: 0.2,
-        ease: [0.4, 0.0, 1, 1]
-      }
-    }
+        ease: [0.4, 0.0, 1, 1],
+      },
+    },
   },
-  flip: {
+  'flip': {
     initial: { opacity: 0, rotateX: 90 },
     animate: {
       opacity: 1,
@@ -151,18 +151,18 @@ const variants = {
         type: 'spring',
         stiffness: 200,
         damping: 20,
-        mass: 1
-      }
+        mass: 1,
+      },
     },
     exit: {
       opacity: 0,
       rotateX: -90,
       transition: {
         duration: 0.3,
-        ease: [0.4, 0.0, 1, 1]
-      }
-    }
-  }
+        ease: [0.4, 0.0, 1, 1],
+      },
+    },
+  },
 }
 
 // Determine if we should start animation
@@ -173,17 +173,17 @@ const shouldStart = computed(() => {
 // Start the animation
 function startAnimation() {
   if (!shouldStart.value) return
-  
+
   hasAnimated.value = true
-  
+
   intervalId = setInterval(() => {
     show.value = false
-    
+
     timeoutId = setTimeout(() => {
-      currentWord.value = props.loop 
+      currentWord.value = props.loop
         ? (currentWord.value + 1) % props.words.length
         : Math.min(currentWord.value + 1, props.words.length - 1)
-      
+
       show.value = true
     }, props.pauseDuration)
   }, props.duration + props.pauseDuration)

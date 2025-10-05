@@ -28,13 +28,13 @@ const DigitGlyph = defineComponent({
   name: 'DigitGlyph',
   props: {
     mv: { type: Object as () => ReturnType<typeof motionValue>, required: true }, // animated digit (0..9)
-    number: { type: Number, required: true },                                     // this glyph (0..9)
-    height: { type: Number, required: true },                                     // measured per-place height
+    number: { type: Number, required: true }, // this glyph (0..9)
+    height: { type: Number, required: true }, // measured per-place height
   },
   setup(p) {
     /** make height reactive to useTransform by mirroring it in a MotionValue */
     const hMV = motionValue(p.height)
-    watch(() => p.height, (nv) => hMV.set(nv))
+    watch(() => p.height, nv => hMV.set(nv))
 
     /** y depends on BOTH: animated digit value AND measured height */
     const y = useTransform([p.mv, hMV], ([latest, h]) => {
@@ -55,7 +55,7 @@ const DigitGlyph = defineComponent({
           transition: TRANSITION,
           class: 'absolute inset-0 flex items-center justify-center',
         },
-        () => p.number.toString()
+        () => p.number.toString(),
       )
   },
 })
@@ -74,7 +74,7 @@ const Digit = defineComponent({
     // animate the digitValue with spring
     const raw = motionValue(digitValue.value)
     const spring = useSpring(raw, TRANSITION)
-    watch(digitValue, (nv) => raw.set(nv))
+    watch(digitValue, nv => raw.set(nv))
 
     // measure height once per place using a ghost '0'
     const ghostRef = ref<HTMLElement | null>(null)
@@ -101,11 +101,11 @@ const Digit = defineComponent({
                 'div',
                 { class: 'absolute inset-0' },
                 Array.from({ length: 10 }, (_, i) =>
-                  h(DigitGlyph, { mv: spring, number: i, height: height.value, key: i })
-                )
+                  h(DigitGlyph, { mv: spring, number: i, height: height.value, key: i }),
+                ),
               )
             : null,
-        ]
+        ],
       )
   },
 })
@@ -122,7 +122,7 @@ const formatted = computed(() => {
 const integerPart = computed(() => formatted.value.split('.')[0])
 const decimalPart = computed(() => formatted.value.split('.')[1] ?? '')
 
-const integerValue = computed(() => parseInt(integerPart.value || '0', 10))
+const integerValue = computed(() => Number.parseInt(integerPart.value || '0', 10))
 
 const paddedInteger = computed(() => {
   const s = integerPart.value
@@ -132,12 +132,12 @@ const paddedInteger = computed(() => {
 
 const integerDigits = computed(() => paddedInteger.value.split(''))
 const integerPlaces = computed(() =>
-  integerDigits.value.map((_, i) => Math.pow(10, integerDigits.value.length - i - 1))
+  integerDigits.value.map((_, i) => Math.pow(10, integerDigits.value.length - i - 1)),
 )
 
 const decimalDigits = computed(() => decimalPart.value.split(''))
 const decimalPlaces = computed(() =>
-  decimalDigits.value.map((_, i) => Math.pow(10, decimalDigits.value.length - i - 1))
+  decimalDigits.value.map((_, i) => Math.pow(10, decimalDigits.value.length - i - 1)),
 )
 </script>
 
@@ -165,4 +165,3 @@ const decimalPlaces = computed(() =>
     </template>
   </div>
 </template>
-

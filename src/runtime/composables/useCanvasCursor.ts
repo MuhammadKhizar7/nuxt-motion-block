@@ -1,4 +1,3 @@
-
 // @ts-nocheck
 import { onMounted, onUnmounted, type Ref } from 'vue'
 
@@ -16,7 +15,7 @@ export const useCanvasCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { co
       trails: 20,
       size: 50,
       dampening: 0.25,
-      tension: 0.98
+      tension: 0.98,
     }
 
     pos = {}
@@ -36,7 +35,7 @@ export const useCanvasCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { co
       update: function () {
         this.phase += this.frequency
         return this.offset + Math.sin(this.phase) * this.amplitude
-      }
+      },
     }
 
     function Node() {
@@ -102,7 +101,7 @@ export const useCanvasCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { co
         ctx.quadraticCurveTo(e.x, e.y, t.x, t.y)
         ctx.stroke()
         ctx.closePath()
-      }
+      },
     }
 
     function render() {
@@ -119,13 +118,16 @@ export const useCanvasCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { co
           const hslaColor = getComputedStyle(document.documentElement).getPropertyValue(colorVar).trim()
           if (hslaColor) {
             ctx.strokeStyle = hslaColor
-          } else {
+          }
+          else {
             ctx.strokeStyle = 'hsla(' + Math.round(f.update()) + ',50%,50%,0.2)'
           }
-        } catch (e) {
+        }
+        catch (e) {
           ctx.strokeStyle = 'hsla(' + Math.round(f.update()) + ',50%,50%,0.2)'
         }
-      } else {
+      }
+      else {
         ctx.strokeStyle = 'hsla(' + Math.round(f.update()) + ',50%,50%,0.2)'
       }
 
@@ -151,7 +153,8 @@ export const useCanvasCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { co
       if (e.touches) {
         eventX = e.touches[0].clientX
         eventY = e.touches[0].clientY
-      } else {
+      }
+      else {
         eventX = e.clientX
         eventY = e.clientY
       }
@@ -209,7 +212,7 @@ export const useCanvasCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { co
         phase: Math.random() * 2 * Math.PI,
         amplitude: 85,
         frequency: 0.0015,
-        offset: 285
+        offset: 285,
       })
 
       document.addEventListener('mousemove', initEventListeners)

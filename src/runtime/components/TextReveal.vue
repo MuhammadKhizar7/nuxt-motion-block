@@ -65,7 +65,7 @@ const props = withDefaults(defineProps<TextRevealProps>(), {
   charClass: '',
   trigger: undefined,
   ariaLabel: '',
-  reduceMotion: false
+  reduceMotion: false,
 })
 
 const emit = defineEmits(['complete', 'click'])
@@ -73,7 +73,7 @@ const emit = defineEmits(['complete', 'click'])
 const containerRef = ref<HTMLElement>()
 const isVisible = useElementVisibility(containerRef, {
   threshold: 0.1,
-  rootMargin: '50px'
+  rootMargin: '50px',
 })
 const hasAnimated = ref(false)
 const isAnimating = ref(false)
@@ -109,7 +109,7 @@ const containerClasses = computed(() => {
   return [
     'text-reveal-container',
     'inline-block',
-    props.class
+    props.class,
   ].filter(Boolean).join(' ')
 })
 
@@ -117,7 +117,7 @@ const charClasses = computed(() => {
   return [
     'text-reveal-char',
     'relative',
-    props.charClass
+    props.charClass,
   ].filter(Boolean).join(' ')
 })
 
@@ -125,34 +125,34 @@ const charClasses = computed(() => {
 const getBaseVariant = (effect: RevealEffect, direction: RevealDirection, isInitial: boolean) => {
   const variants: Record<RevealEffect, any> = {
     fade: {
-      opacity: isInitial ? 0 : 1
+      opacity: isInitial ? 0 : 1,
     },
     slide: {
       opacity: isInitial ? 0 : 1,
       y: isInitial ? getDirectionOffset(direction, 'y') : 0,
-      x: isInitial ? getDirectionOffset(direction, 'x') : 0
+      x: isInitial ? getDirectionOffset(direction, 'x') : 0,
     },
     bounce: {
       opacity: isInitial ? 0 : 1,
       y: isInitial ? getDirectionOffset(direction, 'y') : 0,
-      scale: isInitial ? 0.8 : 1
+      scale: isInitial ? 0.8 : 1,
     },
     rotate: {
       opacity: isInitial ? 0 : 1,
       rotateX: isInitial ? (direction === 'up' ? -90 : direction === 'down' ? 90 : 0) : 0,
-      rotateY: isInitial ? (direction === 'left' ? -90 : direction === 'right' ? 90 : 0) : 0
+      rotateY: isInitial ? (direction === 'left' ? -90 : direction === 'right' ? 90 : 0) : 0,
     },
     scale: {
       opacity: isInitial ? 0 : 1,
-      scale: isInitial ? 0 : 1
+      scale: isInitial ? 0 : 1,
     },
     blur: {
       opacity: isInitial ? 0 : 1,
       filter: isInitial ? 'blur(10px)' : 'blur(0px)',
-      y: isInitial ? getDirectionOffset(direction, 'y') : 0
-    }
+      y: isInitial ? getDirectionOffset(direction, 'y') : 0,
+    },
   }
-  
+
   return variants[effect] || variants.slide
 }
 
@@ -160,14 +160,14 @@ const getDirectionOffset = (direction: RevealDirection, axis: 'x' | 'y') => {
   if (direction === 'random') {
     return Math.random() * 40 - 20
   }
-  
+
   const offsets = {
     up: { x: 0, y: 30 },
     down: { x: 0, y: -30 },
     left: { x: 30, y: 0 },
-    right: { x: -30, y: 0 }
+    right: { x: -30, y: 0 },
   }
-  
+
   return offsets[direction][axis]
 }
 
@@ -186,25 +186,25 @@ const getCharTransition = (index: number) => {
     return {
       duration: 0.1,
       delay: 0,
-      ease: 'easeInOut'
+      ease: 'easeInOut',
     }
   }
-  
+
   const baseTransition = {
     duration: props.duration,
     delay: props.delay + (index * props.stagger),
-    ease: props.effect === 'bounce' ? 'easeOut' : 'easeInOut'
+    ease: props.effect === 'bounce' ? 'easeOut' : 'easeInOut',
   }
-  
+
   if (props.effect === 'bounce') {
     return {
       ...baseTransition,
       type: 'spring',
       stiffness: 300,
-      damping: 10
+      damping: 10,
     }
   }
-  
+
   return baseTransition
 }
 

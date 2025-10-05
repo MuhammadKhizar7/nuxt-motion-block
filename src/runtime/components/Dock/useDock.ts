@@ -1,4 +1,5 @@
-import { useMotionValue, type SpringOptions } from 'motion-v'
+import type { useMotionValue, type SpringOptions } from 'motion-v'
+
 import { inject, provide } from 'vue'
 
 export interface DockContext {

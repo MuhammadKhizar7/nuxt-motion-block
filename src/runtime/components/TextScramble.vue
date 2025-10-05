@@ -30,7 +30,7 @@ const props = withDefaults(defineProps<TextScrambleProps>(), {
   characterSet: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
   as: 'p',
   className: '',
-  trigger: true
+  trigger: true,
 })
 
 const emit = defineEmits(['scrambleComplete'])
@@ -59,7 +59,8 @@ const scramble = async () => {
   for (let i = 0; i < text.length; i++) {
     if (text[i] === ' ') {
       initialScrambled += ' '
-    } else {
+    }
+    else {
       initialScrambled += props.characterSet[Math.floor(Math.random() * props.characterSet.length)]
     }
   }
@@ -80,9 +81,10 @@ const scramble = async () => {
 
       if (progress * text.length > i) {
         scrambled += text[i]
-      } else {
-        scrambled +=
-          props.characterSet[Math.floor(Math.random() * props.characterSet.length)]
+      }
+      else {
+        scrambled
+          += props.characterSet[Math.floor(Math.random() * props.characterSet.length)]
       }
     }
 

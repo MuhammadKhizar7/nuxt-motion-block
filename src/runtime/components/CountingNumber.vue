@@ -34,7 +34,7 @@ const props = withDefaults(defineProps<CountingNumberProps>(), {
   class: '',
   startOnView: true,
   once: false,
-  inViewMargin: '0px'
+  inViewMargin: '0px',
 })
 
 const emit = defineEmits(['complete'])
@@ -70,7 +70,8 @@ function animateNumber({ from, to, duration, onUpdate, onComplete }: {
     onUpdate(value)
     if (progress < 1) {
       animationFrame = requestAnimationFrame(frame)
-    } else {
+    }
+    else {
       onUpdate(to)
       onComplete()
     }
@@ -94,7 +95,7 @@ function startAnimation() {
       onComplete: () => {
         emit('complete')
         props.onComplete?.()
-      }
+      },
     })
   }, props.delay)
 }

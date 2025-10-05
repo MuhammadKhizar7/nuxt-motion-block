@@ -1,6 +1,9 @@
 <template>
   <div class="p-4 space-y-4 flex flex-col items-center">
-    <MTextMorph :text="currentText" :transition="{ type: 'spring', stiffness: 500, damping: 10 }" />
+    <MTextMorph
+      :text="currentText"
+      :transition="{ type: 'spring', stiffness: 500, damping: 10 }"
+    />
     <button
       class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
       @click="cycleText"

@@ -28,8 +28,8 @@ const parentElement = ref<HTMLElement | null>(null)
 const mouseX = useSpring(0, props.springOptions)
 const mouseY = useSpring(0, props.springOptions)
 
-const spotlightLeft = useTransform(mouseX, (x) => `${x - props.size / 2}px`)
-const spotlightTop = useTransform(mouseY, (y) => `${y - props.size / 2}px`)
+const spotlightLeft = useTransform(mouseX, x => `${x - props.size / 2}px`)
+const spotlightTop = useTransform(mouseY, y => `${y - props.size / 2}px`)
 
 const left = ref(spotlightLeft.get())
 const top = ref(spotlightTop.get())
@@ -58,10 +58,10 @@ watch(containerRef, (el, prevEl, onCleanup) => {
     parent.addEventListener('mouseleave', handleMouseLeave)
   }
 
-  const unsubscribeLeft = spotlightLeft.on("change", (latest) => {
+  const unsubscribeLeft = spotlightLeft.on('change', (latest) => {
     left.value = latest
   })
-  const unsubscribeTop = spotlightTop.on("change", (latest) => {
+  const unsubscribeTop = spotlightTop.on('change', (latest) => {
     top.value = latest
   })
 

@@ -2,17 +2,17 @@ export default defineAppConfig({
   ui: {
     colors: {
       primary: 'teal',
-      neutral: 'stone'
+      neutral: 'stone',
     },
     footer: {
       slots: {
         root: 'border-t border-default',
-        left: 'text-sm text-muted'
-      }
-    }
+        left: 'text-sm text-muted',
+      },
+    },
   },
   seo: {
-    siteName: 'Nuxt Motion Block'
+    siteName: 'Nuxt Motion Block',
   },
   header: {
     title: 'Nuxt Motion Block',
@@ -20,7 +20,7 @@ export default defineAppConfig({
     logo: {
       alt: 'Nuxt Motion Block',
       light: '',
-      dark: ''
+      dark: '',
     },
     search: true,
     colorMode: true,
@@ -28,8 +28,8 @@ export default defineAppConfig({
       'icon': 'i-simple-icons-github',
       'to': 'https://github.com/MuhammadKhizar7/nuxt-motion-block',
       'target': '_blank',
-      'aria-label': 'GitHub'
-    }]
+      'aria-label': 'GitHub',
+    }],
   },
   footer: {
     credits: `Nuxt Motion Block • © ${new Date().getFullYear()}`,
@@ -38,8 +38,8 @@ export default defineAppConfig({
       'icon': 'i-simple-icons-github',
       'to': 'https://github.com/MuhammadKhizar7/nuxt-motion-block',
       'target': '_blank',
-      'aria-label': 'Nuxt Motion Block on GitHub'
-    }]
+      'aria-label': 'Nuxt Motion Block on GitHub',
+    }],
   },
   toc: {
     title: 'Table of Contents',
@@ -50,13 +50,13 @@ export default defineAppConfig({
         icon: 'i-lucide-star',
         label: 'Star on GitHub',
         to: 'https://github.com/MuhammadKhizar7/nuxt-motion-block',
-        target: '_blank'
+        target: '_blank',
       }, {
         icon: 'i-lucide-book-open',
         label: 'Nuxt Motion Block docs',
         to: '/getting-started',
-        target: '_blank'
-      }]
-    }
-  }
+        target: '_blank',
+      }],
+    },
+  },
 })

@@ -42,7 +42,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
         return {
           r: pixelData[0],
           g: pixelData[1],
-          b: pixelData[2]
+          b: pixelData[2],
         }
       }
 
@@ -64,7 +64,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
       COLOR_UPDATE_SPEED: 10,
       PAUSED: false,
       BACK_COLOR: { r: 0.5, g: 0, b: 0 },
-      TRANSPARENT: true
+      TRANSPARENT: true,
     }
 
     function pointerPrototype() {
@@ -96,7 +96,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
         depth: false,
         stencil: false,
         antialias: false,
-        preserveDrawingBuffer: false
+        preserveDrawingBuffer: false,
       }
 
       let gl = canvas.getContext('webgl2', params)
@@ -111,10 +111,11 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
       if (isWebGL2) {
         gl.getExtension('EXT_color_buffer_float')
         supportLinearFiltering = gl.getExtension('OES_texture_float_linear')
-      } else {
+      }
+      else {
         halfFloat = gl.getExtension('OES_texture_half_float')
         supportLinearFiltering = gl.getExtension(
-          'OES_texture_half_float_linear'
+          'OES_texture_half_float_linear',
         )
       }
 
@@ -132,11 +133,12 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
           gl,
           gl.RGBA16F,
           gl.RGBA,
-          halfFloatTexType
+          halfFloatTexType,
         )
         formatRG = getSupportedFormat(gl, gl.RG16F, gl.RG, halfFloatTexType)
         formatR = getSupportedFormat(gl, gl.R16F, gl.RED, halfFloatTexType)
-      } else {
+      }
+      else {
         formatRGBA = getSupportedFormat(gl, gl.RGBA, gl.RGBA, halfFloatTexType)
         formatRG = getSupportedFormat(gl, gl.RGBA, gl.RGBA, halfFloatTexType)
         formatR = getSupportedFormat(gl, gl.RGBA, gl.RGBA, halfFloatTexType)
@@ -149,8 +151,8 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
           formatRG,
           formatR,
           halfFloatTexType,
-          supportLinearFiltering
-        }
+          supportLinearFiltering,
+        },
       }
     }
 
@@ -168,7 +170,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
 
       return {
         internalFormat,
-        format
+        format,
       }
     }
 
@@ -188,7 +190,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
         0,
         format,
         type,
-        null
+        null,
       )
 
       const fbo = gl.createFramebuffer()
@@ -198,7 +200,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
         gl.COLOR_ATTACHMENT0,
         gl.TEXTURE_2D,
         texture,
-        0
+        0,
       )
 
       const status = gl.checkFramebufferStatus(gl.FRAMEBUFFER)
@@ -223,7 +225,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
           const fragmentShader = compileShader(
             gl.FRAGMENT_SHADER,
             this.fragmentShaderSource,
-            keywords
+            keywords,
           )
           program = createProgram(this.vertexShader, fragmentShader)
           this.programs[hash] = program
@@ -318,7 +320,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
              vB = vUv - vec2(0.0, texelSize.y);
              gl_Position = vec4(aPosition, 0.0, 1.0);
          }
-     `
+     `,
     )
 
     const blurVertexShader = compileShader(
@@ -339,7 +341,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
              vR = vUv + texelSize * offset;
              gl_Position = vec4(aPosition, 0.0, 1.0);
          }
-     `
+     `,
     )
 
     const blurShader = compileShader(
@@ -359,7 +361,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
              sum += texture2D(uTexture, vR) * 0.35294117;
              gl_FragColor = sum;
          }
-     `
+     `,
     )
 
     const copyShader = compileShader(
@@ -374,7 +376,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
          void main () {
              gl_FragColor = texture2D(uTexture, vUv);
          }
-     `
+     `,
     )
 
     const clearShader = compileShader(
@@ -390,7 +392,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
          void main () {
              gl_FragColor = value * texture2D(uTexture, vUv);
          }
-     `
+     `,
     )
 
     const colorShader = compileShader(
@@ -403,7 +405,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
          void main () {
              gl_FragColor = color;
          }
-     `
+     `,
     )
 
     const displayShaderSource = `
@@ -469,7 +471,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
              vec3 base = texture2D(uTarget, vUv).xyz;
              gl_FragColor = vec4(base + splat, 1.0);
          }
-     `
+     `,
     )
 
     const advectionShader = compileShader(
@@ -511,7 +513,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
              float decay = 1.0 + dissipation * dt;
              gl_FragColor = result / decay;
          }`,
-      ext.supportLinearFiltering ? null : ['MANUAL_FILTERING']
+      ext.supportLinearFiltering ? null : ['MANUAL_FILTERING'],
     )
 
     const divergenceShader = compileShader(
@@ -542,7 +544,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
              float div = 0.5 * (R - L + T - B);
              gl_FragColor = vec4(div, 0.0, 0.0, 1.0);
          }
-     `
+     `,
     )
 
     const curlShader = compileShader(
@@ -566,7 +568,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
              float vorticity = R - L - T + B;
              gl_FragColor = vec4(0.5 * vorticity, 0.0, 0.0, 1.0);
          }
-     `
+     `,
     )
 
     const vorticityShader = compileShader(
@@ -602,7 +604,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
              velocity = min(max(velocity, -1000.0), 1000.0);
              gl_FragColor = vec4(velocity, 0.0, 1.0);
          }
-     `
+     `,
     )
 
     const pressureShader = compileShader(
@@ -629,7 +631,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
              float pressure = (L + R + B + T - divergence) * 0.25;
              gl_FragColor = vec4(pressure, 0.0, 0.0, 1.0);
          }
-     `
+     `,
     )
 
     const gradientSubtractShader = compileShader(
@@ -655,7 +657,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
              velocity.xy -= vec2(R - L, T - B);
              gl_FragColor = vec4(velocity, 0.0, 1.0);
          }
-     `
+     `,
     )
 
     const blit = (() => {
@@ -663,13 +665,13 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
       gl.bufferData(
         gl.ARRAY_BUFFER,
         new Float32Array([-1, -1, -1, 1, 1, 1, 1, -1]),
-        gl.STATIC_DRAW
+        gl.STATIC_DRAW,
       )
       gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, gl.createBuffer())
       gl.bufferData(
         gl.ELEMENT_ARRAY_BUFFER,
         new Uint16Array([0, 1, 2, 0, 2, 3]),
-        gl.STATIC_DRAW
+        gl.STATIC_DRAW,
       )
       gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0)
       gl.enableVertexAttribArray(0)
@@ -678,7 +680,8 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
         if (target == null) {
           gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight)
           gl.bindFramebuffer(gl.FRAMEBUFFER, null)
-        } else {
+        }
+        else {
           gl.viewport(0, 0, target.width, target.height)
           gl.bindFramebuffer(gl.FRAMEBUFFER, target.fbo)
         }
@@ -706,7 +709,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
     const pressureProgram = new Program(baseVertexShader, pressureShader)
     const gradienSubtractProgram = new Program(
       baseVertexShader,
-      gradientSubtractShader
+      gradientSubtractShader,
     )
 
     const displayMaterial = new Material(baseVertexShader, displayShaderSource)
@@ -730,7 +733,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
           rgba.internalFormat,
           rgba.format,
           texType,
-          filtering
+          filtering,
         )
       else
         dye = resizeDoubleFBO(
@@ -740,7 +743,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
           rgba.internalFormat,
           rgba.format,
           texType,
-          filtering
+          filtering,
         )
 
       if (velocity == null)
@@ -750,7 +753,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
           rg.internalFormat,
           rg.format,
           texType,
-          filtering
+          filtering,
         )
       else
         velocity = resizeDoubleFBO(
@@ -760,7 +763,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
           rg.internalFormat,
           rg.format,
           texType,
-          filtering
+          filtering,
         )
 
       divergence = createFBO(
@@ -769,7 +772,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
         r.internalFormat,
         r.format,
         texType,
-        gl.NEAREST
+        gl.NEAREST,
       )
       curl = createFBO(
         simRes.width,
@@ -777,7 +780,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
         r.internalFormat,
         r.format,
         texType,
-        gl.NEAREST
+        gl.NEAREST,
       )
       pressure = createDoubleFBO(
         simRes.width,
@@ -785,7 +788,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
         r.internalFormat,
         r.format,
         texType,
-        gl.NEAREST
+        gl.NEAREST,
       )
     }
 
@@ -806,7 +809,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
         0,
         format,
         type,
-        null
+        null,
       )
 
       const fbo = gl.createFramebuffer()
@@ -816,7 +819,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
         gl.COLOR_ATTACHMENT0,
         gl.TEXTURE_2D,
         texture,
-        0
+        0,
       )
       gl.viewport(0, 0, w, h)
       gl.clear(gl.COLOR_BUFFER_BIT)
@@ -835,7 +838,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
           gl.activeTexture(gl.TEXTURE0 + id)
           gl.bindTexture(gl.TEXTURE_2D, texture)
           return id
-        }
+        },
       }
     }
 
@@ -864,7 +867,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
           const temp = fbo1
           fbo1 = fbo2
           fbo2 = temp
-        }
+        },
       }
     }
 
@@ -883,7 +886,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
       internalFormat,
       format,
       type,
-      param
+      param,
     ) {
       if (target.width == w && target.height == h) return target
       target.read = resizeFBO(
@@ -893,7 +896,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
         internalFormat,
         format,
         type,
-        param
+        param,
       )
       target.write = createFBO(w, h, internalFormat, format, type, param)
       target.width = w
@@ -919,7 +922,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
         0,
         gl.RGB,
         gl.UNSIGNED_BYTE,
-        new Uint8Array([255, 255, 255])
+        new Uint8Array([255, 255, 255]),
       )
 
       const obj = {
@@ -930,7 +933,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
           gl.activeTexture(gl.TEXTURE0 + id)
           gl.bindTexture(gl.TEXTURE_2D, texture)
           return id
-        }
+        },
       }
 
       const image = new Image()
@@ -965,10 +968,11 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
             customRgb = {
               r: (rgb.r / 255) * 0.15,
               g: (rgb.g / 255) * 0.15,
-              b: (rgb.b / 255) * 0.15
+              b: (rgb.b / 255) * 0.15,
             }
           }
-        } catch (e) { /* ignore */ }
+        }
+        catch (e) { /* ignore */ }
       }
       frameId++
 
@@ -1027,7 +1031,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
       gl.uniform2f(
         curlProgram.uniforms.texelSize,
         velocity.texelSizeX,
-        velocity.texelSizeY
+        velocity.texelSizeY,
       )
       gl.uniform1i(curlProgram.uniforms.uVelocity, velocity.read.attach(0))
       blit(curl)
@@ -1036,7 +1040,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
       gl.uniform2f(
         vorticityProgram.uniforms.texelSize,
         velocity.texelSizeX,
-        velocity.texelSizeY
+        velocity.texelSizeY,
       )
       gl.uniform1i(vorticityProgram.uniforms.uVelocity, velocity.read.attach(0))
       gl.uniform1i(vorticityProgram.uniforms.uCurl, curl.attach(1))
@@ -1049,7 +1053,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
       gl.uniform2f(
         divergenceProgram.uniforms.texelSize,
         velocity.texelSizeX,
-        velocity.texelSizeY
+        velocity.texelSizeY,
       )
       gl.uniform1i(divergenceProgram.uniforms.uVelocity, velocity.read.attach(0))
       blit(divergence)
@@ -1064,7 +1068,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
       gl.uniform2f(
         pressureProgram.uniforms.texelSize,
         velocity.texelSizeX,
-        velocity.texelSizeY
+        velocity.texelSizeY,
       )
       gl.uniform1i(pressureProgram.uniforms.uDivergence, divergence.attach(0))
       for (let i = 0; i < config.PRESSURE_ITERATIONS; i++) {
@@ -1077,15 +1081,15 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
       gl.uniform2f(
         gradienSubtractProgram.uniforms.texelSize,
         velocity.texelSizeX,
-        velocity.texelSizeY
+        velocity.texelSizeY,
       )
       gl.uniform1i(
         gradienSubtractProgram.uniforms.uPressure,
-        pressure.read.attach(0)
+        pressure.read.attach(0),
       )
       gl.uniform1i(
         gradienSubtractProgram.uniforms.uVelocity,
-        velocity.read.attach(1)
+        velocity.read.attach(1),
       )
       blit(velocity.write)
       velocity.swap()
@@ -1094,13 +1098,13 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
       gl.uniform2f(
         advectionProgram.uniforms.texelSize,
         velocity.texelSizeX,
-        velocity.texelSizeY
+        velocity.texelSizeY,
       )
       if (!ext.supportLinearFiltering)
         gl.uniform2f(
           advectionProgram.uniforms.dyeTexelSize,
           velocity.texelSizeX,
-          velocity.texelSizeY
+          velocity.texelSizeY,
         )
       const velocityId = velocity.read.attach(0)
       gl.uniform1i(advectionProgram.uniforms.uVelocity, velocityId)
@@ -1108,7 +1112,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
       gl.uniform1f(advectionProgram.uniforms.dt, dt)
       gl.uniform1f(
         advectionProgram.uniforms.dissipation,
-        config.VELOCITY_DISSIPATION
+        config.VELOCITY_DISSIPATION,
       )
       blit(velocity.write)
       velocity.swap()
@@ -1117,13 +1121,13 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
         gl.uniform2f(
           advectionProgram.uniforms.dyeTexelSize,
           dye.texelSizeX,
-          dye.texelSizeY
+          dye.texelSizeY,
         )
       gl.uniform1i(advectionProgram.uniforms.uVelocity, velocity.read.attach(0))
       gl.uniform1i(advectionProgram.uniforms.uSource, dye.read.attach(1))
       gl.uniform1f(
         advectionProgram.uniforms.dissipation,
-        config.DENSITY_DISSIPATION
+        config.DENSITY_DISSIPATION,
       )
       blit(dye.write)
       dye.swap()
@@ -1144,7 +1148,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
         gl.uniform2f(
           displayMaterial.uniforms.texelSize,
           1.0 / width,
-          1.0 / height
+          1.0 / height,
         )
       gl.uniform1i(displayMaterial.uniforms.uTexture, dye.read.attach(0))
       blit(target)
@@ -1171,13 +1175,13 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
       gl.uniform1i(splatProgram.uniforms.uTarget, velocity.read.attach(0))
       gl.uniform1f(
         splatProgram.uniforms.aspectRatio,
-        canvas.width / canvas.height
+        canvas.width / canvas.height,
       )
       gl.uniform2f(splatProgram.uniforms.point, x, y)
       gl.uniform3f(splatProgram.uniforms.color, dx, dy, 0.0)
       gl.uniform1f(
         splatProgram.uniforms.radius,
-        correctRadius(config.SPLAT_RADIUS / 100.0)
+        correctRadius(config.SPLAT_RADIUS / 100.0),
       )
       blit(velocity.write)
       velocity.swap()
@@ -1356,7 +1360,7 @@ export const useFluidCursor = (canvasRef: Ref<HTMLCanvasElement>, options: { col
       return {
         r,
         g,
-        b
+        b,
       }
     }
 

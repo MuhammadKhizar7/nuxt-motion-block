@@ -1,5 +1,8 @@
 <template>
-  <div :class="className" :style="offsetStyle">
+  <div
+    :class="className"
+    :style="offsetStyle"
+  >
     <Motion
       v-for="(style, index) in layerStyles"
       :key="index"
@@ -67,7 +70,7 @@ export default defineComponent({
           (index + 3) * this.segmentSize,
         ].map(
           (pos, posIndex) =>
-            `rgba(255, 255, 255, ${posIndex === 1 || posIndex === 2 ? 1 : 0}) ${pos * 100}%`
+            `rgba(255, 255, 255, ${posIndex === 1 || posIndex === 2 ? 1 : 0}) ${pos * 100}%`,
         )
         const gradient = `linear-gradient(${angle}deg, ${gradientStops.join(', ')})`
         const blurValue = index * this.blurIntensity
@@ -80,21 +83,20 @@ export default defineComponent({
       })
     },
     offsetStyle() {
-      const offset = `-${this.segmentSize * 100}%`;
+      const offset = `-${this.segmentSize * 100}%`
       switch (this.direction) {
         case 'bottom':
-          return { bottom: offset };
+          return { bottom: offset }
         case 'top':
-          return { top: offset };
+          return { top: offset }
         case 'left':
-          return { left: offset };
+          return { left: offset }
         case 'right':
-          return { right: offset };
+          return { right: offset }
         default:
-          return {};
+          return {}
       }
-    }
+    },
   },
 })
 </script>
-

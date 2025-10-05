@@ -7,8 +7,8 @@
     :aria-expanded="isOpen"
     :aria-controls="`popover-content-${uniqueId}`"
     :aria-haspopup="true"
-    @click="handleClick"
     v-bind="$attrs"
+    @click="handleClick"
   >
     <slot />
   </Motion>
@@ -20,8 +20,8 @@ import { Motion } from 'motion-v'
 
 // No props needed - everything comes from context
 const emit = defineEmits<{
-  'open': []
-  'close': []
+  open: []
+  close: []
 }>()
 
 // Inject context from parent MorphingPopover
@@ -38,7 +38,8 @@ const handleClick = () => {
   if (isOpen.value) {
     close()
     emit('close')
-  } else {
+  }
+  else {
     open()
     emit('open')
   }
@@ -48,7 +49,8 @@ const handleClick = () => {
 watch(isOpen, (newOpen, oldOpen) => {
   if (newOpen && !oldOpen) {
     emit('open')
-  } else if (!newOpen && oldOpen) {
+  }
+  else if (!newOpen && oldOpen) {
     emit('close')
   }
 })

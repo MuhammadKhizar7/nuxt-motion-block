@@ -48,7 +48,7 @@ const props = withDefaults(defineProps<InViewProps>(), {
   viewOptions: () => ({ margin: '0px', threshold: 0.1 }),
   as: 'div',
   once: true,
-  class: ''
+  class: '',
 })
 
 // Emits
@@ -64,19 +64,19 @@ const hasAnimated = ref(false)
 // Setup viewport detection using VueUse
 const isInView = useElementVisibility(containerRef, {
   margin: props.viewOptions?.margin || '0px',
-  threshold: props.viewOptions?.threshold || 0.1
+  threshold: props.viewOptions?.threshold || 0.1,
 })
 
 // Default variants with fallback
 const defaultVariants: Variants = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1 }
+  visible: { opacity: 1 },
 }
 
 // Computed variants combining defaults with props
 const finalVariants = computed(() => ({
   hidden: { ...defaultVariants.hidden, ...(props.variants?.hidden || {}) },
-  visible: { ...defaultVariants.visible, ...(props.variants?.visible || {}) }
+  visible: { ...defaultVariants.visible, ...(props.variants?.visible || {}) },
 }))
 
 // Animation state logic

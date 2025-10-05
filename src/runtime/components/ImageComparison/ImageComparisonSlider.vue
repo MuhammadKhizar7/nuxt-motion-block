@@ -21,7 +21,7 @@ const props = defineProps<{
 const sliderClasses = computed(() => [
   'absolute bottom-0 top-0 w-4 cursor-ew-resize z-30',
   'flex items-center justify-center',
-  props.class
+  props.class,
 ])
 
 const motionSliderPosition = inject<MotionValue<number>>('motionSliderPosition')
@@ -30,7 +30,7 @@ const isDragging = inject('isDragging')
 const sliderValue = ref(motionSliderPosition?.get() || 50)
 
 onMounted(() => {
-  const unsubscribe = motionSliderPosition?.on("change", (latest) => {
+  const unsubscribe = motionSliderPosition?.on('change', (latest) => {
     sliderValue.value = latest
   })
   onUnmounted(() => {
@@ -40,7 +40,7 @@ onMounted(() => {
 
 const sliderStyle = computed(() => ({
   left: `${sliderValue.value}%`,
-  transform: 'translateX(-50%)'
+  transform: 'translateX(-50%)',
 }))
 
 const handlePointerDown = (event: MouseEvent | TouchEvent) => {

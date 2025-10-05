@@ -1,6 +1,10 @@
 <template>
   <div class="w-full overflow-hidden">
-    <div class="infinite-slider-content" :class="className" :style="style">
+    <div
+      class="infinite-slider-content"
+      :class="className"
+      :style="style"
+    >
       <slot />
       <slot />
     </div>
@@ -38,4 +42,3 @@ const style = computed(() => ({
   to { transform: translateX(-50%); }
 }
 </style>
-

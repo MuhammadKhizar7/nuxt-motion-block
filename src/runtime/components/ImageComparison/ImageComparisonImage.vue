@@ -4,7 +4,7 @@
     :alt="alt"
     :class="imageClasses"
     :style="clipPathStyle"
-  />
+  >
 </template>
 
 <script setup lang="ts">
@@ -20,14 +20,14 @@ const props = defineProps<{
 
 const imageClasses = computed(() => [
   'absolute inset-0 h-full w-full object-cover',
-  props.class
+  props.class,
 ])
 
 const motionSliderPosition = inject<MotionValue<number>>('motionSliderPosition')
 const sliderValue = ref(motionSliderPosition?.get() || 50)
 
 onMounted(() => {
-  const unsubscribe = motionSliderPosition?.on("change", (latest) => {
+  const unsubscribe = motionSliderPosition?.on('change', (latest) => {
     sliderValue.value = latest
   })
   onUnmounted(() => {
@@ -39,7 +39,8 @@ const clipPathStyle = computed(() => {
   const value = sliderValue.value
   if (props.position === 'left') {
     return { clipPath: `inset(0 0 0 ${value}%)` }
-  } else {
+  }
+  else {
     return { clipPath: `inset(0 ${100 - value}% 0 0)` }
   }
 })
