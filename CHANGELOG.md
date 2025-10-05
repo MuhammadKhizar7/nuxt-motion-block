@@ -1,13 +1,6 @@
 # Changelog
 
 
-## v0.0.3
-
-[compare changes](https://github.com/your-org/nuxt-motion-block/compare/v0.0.2...v0.0.3)
-
-## v0.0.2
-
-
 ### 🚀 Enhancements
 
 - Add initial component ([4d5f0d1](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/4d5f0d1))
