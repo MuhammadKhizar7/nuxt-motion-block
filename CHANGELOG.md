@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v0.0.1
+
+[compare changes](https://github.com/MuhammadKhizar7/nuxt-motion-block/compare/v0.0.4...v0.0.1)
+
+### 🩹 Fixes
+
+- Correct version number in package.json to 0.0.0 ([bec2b02](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/bec2b02))
+
+### 🏡 Chore
+
+- **release:** V0.0.1 ([4430e8d](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/4430e8d))
+- **release:** V0.0.2 ([b025b89](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/b025b89))
+
+### ❤️ Contributors
+
+- MuhammadKhizar7 <muhammadkhizar7@gmail.com>
+
 ### 🩹 Fixes
 
 - Update variable declaration in HSVtoRGB function for proper scoping ([fcd7bbd](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/fcd7bbd))
