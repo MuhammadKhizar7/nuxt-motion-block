@@ -12,12 +12,15 @@ orientation: horizontal
 :hero-background
 
 #title
-Enhance Your Nuxt UI with Motion.
+Enhance Your Nuxt UI with 
+::MTextGradient{text='Motion'}
+::
 
 #description
 A powerful collection of motion components for Nuxt applications. Enhance your UI with beautiful animations and interactions that just work.
 
 #links
+  :::MMagnetic
   :::u-button
   ---
   to: /getting-started
@@ -26,18 +29,26 @@ A powerful collection of motion components for Nuxt applications. Enhance your U
   ---
   Get started
   :::
-
+  :::
+  
+  :::div{class="relative"}
+  :::MGlowEffect{mode='colorShift' blur="soft" :duration="3" :scale="0.9" class="-z-1" }
+  :::
   :::u-button
   ---
   icon: i-simple-icons-github
   color: neutral
   variant: outline
   size: xl
-  to: https://github.com/your-org/nuxt-motion-block
+  to: https://github.com/MuhammadKhizar7/nuxt-motion-block
   target: _blank
   ---
   View on GitHub
   :::
+  <!-- ::: -->
+  :::
+
+
 
 #default
   :::prose-pre
@@ -67,7 +78,7 @@ A powerful collection of motion components for Nuxt applications. Enhance your U
 
 ::u-page-section{class="dark:bg-neutral-950"}
 #title
-40+ Motion-Enhanced Components
+30+ Motion-Enhanced Components
 
 #links
   :::u-button
@@ -157,7 +168,7 @@ A powerful collection of motion components for Nuxt applications. Enhance your U
       to: '/getting-started'
       trailingIcon: i-lucide-arrow-right
     - label: View on GitHub
-      to: 'https://github.com/your-org/nuxt-motion-block'
+      to: 'https://github.com/MuhammadKhizar7/nuxt-motion-block'
       target: _blank
       variant: subtle
       icon: i-simple-icons-github

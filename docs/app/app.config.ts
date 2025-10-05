@@ -26,7 +26,7 @@ export default defineAppConfig({
     colorMode: true,
     links: [{
       'icon': 'i-simple-icons-github',
-      'to': 'https://github.com/your-org/nuxt-motion-block',
+      'to': 'https://github.com/MuhammadKhizar7/nuxt-motion-block',
       'target': '_blank',
       'aria-label': 'GitHub'
     }]
@@ -36,7 +36,7 @@ export default defineAppConfig({
     colorMode: false,
     links: [{
       'icon': 'i-simple-icons-github',
-      'to': 'https://github.com/your-org/nuxt-motion-block',
+      'to': 'https://github.com/MuhammadKhizar7/nuxt-motion-block',
       'target': '_blank',
       'aria-label': 'Nuxt Motion Block on GitHub'
     }]
@@ -45,11 +45,11 @@ export default defineAppConfig({
     title: 'Table of Contents',
     bottom: {
       title: 'Community',
-      edit: 'https://github.com/your-org/nuxt-motion-block/edit/main/docs/content',
+      edit: 'https://github.com/MuhammadKhizar7/nuxt-motion-block/edit/main/docs/content',
       links: [{
         icon: 'i-lucide-star',
         label: 'Star on GitHub',
-        to: 'https://github.com/your-org/nuxt-motion-block',
+        to: 'https://github.com/MuhammadKhizar7/nuxt-motion-block',
         target: '_blank'
       }, {
         icon: 'i-lucide-book-open',

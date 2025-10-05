@@ -53,7 +53,7 @@ export default defineNuxtConfig({
   },
 
   llms: {
-    domain: 'https://nuxt-motion-block.dev/',
+    domain: 'https://nuxt-motion-block.pages.dev/',
     title: 'Nuxt Motion Block',
     description: 'A streamlined UI library that extends Nuxt UI with motion capabilities powered by motion-v.',
     full: {
