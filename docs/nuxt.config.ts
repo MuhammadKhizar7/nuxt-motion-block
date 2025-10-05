@@ -53,12 +53,12 @@ export default defineNuxtConfig({
   },
 
   llms: {
-    domain: 'https://docs-template.nuxt.dev/',
-    title: 'Nuxt Docs Template',
-    description: 'A template for building documentation with Nuxt UI and Nuxt Content.',
+    domain: 'https://nuxt-motion-block.dev/',
+    title: 'Nuxt Motion Block',
+    description: 'A streamlined UI library that extends Nuxt UI with motion capabilities powered by motion-v.',
     full: {
-      title: 'Nuxt Docs Template - Full Documentation',
-      description: 'This is the full documentation for the Nuxt Docs Template.'
+      title: 'Nuxt Motion Block - Full Documentation',
+      description: 'This is the full documentation for Nuxt Motion Block, a streamlined UI library that extends Nuxt UI with motion capabilities powered by motion-v.'
     },
     sections: [
       {
@@ -69,10 +69,10 @@ export default defineNuxtConfig({
         ]
       },
       {
-        title: 'Essentials',
+        title: 'Components',
         contentCollection: 'docs',
         contentFilters: [
-          { field: 'path', operator: 'LIKE', value: '/essentials%' }
+          { field: 'path', operator: 'LIKE', value: '/components%' }
         ]
       }
     ]

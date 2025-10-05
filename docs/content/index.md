@@ -1,7 +1,7 @@
 ---
 seo:
-  title: Nuxt Docs Template
-  description: Create stunning, fast and SEO-optimized documentation sites with Nuxt UI.
+  title: Nuxt Motion Block
+  description: Enhance your Nuxt UI with beautiful motion components. A collection of 40+ motion-enhanced components for Nuxt applications.
 ---
 
 ::u-page-hero{class="dark:bg-gradient-to-b from-neutral-900 to-neutral-950"}
@@ -12,32 +12,13 @@ orientation: horizontal
 :hero-background
 
 #title
-Ship Beautiful [Documentation]{.text-primary}.
+:component-example{name="hero-title-example"}
 
 #description
-Build professional documentation with Nuxt UI's powerful components, enhanced typography, and seamless Nuxt Content integration. The same system trusted by the entire [Nuxt ecosystem](https://nuxt.com).
+A powerful collection of motion components for Nuxt applications. Enhance your UI with beautiful animations and interactions that just work.
 
 #links
-  :::u-button
-  ---
-  to: /getting-started
-  size: xl
-  trailing-icon: i-lucide-arrow-right
-  ---
-  Get started
-  :::
-
-  :::u-button
-  ---
-  icon: i-simple-icons-github
-  color: neutral
-  variant: outline
-  size: xl
-  to: https://github.com/nuxt-ui-templates/docs
-  target: _blank
-  ---
-  Use this template
-  :::
+:component-example{name="hero-buttons-example"}
 
 #default
   :::prose-pre
@@ -46,12 +27,9 @@ Build professional documentation with Nuxt UI's powerful components, enhanced ty
     export default defineNuxtConfig({
       modules: [
         '@nuxt/ui',
-        '@nuxt/content',
-        'nuxt-og-image',
-        'nuxt-llms'
-      ],
-
-      css: ['~/assets/css/main.css']
+        'motion-v/nuxt',
+        'nuxt-motion-block'
+      ]
     })
   filename: nuxt.config.ts
   ---
@@ -60,12 +38,9 @@ Build professional documentation with Nuxt UI's powerful components, enhanced ty
   export default defineNuxtConfig({
     modules: [
       '@nuxt/ui',
-      '@nuxt/content',
-      'nuxt-og-image',
-      'nuxt-llms'
-    ],
-
-    css: ['~/assets/css/main.css']
+      'motion-v/nuxt',
+      'nuxt-motion-block'
+    ]
   })
   ```
   :::
@@ -73,7 +48,7 @@ Build professional documentation with Nuxt UI's powerful components, enhanced ty
 
 ::u-page-section{class="dark:bg-neutral-950"}
 #title
-Powered by Nuxt UI components
+:component-example{name="component-count-example"}
 
 #links
   :::u-button
@@ -89,6 +64,8 @@ Powered by Nuxt UI components
   :::
 
 #features
+:component-example{name="feature-grid-example"}
+  :::template{#feature-0}
   :::u-page-feature
   ---
   icon: i-lucide-palette
@@ -99,7 +76,9 @@ Powered by Nuxt UI components
   #description
   Access the complete Nuxt UI component library. From badges to modals, everything styled and accessible out of the box.
   :::
+  :::
 
+  :::template{#feature-1}
   :::u-page-feature
   ---
   icon: i-lucide-type
@@ -110,7 +89,9 @@ Powered by Nuxt UI components
   #description
   Pre-styled prose components with perfect visual harmony. No need for @tailwindcss/typography - get precise control over every element.
   :::
+  :::
 
+  :::template{#feature-2}
   :::u-page-feature
   ---
   icon: i-lucide-layers
@@ -121,7 +102,9 @@ Powered by Nuxt UI components
   #description
   Accordions, cards, callouts, tabs, steps, code blocks, and more - all provided by Nuxt UI for interactive documentation.
   :::
+  :::
 
+  :::template{#feature-3}
   :::u-page-feature
   ---
   icon: i-lucide-search
@@ -132,7 +115,9 @@ Powered by Nuxt UI components
   #description
   Full-text search with ContentSearch component. No need for Algolia - instant, relevant results with keyboard shortcuts (⌘K).
   :::
+  :::
 
+  :::template{#feature-4}
   :::u-page-feature
   ---
   icon: i-lucide-navigation
@@ -143,7 +128,9 @@ Powered by Nuxt UI components
   #description
   Auto-generated navigation with ContentNavigation and ContentToc components. Sticky table of contents and prev/next links.
   :::
+  :::
 
+  :::template{#feature-5}
   :::u-page-feature
   ---
   icon: i-lucide-moon
@@ -154,11 +141,12 @@ Powered by Nuxt UI components
   #description
   Automatic theme switching with smooth transitions. Respects system preferences and remembers user choice.
   :::
+  :::
 ::
 
 ::u-page-section{class="dark:bg-neutral-950"}
 #title
-Enhanced with Nuxt Content
+Enhanced with Motion Components
 
 #links
   :::u-button
@@ -174,9 +162,11 @@ Enhanced with Nuxt Content
   :::
 
 #features
+:component-example{component="FeatureGridExample"}
+  :::template{#feature-0}
   :::u-page-feature
   ---
-  icon: i-simple-icons-markdown
+  icon: i-lucide-code
   ---
   #title
   MDC Enhanced Markdown
@@ -184,7 +174,9 @@ Enhanced with Nuxt Content
   #description
   Write in Markdown while embedding Vue components. Seamlessly integrate interactive elements in your content.
   :::
+  :::
 
+  :::template{#feature-1}
   :::u-page-feature
   ---
   icon: i-lucide-file-text
@@ -195,49 +187,58 @@ Enhanced with Nuxt Content
   #description
   Organize content in folders and files. Your documentation structure automatically becomes your navigation.
   :::
-
-  :::u-page-feature
-  ---
-  icon: i-lucide-code
-  ---
-  #title
-  Syntax Highlighting
-
-  #description
-  Beautiful code blocks with language detection, line numbers, and copy buttons. Support for 100+ languages.
   :::
 
+  :::template{#feature-2}
   :::u-page-feature
   ---
-  icon: i-lucide-database
+  icon: i-lucide-layers
   ---
   #title
-  Content Database
+  Component Library
 
   #description
-  Query your content with a MongoDB-like API. Filter, sort, and search through your documentation programmatically.
+  Access to 40+ motion-enhanced components including text animations, visual effects, and interactive elements.
+  :::
   :::
 
+  :::template{#feature-3}
   :::u-page-feature
   ---
-  icon: i-lucide-file-code
+  icon: i-lucide-zap
   ---
   #title
-  Frontmatter Support
+  Performance Optimized
 
   #description
-  Add metadata to your content files. Define SEO tags, navigation properties, and custom fields.
+  All components are built with performance in mind, using efficient animations and minimal JavaScript.
+  :::
   :::
 
+  :::template{#feature-4}
   :::u-page-feature
   ---
-  icon: i-lucide-git-branch
+  icon: i-lucide-accessibility
   ---
   #title
-  Version Control
+  Accessibility First
 
   #description
-  Content lives in your repository. Branch, review, and deploy documentation alongside your code.
+  Components follow accessibility best practices and work seamlessly with screen readers and keyboard navigation.
+  :::
+  :::
+
+  :::template{#feature-5}
+  :::u-page-feature
+  ---
+  icon: i-lucide-settings
+  ---
+  #title
+  Highly Customizable
+
+  #description
+  Every component can be customized through props, slots, and CSS classes to match your design system.
+  :::
   :::
 ::
 
@@ -253,8 +254,8 @@ Enhanced with Nuxt Content
       target: _blank
       variant: subtle
       icon: i-simple-icons-github
-  title: Ready to build an amazing documentation?
-  description: Join thousands of developers building with Nuxt and Nuxt UI. Get this template and start shipping today.
+  title: Ready to enhance your Nuxt application?
+  description: Join thousands of developers building with Nuxt Motion Block. Install the module and start adding motion today.
   class: dark:bg-neutral-950
   ---
 

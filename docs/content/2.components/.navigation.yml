@@ -1,1 +1,86 @@
 title: Components & Composables
+items:
+  - title: Introduction
+    to: /components
+  - title: Layout & Background
+    items:
+      - title: AnimatedBackground
+        to: /components/animated-background
+      - title: AnimatedGroup
+        to: /components/animated-group
+  - title: Interactive Elements
+    items:
+      - title: Dock
+        to: /components/dock
+  - title: Numbers & Text
+    items:
+      - title: AnimatedNumber
+        to: /components/animated-number
+      - title: CountingNumber
+        to: /components/counting-number
+      - title: SlidingNumber
+        to: /components/sliding-number
+      - title: TextGlitch
+        to: /components/text-glitch
+      - title: TextGradient
+        to: /components/text-gradient
+      - title: TextLoop
+        to: /components/text-loop
+      - title: TextMorph
+        to: /components/text-morph
+      - title: TextReveal
+        to: /components/text-reveal
+      - title: TextRoll
+        to: /components/text-roll
+      - title: TextScramble
+        to: /components/text-scramble
+      - title: TextShimmer
+        to: /components/text-shimmer
+      - title: TextShimmerWave
+        to: /components/text-shimmer-wave
+      - title: TypingText
+        to: /components/typing-text
+      - title: WordRotate
+        to: /components/word-rotate
+  - title: Visual Effects
+    items:
+      - title: BorderTrail
+        to: /components/border-trail
+      - title: FlowingStroke
+        to: /components/flowing-stroke
+      - title: GlowEffect
+        to: /components/glow-effect
+      - title: ProgressiveBlur
+        to: /components/progressive-blur
+      - title: Spotlight
+        to: /components/spotlight
+  - title: Interaction & Movement
+    items:
+      - title: Cursor
+        to: /components/cursor
+      - title: DragAndDrop
+        to: /components/drag-and-drop
+      - title: ForceDot
+        to: /components/force-dot
+      - title: Magnetic
+        to: /components/magnetic
+      - title: Tilt
+        to: /components/tilt
+  - title: Scroll & Viewport
+    items:
+      - title: InView
+        to: /components/in-view
+      - title: InfiniteSlider
+        to: /components/infinite-slider
+      - title: ScrollProgress
+        to: /components/scroll-progress
+  - title: Composables
+    items:
+      - title: useDock
+        to: /components/use-dock
+      - title: useMorphingPopover
+        to: /components/use-morphing-popover
+      - title: useCanvasCursor
+        to: /components/use-canvas-cursor
+      - title: useFluidCursor
+        to: /components/use-fluid-cursor

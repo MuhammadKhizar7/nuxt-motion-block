@@ -7,70 +7,61 @@ navigation:
 
 # useFluidCursor
 
-The useFluidCursor composable provides fluid cursor effects with particle systems. It creates realistic fluid dynamics that follow the mouse cursor with WebGL-based rendering.
+The useFluidCursor composable provides advanced fluid simulation cursor effects using WebGL. It creates realistic fluid dynamics for cursor interactions with customizable colors and physics.
 
 ## Usage
 
-```ts
+```vue
+<template>
+  <canvas ref="canvasRef" class="fixed inset-0 pointer-events-none z-50" />
+</template>
+
+<script setup>
+import { ref } from 'vue'
 import { useFluidCursor } from '#imports'
-import { ref, onMounted } from 'vue'
 
-const canvasRef = ref<HTMLCanvasElement | null>(null)
-
-onMounted(() => {
-  useFluidCursor(canvasRef)
-})
+const canvasRef = ref()
+useFluidCursor(canvasRef, { color: 'secondary' })
+</script>
 ```
 
 ## Parameters
 
 ::field-group
-  ::field{name="canvasRef" type="Ref<HTMLCanvasElement>" :required="true"}
+  ::field{name="canvasRef" type="Ref<HTMLCanvasElement>"}
   Reference to the canvas element.
   ::
   
   ::field{name="options" type="object" default="{}"}
-  Configuration options for the cursor.
+  Configuration options.
   ::
   
-  ::field{name="options.color" type="string" default="undefined"}
-  Color for the fluid effect.
+  ::field{type="object" name="options.color" default="undefined"}
+  Color of the fluid effect. Can be a theme color name.
   ::
 ::
 
-## Methods
+## Configuration
 
-::field-group
-  ::field{name="init" type="function"}
-  Initialize the fluid cursor.
-  ::
-  
-  ::field{name="destroy" type="function"}
-  Destroy the fluid cursor and clean up resources.
-  ::
-::
-
-## Configuration Options
-
-The composable uses internal configuration for the fluid effects:
+The composable uses the following internal configuration:
 
 ```ts
 const config = {
-  SIM_RESOLUTION: 128,           // Simulation resolution
-  DYE_RESOLUTION: 1440,          // Dye resolution
-  CAPTURE_RESOLUTION: 512,       // Capture resolution
-  DENSITY_DISSIPATION: 3.5,      // Density dissipation
-  VELOCITY_DISSIPATION: 2,       // Velocity dissipation
-  PRESSURE: 0.1,                 // Pressure
-  PRESSURE_ITERATIONS: 20,       // Pressure iterations
-  CURL: 3,                       // Curl
-  SPLAT_RADIUS: 0.2,             // Splat radius
-  SPLAT_FORCE: 6000,             // Splat force
-  SHADING: true,                 // Enable shading
-  COLOR_UPDATE_SPEED: 10,        // Color update speed
-  PAUSED: false,                 // Pause simulation
-  BACK_COLOR: { r: 0.5, g: 0, b: 0 }, // Background color
-  TRANSPARENT: true              // Transparent background
+  SIM_RESOLUTION: 128,
+  DYE_RESOLUTION: 1440,
+  CAPTURE_RESOLUTION: 512,
+  DENSITY_DISSIPATION: 3.5,
+  VELOCITY_DISSIPATION: 2,
+  PRESSURE: 0.1,
+  PRESSURE_ITERATIONS: 20,
+  CURL: 3,
+  SPLAT_RADIUS: 0.2,
+  SPLAT_FORCE: 6000,
+  SHADING: true,
+  COLOR_UPDATE_SPEED: 10,
+  PAUSED: false,
+  BACK_COLOR: { r: 0.5, g: 0, b: 0 },
+  TRANSPARENT: true
 }
 ```
 
@@ -78,68 +69,34 @@ const config = {
 
 ```vue
 <template>
-  <div class="relative">
-    <canvas 
-      ref="canvasRef" 
-      class="fixed inset-0 pointer-events-none z-50"
-    />
-    
-    <div class="p-8">
-      <h1>Fluid Cursor Demo</h1>
-      <p>Move your cursor around to see the fluid dynamics.</p>
+  <div class="min-h-screen bg-gray-900 text-white">
+    <canvas ref="canvasRef" class="fixed inset-0 pointer-events-none z-50" />
+    <div class="container mx-auto px-4 py-8 relative z-10">
+      <h1 class="text-4xl font-bold mb-6">Fluid Cursor Demo</h1>
+      <p class="text-xl mb-8">Move your cursor to create fluid dynamics effects</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-gray-800 p-6 rounded-lg">
+          <h2 class="text-2xl font-semibold mb-3">Realistic Physics</h2>
+          <p>Experience fluid dynamics with realistic viscosity and movement.</p>
+        </div>
+        <div class="bg-gray-800 p-6 rounded-lg">
+          <h2 class="text-2xl font-semibold mb-3">Interactive</h2>
+          <p>Every cursor movement creates unique fluid interactions.</p>
+        </div>
+        <div class="bg-gray-800 p-6 rounded-lg">
+          <h2 class="text-2xl font-semibold mb-3">Customizable</h2>
+          <p>Adjust colors and physics parameters for different effects.</p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 import { useFluidCursor } from '#imports'
 
-const canvasRef = ref(null)
-
-onMounted(() => {
-  useFluidCursor(canvasRef)
-})
-</script>
-```
-
-## Advanced Example
-
-```vue
-<template>
-  <div class="relative min-h-screen bg-black">
-    <canvas 
-      ref="canvasRef" 
-      class="fixed inset-0 pointer-events-none z-50"
-    />
-    
-    <div class="container mx-auto p-8 relative z-10">
-      <h1 class="text-3xl font-bold mb-4 text-white">Advanced Fluid Cursor</h1>
-      <p class="mb-4 text-gray-300">This demo shows fluid dynamics with custom color.</p>
-      <button 
-        @click="togglePause" 
-        class="px-4 py-2 bg-blue-500 text-white rounded"
-      >
-        {{ isPaused ? 'Resume' : 'Pause' }} Simulation
-      </button>
-    </div>
-  </div>
-</template>
-
-<script setup>
-import { ref, onMounted } from 'vue'
-import { useFluidCursor } from '#imports'
-
-const canvasRef = ref(null)
-const isPaused = ref(false)
-
-const togglePause = () => {
-  isPaused.value = !isPaused.value
-  // You would need to access the internal config to pause/resume
-}
-
-onMounted(() => {
-  useFluidCursor(canvasRef, { color: 'blue' })
-})
+const canvasRef = ref()
+useFluidCursor(canvasRef, { color: 'primary' })
 </script>
 ```

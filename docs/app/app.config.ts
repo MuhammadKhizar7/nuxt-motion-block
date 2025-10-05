@@ -12,13 +12,13 @@ export default defineAppConfig({
     }
   },
   seo: {
-    siteName: 'Nuxt Docs Template'
+    siteName: 'Nuxt Motion Block'
   },
   header: {
-    title: '',
+    title: 'Nuxt Motion Block',
     to: '/',
     logo: {
-      alt: '',
+      alt: 'Nuxt Motion Block',
       light: '',
       dark: ''
     },
@@ -26,45 +26,35 @@ export default defineAppConfig({
     colorMode: true,
     links: [{
       'icon': 'i-simple-icons-github',
-      'to': 'https://github.com/nuxt-ui-templates/docs',
+      'to': 'https://github.com/your-org/nuxt-motion-block',
       'target': '_blank',
       'aria-label': 'GitHub'
     }]
   },
   footer: {
-    credits: `Built with Nuxt UI • © ${new Date().getFullYear()}`,
+    credits: `Nuxt Motion Block • © ${new Date().getFullYear()}`,
     colorMode: false,
     links: [{
-      'icon': 'i-simple-icons-discord',
-      'to': 'https://go.nuxt.com/discord',
-      'target': '_blank',
-      'aria-label': 'Nuxt on Discord'
-    }, {
-      'icon': 'i-simple-icons-x',
-      'to': 'https://go.nuxt.com/x',
-      'target': '_blank',
-      'aria-label': 'Nuxt on X'
-    }, {
       'icon': 'i-simple-icons-github',
-      'to': 'https://github.com/nuxt/ui',
+      'to': 'https://github.com/your-org/nuxt-motion-block',
       'target': '_blank',
-      'aria-label': 'Nuxt UI on GitHub'
+      'aria-label': 'Nuxt Motion Block on GitHub'
     }]
   },
   toc: {
     title: 'Table of Contents',
     bottom: {
       title: 'Community',
-      edit: 'https://github.com/nuxt-ui-templates/docs/edit/main/content',
+      edit: 'https://github.com/your-org/nuxt-motion-block/edit/main/docs/content',
       links: [{
         icon: 'i-lucide-star',
         label: 'Star on GitHub',
-        to: 'https://github.com/nuxt/ui',
+        to: 'https://github.com/your-org/nuxt-motion-block',
         target: '_blank'
       }, {
         icon: 'i-lucide-book-open',
-        label: 'Nuxt UI docs',
-        to: 'https://ui.nuxt.com/docs/getting-started/installation/nuxt',
+        label: 'Nuxt Motion Block docs',
+        to: '/getting-started',
         target: '_blank'
       }]
     }

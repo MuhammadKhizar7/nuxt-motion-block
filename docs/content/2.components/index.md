@@ -19,8 +19,6 @@ The components are organized into several categories based on their functionalit
 
 ### Interactive Elements
 - [Dock](/components/dock) - macOS-style dock with magnification effects
-- [ImageComparison](/components/image-comparison) - Interactive image comparison component
-- [MorphingPopover](/components/morphing-popover) - Popover with morphing animations
 
 ### Numbers & Text
 - [AnimatedNumber](/components/animated-number) - Animated numeric value with smooth transitions
