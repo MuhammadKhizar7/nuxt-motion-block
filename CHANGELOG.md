@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.0.4
+
+[compare changes](https://github.com/your-org/nuxt-motion-block/compare/v0.0.3...v0.0.4)
+
+### 🩹 Fixes
+
+- Update variable declaration in HSVtoRGB function for proper scoping ([fcd7bbd](https://github.com/your-org/nuxt-motion-block/commit/fcd7bbd))
+
+### ❤️ Contributors
+
+- MuhammadKhizar7 <muhammadkhizar7@gmail.com>
+
 ### 🚀 Enhancements
 
 - Add initial component ([4d5f0d1](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/4d5f0d1))
