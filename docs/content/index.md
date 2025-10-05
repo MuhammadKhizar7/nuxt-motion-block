@@ -12,13 +12,32 @@ orientation: horizontal
 :hero-background
 
 #title
-:component-example{name="hero-title-example"}
+Enhance Your Nuxt UI with Motion.
 
 #description
 A powerful collection of motion components for Nuxt applications. Enhance your UI with beautiful animations and interactions that just work.
 
 #links
-:component-example{name="hero-buttons-example"}
+  :::u-button
+  ---
+  to: /getting-started
+  size: xl
+  trailing-icon: i-lucide-arrow-right
+  ---
+  Get started
+  :::
+
+  :::u-button
+  ---
+  icon: i-simple-icons-github
+  color: neutral
+  variant: outline
+  size: xl
+  to: https://github.com/your-org/nuxt-motion-block
+  target: _blank
+  ---
+  View on GitHub
+  :::
 
 #default
   :::prose-pre
@@ -48,161 +67,54 @@ A powerful collection of motion components for Nuxt applications. Enhance your U
 
 ::u-page-section{class="dark:bg-neutral-950"}
 #title
-:component-example{name="component-count-example"}
+40+ Motion-Enhanced Components
 
 #links
   :::u-button
   ---
   color: neutral
   size: lg
-  target: _blank
-  to: https://ui.nuxt.com/docs/getting-started/installation/nuxt
+  to: /components
   trailingIcon: i-lucide-arrow-right
   variant: subtle
   ---
-  Explore Nuxt UI
+  Explore Components
   :::
 
 #features
-:component-example{name="feature-grid-example"}
-  :::template{#feature-0}
-  :::u-page-feature
-  ---
-  icon: i-lucide-palette
-  ---
-  #title
-  100+ UI Components
-
-  #description
-  Access the complete Nuxt UI component library. From badges to modals, everything styled and accessible out of the box.
-  :::
-  :::
-
-  :::template{#feature-1}
   :::u-page-feature
   ---
   icon: i-lucide-type
   ---
   #title
-  Beautiful Typography
+  Text Animations
 
   #description
-  Pre-styled prose components with perfect visual harmony. No need for @tailwindcss/typography - get precise control over every element.
-  :::
+  Bring your content to life with text animations including morphing, scrambling, rolling, and gradient effects.
   :::
 
-  :::template{#feature-2}
   :::u-page-feature
   ---
-  icon: i-lucide-layers
+  icon: i-lucide-sparkles
   ---
   #title
-  Rich Prose Components
+  Visual Effects
 
   #description
-  Accordions, cards, callouts, tabs, steps, code blocks, and more - all provided by Nuxt UI for interactive documentation.
-  :::
+  Add stunning visual effects like glows, trails, and spotlights to enhance your UI components.
   :::
 
-  :::template{#feature-3}
   :::u-page-feature
   ---
-  icon: i-lucide-search
+  icon: i-lucide-mouse-pointer-2
   ---
   #title
-  Built-in Search
+  Interactive Elements
 
   #description
-  Full-text search with ContentSearch component. No need for Algolia - instant, relevant results with keyboard shortcuts (⌘K).
-  :::
-  :::
-
-  :::template{#feature-4}
-  :::u-page-feature
-  ---
-  icon: i-lucide-navigation
-  ---
-  #title
-  Smart Navigation
-
-  #description
-  Auto-generated navigation with ContentNavigation and ContentToc components. Sticky table of contents and prev/next links.
-  :::
+  Create engaging user experiences with interactive components like custom cursors, docks, and magnetic elements.
   :::
 
-  :::template{#feature-5}
-  :::u-page-feature
-  ---
-  icon: i-lucide-moon
-  ---
-  #title
-  Dark Mode Ready
-
-  #description
-  Automatic theme switching with smooth transitions. Respects system preferences and remembers user choice.
-  :::
-  :::
-::
-
-::u-page-section{class="dark:bg-neutral-950"}
-#title
-Enhanced with Motion Components
-
-#links
-  :::u-button
-  ---
-  color: neutral
-  size: lg
-  target: _blank
-  to: https://content.nuxt.com/docs/getting-started/installation
-  trailingIcon: i-lucide-arrow-right
-  variant: subtle
-  ---
-  Explore Nuxt Content
-  :::
-
-#features
-:component-example{component="FeatureGridExample"}
-  :::template{#feature-0}
-  :::u-page-feature
-  ---
-  icon: i-lucide-code
-  ---
-  #title
-  MDC Enhanced Markdown
-
-  #description
-  Write in Markdown while embedding Vue components. Seamlessly integrate interactive elements in your content.
-  :::
-  :::
-
-  :::template{#feature-1}
-  :::u-page-feature
-  ---
-  icon: i-lucide-file-text
-  ---
-  #title
-  File-based Routing
-
-  #description
-  Organize content in folders and files. Your documentation structure automatically becomes your navigation.
-  :::
-  :::
-
-  :::template{#feature-2}
-  :::u-page-feature
-  ---
-  icon: i-lucide-layers
-  ---
-  #title
-  Component Library
-
-  #description
-  Access to 40+ motion-enhanced components including text animations, visual effects, and interactive elements.
-  :::
-  :::
-
-  :::template{#feature-3}
   :::u-page-feature
   ---
   icon: i-lucide-zap
@@ -213,9 +125,7 @@ Enhanced with Motion Components
   #description
   All components are built with performance in mind, using efficient animations and minimal JavaScript.
   :::
-  :::
 
-  :::template{#feature-4}
   :::u-page-feature
   ---
   icon: i-lucide-accessibility
@@ -226,9 +136,7 @@ Enhanced with Motion Components
   #description
   Components follow accessibility best practices and work seamlessly with screen readers and keyboard navigation.
   :::
-  :::
 
-  :::template{#feature-5}
   :::u-page-feature
   ---
   icon: i-lucide-settings
@@ -238,7 +146,6 @@ Enhanced with Motion Components
 
   #description
   Every component can be customized through props, slots, and CSS classes to match your design system.
-  :::
   :::
 ::
 
@@ -250,7 +157,7 @@ Enhanced with Motion Components
       to: '/getting-started'
       trailingIcon: i-lucide-arrow-right
     - label: View on GitHub
-      to: 'https://github.com/nuxt-ui-templates/docs'
+      to: 'https://github.com/your-org/nuxt-motion-block'
       target: _blank
       variant: subtle
       icon: i-simple-icons-github
