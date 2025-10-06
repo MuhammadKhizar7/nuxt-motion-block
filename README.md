@@ -9,11 +9,23 @@ A streamlined UI library that extends Nuxt UI with motion capabilities powered b
 
 - [✨ &nbsp;Release Notes](/CHANGELOG.md)
 <!-- - [🏀 Online playground](https://stackblitz.com/github/your-org/nuxt-motion-block?file=playground%2Fapp.vue) -->
-- [📖 &nbsp;Documentation](https://nuxt-motion-block-docs.example.com)
+- [📖 &nbsp;Documentation](https://nuxt-motion-block.pages.dev/)
+- [🌐 &nbsp;Live Preview](https://nuxt-motion-block.pages.dev/)
+
+<p align="center">
+  <a href="https://nuxt-motion-block.pages.dev/" target="_blank">
+    <img src="./docs/public/docs-light.png" alt="Light mode" />
+  </a>
+</p>
+<p align="center">
+  <a href="https://nuxt-motion-block.pages.dev/" target="_blank">
+    <img src="./docs/public/docs-dark.png" alt="Dark mode" />
+  </a>
+</p>
 
 ## Features
 
-- 🎨 &nbsp;40+ Motion-Enhanced UI Components
+- 🎨 &nbsp;30+ Motion-Enhanced UI Components
 - ⚡ &nbsp;Powered by motion-v for Smooth Animations
 - 🧩 &nbsp;Seamless Integration with Nuxt UI
 - 🛠️ &nbsp;Auto-Registered Components with Configurable Prefix
