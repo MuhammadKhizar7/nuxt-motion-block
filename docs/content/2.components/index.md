@@ -38,26 +38,21 @@ The components are organized into several categories based on their functionalit
 
 ### Visual Effects
 - [BorderTrail](/components/border-trail) - Animated border effect with trailing particles
-- [FlowingStroke](/components/flowing-stroke) - Animated stroke effect that flows along SVG paths
 - [GlowEffect](/components/glow-effect) - Glowing effect around elements
 - [ProgressiveBlur](/components/progressive-blur) - Progressive blur effect that increases with distance
 - [Spotlight](/components/spotlight) - Spotlight effect that follows cursor movement
 
 ### Interaction & Movement
 - [Cursor](/components/cursor) - Custom cursor with various effects
-- [DragAndDrop](/components/drag-and-drop) - Drag and drop functionality with visual feedback
 - [ForceDot](/components/force-dot) - Interactive dot with physics-based movement
 - [Magnetic](/components/magnetic) - Magnetic effect that attracts elements to cursor proximity
 - [Tilt](/components/tilt) - 3D tilt effect based on cursor movement
 
 ### Scroll & Viewport
 - [InView](/components/in-view) - Trigger animations when elements enter the viewport
-- [InfiniteSlider](/components/infinite-slider) - Continuously sliding content with seamless looping
 - [ScrollProgress](/components/scroll-progress) - Progress bar that tracks scroll position
 
 ### Composables
-- [useDock](/components/use-dock) - Provides dock context for custom implementations
-- [useMorphingPopover](/components/use-morphing-popover) - Provides popover context for custom implementations
 - [useCanvasCursor](/components/use-canvas-cursor) - Custom cursor implementation with canvas-based effects
 - [useFluidCursor](/components/use-fluid-cursor) - Fluid cursor effects with particle systems
 

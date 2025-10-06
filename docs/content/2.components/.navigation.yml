@@ -46,8 +46,6 @@ items:
     items:
       - title: BorderTrail
         to: /components/border-trail
-      - title: FlowingStroke
-        to: /components/flowing-stroke
       - title: GlowEffect
         to: /components/glow-effect
       - title: ProgressiveBlur
@@ -76,10 +74,6 @@ items:
         to: /components/scroll-progress
   - title: Composables
     items:
-      - title: useDock
-        to: /components/use-dock
-      - title: useMorphingPopover
-        to: /components/use-morphing-popover
       - title: useCanvasCursor
         to: /components/use-canvas-cursor
       - title: useFluidCursor

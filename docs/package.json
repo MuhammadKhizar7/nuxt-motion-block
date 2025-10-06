@@ -1,6 +1,9 @@
 {
-  "name": "nuxt-ui-template-docs",
-  "private": true,
+  "name": "nuxt-motion-block-docs",
+  "version": "0.0.1",
+  "description": "A streamlined UI library that extends Nuxt UI with motion capabilities powered by motion-v",
+  "repository": "MuhammadKhizar7/nuxt-motion-block",
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "build": "nuxt build",

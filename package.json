@@ -33,9 +33,9 @@
     "test": "vitest run",
     "test:watch": "vitest watch",
     "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit",
-    "docs:dev": "pnpm --filter nuxt-ui-template-docs dev",
-    "docs:build": "pnpm --filter nuxt-ui-template-docs build",
-    "docs:preview": "pnpm --filter nuxt-ui-template-docs preview"
+    "docs:dev": "pnpm --filter nuxt-motion-block-docs dev",
+    "docs:build": "pnpm --filter nuxt-motion-block-docs build",
+    "docs:preview": "pnpm --filter nuxt-motion-block-docs preview"
   },
   "dependencies": {
     "@nuxt/kit": "^4.1.2",
