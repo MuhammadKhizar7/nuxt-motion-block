@@ -38,19 +38,10 @@
 ### 🏡 Chore
 
 - Remove unused docs pages ([064c4b0](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/064c4b0))
-- **release:** V0.0.2 ([0827a00](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/0827a00))
-- **release:** V0.0.3 ([7dba4ae](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/7dba4ae))
-- **release:** V0.0.4 ([d7c4618](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/d7c4618))
-- **release:** V0.0.1 ([4430e8d](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/4430e8d))
-- **release:** V0.0.2 ([b025b89](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/b025b89))
-- **release:** V0.0.1 ([2e4ffee](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/2e4ffee))
-- **release:** V0.0.2 ([fa2864f](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/fa2864f))
-- **release:** V0.0.1 ([8226e58](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/8226e58))
-- **release:** V0.0.2 ([3066220](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/3066220))
 - Remove template menu ([9d826d6](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/9d826d6))
 - Reset version and remove tags ([02a795a](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/02a795a))
 
 ### ❤️ Contributors
 
-- MuhammadKhizar7 <muhammadkhizar7@gmail.com>
+- MuhammadKhizar7
 
