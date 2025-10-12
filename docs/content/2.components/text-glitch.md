@@ -139,15 +139,19 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MTextGlitch{text="COLORS" :colors="['#ff5733', '#33ff57', '#3357ff']"}
-    :::
-  :::
+::div
+  ::component-example{name="text-glitch-custom-colors"}
+::
 #code
 ```vue
 <template>
   <div class="p-4">
-    <MTextGlitch text="COLORS" :colors="['#ff5733', '#33ff57', '#3357ff']" />
+    <MTextGlitch 
+      text="TEAL" 
+      :colors="['#0d9488', '#14b8a6', '#2dd4bf']"
+      trigger="auto"
+      :interval="2"
+    />
   </div>
 </template>
 ```
@@ -159,13 +163,9 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4 space-y-4"}
-    :::MTextGlitch{ref="glitchRef" text="MANUAL" trigger="manual"}
-    :::
-    :::button{class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors" @click="glitchRef?.trigger()"}
-    Trigger Glitch
-    :::
-  :::
+::div
+  ::component-example{name="text-glitch-manual"}
+::
 #code
 ```vue
 <template>
@@ -173,11 +173,23 @@ label: Preview
     <MTextGlitch ref="glitchRef" text="MANUAL" trigger="manual" />
     <button 
       class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
-      @click="glitchRef?.trigger()"
+      @click="triggerGlitch"
     >
       Trigger Glitch
     </button>
   </div>
 </template>
+
+<script setup>
+import { ref } from 'vue'
+
+const glitchRef = ref(null)
+
+const triggerGlitch = () => {
+  if (glitchRef.value) {
+    glitchRef.value.trigger()
+  }
+}
+</script>
 ```
 ::

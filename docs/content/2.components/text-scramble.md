@@ -151,18 +151,14 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4 space-y-4"}
-    :::MTextScramble{:text="scrambleText" :trigger="scrambleTrigger"}
-    :::
-    :::button{class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors" @click="triggerScramble"}
-    Scramble Text
-    :::
-  :::
+::div
+  ::component-example{name="text-scramble-manual"}
+::
 #code
 ```vue
 <template>
   <div class="p-4 space-y-4">
-    <MTextScramble :text="scrambleText" :trigger="scrambleTrigger" />
+    <MTextScramble text="Click to scramble" :trigger="scrambleTrigger" />
     <button 
       class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
       @click="triggerScramble"
@@ -173,16 +169,16 @@ label: Preview
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, nextTick } from 'vue'
 
-const scrambleText = ref("Click to scramble")
-const scrambleTrigger = ref(false)
+const scrambleTrigger = ref(true)
 
 const triggerScramble = () => {
-  scrambleTrigger.value = true
-  setTimeout(() => {
-    scrambleTrigger.value = false
-  }, 100)
+  // Toggle the trigger to initiate scramble
+  scrambleTrigger.value = false
+  nextTick(() => {
+    scrambleTrigger.value = true
+  })
 }
 </script>
 ```

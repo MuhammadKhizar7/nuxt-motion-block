@@ -254,12 +254,15 @@ const startAutoPlay = () => {
   if (!props.autoPlay) return
 
   stopAutoPlay()
-  autoPlayInterval.value = setInterval(() => {
-    const newPosition = (sliderPosition.value + 10) % 100
-    motionValue.set(newPosition)
-    sliderPosition.value = newPosition
-    emit('positionChange', newPosition)
-  }, props.autoPlayDuration) as any
+  // Only set up interval in the browser, not on the server
+  if (process.client) {
+    autoPlayInterval.value = setInterval(() => {
+      const newPosition = (sliderPosition.value + 10) % 100
+      motionValue.set(newPosition)
+      sliderPosition.value = newPosition
+      emit('positionChange', newPosition)
+    }, props.autoPlayDuration) as any
+  }
 }
 
 const stopAutoPlay = () => {

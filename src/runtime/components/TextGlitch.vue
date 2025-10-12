@@ -283,26 +283,29 @@ const triggerAutoGlitch = () => {
 
 // Auto glitch setup
 watch([isVisible, () => props.trigger], ([visible, trigger]) => {
-  if (trigger === 'auto' || (trigger === 'inView' && visible)) {
-    if (glitchInterval.value) {
-      clearInterval(glitchInterval.value)
-    }
+  // Only set up interval in the browser, not on the server
+  if (process.client) {
+    if (trigger === 'auto' || (trigger === 'inView' && visible)) {
+      if (glitchInterval.value) {
+        clearInterval(glitchInterval.value)
+      }
 
-    glitchInterval.value = setInterval(() => {
-      triggerAutoGlitch()
-    }, props.interval * 1000)
-  }
-  else {
-    if (glitchInterval.value) {
-      clearInterval(glitchInterval.value)
-      glitchInterval.value = null
+      glitchInterval.value = setInterval(() => {
+        triggerAutoGlitch()
+      }, props.interval * 1000)
+    }
+    else {
+      if (glitchInterval.value) {
+        clearInterval(glitchInterval.value)
+        glitchInterval.value = null
+      }
     }
   }
-}, { immediate: true })
+})
 
 // Manual trigger watch
 watch(() => props.trigger, (trigger) => {
-  if (trigger === 'manual' && props.autoStart) {
+  if (process.client && trigger === 'manual' && props.autoStart) {
     triggerAutoGlitch()
   }
 })

@@ -104,14 +104,14 @@ label: Preview
 label: Preview
 ---
   :::div{class="p-4"}
-    :::MTextShimmerWave{:duration="2" text:"Slow Wave"}
+    :::MTextShimmerWave{:duration="2" text="Slow Wave"}
     :::
   :::
 #code
 ```vue
 <template>
   <div class="p-4">
-    <MTextShimmerWave :text="Slow Wave":duration="2">
+    <MTextShimmerWave text="Slow Wave" :duration="2" />
   </div>
 </template>
 ```
@@ -144,7 +144,7 @@ label: Preview
 label: Preview
 ---
   :::div{class="p-4"}
-    :::MTextShimmerWave{ text:"Big Wave" :z-distance="20" :x-distance="5" :y-distance="-5" :scale-distance="1.3" :rotate-y-distance="20"}
+    :::MTextShimmerWave{text="Big Wave" :z-distance="20" :x-distance="5" :y-distance="-5" :scale-distance="1.3" :rotate-y-distance="20"}
     :::
   :::
 #code
@@ -158,7 +158,7 @@ label: Preview
       :y-distance="-5" 
       :scale-distance="1.3" 
       :rotate-y-distance="20"
-    >
+    />
   </div>
 </template>
 ```
@@ -170,16 +170,60 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MTextShimmerWave{text="Styled Wave text" class="text-2xl font-bold text-purple-600"}
-    :::
-  :::
+::div
+  ::component-example{name="text-shimmer-wave-styled"}
+::
 #code
 ```vue
 <template>
   <div class="p-4">
-    <MTextShimmerWave class="text-2xl font-bold text-purple-600" text="Styled Wave text" /> 
+    <MTextShimmerWave 
+      text="TEAL WAVE" 
+      class="text-2xl font-bold text-[#0d9488]" 
+      :z-distance="15"
+      :duration="1.5"
+    />
   </div>
 </template>
+```
+::
+
+### Manual Trigger
+
+::code-preview
+---
+label: Preview
+---
+::div
+  ::component-example{name="text-shimmer-wave-manual"}
+::
+#code
+```vue
+<template>
+  <div class="p-4 space-y-4">
+    <MTextShimmerWave 
+      :text="waveText" 
+      :key="waveKey"
+      class="text-xl font-bold"
+    />
+    <button 
+      class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+      @click="triggerWave"
+    >
+      Replay Wave Animation
+    </button>
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const waveText = ref("Click Me")
+const waveKey = ref(0)
+
+const triggerWave = () => {
+  waveKey.value++
+}
+</script>
 ```
 ::
