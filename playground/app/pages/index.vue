@@ -125,77 +125,6 @@
         </div>
       </UCard>
 
-      <!-- Dock Demo -->
-      <UCard class="lg:col-span-2 relative">
-        <template #header>
-          <h2 class="text-xl font-semibold">
-            Dock
-          </h2>
-        </template>
-
-        <p class="text-gray-600 dark:text-gray-400 mb-4">
-          macOS-style dock with magnification effect
-        </p>
-        <div>
-          <!-- Dock Component -->
-          <MDock
-            :magnification="dockSettings.magnification"
-            :distance="dockSettings.distance"
-            :panel-height="dockSettings.panelHeight"
-            class="dock-custom"
-            variant="bottom"
-          >
-            <MDockItem
-              v-for="(app, index) in apps"
-              :key="index"
-              v-slot="{ width, isHovered, scale }"
-              :aria-label="app.name"
-              class="dock-item-custom"
-              @click="handleAppClick(app)"
-            >
-              <MDockLabel :is-hovered="isHovered">
-                {{ app.name }}
-              </MDockLabel>
-              <MDockIcon
-                :width="width"
-                :scale="scale"
-                class="text-black dark:text-gray-50 aspect-square rounded-full hover:bg-black/5 dark:hover:bg-white/5"
-              >
-                <div
-                  :class="[
-                    'w-full h-full aspect-square rounded-full flex items-center justify-center text-2xl',
-                  ]"
-                  :style="{ fontSize: Math.max(16, width * 0.4) + 'px' }"
-                >
-                  <UIcon :name="app.icon" />
-                </div>
-              </MDockIcon>
-            </MDockItem>
-          </MDock>
-        </div>
-
-        <div class="mt-4">
-          <pre class="bg-gray-100 dark:bg-gray-900 p-3 rounded overflow-x-auto text-sm">
-      &lt;MDock :magnification="100" :distance="150"&gt;
-        &lt;MDockItem&gt;
-          &lt;MDockIcon name="i-lucide-home" /&gt;
-        &lt;/MDockItem&gt;
-        &lt;MDockItem&gt;
-          &lt;MDockIcon name="i-lucide-search" /&gt;
-        &lt;/MDockItem&gt;
-        &lt;MDockItem&gt;
-          &lt;MDockIcon name="i-lucide-settings" /&gt;
-        &lt;/MDockItem&gt;
-        &lt;MDockItem&gt;
-          &lt;MDockIcon name="i-lucide-user" /&gt;
-        &lt;/MDockItem&gt;
-        &lt;MDockItem&gt;
-          &lt;MDockIcon name="i-lucide-mail" /&gt;
-        &lt;/MDockItem&gt;
-      &lt;/MDock&gt;</pre>
-        </div>
-      </UCard>
-
       <UCard>
         <template #header>
           <h2 class="text-xl font-semibold">
@@ -219,6 +148,48 @@
       &lt;MTypingText text="text typing Text" :duration="2" /&gt;</pre>
         </div>
       </UCard>
+      <UCard>
+        <template #header>
+          <h2 class="text-xl font-semibold">
+            Text true focus
+          </h2>
+        </template>
+
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+          Animated true focus text effect
+        </p>
+
+        <div class="mb-4">
+          <MTrueFocus
+            sentence="True Focus"
+            :manual-mode="false"
+            :blur-amount="5"
+            border-color="red"
+            :animation-duration="2"
+            :pause-between-animations="1"
+          />
+        </div>
+      </UCard>
+      <UCard>
+        <template #header>
+          <h2 class="text-xl font-semibold">
+            Text true focus
+          </h2>
+        </template>
+
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+          Animated true focus text effect
+        </p>
+
+        <div class="mb-4">
+          <MTextGlitchNew
+            text="Nuxt Motion Block"
+            :speed="1"
+            :enable-shadows="true"
+            :enable-on-hover="false"
+          />
+        </div>
+      </UCard>
     </div>
   </div>
 </template>
@@ -233,34 +204,5 @@ function updateBasicValue() {
   const temp = basicValue.value
   basicValue.value = nextBasicValue.value
   nextBasicValue.value = temp === 0 ? 1234 : temp + 567
-}
-
-const apps = ref([
-  { name: 'Home', icon: 'i-lucide-home' },
-  { name: 'Products', icon: 'i-lucide-package' },
-  { name: 'Messages', icon: 'i-lucide-message-circle' },
-  { name: 'Mail', icon: 'i-lucide-mail' },
-  { name: 'Photos', icon: 'i-lucide-image' },
-  { name: 'Music', icon: 'i-lucide-music' },
-  { name: 'Calendar', icon: 'i-lucide-calendar' },
-  { name: 'Notes', icon: 'i-lucide-file' },
-  { name: 'Settings', icon: 'i-lucide-settings' },
-])
-
-const dockSettings = reactive({
-  magnification: 80,
-  distance: 150,
-  panelHeight: 64,
-})
-
-const handleAppClick = (app: typeof apps.value[0]) => {
-  const title = `Opening ${app.name}`
-  const description = `Launching ${app.name} application...`
-  const toast = useToast()
-  toast.add({
-    title,
-    description,
-    duration: 2000,
-  })
 }
 </script>
