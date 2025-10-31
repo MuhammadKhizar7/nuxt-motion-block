@@ -80,7 +80,7 @@
 
         <div class="mb-4">
           <MTextShimmer
-            children="Shimmering Text Effect"
+            text="Shimmering Text Effect"
             :duration="3"
             :spread="1.5"
             class="text-4xl font-bold"
@@ -89,7 +89,7 @@
 
         <div class="mt-4">
           <pre class="bg-gray-100 dark:bg-gray-900 p-3 rounded overflow-x-auto text-sm">
-      &lt;MTextShimmer children="Shimmering Text" :duration="2" /&gt;</pre>
+      &lt;MTextShimmer text="Shimmering Text" :duration="2" /&gt;</pre>
         </div>
       </UCard>
 
@@ -210,6 +210,34 @@
           />
         </div>
       </UCard>
+      <UCard>
+        <template #header>
+          <h2 class="text-xl font-semibold">
+            Variable Proximity
+          </h2>
+        </template>
+
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+          Animated variable proximity text effect (need a font with variable axes like Inter)
+        </p>
+        <div class="mb-4">
+          <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+          <div
+            ref="containerRef"
+            class="relative"
+            style="font-family: 'Inter var', 'Inter', sans-serif;"
+          >
+            <MVariableProximity
+              label="Hover me! Nuxt Motion Block"
+              class="text-4xl"
+              from-font-variation-settings="'wght' 400, 'opsz' 9"
+              to-font-variation-settings="'wght' 1000, 'opsz' 40"
+              :radius="120"
+              falloff="linear"
+            />
+          </div>
+        </div>
+      </UCard>
     </div>
   </div>
 </template>
@@ -219,6 +247,7 @@
 // Basic demo values
 const basicValue = ref(0)
 const nextBasicValue = ref(1234)
+const containerRef = ref(null)
 
 function updateBasicValue() {
   const temp = basicValue.value
