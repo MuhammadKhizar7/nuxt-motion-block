@@ -190,6 +190,26 @@
           />
         </div>
       </UCard>
+      <UCard>
+        <template #header>
+          <h2 class="text-xl font-semibold">
+            Scroll Velocity
+          </h2>
+        </template>
+
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+          Animated true focus text effect
+        </p>
+        <div class="mb-4">
+          <MScrollVelocity
+            :texts="['Nuxt Motion Block', 'Scroll Down']"
+            :velocity="100"
+            :damping="50"
+            :stiffness="400"
+            :num-copies="6"
+          />
+        </div>
+      </UCard>
     </div>
   </div>
 </template>
