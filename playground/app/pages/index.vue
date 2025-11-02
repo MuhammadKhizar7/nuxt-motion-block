@@ -221,7 +221,10 @@
           Animated variable proximity text effect (need a font with variable axes like Inter)
         </p>
         <div class="mb-4">
-          <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+          <link
+            rel="stylesheet"
+            href="https://rsms.me/inter/inter.css"
+          >
           <div
             ref="containerRef"
             class="relative"
@@ -237,6 +240,75 @@
             />
           </div>
         </div>
+      </UCard>
+
+      <UContainer class="min-h-screen relative">
+        <MDottedGlowBackground
+          :gap="16"
+          :radius="2"
+          color-light-var="--color-gray-900"
+          color-dark-var="--color-gray-100"
+          glow-color-light-var="--color-primary-500"
+          glow-color-dark-var="--color-primary-400"
+          class="background"
+        />
+
+        <div class="relative z-10 py-12">
+          <UCard class="max-w-2xl mx-auto backdrop-blur-sm bg-white/80 dark:bg-gray-900/80">
+            <template #header>
+              <div class="flex items-center justify-between">
+                <h1 class="text-2xl font-bold text-gray-900 dark:text-white">
+                  Welcome to Nuxt UI
+                </h1>
+                <UColorModeButton />
+              </div>
+            </template>
+          </UCard>
+        </div>
+      </UContainer>
+      <div class="min-h-screen relative">
+        <MBackgroundRippleEffect
+          :rows="10"
+          :cols="20"
+          :cell-size="44"
+        />
+
+        <div class="relative z-10 p-8">
+          <UContainer>
+            <UCard class="backdrop-blur-sm bg-white/85 dark:bg-gray-900/85 border">
+              <template #header>
+                <div class="flex items-center justify-between">
+                  <h1 class="text-2xl font-bold text-gray-900 dark:text-white">
+                    Tailwind CSS 4 Ripple
+                  </h1>
+                  <UColorModeButton />
+                </div>
+              </template>
+
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                Click the background to see the new Tailwind 4 ripple effect!
+              </p>
+            </UCard>
+          </UContainer>
+        </div>
+      </div>
+      <UCard>
+        <MBackgroundGradientAnimation
+          gradient-background-start="rgb(108, 0, 162)"
+          gradient-background-end="rgb(0, 17, 82)"
+          first-color="18, 113, 255"
+          second-color="221, 74, 255"
+          size="20%"
+          :interactive="true"
+          class="your-custom-class"
+        >
+          <div class="relative z-10">
+            <h1 class="text-4xl font-bold text-white">
+              Your Content Here
+            </h1>
+            <!-- Your content goes here -->
+          </div>
+        </MBackgroundGradientAnimation>
       </UCard>
     </div>
   </div>
