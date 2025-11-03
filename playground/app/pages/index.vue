@@ -170,7 +170,7 @@
           />
         </div>
       </UCard>
-      <UCard>
+      <!-- <UCard>
         <template #header>
           <h2 class="text-xl font-semibold">
             Text true focus
@@ -189,8 +189,8 @@
             :enable-on-hover="false"
           />
         </div>
-      </UCard>
-      <UCard>
+      </UCard> -->
+      <!-- <UCard>
         <template #header>
           <h2 class="text-xl font-semibold">
             Scroll Velocity
@@ -209,8 +209,8 @@
             :num-copies="6"
           />
         </div>
-      </UCard>
-      <UCard>
+      </UCard> -->
+      <!-- <UCard>
         <template #header>
           <h2 class="text-xl font-semibold">
             Variable Proximity
@@ -240,9 +240,9 @@
             />
           </div>
         </div>
-      </UCard>
+      </UCard> -->
 
-      <UContainer class="min-h-screen relative">
+      <!-- <UContainer class="min-h-screen relative">
         <MDottedGlowBackground
           :gap="16"
           :radius="2"
@@ -265,8 +265,8 @@
             </template>
           </UCard>
         </div>
-      </UContainer>
-      <div class="min-h-screen relative">
+      </UContainer> -->
+      <!-- <div class="min-h-screen relative">
         <MBackgroundRippleEffect
           :rows="10"
           :cols="20"
@@ -291,8 +291,8 @@
             </UCard>
           </UContainer>
         </div>
-      </div>
-      <UCard>
+      </div> -->
+      <!-- <UCard>
         <MBackgroundGradientAnimation
           gradient-background-start="rgb(108, 0, 162)"
           gradient-background-end="rgb(0, 17, 82)"
@@ -306,9 +306,55 @@
             <h1 class="text-4xl font-bold text-white">
               Your Content Here
             </h1>
-            <!-- Your content goes here -->
           </div>
         </MBackgroundGradientAnimation>
+      </UCard> -->
+      <!-- <UCard class="relative overflow-hidden">
+        <template #header>
+          <h2 class="text-xl font-semibold">
+            Boxes Core
+          </h2>
+        </template>
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+          Animated boxes core effect
+        </p>
+        <MBoxesCore
+          class="h-64 w-full"
+          :rows="50"
+          :cols="30"
+        />
+      </UCard> -->
+      <UCard class="relative overflow-hidden">
+        <template #header>
+          <h2 class="text-xl font-semibold">
+            Background Beams
+          </h2>
+        </template>
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+          Animated background beams effect
+        </p>
+        <MBackgroundBeams
+          class="h-64 w-full"
+          :num-paths="25"
+          :stroke-opacity="1"
+          :beam-count="20"
+          :animation-duration="10"
+        />
+      </UCard>
+      <UCard class="relative overflow-visible">
+        <template #header>
+          <h2 class="text-xl font-semibold">
+            Background Beams with Collision
+          </h2>
+        </template>
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+          Animated background beams with collision effect
+        </p>
+        <ClientOnly>
+          <MCollisionBackgroundBeams
+            class="h-64 w-full"
+          />
+        </ClientOnly>
       </UCard>
     </div>
   </div>
@@ -319,7 +365,6 @@
 // Basic demo values
 const basicValue = ref(0)
 const nextBasicValue = ref(1234)
-const containerRef = ref(null)
 
 function updateBasicValue() {
   const temp = basicValue.value
