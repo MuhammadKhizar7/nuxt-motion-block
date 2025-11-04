@@ -66,10 +66,10 @@ const checkCollision = () => {
   if (beamElement && typeof beamElement === 'object' && '$el' in beamElement) {
     beamElement = (beamElement as any).$el as Element
   }
-  
+
   const containerElement = props.containerRef
   const parentElement = props.parentRef
-  
+
   if (
     beamElement
     && containerElement
@@ -82,7 +82,7 @@ const checkCollision = () => {
     const beamRect = beamElement.getBoundingClientRect()
     const containerRect = containerElement.getBoundingClientRect()
     const parentRect = parentElement.getBoundingClientRect()
-    
+
     // Check if beam bottom has hit the container top
     if (beamRect.bottom >= containerRect.top) {
       const relativeX = beamRect.left - parentRect.left + beamRect.width / 2

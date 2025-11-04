@@ -266,7 +266,7 @@
           </UCard>
         </div>
       </UContainer> -->
-      <!-- <div class="min-h-screen relative">
+      <div class="min-h-screen relative">
         <MBackgroundRippleEffect
           :rows="10"
           :cols="20"
@@ -291,7 +291,7 @@
             </UCard>
           </UContainer>
         </div>
-      </div> -->
+      </div>
       <!-- <UCard>
         <MBackgroundGradientAnimation
           gradient-background-start="rgb(108, 0, 162)"
@@ -341,7 +341,7 @@
           :animation-duration="10"
         />
       </UCard>
-      <UCard class="relative overflow-visible">
+      <UCard class="relative">
         <template #header>
           <h2 class="text-xl font-semibold">
             Background Beams with Collision
@@ -356,6 +356,54 @@
           />
         </ClientOnly>
       </UCard>
+      <UCard class="relative">
+        <MBackgroundLines
+          class="min-h-screen"
+          :svg-options="{ duration: 8 }"
+        >
+          <!-- Your content here, using Nuxt UI components -->
+          <UContainer class="relative z-10 pt-20">
+            <UCard>
+              <template #header>
+                <h1>Your Animated Page</h1>
+              </template>
+              <p>This content appears over the animated background.</p>
+            </UCard>
+          </UContainer>
+        </MBackgroundLines>
+      </UCard>
+      <MAuroraBackground class="min-h-screen">
+        <UContainer class="relative z-10">
+          <UCard class="max-w-2xl mx-auto backdrop-blur-sm bg-white/80 dark:bg-gray-900/80">
+            <template #header>
+              <div class="text-center">
+                <h1 class="text-4xl font-bold text-gray-900 dark:text-white">
+                  Aurora Background
+                </h1>
+                <p class="text-lg text-gray-600 dark:text-gray-300 mt-2">
+                  Beautiful animated background with Nuxt UI
+                </p>
+              </div>
+            </template>
+
+            <div class="space-y-4">
+              <UButton
+                icon="i-heroicons-home"
+                size="lg"
+              >
+                Get Started
+              </UButton>
+
+              <UButton
+                variant="outline"
+                icon="i-heroicons-information-circle"
+              >
+                Learn More
+              </UButton>
+            </div>
+          </UCard>
+        </UContainer>
+      </MAuroraBackground>
     </div>
   </div>
 </template>

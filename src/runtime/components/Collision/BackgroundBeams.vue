@@ -78,8 +78,8 @@ const props = defineProps({
         delay: 2,
         className: 'h-6',
       },
-    ]
-  }
+    ],
+  },
 })
 
 // Refs for the parent container and the collision "ground"
