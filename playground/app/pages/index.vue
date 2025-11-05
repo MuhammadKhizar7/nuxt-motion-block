@@ -9,7 +9,7 @@
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
       <!-- Magnetic Demo -->
-      <UCard>
+      <!-- <UCard>
         <template #header>
           <h2 class="text-xl font-semibold">
             Magnetic
@@ -34,10 +34,10 @@
     &lt;UButton color="primary"&gt;Magnetic Element&lt;/UButton&gt;
     &lt;/MMagnetic&gt;</pre>
         </div>
-      </UCard>
+      </UCard> -->
 
       <!-- Tilt Demo -->
-      <UCard>
+      <!-- <UCard>
         <template #header>
           <h2 class="text-xl font-semibold">
             Tilt Effect
@@ -64,10 +64,10 @@
       &lt;/div&gt;
       &lt;/MTilt&gt;</pre>
         </div>
-      </UCard>
+      </UCard> -->
 
       <!-- Text Shimmer Demo -->
-      <UCard>
+      <!-- <UCard>
         <template #header>
           <h2 class="text-xl font-semibold">
             Text Shimmer
@@ -91,10 +91,10 @@
           <pre class="bg-gray-100 dark:bg-gray-900 p-3 rounded overflow-x-auto text-sm">
       &lt;MTextShimmer text="Shimmering Text" :duration="2" /&gt;</pre>
         </div>
-      </UCard>
+      </UCard> -->
 
       <!-- Animated Number Demo -->
-      <UCard>
+      <!-- <UCard>
         <template #header>
           <h2 class="text-xl font-semibold">
             Animated Number
@@ -123,9 +123,9 @@
           <pre class="bg-gray-100 dark:bg-gray-900 p-3 rounded overflow-x-auto text-sm">
       &lt;MAnimatedNumber :value="1234" :springOptions="{ stiffness: 100, damping: 10 }" /&gt;</pre>
         </div>
-      </UCard>
+      </UCard> -->
 
-      <UCard>
+      <!-- <UCard>
         <template #header>
           <h2 class="text-xl font-semibold">
             Text Typing
@@ -147,8 +147,8 @@
           <pre class="bg-gray-100 dark:bg-gray-900 p-3 rounded overflow-x-auto text-sm">
       &lt;MTypingText text="text typing Text" :duration="2" /&gt;</pre>
         </div>
-      </UCard>
-      <UCard>
+      </UCard> -->
+      <!-- <UCard>
         <template #header>
           <h2 class="text-xl font-semibold">
             Text true focus
@@ -169,7 +169,7 @@
             :pause-between-animations="1"
           />
         </div>
-      </UCard>
+      </UCard> -->
       <!-- <UCard>
         <template #header>
           <h2 class="text-xl font-semibold">
@@ -266,7 +266,7 @@
           </UCard>
         </div>
       </UContainer> -->
-      <div class="min-h-screen relative">
+      <!-- <div class="min-h-screen relative">
         <MBackgroundRippleEffect
           :rows="10"
           :cols="20"
@@ -291,7 +291,7 @@
             </UCard>
           </UContainer>
         </div>
-      </div>
+      </div> -->
       <!-- <UCard>
         <MBackgroundGradientAnimation
           gradient-background-start="rgb(108, 0, 162)"
@@ -324,7 +324,7 @@
           :cols="30"
         />
       </UCard> -->
-      <UCard class="relative overflow-hidden">
+      <!-- <UCard class="relative overflow-hidden">
         <template #header>
           <h2 class="text-xl font-semibold">
             Background Beams
@@ -340,7 +340,7 @@
           :beam-count="20"
           :animation-duration="10"
         />
-      </UCard>
+      </UCard> -->
       <UCard class="relative">
         <template #header>
           <h2 class="text-xl font-semibold">
@@ -404,6 +404,52 @@
           </UCard>
         </UContainer>
       </MAuroraBackground>
+      <UCard class="relative">
+        <template #header>
+          <h2 class="text-xl font-semibold">
+            Meteor Shower
+          </h2>
+        </template>
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+          Animated meteor shower effect
+        </p>
+        <MMeteors
+          :number="30"
+        />
+      </UCard>
+      <MGlowingStarsCard>
+        <!-- Header -->
+        <template #header>
+          <h2 class="font-bold text-2xl text-[#eaeaea]">
+            ✨ Cosmic Dashboard
+          </h2>
+        </template>
+
+        <!-- Content -->
+        <div class="text-center space-y-3">
+          <p class="text-white/80 text-sm">
+            Interactive starfield visualization
+          </p>
+          <UBadge
+            color="blue"
+            variant="soft"
+          >
+            Active
+          </UBadge>
+        </div>
+
+        <!-- Footer -->
+        <template #footer>
+          <UButton
+            icon="i-heroicons-rocket-launch"
+            color="white"
+            variant="solid"
+            class="w-full"
+          >
+            Launch Experience
+          </UButton>
+        </template>
+      </MGlowingStarsCard>
     </div>
   </div>
 </template>
