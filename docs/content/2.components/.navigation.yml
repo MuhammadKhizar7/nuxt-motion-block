@@ -52,6 +52,8 @@ items:
         to: /components/progressive-blur
       - title: Spotlight
         to: /components/spotlight
+      - title: TracingBeam
+        to: /components/tracing-beam
   - title: Interaction & Movement
     items:
       - title: Cursor

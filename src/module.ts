@@ -29,6 +29,14 @@ export default defineNuxtModule<ModuleOptions>({
   },
   setup(options, nuxt) {
     const resolver = createResolver(import.meta.url)
+    const publicDir = resolver.resolve('./runtime/public')
+
+    // Register the public directory to be served as static assets
+    nuxt.options.nitro.publicAssets = nuxt.options.nitro.publicAssets || []
+    nuxt.options.nitro.publicAssets.push({
+      dir: publicDir,
+      baseURL: '/',
+    })
 
     // Add all components from the runtime/components directory
     addComponentsDir({

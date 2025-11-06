@@ -341,7 +341,7 @@
           :animation-duration="10"
         />
       </UCard> -->
-      <UCard class="relative">
+      <!-- <UCard class="relative">
         <template #header>
           <h2 class="text-xl font-semibold">
             Background Beams with Collision
@@ -355,13 +355,12 @@
             class="h-64 w-full"
           />
         </ClientOnly>
-      </UCard>
-      <UCard class="relative">
+      </UCard> -->
+      <!-- <UCard class="relative">
         <MBackgroundLines
           class="min-h-screen"
           :svg-options="{ duration: 8 }"
         >
-          <!-- Your content here, using Nuxt UI components -->
           <UContainer class="relative z-10 pt-20">
             <UCard>
               <template #header>
@@ -371,8 +370,8 @@
             </UCard>
           </UContainer>
         </MBackgroundLines>
-      </UCard>
-      <MAuroraBackground class="min-h-screen">
+      </UCard> -->
+      <!-- <MAuroraBackground class="min-h-screen">
         <UContainer class="relative z-10">
           <UCard class="max-w-2xl mx-auto backdrop-blur-sm bg-white/80 dark:bg-gray-900/80">
             <template #header>
@@ -403,8 +402,8 @@
             </div>
           </UCard>
         </UContainer>
-      </MAuroraBackground>
-      <UCard class="relative">
+      </MAuroraBackground> -->
+      <!-- <UCard class="relative">
         <template #header>
           <h2 class="text-xl font-semibold">
             Meteor Shower
@@ -416,45 +415,176 @@
         <MMeteors
           :number="30"
         />
-      </UCard>
-      <MGlowingStarsCard>
-        <!-- Header -->
+      </UCard> -->
+      <!-- <MGlowingStarsCard>
         <template #header>
           <h2 class="font-bold text-2xl text-[#eaeaea]">
             ✨ Cosmic Dashboard
           </h2>
         </template>
-
-        <!-- Content -->
         <div class="text-center space-y-3">
           <p class="text-white/80 text-sm">
             Interactive starfield visualization
           </p>
           <UBadge
-            color="blue"
+            color="primary"
             variant="soft"
           >
             Active
           </UBadge>
         </div>
-
-        <!-- Footer -->
         <template #footer>
           <UButton
             icon="i-heroicons-rocket-launch"
-            color="white"
+            color="neutral"
             variant="solid"
             class="w-full"
           >
             Launch Experience
           </UButton>
         </template>
-      </MGlowingStarsCard>
+      </MGlowingStarsCard> -->
+
+      <!-- <UCard class="relative">
+        <template #header>
+          <h2 class="text-xl font-semibold">
+            Glowing Stars Card
+          </h2>
+        </template>
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+          Animated glowing stars card effect
+        </p>
+        <MShootingStars />
+        <MStarsBackground />
+      </UCard> -->
+      <!-- <UCard class="relative">
+        <template #header>
+          <h2 class="text-xl font-semibold">
+            Vortex
+          </h2>
+        </template>
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+          Animated vortex effect
+        </p>
+        <MVortex
+          :particle-count="10"
+          :base-hue="120"
+          :base-speed="0.5"
+          :range-speed="2.0"
+          :base-radius="2"
+          :range-radius="3"
+          background-color="transparent"
+          class="rounded-xl"
+        />
+      </UCard> -->
+      <!-- <UCard class="relative">
+        <template #header>
+          <h2 class="text-xl font-semibold">
+            Directional Light
+          </h2>
+        </template>
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+          Animated directional light effect
+        </p>
+        <MDirectionalLight
+          class="left-0 top-0"
+          fill="#3B82F6"
+        />
+        <MDirectionalLight
+          class="left-1/3 top-1/4"
+          fill="#8B5CF6"
+        />
+        <MDirectionalLight
+          class="left-2/3 top-1/2"
+          fill="#EF4444"
+        />
+      </UCard> -->
+      <!-- <UCard class="relative">
+        <template #header>
+          <h2 class="text-xl font-semibold">
+            Animated spotlight effect
+          </h2>
+        </template>
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+          Animated spotlight effect
+        </p>
+        <MAnimatedSpotlight />
+      </UCard> -->
+      <!-- <UCard class="relative">
+        <MMaskContainer
+          :size="5"
+          :reveal-size="800"
+          class="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-slate-900 dark:to-slate-800"
+        >
+          <template #content>
+            <span class="text-black">Large Reveal Area</span>
+          </template>
+
+          <template #reveal>
+            <div class="text-center">
+              <h2 class="text-5xl font-bold text-black dark:text-white mb-6">
+                Expanded View
+              </h2>
+              <p class="text-lg text-slate-600 dark:text-slate-300">
+                Larger reveal size for more content visibility
+              </p>
+            </div>
+          </template>
+        </MMaskContainer>
+      </UCard> -->
+      <UCard
+        class="relative"
+      >
+        <div class="min-h-screen py-20">
+          <MTracingBeam>
+            <div class="space-y-12 pl-8 md:pl-0">
+              <div
+                v-for="section in sections"
+                :key="section.title"
+                class="space-y-6"
+              >
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-white">
+                  {{ section.title }}
+                </h2>
+                <p class="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+                  {{ section.content }}
+                </p>
+                <UButton
+                  v-if="section.button"
+                  :icon="section.button.icon"
+                  :color="section.button.color"
+                  variant="solid"
+                >
+                  {{ section.button.text }}
+                </UButton>
+              </div>
+            </div>
+          </MTracingBeam>
+        </div>
+      </UCard>
+      <UCard>
+        <MLampContainer>
+          <motion.h1
+            :initial="{ opacity: 0.5, y: 100 }"
+            :while-in-view="{ opacity: 1, y: 0 }"
+            :transition="{
+              delay: 0.3,
+              duration: 0.8,
+              ease: 'easeInOut',
+            }"
+            class="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
+          >
+            Build lamps <br> the right way
+          </motion.h1>
+        </MLampContainer>
+      </UCard>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
+import { motion } from 'motion-v'
 // No script needed for this page
 // Basic demo values
 const basicValue = ref(0)
@@ -465,4 +595,43 @@ function updateBasicValue() {
   basicValue.value = nextBasicValue.value
   nextBasicValue.value = temp === 0 ? 1234 : temp + 567
 }
+
+const sections = [
+  {
+    title: 'Introduction',
+    content: 'This is the first section with a tracing beam that follows your scroll. The beam will animate along the content as you scroll through the page, creating a beautiful visual guide.',
+    button: {
+      icon: 'i-heroicons-information-circle',
+      color: 'blue',
+      text: 'Learn More',
+    },
+  },
+  {
+    title: 'Features',
+    content: 'The tracing beam component provides visual feedback as users scroll through content. It features a gradient line that moves smoothly and a dot that changes color based on scroll position.',
+    button: {
+      icon: 'i-heroicons-sparkles',
+      color: 'green',
+      text: 'View Features',
+    },
+  },
+  {
+    title: 'Implementation',
+    content: 'Built with Vue 3, Nuxt, and motion-v for smooth animations. The component is fully responsive and works seamlessly with dark mode.',
+    button: {
+      icon: 'i-heroicons-code-bracket',
+      color: 'purple',
+      text: 'See Code',
+    },
+  },
+  {
+    title: 'Customization',
+    content: 'Easily customize the colors, sizes, and behavior of the tracing beam to match your design system and user experience requirements.',
+    button: {
+      icon: 'i-heroicons-cog',
+      color: 'orange',
+      text: 'Customize',
+    },
+  },
+]
 </script>
