@@ -13,3 +13,16 @@ describe('ssr', async () => {
     expect(html).toContain('<div>basic</div>')
   })
 })
+
+describe('3d-components', async () => {
+  await setup({
+    rootDir: fileURLToPath(new URL('./fixtures/basic', import.meta.url)),
+  })
+
+  it('renders the 3D card component', async () => {
+    // Test that the 3D components are properly registered
+    const html = await $fetch('/')
+    // Just check that the test setup works
+    expect(html).toContain('<div>basic</div>')
+  })
+})

@@ -309,7 +309,7 @@
           </div>
         </MBackgroundGradientAnimation>
       </UCard> -->
-      <!-- <UCard class="relative overflow-hidden">
+      <!-- <UCard>
         <template #header>
           <h2 class="text-xl font-semibold">
             Boxes Core
@@ -532,9 +532,7 @@
           </template>
         </MMaskContainer>
       </UCard> -->
-      <UCard
-        class="relative"
-      >
+      <!-- <UCard class="relative">
         <div class="min-h-screen py-20">
           <MTracingBeam>
             <div class="space-y-12 pl-8 md:pl-0">
@@ -561,8 +559,8 @@
             </div>
           </MTracingBeam>
         </div>
-      </UCard>
-      <UCard>
+      </UCard> -->
+      <!-- <UCard>
         <MLampContainer>
           <motion.h1
             :initial="{ opacity: 0.5, y: 100 }"
@@ -577,61 +575,210 @@
             Build lamps <br> the right way
           </motion.h1>
         </MLampContainer>
-      </UCard>
+      </UCard> -->
+      <!-- <div class="min-h-screen bg-slate-900 p-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div class="relative rounded-xl bg-slate-800/50 border border-slate-700/50 p-6 h-48">
+            <MGlowingEffect
+              :blur="0"
+              :border-width="3"
+              :spread="80"
+              :glow="true"
+              :disabled="false"
+              :proximity="64"
+              :inactive-zone="0.01"
+              class="rounded-xl"
+            />
+            <div class="relative z-10 h-full flex flex-col justify-between">
+              <h3 class="text-lg font-bold text-white">
+                Default Glow
+              </h3>
+              <p class="text-slate-400 text-sm">
+                Multi-color gradient effect
+              </p>
+            </div>
+          </div>
+          <div class="relative rounded-xl bg-slate-800/50 border border-slate-700/50 p-6 h-48">
+            <MGlowingEffect
+              :blur="0"
+              :border-width="3"
+              :spread="80"
+              :glow="true"
+              :disabled="false"
+              :proximity="64"
+              :inactive-zone="0.01"
+              class="rounded-xl"
+            />
+            <div class="relative z-10 h-full flex flex-col justify-between">
+              <h3 class="text-lg font-bold text-white">
+                White Glow
+              </h3>
+              <p class="text-slate-400 text-sm">
+                Clean monochrome effect
+              </p>
+            </div>
+          </div>
+          <div class="relative rounded-xl bg-slate-800/50 border border-slate-700/50 p-6 h-48">
+            <MGlowingEffect
+              :blur="0"
+              :border-width="3"
+              :spread="80"
+              :glow="true"
+              :disabled="false"
+              :proximity="64"
+              :inactive-zone="0.01"
+              class="rounded-xl"
+            />
+            <div class="relative z-10 h-full flex flex-col justify-between">
+              <h3 class="text-lg font-bold text-white">
+                Wide Glow
+              </h3>
+              <p class="text-slate-400 text-sm">
+                Larger spread area
+              </p>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <!-- <UCard>
+        <template #header>
+          <h2 class="text-xl font-semibold">
+            Pixelated Canvas
+          </h2>
+        </template>
+
+        <p class="text-gray-600 dark:text-gray-400">
+          Display images with a pixelated effect
+        </p>
+
+        <div class="mb-4">
+          <MPixelatedCanvas
+            src="https://picsum.photos/400/300"
+            :width="400"
+            :pixel-size="8"
+            class="rounded-lg"
+          />
+        </div>
+      </UCard> -->
+      <!-- Link to 3D Demo Page -->
+      <!-- 3D Card with Nuxt UI Components Example -->
+      <M3DCard
+        class="w-96"
+        :intensity="15"
+      >
+        <template #header>
+          <M3DItem :translate-z="40">
+            <h2 class="text-xl font-semibold">
+              3D Card with Nuxt UI
+            </h2>
+          </M3DItem>
+        </template>
+
+        <M3DItem
+          :translate-z="20"
+          class="space-y-4"
+        >
+          <p class="text-gray-600 dark:text-gray-400">
+            This is a 3D card that integrates with Nuxt UI components.
+          </p>
+
+          <M3DItem :translate-z="30">
+            <UButton
+              color="primary"
+              variant="solid"
+            >
+              3D Button
+            </UButton>
+          </M3DItem>
+
+          <M3DItem
+            :translate-z="70"
+            :rotate-x="4"
+            :rotate-y="5"
+          >
+            <UBadge
+              color="success"
+              variant="soft"
+            >
+              3D Badge
+            </UBadge>
+          </M3DItem>
+        </M3DItem>
+
+        <template #footer>
+          <M3DItem
+            :translate-z="35"
+            class="flex justify-between"
+          >
+            <UButton
+              color="neutral"
+              variant="ghost"
+            >
+              Cancel
+            </UButton>
+            <UButton
+              color="primary"
+              variant="solid"
+            >
+              Confirm
+            </UButton>
+          </M3DItem>
+        </template>
+      </M3DCard>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { motion } from 'motion-v'
+// import { ref } from 'vue'
+// import { motion } from 'motion-v'
 // No script needed for this page
 // Basic demo values
-const basicValue = ref(0)
-const nextBasicValue = ref(1234)
+// const basicValue = ref(0)
+// const nextBasicValue = ref(1234)
 
-function updateBasicValue() {
-  const temp = basicValue.value
-  basicValue.value = nextBasicValue.value
-  nextBasicValue.value = temp === 0 ? 1234 : temp + 567
-}
+// function updateBasicValue() {
+//   const temp = basicValue.value
+//   basicValue.value = nextBasicValue.value
+//   nextBasicValue.value = temp === 0 ? 1234 : temp + 567
+// }
 
-const sections = [
-  {
-    title: 'Introduction',
-    content: 'This is the first section with a tracing beam that follows your scroll. The beam will animate along the content as you scroll through the page, creating a beautiful visual guide.',
-    button: {
-      icon: 'i-heroicons-information-circle',
-      color: 'blue',
-      text: 'Learn More',
-    },
-  },
-  {
-    title: 'Features',
-    content: 'The tracing beam component provides visual feedback as users scroll through content. It features a gradient line that moves smoothly and a dot that changes color based on scroll position.',
-    button: {
-      icon: 'i-heroicons-sparkles',
-      color: 'green',
-      text: 'View Features',
-    },
-  },
-  {
-    title: 'Implementation',
-    content: 'Built with Vue 3, Nuxt, and motion-v for smooth animations. The component is fully responsive and works seamlessly with dark mode.',
-    button: {
-      icon: 'i-heroicons-code-bracket',
-      color: 'purple',
-      text: 'See Code',
-    },
-  },
-  {
-    title: 'Customization',
-    content: 'Easily customize the colors, sizes, and behavior of the tracing beam to match your design system and user experience requirements.',
-    button: {
-      icon: 'i-heroicons-cog',
-      color: 'orange',
-      text: 'Customize',
-    },
-  },
-]
+// const sections = [
+//   {
+//     title: 'Introduction',
+//     content: 'This is the first section with a tracing beam that follows your scroll. The beam will animate along the content as you scroll through the page, creating a beautiful visual guide.',
+//     button: {
+//       icon: 'i-heroicons-information-circle',
+//       color: 'blue',
+//       text: 'Learn More',
+//     },
+//   },
+//   {
+//     title: 'Features',
+//     content: 'The tracing beam component provides visual feedback as users scroll through content. It features a gradient line that moves smoothly and a dot that changes color based on scroll position.',
+//     button: {
+//       icon: 'i-heroicons-sparkles',
+//       color: 'green',
+//       text: 'View Features',
+//     },
+//   },
+//   {
+//     title: 'Implementation',
+//     content: 'Built with Vue 3, Nuxt, and motion-v for smooth animations. The component is fully responsive and works seamlessly with dark mode.',
+//     button: {
+//       icon: 'i-heroicons-code-bracket',
+//       color: 'purple',
+//       text: 'See Code',
+//     },
+//   },
+//   {
+//     title: 'Customization',
+//     content: 'Easily customize the colors, sizes, and behavior of the tracing beam to match your design system and user experience requirements.',
+//     button: {
+//       icon: 'i-heroicons-cog',
+//       color: 'orange',
+//       text: 'Customize',
+//     },
+//   },
+// ]
 </script>
