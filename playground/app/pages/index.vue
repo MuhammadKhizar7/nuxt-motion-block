@@ -309,7 +309,7 @@
           </div>
         </MBackgroundGradientAnimation>
       </UCard> -->
-      <!-- <UCard>
+      <!-- <UCard class="relative overflow-hidden">
         <template #header>
           <h2 class="text-xl font-semibold">
             Boxes Core
@@ -725,60 +725,116 @@
           </M3DItem>
         </template>
       </M3DCard>
+      <MEverVaultCard
+        class="w-96 h-64"
+        gradient-colors="from-red-500 to-pink-700 via-rose-400"
+      >
+        <template #header>
+          <h2 class="text-xl font-semibold">
+            Evervault Card
+          </h2>
+        </template>
+
+        <p class="z-50">
+          This is an Evervault styled card with dynamic background effects.
+        </p>
+      </MEverVaultCard>
+      <MCardStack
+        :items="[
+          { id: 1, title: 'Card One', content: 'This is the content of card one.', name: 'Alice Johnson', designation: 'Software Engineer' },
+          { id: 2, title: 'Card Two', content: 'This is the content of card two.', name: 'Bob Smith', designation: 'Product Manager' },
+          { id: 3, title: 'Card Three', content: 'This is the content of card three.', name: 'Charlie Brown', designation: 'UX Designer' },
+        ]"
+      />
+      <MWobbleCard container-class="w-96 h-64 bg-indigo-800" />
+      <MFocusCards :cards="imageCards" />
+      <MDraggableCard class="mx-auto">
+        <div class="space-y-4 text-center">
+          <UIcon
+            name="i-heroicons-cube"
+            class="w-12 h-12 mx-auto text-blue-500"
+          />
+          <h3 class="text-xl font-bold">
+            Draggable Card
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            Drag me around! Also try moving your cursor over the card for 3D effects.
+          </p>
+        </div>
+      </MDraggableCard>
+      <MGlareCard />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-// import { ref } from 'vue'
-// import { motion } from 'motion-v'
+import { ref } from 'vue'
+import { motion } from 'motion-v'
 // No script needed for this page
 // Basic demo values
-// const basicValue = ref(0)
-// const nextBasicValue = ref(1234)
+const basicValue = ref(0)
+const nextBasicValue = ref(1234)
 
-// function updateBasicValue() {
-//   const temp = basicValue.value
-//   basicValue.value = nextBasicValue.value
-//   nextBasicValue.value = temp === 0 ? 1234 : temp + 567
-// }
+function updateBasicValue() {
+  const temp = basicValue.value
+  basicValue.value = nextBasicValue.value
+  nextBasicValue.value = temp === 0 ? 1234 : temp + 567
+}
 
-// const sections = [
-//   {
-//     title: 'Introduction',
-//     content: 'This is the first section with a tracing beam that follows your scroll. The beam will animate along the content as you scroll through the page, creating a beautiful visual guide.',
-//     button: {
-//       icon: 'i-heroicons-information-circle',
-//       color: 'blue',
-//       text: 'Learn More',
-//     },
-//   },
-//   {
-//     title: 'Features',
-//     content: 'The tracing beam component provides visual feedback as users scroll through content. It features a gradient line that moves smoothly and a dot that changes color based on scroll position.',
-//     button: {
-//       icon: 'i-heroicons-sparkles',
-//       color: 'green',
-//       text: 'View Features',
-//     },
-//   },
-//   {
-//     title: 'Implementation',
-//     content: 'Built with Vue 3, Nuxt, and motion-v for smooth animations. The component is fully responsive and works seamlessly with dark mode.',
-//     button: {
-//       icon: 'i-heroicons-code-bracket',
-//       color: 'purple',
-//       text: 'See Code',
-//     },
-//   },
-//   {
-//     title: 'Customization',
-//     content: 'Easily customize the colors, sizes, and behavior of the tracing beam to match your design system and user experience requirements.',
-//     button: {
-//       icon: 'i-heroicons-cog',
-//       color: 'orange',
-//       text: 'Customize',
-//     },
-//   },
-// ]
+const sections = [
+  {
+    title: 'Introduction',
+    content: 'This is the first section with a tracing beam that follows your scroll. The beam will animate along the content as you scroll through the page, creating a beautiful visual guide.',
+    button: {
+      icon: 'i-heroicons-information-circle',
+      color: 'blue',
+      text: 'Learn More',
+    },
+  },
+  {
+    title: 'Features',
+    content: 'The tracing beam component provides visual feedback as users scroll through content. It features a gradient line that moves smoothly and a dot that changes color based on scroll position.',
+    button: {
+      icon: 'i-heroicons-sparkles',
+      color: 'green',
+      text: 'View Features',
+    },
+  },
+  {
+    title: 'Implementation',
+    content: 'Built with Vue 3, Nuxt, and motion-v for smooth animations. The component is fully responsive and works seamlessly with dark mode.',
+    button: {
+      icon: 'i-heroicons-code-bracket',
+      color: 'purple',
+      text: 'See Code',
+    },
+  },
+  {
+    title: 'Customization',
+    content: 'Easily customize the colors, sizes, and behavior of the tracing beam to match your design system and user experience requirements.',
+    button: {
+      icon: 'i-heroicons-cog',
+      color: 'orange',
+      text: 'Customize',
+    },
+  },
+]
+
+const imageCards = [
+  {
+    title: 'Mountain Landscape',
+    src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+    description: 'Beautiful mountain scenery with lakes',
+  },
+  {
+    title: 'Ocean View',
+    src: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+    description: 'Crystal clear ocean waters',
+  },
+  {
+    title: 'Forest Path',
+    src: 'https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+    description: 'Peaceful forest walking path',
+  },
+]
 </script>
