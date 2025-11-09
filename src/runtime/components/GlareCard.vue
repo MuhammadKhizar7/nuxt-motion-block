@@ -2,7 +2,7 @@
   <div
     ref="cardRef"
     :style="containerStyle"
-    class="relative isolate [contain:layout_style] [perspective:600px] transition-transform duration-[var(--duration)] ease-[var(--easing)] delay-[var(--delay)] will-change-transform [aspect-ratio:17/21]"
+    :class="['relative isolate [contain:layout_style] [perspective:600px] transition-transform duration-[var(--duration)] ease-[var(--easing)] delay-[var(--delay)] will-change-transform [aspect-ratio:17/21]', props.class]"
     @pointermove="handlePointerMove"
     @pointerenter="handlePointerEnter"
     @pointerleave="handlePointerLeave"
@@ -12,7 +12,7 @@
       <div class="w-full h-full grid [grid-area:1/1] mix-blend-soft-light [clip-path:inset(0_0_0_0_round_var(--radius))]">
         <UCard
           :ui="{
-            root: ['h-full w-full', props.class],
+            root: 'h-full w-full',
             body: 'h-full flex flex-col justify-center items-center text-center p-6',
             header: 'bg-transparent border-0',
             footer: 'bg-transparent border-0',

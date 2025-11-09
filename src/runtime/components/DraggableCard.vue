@@ -140,7 +140,8 @@ const handleMouseMove = (event: MouseEvent) => {
   if (!cardRef.value) return
 
   const { clientX, clientY } = event
-  const rect = cardRef.value.getBoundingClientRect()
+  // @ts-ignore
+  const rect = cardRef.value.$el.getBoundingClientRect()
   const centerX = rect.left + rect.width / 2
   const centerY = rect.top + rect.height / 2
   const deltaX = clientX - centerX
