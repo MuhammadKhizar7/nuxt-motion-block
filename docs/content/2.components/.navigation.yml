@@ -1,4 +1,4 @@
-title: Components & Composables
+title: Components
 items:
   - title: Introduction
     to: /components
@@ -156,9 +156,3 @@ items:
         to: /components/scroll-velocity
       - title: ScrollProgress
         to: /components/scroll-progress
-  - title: Composables
-    items:
-      - title: useCanvasCursor
-        to: /components/use-canvas-cursor
-      - title: useFluidCursor
-        to: /components/use-fluid-cursor

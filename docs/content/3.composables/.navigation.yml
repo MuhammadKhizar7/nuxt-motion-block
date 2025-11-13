@@ -1,0 +1,24 @@
+title: Composables
+items:
+  - title: Introduction
+    to: /composables
+  - title: Cursor Composables
+    items:
+      - title: useCanvasCursor
+        to: /composables/use-canvas-cursor
+      - title: useFluidCursor
+        to: /composables/use-fluid-cursor
+  # - title: Dock Composables
+  #   items:
+  #     - title: useDock
+  #       to: /composables/use-dock
+  # - title: Popover Composables
+  #   items:
+  #     - title: useMorphingPopover
+  #       to: /composables/use-morphing-popover
+  # - title: Utility Composables
+  #   items:
+  #     - title: useAccessibility
+  #       to: /composables/use-accessibility
+  #     - title: usePerformance
+  #       to: /composables/use-performance

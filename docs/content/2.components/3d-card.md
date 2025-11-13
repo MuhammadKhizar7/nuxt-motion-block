@@ -207,7 +207,7 @@ label: Preview
 <template>
   <M3DCard 
     :intensity="20" 
-    class="bg-gradient-to-br from-purple-500 to-indigo-600 text-white border-0"
+    class="bg-gradient-to-br from-purple-500 to-indigo-600 text-white divide-0"
     :ui="{ body: { background: 'none' } }"
   >
     <template #header>
@@ -220,7 +220,7 @@ label: Preview
       <p class="mb-4 opacity-90">
         This 3D card has custom gradient styling.
       </p>
-      <UButton color="white" variant="solid" size="sm">Action</UButton>
+      <UButton color="neutral" variant="solid" size="sm">Action</UButton>
     </M3DItem>
   </M3DCard>
 </template>
@@ -234,7 +234,7 @@ label: Preview
 label: Preview
 ---
   :::div{class="flex justify-center"}
-    <component-example name="three-d-card-nuxt-ui" />
+    <component-example name="three-d-card-nuxt-u-i" />
   :::
 #code
 ```vue

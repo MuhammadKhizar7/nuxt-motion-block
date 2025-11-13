@@ -10,7 +10,7 @@ export default defineContentConfig({
       type: 'page',
       source: {
         include: '**',
-        exclude: ['index.md', '2.components/*.bak'],
+        exclude: ['index.md', 'flowing-stroke.md'],
       },
       schema: z.object({
         links: z.array(z.object({
