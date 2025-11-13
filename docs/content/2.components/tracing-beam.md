@@ -16,11 +16,7 @@ The Tracing Beam component creates a visual beam that follows the user's scroll 
 label: Preview
 ---
   :::div{class="w-full"}
-    <MTracingBeam>
-      <div class="h-[400px] w-full bg-gray-100 dark:bg-gray-800 rounded-lg mb-8"></div>
-      <div class="h-[400px] w-full bg-gray-100 dark:bg-gray-800 rounded-lg mb-8"></div>
-      <div class="h-[400px] w-full bg-gray-100 dark:bg-gray-800 rounded-lg mb-8"></div>
-    </MTracingBeam>
+    <component-example name="tracing-beam-example" />
   :::
 #code
 ```vue
@@ -54,11 +50,7 @@ label: Preview
 label: Preview
 ---
   :::div{class="w-full"}
-    <MTracingBeam :beam-color="['#FF0000', '#00FF00', '#0000FF']">
-      <div class="h-[400px] w-full bg-gray-100 dark:bg-gray-800 rounded-lg mb-8"></div>
-      <div class="h-[400px] w-full bg-gray-100 dark:bg-gray-800 rounded-lg mb-8"></div>
-      <div class="h-[400px] w-full bg-gray-100 dark:bg-gray-800 rounded-lg mb-8"></div>
-    </MTracingBeam>
+    <component-example name="tracing-beam-custom" />
   :::
 #code
 ```vue
