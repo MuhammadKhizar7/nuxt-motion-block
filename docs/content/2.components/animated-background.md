@@ -16,19 +16,7 @@ The AnimatedBackground component creates animated background effects that follow
 label: Preview
 ---
   :::div{class="p-4"}
-    :::MAnimatedBackground{:transition="{ duration: 300 }" background-class="bg-blue-500 rounded-lg -z-1"}
-      :::div{class="flex space-x-2"}
-        :::button{data-id="home" class="px-4 py-2 rounded-md"}
-        Home
-        :::
-        :::button{data-id="about" class="px-4 py-2 rounded-md"}
-        About
-        :::
-        :::button{data-id="contact" class="px-4 py-2 rounded-md"}
-        Contact
-        :::
-      :::
-    :::
+    <component-example name="animated-background-example" />
   :::
 #code
 ```vue
@@ -110,15 +98,8 @@ label: Preview
 ---
 label: Preview
 ---
-  :::MAnimatedBackground
-    :::div{class="flex space-x-2"}
-      :::div{data-id="item1" class="px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded"}
-      Item 1
-      :::
-      :::div{data-id="item2" class="px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded"}
-      Item 2
-      :::
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="animated-background-basic" />
   :::
 #code
 ```vue
@@ -143,18 +124,8 @@ label: Preview
 ---
 label: Preview
 ---
-  :::MAnimatedBackground{background-class="bg-gradient-to-r from-purple-500 to-pink-500 rounded-full -z-1" :transition="{ duration: 500, ease: 'ease-in-out' }"}
-    :::div{class="flex space-x-4 p-2"}
-      :::button{data-id="tab1" class="px-6 py-3 font-medium transition-colors"}
-      Tab 1
-      :::
-      :::button{data-id="tab2" class="px-6 py-3 font-medium transition-colors"}
-      Tab 2
-      :::
-      :::button{data-id="tab3" class="px-6 py-3 font-medium transition-colors"}
-      Tab 3
-      :::
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="animated-background-custom-styling" />
   :::
 #code
 ```vue
@@ -194,18 +165,8 @@ label: Preview
 ---
 label: Preview
 ---
-  :::MAnimatedBackground{enable-hover background-class="bg-emerald-500 rounded-lg shadow-lg -z-1"}
-    :::div{class="flex space-x-3"}
-      :::div{data-id="nav1" class="px-4 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 rounded"}
-      Navigation 1
-      :::
-      :::div{data-id="nav2" class="px-4 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 rounded"}
-      Navigation 2
-      :::
-      :::div{data-id="nav3" class="px-4 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 rounded"}
-      Navigation 3
-      :::
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="animated-background-hover" />
   :::
 #code
 ```vue
@@ -215,22 +176,13 @@ label: Preview
     background-class="bg-emerald-500 rounded-lg shadow-lg -z-1"
   >
     <div class="flex space-x-3">
-      <div 
-        data-id="nav1" 
-        class="px-4 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 rounded"
-      >
+      <div data-id="nav1" class="px-4 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 rounded">
         Navigation 1
       </div>
-      <div 
-        data-id="nav2" 
-        class="px-4 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 rounded"
-      >
+      <div data-id="nav2" class="px-4 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 rounded">
         Navigation 2
       </div>
-      <div 
-        data-id="nav3" 
-        class="px-4 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 rounded"
-      >
+      <div data-id="nav3" class="px-4 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 rounded">
         Navigation 3
       </div>
     </div>
@@ -245,78 +197,9 @@ label: Preview
 ---
 label: Preview
 ---
-::div
-  ::MAnimatedBackground{  background-class="rounded-lg bg-zinc-100 dark:bg-zinc-800 -z-1" :transition="{type: 'spring', bounce: 0.2, duration: 0.6}" enableHover }
-   ::div{class="grid grid-cols-2 p-10 md:grid-cols-3"}
-      ::div{data-id="card-0"}
-        ::div{class="flex select-none flex-col space-y-1 p-4"}
-          ::h3{class="text-base font-medium text-zinc-800 dark:text-zinc-50"}
-            Dialog
-          ::
-          ::p{class="text-base text-zinc-600 dark:text-zinc-400"}
-            Enhances modal presentations.
-          ::
-        ::
-      ::
-
-      ::div{data-id="card-1"}
-        ::div{class="flex select-none flex-col space-y-1 p-4"}
-          ::h3{class="text-base font-medium text-zinc-800 dark:text-zinc-50"}
-            Popover
-          ::
-          ::p{class="text-base text-zinc-600 dark:text-zinc-400"}
-            For small interactive overlays.
-          ::
-        ::
-      ::
-
-      ::div{data-id="card-2"}
-        ::div{class="flex select-none flex-col space-y-1 p-4"}
-          ::h3{class="text-base font-medium text-zinc-800 dark:text-zinc-50"}
-            Accordion
-          ::
-          ::p{class="text-base text-zinc-600 dark:text-zinc-400"}
-            Collapsible sections for more content.
-          ::
-        ::
-      ::
-
-      ::div{data-id="card-3"}
-        ::div{class="flex select-none flex-col space-y-1 p-4"}
-          ::h3{class="text-base font-medium text-zinc-800 dark:text-zinc-50"}
-            Collapsible
-          ::
-          ::p{class="text-base text-zinc-600 dark:text-zinc-400"}
-            Collapsible sections for more content.
-          ::
-        ::
-      ::
-
-      ::div{data-id="card-4"}
-        ::div{class="flex select-none flex-col space-y-1 p-4"}
-          ::h3{class="text-base font-medium text-zinc-800 dark:text-zinc-50"}
-            Drag to Reorder
-          ::
-          ::p{class="text-base text-zinc-600 dark:text-zinc-400"}
-            Reorder items with drag and drop.
-          ::
-        ::
-      ::
-
-      ::div{data-id="card-5"}
-      ::div{class="flex select-none flex-col space-y-1 p-4"}
-        ::h3{class="text-base font-medium text-zinc-800 dark:text-zinc-50"}
-          Swipe to Delete
-        ::
-        ::p{class="text-base text-zinc-600 dark:text-zinc-400"}
-          Delete items with swipe gestures.
-        ::
-      ::
-    ::
-    ::
-  ::
-::
-
+  :::div{class="flex justify-center"}
+    <component-example name="animated-background-transition" />
+  :::
 #code
 ```vue
 <template>
@@ -381,3 +264,5 @@ const ITEMS = [
 </script>
 ```
 ::
+
+

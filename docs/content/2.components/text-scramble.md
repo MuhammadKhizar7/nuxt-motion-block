@@ -1,13 +1,13 @@
 ---
 title: Text Scramble
-description: Text scramble effect with random character transitions.
+description: Text that scrambles through random characters before revealing the final text.
 navigation:
-  icon: i-lucide-shuffle
+  icon: i-lucide-zap
 ---
 
 # Text Scramble
 
-The TextScramble component creates a text scramble effect with random character transitions. It's perfect for creating dynamic text entrances with a scrambling animation.
+The TextScramble component creates text that scrambles through random characters before revealing the final text. It's perfect for creating engaging text transitions and dynamic content displays.
 
 ## Usage
 
@@ -15,9 +15,8 @@ The TextScramble component creates a text scramble effect with random character 
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MTextScramble{text="Scramble Text"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="text-scramble-manual" />
   :::
 #code
 ```vue
@@ -71,76 +70,64 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MTextScramble{text="Basic Scramble"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="text-scramble-basic" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MTextScramble text="Basic Scramble" />
-  </div>
+  <MTextScramble text="Basic Scramble" />
 </template>
 ```
 ::
 
-### Custom Duration and Speed
+### Fast Scramble
 
 ::code-preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MTextScramble{text="Fast Scramble" :duration="0.5" :speed="0.02"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="text-scramble-fast" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MTextScramble text="Fast Scramble" :duration="0.5" :speed="0.02" />
-  </div>
+  <MTextScramble text="Fast Scramble" :duration="0.5" :speed="0.02" />
 </template>
 ```
 ::
 
-### Custom Character Set
+### Symbol Scramble
 
 ::code-preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MTextScramble{text="Symbol Scramble" character-set="!@#$%^&*()_+-=[]{}|;:,.<>?"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="text-scramble-symbol" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MTextScramble text="Symbol Scramble" character-set="!@#$%^&*()_+-=[]{}|;:,.<>?" />
-  </div>
+  <MTextScramble text="Symbol Scramble" character-set="!@#$%^&*()_+-=[]{}|;:,.<>?" />
 </template>
 ```
 ::
 
-### As Heading Element
+### As Heading
 
 ::code-preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MTextScramble{text="Heading Scramble" as="h1" class="text-3xl font-bold"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="text-scramble-heading" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MTextScramble text="Heading Scramble" as="h1" class="text-3xl font-bold" />
-  </div>
+  <MTextScramble text="Heading Scramble" as="h1" class="text-3xl font-bold" />
 </template>
 ```
 ::
@@ -151,9 +138,9 @@ label: Preview
 ---
 label: Preview
 ---
-::div
-  ::component-example{name="text-scramble-manual"}
-::
+  :::div{class="flex justify-center"}
+    <component-example name="text-scramble-manual" />
+  :::
 #code
 ```vue
 <template>

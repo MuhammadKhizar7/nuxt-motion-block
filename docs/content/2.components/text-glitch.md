@@ -15,9 +15,8 @@ The TextGlitch component creates a glitch effect for text elements. It's perfect
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MTextGlitch{text="GLITCH"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="text-glitch-custom-colors" />
   :::
 #code
 ```vue
@@ -79,16 +78,13 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MTextGlitch{text="CYBER"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="text-glitch-basic" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MTextGlitch text="CYBER" />
-  </div>
+  <MTextGlitch text="CYBER" />
 </template>
 ```
 ::
@@ -99,97 +95,63 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MTextGlitch{text="AUTO" trigger="auto"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="text-glitch-auto" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MTextGlitch text="AUTO" trigger="auto" />
-  </div>
+  <MTextGlitch text="AUTO" trigger="auto" />
 </template>
 ```
 ::
 
-### High Intensity
+### Extreme Intensity
 
 ::code-preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MTextGlitch{text="EXTREME" intensity="extreme" :speed="200"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="text-glitch-extreme" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MTextGlitch text="EXTREME" intensity="extreme" :speed="200" />
-  </div>
+  <MTextGlitch text="EXTREME" intensity="extreme" :speed="200" />
 </template>
 ```
 ::
 
-### Custom Colors
+### Manual Control
 
 ::code-preview
 ---
 label: Preview
 ---
-::div
-  ::component-example{name="text-glitch-custom-colors"}
-::
+  :::div{class="flex justify-center"}
+    <component-example name="text-glitch-manual" />
+  :::
 #code
 ```vue
 <template>
-  <div class="p-4">
+  <div class="space-y-4">
+    <div class="flex space-x-2">
+      <UButton @click="glitchRef?.glitch()">Glitch</UButton>
+      <UButton @click="glitchRef?.stop()">Stop</UButton>
+    </div>
     <MTextGlitch 
-      text="TEAL" 
-      :colors="['#0d9488', '#14b8a6', '#2dd4bf']"
-      trigger="auto"
-      :interval="2"
+      ref="glitchRef"
+      text="MANUAL CONTROL" 
+      trigger="manual"
     />
-  </div>
-</template>
-```
-::
-
-### Manual Trigger
-
-::code-preview
----
-label: Preview
----
-::div
-  ::component-example{name="text-glitch-manual"}
-::
-#code
-```vue
-<template>
-  <div class="p-4 space-y-4">
-    <MTextGlitch ref="glitchRef" text="MANUAL" trigger="manual" />
-    <button 
-      class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
-      @click="triggerGlitch"
-    >
-      Trigger Glitch
-    </button>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
 
-const glitchRef = ref(null)
-
-const triggerGlitch = () => {
-  if (glitchRef.value) {
-    glitchRef.value.trigger()
-  }
-}
+const glitchRef = ref()
 </script>
 ```
 ::

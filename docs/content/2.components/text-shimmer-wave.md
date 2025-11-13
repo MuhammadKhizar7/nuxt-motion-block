@@ -1,13 +1,13 @@
 ---
 title: Text Shimmer Wave
-description: Text with wave-like shimmer effect.
+description: Text with a wave-like shimmer animation effect.
 navigation:
-  icon: i-lucide-waves
+  icon: i-lucide-wave
 ---
 
 # Text Shimmer Wave
 
-The TextShimmerWave component creates text with a wave-like shimmer effect. Each character animates independently with 3D transformations and color transitions.
+The TextShimmerWave component creates text with a wave-like shimmer animation effect. It's perfect for creating eye-catching headings and text elements with dynamic 3D transformations.
 
 ## Usage
 
@@ -15,14 +15,13 @@ The TextShimmerWave component creates text with a wave-like shimmer effect. Each
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MTextShimmerWave{text="Wave Shimmer"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="text-shimmer-wave-styled" />
   :::
 #code
 ```vue
 <template>
-  <MTextShimmerWave text="Wave Shimmer" /> 
+  <MTextShimmerWave text="Wave Shimmer" />
 </template>
 ```
 ::
@@ -77,89 +76,118 @@ label: Preview
 
 ## Examples
 
+### Manual Control
+
+::code-preview
+---
+label: Preview
+---
+  :::div{class="flex justify-center"}
+    <component-example name="text-shimmer-wave-manual" />
+  :::
+#code
+```vue
+<template>
+  <div class="space-y-4">
+    <div class="flex space-x-2">
+      <UButton @click="startAnimation">Start</UButton>
+      <UButton @click="stopAnimation">Stop</UButton>
+    </div>
+    <MTextShimmerWave 
+      ref="shimmerRef"
+      text="Manual Control" 
+      :auto-play="false"
+    />
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const shimmerRef = ref()
+
+const startAnimation = () => {
+  shimmerRef.value?.play()
+}
+
+const stopAnimation = () => {
+  shimmerRef.value?.pause()
+}
+</script>
+```
+::
+
 ### Basic Text Shimmer Wave
 
 ::code-preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MTextShimmerWave{text="Basic Wave"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="text-shimmer-wave-basic" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MTextShimmerWave text="Basic Wave" />
-  </div>
+  <MTextShimmerWave text="Basic Wave" />
 </template>
 ```
 ::
 
-### Custom Duration
+### Slow Wave
 
 ::code-preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MTextShimmerWave{:duration="2" text="Slow Wave"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="text-shimmer-wave-slow" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MTextShimmerWave text="Slow Wave" :duration="2" />
-  </div>
+  <MTextShimmerWave :duration="2" text="Slow Wave" />
 </template>
 ```
 ::
 
-### As Heading Element
+### As Heading
 
 ::code-preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MTextShimmerWave{as="h1" class="text-3xl font-bold" text="Heading Wave"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="text-shimmer-wave-heading" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MTextShimmerWave as="h1" class="text-3xl font-bold" text="Heading Wave" />
-  </div>
+  <MTextShimmerWave as="h1" class="text-3xl font-bold" text="Heading Wave" />
 </template>
 ```
 ::
 
-### Custom Wave Parameters
+### Big Wave
 
 ::code-preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MTextShimmerWave{text="Big Wave" :z-distance="20" :x-distance="5" :y-distance="-5" :scale-distance="1.3" :rotate-y-distance="20"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="text-shimmer-wave-big" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MTextShimmerWave 
-      text="Big Wave" 
-      :z-distance="20" 
-      :x-distance="5" 
-      :y-distance="-5" 
-      :scale-distance="1.3" 
-      :rotate-y-distance="20"
-    />
-  </div>
+  <MTextShimmerWave 
+    text="Big Wave" 
+    :z-distance="20" 
+    :x-distance="5" 
+    :y-distance="-5" 
+    :scale-distance="1.3" 
+    :rotate-y-distance="20" 
+  />
 </template>
 ```
 ::
@@ -170,9 +198,9 @@ label: Preview
 ---
 label: Preview
 ---
-::div
-  ::component-example{name="text-shimmer-wave-styled"}
-::
+  :::div{class="flex justify-center"}
+    <component-example name="text-shimmer-wave-styled" />
+  :::
 #code
 ```vue
 <template>
@@ -194,9 +222,9 @@ label: Preview
 ---
 label: Preview
 ---
-::div
-  ::component-example{name="text-shimmer-wave-manual"}
-::
+  :::div{class="flex justify-center"}
+    <component-example name="text-shimmer-wave-manual" />
+  :::
 #code
 ```vue
 <template>

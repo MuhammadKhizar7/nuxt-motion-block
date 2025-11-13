@@ -15,9 +15,8 @@ The AnimatedNumber component animates numeric values with smooth transitions. It
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MAnimatedNumber{:value="1234"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="animated-number-example" />
   :::
 #code
 ```vue
@@ -59,164 +58,90 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4 space-y-4"}
-    :::div
-      :::h3{class="text-lg font-medium mb-2"}
-      Basic Counter
-      :::
-      :::MAnimatedNumber{:value="1500"}
-      :::
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="animated-number-basic" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4 space-y-4">
-    <div>
-      <h3 class="text-lg font-medium mb-2">Basic Counter</h3>
-      <MAnimatedNumber :value="1500" />
-    </div>
-  </div>
+  <MAnimatedNumber :value="1500" />
 </template>
 ```
 ::
 
-### With Custom Formatting
+### With Custom Duration
 
 ::code-preview
 ---
 label: Preview
 ---
-  :::div{class="p-4 space-y-4"}
-    :::div
-      :::h3{class="text-lg font-medium mb-2"}
-      Custom Format
-      :::
-      :::MAnimatedNumber{:value="123456"}
-      :::
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="animated-number-duration" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4 space-y-4">
-    <div>
-      <h3 class="text-lg font-medium mb-2">Custom Format</h3>
-      <MAnimatedNumber 
-        :value="123456" 
-        :format="(value) => \`$\${value.toFixed(2)}\`" 
-      />
-    </div>
-  </div>
+  <MAnimatedNumber :value="123456" :duration="2" />
 </template>
 ```
 ::
 
-### With Custom Spring Options
+### With Custom Easing
 
 ::code-preview
 ---
 label: Preview
 ---
-  :::div{class="p-4 space-y-4"}
-    :::div
-      :::h3{class="text-lg font-medium mb-2"}
-      Slow Animation
-      :::
-      :::MAnimatedNumber{:value="100"}
-      :::
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="animated-number-easing" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4 space-y-4">
-    <div>
-      <h3 class="text-lg font-medium mb-2">Slow Animation</h3>
-      <MAnimatedNumber 
-        :value="100" 
-        :springOptions="{ stiffness: 100, damping: 20, mass: 1 }"
-      />
-    </div>
-  </div>
+  <MAnimatedNumber :value="100" easing="easeInOut" />
 </template>
 ```
 ::
 
-### As a Different Element
+### With Custom Styling
 
 ::code-preview
 ---
 label: Preview
 ---
-  :::div{class="p-4 space-y-4"}
-    :::div
-      :::h3{class="text-lg font-medium mb-2"}
-      As a Div Element
-      :::
-      :::MAnimatedNumber{:value="42" as="div" class="text-2xl font-bold"}
-      :::
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="animated-number-styling" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4 space-y-4">
-    <div>
-      <h3 class="text-lg font-medium mb-2">As a Div Element</h3>
-      <MAnimatedNumber 
-        :value="42" 
-        as="div" 
-        class="text-2xl font-bold"
-      />
-    </div>
-  </div>
+  <MAnimatedNumber :value="42" as="div" class="text-2xl font-bold" />
 </template>
 ```
 ::
 
-### With Button Trigger
+### With Trigger
 
 ::code-preview
 ---
 label: Preview
 ---
-::div
-  ::component-example{name="animated-number-with-trigger"}
-::
+  :::div{class="flex justify-center"}
+    <component-example name="animated-number-with-trigger" />
+  :::
 #code
 ```vue
 <template>
-  <div class="p-4 space-y-4">
-    <div>
-      <h3 class="text-lg font-medium mb-2">Button Triggered Animation</h3>
-      <MAnimatedNumber 
-        :value="targetValue" 
-        class="text-2xl font-bold"
-      />
-    </div>
-    <div class="flex gap-2">
-      <UButton @click="triggerAnimation(1000)">
-        Animate to 1000
-      </UButton>
-      <UButton @click="triggerAnimation(5000)">
-        Animate to 5000
-      </UButton>
-      <UButton @click="triggerAnimation(0)">
-        Reset to 0
-      </UButton>
-    </div>
+  <div class="space-y-4">
+    <UButton @click="value += 100">Increase Value</UButton>
+    <MAnimatedNumber :value="value" />
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
 
-const targetValue = ref(0)
-
-const triggerAnimation = (value) => {
-  targetValue.value = value
-}
+const value = ref(1000)
 </script>
 ```
 ::

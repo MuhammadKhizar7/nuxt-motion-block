@@ -1,13 +1,13 @@
 ---
 title: Force Dot
-description: Interactive dot with physics-based movement.
+description: Interactive particle system with physics-based animations.
 navigation:
   icon: i-lucide-circle-dot
 ---
 
 # Force Dot
 
-The ForceDot component creates interactive dots with physics-based movement. Dots respond to mouse interactions with repulsion or attraction forces, and collide with each other and container boundaries.
+The ForceDot component creates an interactive particle system with physics-based animations. Dots respond to mouse movement with attraction or repulsion forces, creating dynamic visual effects.
 
 ## Usage
 
@@ -15,9 +15,8 @@ The ForceDot component creates interactive dots with physics-based movement. Dot
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MForceDot
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="force-dot-example" />
   :::
 #code
 ```vue
@@ -79,83 +78,64 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MForceDot
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="force-dot-basic" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MForceDot />
-  </div>
+  <MForceDot />
 </template>
 ```
 ::
 
-### Custom Size and Dot Count
+### With Custom Count and Size
 
 ::code-preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MForceDot{:count="50" :width="400" :height="400"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="force-dot-custom" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MForceDot :count="50" :width="400" :height="400" />
-  </div>
+  <MForceDot :count="50" :width="400" :height="400" />
 </template>
 ```
 ::
 
-### With Attraction Force
+### With Attraction Only
 
 ::code-preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MForceDot{:repel="false" :attract="true" :max-force="5"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="force-dot-attract" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MForceDot 
-      :repel="false" 
-      :attract="true" 
-      :max-force="5"
-    />
-  </div>
+  <MForceDot :repel="false" :attract="true" :max-force="5" />
 </template>
 ```
 ::
 
-### Custom Styling
+### With Custom Styling
 
 ::code-preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MForceDot{dot-class="fill-blue-500" :radius="8"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="force-dot-styled" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MForceDot 
-      dot-class="fill-blue-500" 
-      :radius="8"
-    />
-  </div>
+  <MForceDot dot-class="fill-blue-500" :radius="8" />
 </template>
 ```
 ::

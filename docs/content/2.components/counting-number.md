@@ -15,9 +15,8 @@ The CountingNumber component creates animated number counters with various anima
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MCountingNumber{:to="1000"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="counting-number-with-formatting" />
   :::
 #code
 ```vue
@@ -83,77 +82,30 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4 space-y-4"}
-    :::div
-      :::h3{class="text-lg font-medium mb-2"}
-      Basic Counter
-      :::
-      :::MCountingNumber{:to="1500"}
-      :::
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="counting-number-basic" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4 space-y-4">
-    <div>
-      <h3 class="text-lg font-medium mb-2">Basic Counter</h3>
-      <MCountingNumber :to="1500" />
-    </div>
-  </div>
+  <MCountingNumber :to="1500" />
 </template>
 ```
 ::
 
-### With Custom Range and Duration
+### With Custom Duration
 
 ::code-preview
 ---
 label: Preview
 ---
-  :::div{class="p-4 space-y-4"}
-    :::div
-      :::h3{class="text-lg font-medium mb-2"}
-      Custom Range
-      :::
-      :::MCountingNumber{:from="100" :to="5000" :duration="3"}
-      :::
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="counting-number-duration" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4 space-y-4">
-    <div>
-      <h3 class="text-lg font-medium mb-2">Custom Range</h3>
-      <MCountingNumber :from="100" :to="5000" :duration="3" />
-    </div>
-  </div>
-</template>
-```
-::
-
-### With Delay and Formatting
-
-::code-preview
----
-label: Preview
----
-::component-example{name="counting-number-with-formatting"}
-::
-#code
-```vue
-<template>
-  <div class="p-4 space-y-4">
-    <div>
-      <h3 class="text-lg font-medium mb-2">With Delay and Formatting</h3>
-      <MCountingNumber 
-        :to="123456" 
-        :delay="1000" 
-        :format="(value) => value.toLocaleString()" 
-      />
-    </div>
-  </div>
+  <MCountingNumber :from="100" :to="5000" :duration="3" />
 </template>
 ```
 ::
@@ -164,27 +116,13 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4 space-y-4"}
-    :::div
-      :::h3{class="text-lg font-medium mb-2"}
-      Styled Counter
-      :::
-      :::MCountingNumber{:to="75" class="text-3xl font-bold text-blue-600"}
-      :::
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="counting-number-styling" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4 space-y-4">
-    <div>
-      <h3 class="text-lg font-medium mb-2">Styled Counter</h3>
-      <MCountingNumber 
-        :to="75" 
-        class="text-3xl font-bold text-blue-600"
-      />
-    </div>
-  </div>
+  <MCountingNumber :to="75" class="text-3xl font-bold text-blue-600" />
 </template>
 ```
 ::

@@ -1,13 +1,13 @@
 ---
 title: Scroll Progress
-description: Progress bar that tracks scroll position through content.
+description: Component that displays a progress bar indicating scroll position.
 navigation:
   icon: i-lucide-bar-chart-horizontal
 ---
 
 # Scroll Progress
 
-The ScrollProgress component creates a progress bar that tracks scroll position through content. It's perfect for indicating reading progress on articles, documentation, or long pages.
+The ScrollProgress component displays a progress bar indicating scroll position. It's perfect for creating engaging scroll indicators that help users track their progress through content.
 
 ## Usage
 
@@ -15,41 +15,15 @@ The ScrollProgress component creates a progress bar that tracks scroll position 
 ---
 label: Preview
 ---
-  :::div{class="w-full"}
-    :::MScrollProgress{class="bg-primary fixed top-0 z-50"}
-    :::
-    :::div{class="p-4 space-y-4"}
-      :::h3{class="text-lg font-medium"}
-      Scroll Down
-      :::
-      :::div{class="h-64 bg-gray-100 dark:bg-gray-800 rounded flex items-center justify-center"}
-      Content Section 1
-      :::
-      :::div{class="h-64 bg-gray-200 dark:bg-gray-700 rounded flex items-center justify-center"}
-      Content Section 2
-      :::
-      :::div{class="h-64 bg-gray-300 dark:bg-gray-600 rounded flex items-center justify-center"}
-      Content Section 3
-      :::
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="scroll-progress-example" />
   :::
 #code
 ```vue
 <template>
-  <div class="relative">
-    <MScrollProgress class="bg-blue-500" />
-    <div class="p-4 space-y-4">
-      <h3 class="text-lg font-medium">Scroll Down</h3>
-      <div class="h-64 bg-gray-100 dark:bg-gray-800 rounded flex items-center justify-center">
-        Content Section 1
-      </div>
-      <div class="h-64 bg-gray-200 dark:bg-gray-700 rounded flex items-center justify-center">
-        Content Section 2
-      </div>
-      <div class="h-64 bg-gray-300 dark:bg-gray-600 rounded flex items-center justify-center">
-        Content Section 3
-      </div>
-    </div>
+  <MScrollProgress class="bg-primary fixed top-0 z-50" />
+  <div class="space-y-4 p-4">
+    <div v-for="i in 20" :key="i" class="h-32 bg-secondary rounded"></div>
   </div>
 </template>
 ```
@@ -79,90 +53,55 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="relative"}
-    :::MScrollProgress{class="bg-gradient-to-r from-purple-500 to-indigo-600"}
-    :::
-    :::div{class="p-4 space-y-4 min-h-screen"}
-      :::h3{class="text-lg font-medium mb-4"}
-      Scroll Progress Example
-      :::
-      :::div{class="h-96 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 rounded-lg flex items-center justify-center"}
-      Scroll down to see progress
-      :::
-      :::div{class="h-96 bg-gradient-to-br from-green-100 to-teal-100 dark:from-green-900 dark:to-teal-900 rounded-lg flex items-center justify-center"}
-      More content to scroll through
-      :::
-      :::div{class="h-96 bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900 dark:to-orange-900 rounded-lg flex items-center justify-center"}
-      Almost there
-      :::
-      :::div{class="h-96 bg-gradient-to-br from-rose-100 to-pink-100 dark:from-rose-900 dark:to-pink-900 rounded-lg flex items-center justify-center"}
-      End of content
-      :::
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="scroll-progress-basic" />
   :::
 #code
 ```vue
 <template>
-  <div class="relative">
-    <MScrollProgress class="bg-gradient-to-r from-purple-500 to-indigo-600" />
-    <div class="p-4 space-y-4 min-h-screen">
-      <h3 class="text-lg font-medium mb-4">Scroll Progress Example</h3>
-      <div class="h-96 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 rounded-lg flex items-center justify-center">
-        Scroll down to see progress
-      </div>
-      <div class="h-96 bg-gradient-to-br from-green-100 to-teal-100 dark:from-green-900 dark:to-teal-900 rounded-lg flex items-center justify-center">
-        More content to scroll through
-      </div>
-      <div class="h-96 bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900 dark:to-orange-900 rounded-lg flex items-center justify-center">
-        Almost there
-      </div>
-      <div class="h-96 bg-gradient-to-br from-rose-100 to-pink-100 dark:from-rose-900 dark:to-pink-900 rounded-lg flex items-center justify-center">
-        End of content
-      </div>
-    </div>
+  <MScrollProgress class="bg-primary fixed top-0 z-50" />
+  <div class="space-y-4 p-4">
+    <div v-for="i in 10" :key="i" class="h-32 bg-secondary rounded"></div>
   </div>
 </template>
 ```
 ::
 
-### Custom Spring Options
+### With Gradient Styling
 
 ::code-preview
 ---
 label: Preview
 ---
-  :::div{class="relative"}
-    :::MScrollProgress{:spring-options="{ stiffness: 100, damping: 30 }" class="bg-gradient-to-r from-emerald-500 to-teal-600"}
-    :::
-    :::div{class="p-4 space-y-4 min-h-screen"}
-      :::h3{class="text-lg font-medium mb-4"}
-      Custom Spring Progress
-      :::
-      :::div{class="h-96 bg-gradient-to-br from-cyan-100 to-blue-100 dark:from-cyan-900 dark:to-blue-900 rounded-lg flex items-center justify-center"}
-      Smooth scrolling progress
-      :::
-      :::div{class="h-96 bg-gradient-to-br from-fuchsia-100 to-purple-100 dark:from-fuchsia-900 dark:to-purple-900 rounded-lg flex items-center justify-center"}
-      With custom spring animation
-      :::
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="scroll-progress-gradient" />
   :::
 #code
 ```vue
 <template>
-  <div class="relative">
-    <MScrollProgress 
-      :spring-options="{ stiffness: 100, damping: 30 }" 
-      class="bg-gradient-to-r from-emerald-500 to-teal-600"
-    />
-    <div class="p-4 space-y-4 min-h-screen">
-      <h3 class="text-lg font-medium mb-4">Custom Spring Progress</h3>
-      <div class="h-96 bg-gradient-to-br from-cyan-100 to-blue-100 dark:from-cyan-900 dark:to-blue-900 rounded-lg flex items-center justify-center">
-        Smooth scrolling progress
-      </div>
-      <div class="h-96 bg-gradient-to-br from-fuchsia-100 to-purple-100 dark:from-fuchsia-900 dark:to-purple-900 rounded-lg flex items-center justify-center">
-        With custom spring animation
-      </div>
-    </div>
+  <MScrollProgress class="bg-gradient-to-r from-purple-500 to-indigo-600" />
+  <div class="space-y-4 p-4">
+    <div v-for="i in 10" :key="i" class="h-32 bg-tertiary rounded"></div>
+  </div>
+</template>
+```
+::
+
+### With Custom Spring Options
+
+::code-preview
+---
+label: Preview
+---
+  :::div{class="flex justify-center"}
+    <component-example name="scroll-progress-spring" />
+  :::
+#code
+```vue
+<template>
+  <MScrollProgress :spring-options="{ stiffness: 100, damping: 30 }" class="bg-gradient-to-r from-emerald-500 to-teal-600" />
+  <div class="space-y-4 p-4">
+    <div v-for="i in 10" :key="i" class="h-32 bg-primary rounded"></div>
   </div>
 </template>
 ```

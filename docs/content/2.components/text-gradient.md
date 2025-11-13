@@ -1,13 +1,13 @@
 ---
 title: Text Gradient
-description: Text with gradient color effects.
+description: Text with animated gradient effects and various animation styles.
 navigation:
-  icon: i-lucide-paintbrush
+  icon: i-lucide-palette
 ---
 
 # Text Gradient
 
-The TextGradient component creates text with gradient color effects. It's perfect for creating visually striking headings and text elements with animated gradients.
+The TextGradient component creates text with animated gradient effects and various animation styles. It's perfect for creating eye-catching headings and text elements with dynamic color transitions.
 
 ## Usage
 
@@ -15,9 +15,8 @@ The TextGradient component creates text with gradient color effects. It's perfec
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MTextGradient{text="GRADIENT"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="text-gradient-custom-colors" />
   :::
 #code
 ```vue
@@ -91,16 +90,13 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MTextGradient{text="BASIC GRADIENT"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="text-gradient-basic" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MTextGradient text="BASIC GRADIENT" />
-  </div>
+  <MTextGradient text="BASIC GRADIENT" />
 </template>
 ```
 ::
@@ -111,9 +107,9 @@ label: Preview
 ---
 label: Preview
 ---
-::div
-  ::component-example{name="text-gradient-custom-colors"}
-::
+  :::div{class="flex justify-center"}
+    <component-example name="text-gradient-custom-colors" />
+  :::
 #code
 ```vue
 <template>
@@ -134,16 +130,13 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MTextGradient{text="VERTICAL" direction="vertical"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="text-gradient-vertical" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MTextGradient text="VERTICAL" direction="vertical" />
-  </div>
+  <MTextGradient text="VERTICAL" direction="vertical" />
 </template>
 ```
 ::
@@ -154,16 +147,13 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MTextGradient{text="RAINBOW" animation="rainbow" :duration="2"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="text-gradient-rainbow" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MTextGradient text="RAINBOW" animation="rainbow" :duration="2" />
-  </div>
+  <MTextGradient text="RAINBOW" animation="rainbow" :duration="2" />
 </template>
 ```
 ::
@@ -174,36 +164,30 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MTextGradient{text="HOVER ME" :hover="true"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="text-gradient-hover" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MTextGradient text="HOVER ME" :hover="true" />
-  </div>
+  <MTextGradient text="HOVER ME" :hover="true" />
 </template>
 ```
 ::
 
-### As Heading Element
+### As Heading
 
 ::code-preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MTextGradient{text="Heading Text" as="h1" class="text-4xl"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="text-gradient-heading" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MTextGradient text="Heading Text" as="h1" class="text-4xl" />
-  </div>
+  <MTextGradient text="Heading Text" as="h1" class="text-4xl" />
 </template>
 ```
 ::

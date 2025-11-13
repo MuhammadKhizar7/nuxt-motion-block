@@ -1,13 +1,13 @@
 ---
 title: Glow Effect
-description: Glowing effect around elements with customizable properties.
+description: Component that adds a dynamic glow effect with customizable colors and animations.
 navigation:
-  icon: i-lucide-sun
+  icon: i-lucide-sun-medium
 ---
 
 # Glow Effect
 
-The GlowEffect component creates a glowing effect around elements with customizable properties. It's perfect for adding visual interest to cards, buttons, and other UI elements.
+The GlowEffect component adds a dynamic glow effect with customizable colors and animations. It's perfect for creating eye-catching elements with vibrant, animated glows.
 
 ## Usage
 
@@ -15,29 +15,18 @@ The GlowEffect component creates a glowing effect around elements with customiza
 ---
 label: Preview
 ---
-  :::div{class="relative"}
-    :::MGlowEffect
-    :::
-      :::UCard{class="relative"}
-        :::h3{class="text-lg font-medium mb-2"}
-          Glowing Card
-        :::
-        :::p
-        This card has a glowing effect around it.
-        :::
-      :::
+  :::div{class="flex justify-center"}
+    <component-example name="glow-effect-example" />
   :::
 #code
 ```vue
 <template>
-  <div class="relative">
   <MGlowEffect>
-    <UCard class="relative">
-      <h3 class="text-lg font-medium mb-2">Glowing Card</h3>
-      <p>This card has a glowing effect around it.</p>
-    </UCard>
+    <div class="p-6 bg-primary rounded-lg">
+      <h3 class="text-xl font-bold mb-2">Glow Effect</h3>
+      <p class="text-gray-600 dark:text-gray-400">This element has a glow effect</p>
+    </div>
   </MGlowEffect>
-  </div>
 </template>
 ```
 ::
@@ -82,85 +71,59 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="relative"}
-    :::MGlowEffect{mode='colorShift' blur='soft' duration="3" scale="0.9"}
-    :::
-      :::UButton{class="relative" color="neutral" size="sm"}
-        Glowing Button
-      :::
+  :::div{class="flex justify-center"}
+    <component-example name="glow-effect-basic" />
   :::
 #code
 ```vue
 <template>
-  <div class="reactive">
-    <MGlowEffect mode='colorShift' blur='soft' duration="3" scale="0.9" />
-     <UButton class="relative">Glowing Button</UButton>
-  </div>
+  <MGlowEffect>
+    <div class="p-4 bg-secondary rounded">
+      <p>Basic glow effect</p>
+    </div>
+  </MGlowEffect>
 </template>
 ```
 ::
 
-### Custom Colors and Mode
+### With Color Shift
 
 ::code-preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::component-example{name="glow-effect-example"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="glow-effect-color" />
   :::
 #code
 ```vue
 <template>
-  <div class="relative">
-    <MGlowEffect 
-      :colors="['#3498db', '#2ecc71', '#e74c3c']" 
-      mode="pulse"
-    >
-    <UCard class="relative">
-      <h3 class="text-lg font-medium mb-2">
-        Pulsing Glow
-      </h3>
-      <p>This card has a pulsing glow effect.</p>
-    </UCard>
-    </MGlowEffect>
-  </div>
+  <MGlowEffect mode="colorShift" blur="soft" :duration="3" :scale="0.9">
+    <div class="p-4 bg-tertiary rounded">
+      <p>Color shifting glow effect</p>
+    </div>
+  </MGlowEffect>
 </template>
 ```
 ::
 
-### Strong Blur Effect
+### With Strong Blur
 
 ::code-preview
 ---
 label: Preview
 ---
-  :::div{class="relative"}
-    :::MGlowEffect{blur="strong" :scale="1.2"}
-    :::
-      :::UCard{class="relative"}
-        :::h3{class="text-lg font-medium mb-2"}
-        Strong Glow
-        :::
-        :::p
-        This card has a strong glowing effect.
-        :::
-      :::
+  :::div{class="flex justify-center"}
+    <component-example name="glow-effect-blur" />
   :::
 #code
 ```vue
 <template>
-  <div class="relative">
-    <MGlowEffect 
-      blur="strong" 
-      :scale="1.2"
-    />
-      <UCard class="relative">
-        <h3 class="text-lg font-medium mb-2">Strong Glow</h3>
-        <p>This card has a strong glowing effect.</p>
-      </UCard>
-  </div>
+  <MGlowEffect blur="strong" :scale="1.2">
+    <div class="p-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded">
+      <p>Strong blur glow effect</p>
+    </div>
+  </MGlowEffect>
 </template>
 ```
 ::

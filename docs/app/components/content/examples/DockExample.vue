@@ -25,7 +25,7 @@
       >
         <div
           :class="[
-            'w-full h-full aspect-square rounded-full flex items-center justify-center text-2xl',
+            'w-full h-full aspect-square rounded-full flex items-center justify-center text-2xl'
           ]"
           :style="{ fontSize: Math.max(16, width * 0.4) + 'px' }"
         />
@@ -44,13 +44,13 @@ const apps = ref([
   { name: 'Music', icon: 'i-lucide-music' },
   { name: 'Calendar', icon: 'i-lucide-calendar' },
   { name: 'Notes', icon: 'i-lucide-file' },
-  { name: 'Settings', icon: 'i-lucide-settings' },
+  { name: 'Settings', icon: 'i-lucide-settings' }
 ])
 
 const dockSettings = reactive({
   magnification: 80,
   distance: 150,
-  panelHeight: 64,
+  panelHeight: 64
 })
 
 const handleAppClick = (app: typeof apps.value[0]) => {
@@ -60,7 +60,7 @@ const handleAppClick = (app: typeof apps.value[0]) => {
   toast.add({
     title,
     description,
-    duration: 2000,
+    duration: 2000
   })
 }
 </script>

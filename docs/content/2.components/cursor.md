@@ -1,13 +1,13 @@
 ---
 title: Cursor
-description: Custom cursor with various effects and interactions.
+description: Custom animated cursor with various styles and interactive effects.
 navigation:
   icon: i-lucide-move
 ---
 
 # Cursor
 
-The Cursor component replaces the default system cursor with a custom animated cursor. It supports various styles and effects to enhance user interaction.
+The Cursor component creates a custom animated cursor with various styles and interactive effects. It replaces the default browser cursor with a customizable animated element that can have different appearances and behaviors.
 
 ## Usage
 
@@ -15,19 +15,8 @@ The Cursor component replaces the default system cursor with a custom animated c
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MCursor{:attach-to-parent="true"}
-    :::div{class="p-2 bg-primary rounded-full"}
-    :::
-    :::
-    :::div{class="p-8 bg-gray-100 dark:bg-gray-800 rounded-lg"}
-      :::h3{class="text-lg font-medium mb-2"}
-      Custom Cursor global
-      :::
-      :::p
-      This will effect browser cursor 
-      :::
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="cursor-interactive-example" />
   :::
 #code
 ```vue
@@ -76,19 +65,8 @@ Configuration for the spring physics used in the cursor's movement.
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MCursor{:attach-to-parent="true"}
-    :::UIcon{name="i-lucide-circle-dot-dashed" class="text-pink-600 dark:text-pink-400"}
-    :::
-    :::
-    :::div{class="p-8 bg-pink-50 dark:bg-pink-900/20 rounded-lg"}
-      :::h3{class="text-lg font-medium mb-4 text-pink-600 dark:text-pink-400"}
-      Box Cursor
-      :::
-      :::p
-      This area uses a small pink ring cursor
-      :::
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="cursor-with-image" />
   :::
 #code
 ```vue
@@ -110,19 +88,8 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MCursor{:attach-to-parent="true"}
-    :::div{class="p-2 bg-emerald-500"}
-    :::
-    :::
-    :::div{class="p-8 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg"}
-      :::h3{class="text-lg font-medium mb-4 text-emerald-600 dark:text-emerald-400"}
-      Box Cursor
-      :::
-      :::p
-      This area uses a small green box cursor
-      :::
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="cursor-basic" />
   :::
 #code
 ```vue
@@ -144,9 +111,8 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::component-example{name="cursor-basic"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="cursor-interactive-example" />
   :::
 #code
 ```vue
@@ -208,19 +174,7 @@ import { ref } from 'vue'
 import { motion, AnimatePresence } from 'motion-v'
 
 const isHovering = ref(false)
-const targetRef = ref<HTMLElement | null>(null)
-
-function handlePositionChange(x: number, y: number) {
-  if (targetRef.value) {
-    const rect = targetRef.value.getBoundingClientRect()
-    const inside
-      = x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom
-    isHovering.value = inside
-  }
-}
 </script>
-
-
 ```
 ::
 
@@ -230,9 +184,9 @@ function handlePositionChange(x: number, y: number) {
 ---
 label: Preview
 ---
-
-::component-example{name="cursor-with-image"}
-::
+  :::div{class="flex justify-center"}
+    <component-example name="cursor-with-image" />
+  :::
 #code
 ```vue
 
@@ -274,7 +228,5 @@ const springConfig = {
     </div>
   </div>
 </template>
-
-
 ```
 ::

@@ -1,13 +1,13 @@
 ---
 title: Magnetic
-description: Magnetic effect that attracts elements to cursor proximity.
+description: Component that creates a magnetic effect, attracting elements toward the cursor.
 navigation:
   icon: i-lucide-magnet
 ---
 
 # Magnetic
 
-The Magnetic component creates a magnetic effect that attracts elements to cursor proximity. It's perfect for creating interactive buttons and cards that respond to mouse movement.
+The Magnetic component creates a magnetic effect, attracting elements toward the cursor. It's perfect for creating interactive buttons and elements that respond to cursor proximity with smooth, physics-based animations.
 
 ## Usage
 
@@ -15,20 +15,14 @@ The Magnetic component creates a magnetic effect that attracts elements to curso
 ---
 label: Preview
 ---
-  :::div{class="p-4 flex justify-center"}
-    :::MMagnetic
-      :::button{class="px-6 py-3 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition-colors"}
-      Magnetic Button
-      :::
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="magnetic-example" />
   :::
 #code
 ```vue
 <template>
   <MMagnetic>
-    <button class="px-6 py-3 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition-colors">
-      Magnetic Button
-    </button>
+    <UButton color="primary">Magnetic Button</UButton>
   </MMagnetic>
 </template>
 ```
@@ -56,110 +50,78 @@ label: Preview
 
 ## Examples
 
-### Basic Magnetic Button
+### Basic Magnetic
 
 ::code-preview
 ---
 label: Preview
 ---
-  :::div{class="p-4 space-y-6"}
-    :::MMagnetic
-      :::button{class="px-6 py-3 bg-gradient-to-r from-purple-500 to-indigo-600 text-white rounded-lg shadow-lg hover:from-purple-600 hover:to-indigo-700 transition-all"}
-      Basic Magnetic
-      :::
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="magnetic-basic" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4 space-y-6">
-    <MMagnetic>
-      <button class="px-6 py-3 bg-gradient-to-r from-purple-500 to-indigo-600 text-white rounded-lg shadow-lg hover:from-purple-600 hover:to-indigo-700 transition-all">
-        Basic Magnetic
-      </button>
-    </MMagnetic>
-  </div>
+  <MMagnetic>
+    <UButton color="secondary">Basic Magnetic</UButton>
+  </MMagnetic>
 </template>
 ```
 ::
 
-### High Intensity
+### With Custom Intensity
 
 ::code-preview
 ---
 label: Preview
 ---
-  :::div{class="p-4 space-y-6"}
-    :::MMagnetic{:intensity="1.2" :range="150"}
-      :::button{class="px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-lg shadow-lg hover:from-amber-600 hover:to-orange-700 transition-all"}
-      Strong Magnetic
-      :::
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="magnetic-intensity" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4 space-y-6">
-    <MMagnetic :intensity="1.2" :range="150">
-      <button class="px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-lg shadow-lg hover:from-amber-600 hover:to-orange-700 transition-all">
-        Strong Magnetic
-      </button>
-    </MMagnetic>
-  </div>
+  <MMagnetic :intensity="1.2" :range="150">
+    <UButton color="tertiary">High Intensity</UButton>
+  </MMagnetic>
 </template>
 ```
 ::
 
-### Parent Action Area
+### With Parent Action Area
 
 ::code-preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MMagnetic{action-area="parent"}
-      :::button{class="px-6 py-3 bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded-lg shadow-lg hover:from-emerald-600 hover:to-teal-700 transition-all"}
-      Parent Area
-      :::
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="magnetic-parent" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MMagnetic action-area="parent">
-      <button class="px-6 py-3 bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded-lg shadow-lg hover:from-emerald-600 hover:to-teal-700 transition-all">
-        Parent Area
-      </button>
-    </MMagnetic>
-  </div>
+  <MMagnetic action-area="parent">
+    <UButton color="primary">Parent Area</UButton>
+  </MMagnetic>
 </template>
 ```
 ::
 
-### Custom Spring Options
+### With Custom Spring Options
 
 ::code-preview
 ---
 label: Preview
 ---
-  :::div{class="p-4 space-y-6"}
-    :::MMagnetic{:spring-options="{ stiffness: 50, damping: 5, mass: 0.5 }"}
-      :::button{class="px-6 py-3 bg-gradient-to-r from-rose-500 to-pink-600 text-white rounded-lg shadow-lg hover:from-rose-600 hover:to-pink-700 transition-all"}
-      Custom Spring
-      :::
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="magnetic-spring" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4 space-y-6">
-    <MMagnetic :spring-options="{ stiffness: 50, damping: 5, mass: 0.5 }">
-      <button class="px-6 py-3 bg-gradient-to-r from-rose-500 to-pink-600 text-white rounded-lg shadow-lg hover:from-rose-600 hover:to-pink-700 transition-all">
-        Custom Spring
-      </button>
-    </MMagnetic>
-  </div>
+  <MMagnetic :spring-options="{ stiffness: 50, damping: 5, mass: 0.5 }">
+    <UButton color="primary" variant="outline">Custom Spring</UButton>
+  </MMagnetic>
 </template>
 ```
 ::

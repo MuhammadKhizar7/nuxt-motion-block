@@ -15,9 +15,8 @@ The TypingText component creates a typing effect for text content. It's perfect 
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MTypingText{text="Typing Text"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="typing-text-cycling" />
   :::
 #code
 ```vue
@@ -99,138 +98,31 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MTypingText{text="Hello World"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="typing-text-basic" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MTypingText text="Hello World" />
-  </div>
+  <MTypingText text="Hello World" />
 </template>
 ```
 ::
 
-### Custom Speed
+### Fast Typing
 
 ::code-preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MTypingText{text="Fast Typing" :speed="50"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="typing-text-fast" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MTypingText text="Fast Typing" :speed="50" />
-  </div>
+  <MTypingText text="Fast Typing" :speed="50" />
 </template>
-```
-::
-
-### Text Cycling
-
-::code-preview
----
-label: Preview
----
-::div
-  ::component-example{name="typing-text-cycling"}
-::
-#code
-```vue
-<template>
-  <div class="p-4">
-    <MTypingText 
-      :texts="['First Text', 'Second Text', 'Third Text']" 
-      :loop="true"
-      class="text-xl font-bold text-[#0d9488]"
-    />
-  </div>
-</template>
-```
-::
-
-### Manual Control Example
-
-::code-preview
----
-label: Preview
----
-::div
-  ::component-example{name="typing-text-manual"}
-::
-#code
-```vue
-<template>
-  <div class="p-4 space-y-4">
-    <MTypingText 
-      :key="typingKey"
-      :texts="typingTexts"
-      :loop="isLooping"
-      :speed="typingSpeed"
-      class="text-xl font-bold"
-    />
-    <div class="flex flex-wrap gap-2">
-      <button 
-        class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors text-sm"
-        @click="resetTyping"
-      >
-        Reset
-      </button>
-      <button 
-        class="px-3 py-1 bg-green-500 text-white rounded hover:bg-green-600 transition-colors text-sm"
-        @click="toggleLoop"
-      >
-        {{ isLooping ? 'Disable Loop' : 'Enable Loop' }}
-      </button>
-      <button 
-        class="px-3 py-1 bg-purple-500 text-white rounded hover:bg-purple-600 transition-colors text-sm"
-        @click="changeSpeed"
-      >
-        Speed: {{ typingSpeed }}ms
-      </button>
-    </div>
-  </div>
-</template>
-
-<script setup>
-import { ref } from 'vue'
-
-const typingKey = ref(0)
-const isLooping = ref(true)
-const typingSpeed = ref(100)
-
-const typingTexts = [
-  'Click buttons to control',
-  'Adjust typing speed',
-  'Toggle loop mode',
-  'Reset animation'
-]
-
-const resetTyping = () => {
-  typingKey.value++
-}
-
-const toggleLoop = () => {
-  isLooping.value = !isLooping.value
-}
-
-const changeSpeed = () => {
-  if (typingSpeed.value === 100) {
-    typingSpeed.value = 50
-  } else if (typingSpeed.value === 50) {
-    typingSpeed.value = 150
-  } else {
-    typingSpeed.value = 100
-  }
-}
-</script>
 ```
 ::
 
@@ -240,60 +132,81 @@ const changeSpeed = () => {
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MTypingText{text="Custom Cursor" cursor="█" cursor-class="text-blue-500"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="typing-text-cursor" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
+  <MTypingText text="Custom Cursor" cursor="???" cursor-class="text-blue-500" />
+</template>
+```
+::
+
+### Slide Up Animation
+
+::code-preview
+---
+label: Preview
+---
+  :::div{class="flex justify-center"}
+    <component-example name="typing-text-slide" />
+  :::
+#code
+```vue
+<template>
+  <MTypingText text="Slide Up" animation="slideUp" />
+</template>
+```
+::
+
+### Styled Typing
+
+::code-preview
+---
+label: Preview
+---
+  :::div{class="flex justify-center"}
+    <component-example name="typing-text-styled" />
+  :::
+#code
+```vue
+<template>
+  <MTypingText text="Styled Typing" class="text-2xl font-bold text-purple-600" />
+</template>
+```
+::
+
+### Manual Control
+
+::code-preview
+---
+label: Preview
+---
+  :::div{class="flex justify-center"}
+    <component-example name="typing-text-manual" />
+  :::
+#code
+```vue
+<template>
+  <div class="space-y-4">
+    <div class="flex space-x-2">
+      <UButton @click="typingRef?.start()">Start</UButton>
+      <UButton @click="typingRef?.pause()">Pause</UButton>
+      <UButton @click="typingRef?.reset()">Reset</UButton>
+    </div>
     <MTypingText 
-      text="Custom Cursor" 
-      cursor="█" 
-      cursor-class="text-blue-500"
+      ref="typingRef"
+      text="Manual Control" 
+      :auto-start="false"
     />
   </div>
 </template>
-```
-::
 
-### With Animation
+<script setup>
+import { ref } from 'vue'
 
-::code-preview
----
-label: Preview
----
-  :::div{class="p-4"}
-    :::MTypingText{text="Slide Up" animation="slideUp"}
-    :::
-  :::
-#code
-```vue
-<template>
-  <div class="p-4">
-    <MTypingText text="Slide Up" animation="slideUp" />
-  </div>
-</template>
-```
-::
-
-### With Custom Styling
-
-::code-preview
----
-label: Preview
----
-  :::div{class="p-4"}
-    :::MTypingText{text="Styled Typing" class="text-2xl font-bold text-purple-600"}
-    :::
-  :::
-#code
-```vue
-<template>
-  <div class="p-4">
-    <MTypingText text="Styled Typing" class="text-2xl font-bold text-purple-600" />
-  </div>
-</template>
+const typingRef = ref()
+</script>
 ```
 ::

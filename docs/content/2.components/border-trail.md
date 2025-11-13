@@ -15,27 +15,13 @@ The BorderTrail component creates an animated border effect with trailing partic
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MBorderTrail
-      :::div{class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow"}
-        :::h3{class="text-lg font-medium mb-2"}
-        Border Trail Effect
-        :::
-        :::p
-        This element has an animated border trail effect.
-        :::
-      :::
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="border-trail-example" />
   :::
 #code
 ```vue
 <template>
-  <MBorderTrail>
-    <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
-      <h3 class="text-lg font-medium mb-2">Border Trail Effect</h3>
-      <p>This element has an animated border trail effect.</p>
-    </div>
-  </MBorderTrail>
+  <MBorderTrail />
 </template>
 ```
 ::
@@ -72,98 +58,64 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MBorderTrail
-      :::div{class="p-6 bg-white dark:bg-gray-800 rounded-lg"}
-        :::h3{class="text-lg font-medium mb-2"}
-        Basic Border Trail
-        :::
-        :::p
-        This card has a simple border trail effect.
-        :::
-      :::
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="border-trail-basic" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MBorderTrail>
-      <div class="p-6 bg-white dark:bg-gray-800 rounded-lg">
-        <h3 class="text-lg font-medium mb-2">Basic Border Trail</h3>
-        <p>This card has a simple border trail effect.</p>
-      </div>
-    </MBorderTrail>
-  </div>
+  <MBorderTrail />
 </template>
 ```
 ::
 
-### Custom Trail Size and Color
+### With Custom Size
 
 ::code-preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MBorderTrail{:size="40" class="bg-blue-500"}
-      :::div{class="p-6 bg-blue-50 dark:bg-blue-900/20 rounded-lg"}
-        :::h3{class="text-lg font-medium mb-2 text-blue-600 dark:text-blue-400"}
-        Custom Border Trail
-        :::
-        :::p
-        This card has a blue border trail with custom size.
-        :::
-      :::
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="border-trail-size" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MBorderTrail :size="40" class="bg-blue-500">
-      <div class="p-6 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-        <h3 class="text-lg font-medium mb-2 text-blue-600 dark:text-blue-400">Custom Border Trail</h3>
-        <p>This card has a blue border trail with custom size.</p>
-      </div>
-    </MBorderTrail>
-  </div>
+  <MBorderTrail :size="40" class="bg-blue-500" />
 </template>
 ```
 ::
 
-### Custom Animation Transition
+### With Custom Transition
 
 ::code-preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MBorderTrail{:transition="{ repeat: Infinity, duration: 5, ease: 'easeInOut' }" class="bg-purple-500"}
-      :::div{class="p-6 bg-purple-50 dark:bg-purple-900/20 rounded-lg"}
-        :::h3{class="text-lg font-medium mb-2 text-purple-600 dark:text-purple-400"}
-        Slow Animation
-        :::
-        :::p
-        This card has a slower border trail animation.
-        :::
-      :::
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="border-trail-transition" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MBorderTrail 
-      :transition="{ repeat: Infinity, duration: 5, ease: 'easeInOut' }" 
-      class="bg-purple-500"
-    >
-      <div class="p-6 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
-        <h3 class="text-lg font-medium mb-2 text-purple-600 dark:text-purple-400">Slow Animation</h3>
-        <p>This card has a slower border trail animation.</p>
-      </div>
-    </MBorderTrail>
-  </div>
+  <MBorderTrail :transition="{ repeat: Infinity, duration: 5, ease: 'easeInOut' }" class="bg-purple-500" />
+</template>
+```
+::
+
+### With Custom Styling
+
+::code-preview
+---
+label: Preview
+---
+  :::div{class="flex justify-center"}
+    <component-example name="border-trail-styling" />
+  :::
+#code
+```vue
+<template>
+  <MBorderTrail class="bg-gradient-to-r from-red-500 to-orange-500 rounded-lg" />
 </template>
 ```
 ::

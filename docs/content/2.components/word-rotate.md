@@ -1,13 +1,13 @@
 ---
 title: Word Rotate
-description: Words that rotate with 3D effects.
+description: Component that rotates through different words with smooth transitions.
 navigation:
-  icon: i-lucide-rotate-cw
+  icon: i-lucide-refresh-cw
 ---
 
 # Word Rotate
 
-The WordRotate component creates words that rotate with 3D effects. It's perfect for creating dynamic text that cycles through different words with smooth animations.
+The WordRotate component rotates through different words with smooth transitions. It's perfect for creating dynamic text elements that cycle through different options with engaging animations.
 
 ## Usage
 
@@ -15,14 +15,13 @@ The WordRotate component creates words that rotate with 3D effects. It's perfect
 ---
 label: Preview
 ---
-  :::div{class="p-4 w-full"}
-    :::component-example{name="word-rotate-basic"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="word-rotate-basic" />
   :::
 #code
 ```vue
 <template>
-  <MWordRotate :words="['First', 'Second', 'Third']" />
+  <MWordRotate :words="['Design', 'Develop', 'Deploy']" />
 </template>
 ```
 ::
@@ -38,7 +37,7 @@ label: Preview
   Duration each word is visible in milliseconds.
   ::
   
-  ::field{name="animationStyle" type="'fade' | 'slide-up' | 'slide-down' | 'scale' | 'flip'" default="'fade'"}
+  ::field{name="animation" type="'fade' | 'slide-up' | 'slide-down' | 'scale' | 'flip'" default="'fade'"}
   Animation style for transitions.
   ::
   
@@ -79,16 +78,13 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::component-example{name="word-rotate-basic"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="word-rotate-basic" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MWordRotate :words="['Hello', 'World', 'Nuxt']" />
-  </div>
+  <MWordRotate :words="['Design', 'Develop', 'Deploy']" />
 </template>
 ```
 ::
@@ -99,96 +95,96 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::component-example{name="word-rotate-flip"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="word-rotate-flip" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MWordRotate :words="['Flip', 'Rotate', 'Words']" animation-style="flip" />
-  </div>
+  <MWordRotate 
+    :words="['Create', 'Build', 'Launch']" 
+    animation="flip" 
+  />
 </template>
 ```
 ::
 
-### Slide Up Animation
+### Slide Animation
 
 ::code-preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::component-example{name="word-rotate-slide"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="word-rotate-slide" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MWordRotate :words="['Slide', 'Up', 'Text']" animation-style="slide-up" />
-  </div>
+  <MWordRotate 
+    :words="['Imagine', 'Create', 'Innovate']" 
+    animation="slide" 
+  />
 </template>
 ```
 ::
 
-### Custom Duration
+### Pause on Hover
 
 ::code-preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::component-example{name="word-rotate-pause"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="word-rotate-pause" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MWordRotate :words="['Fast', 'Words']" :duration="800" :pause-duration="200" />
-  </div>
+  <MWordRotate 
+    :words="['Explore', 'Discover', 'Learn']" 
+    :pause-on-hover="true" 
+  />
 </template>
 ```
 ::
 
-### With Custom Styling
+### Custom Styling
 
 ::code-preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::component-example{name="word-rotate-style"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="word-rotate-style" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MWordRotate :words="['Styled', 'Words']" class="text-2xl font-bold text-blue-600" />
-  </div>
+  <MWordRotate 
+    :words="['Bold', 'Creative', 'Unique']" 
+    class="text-2xl font-bold text-purple-600" 
+  />
 </template>
 ```
 ::
 
-### No Loop
+### Continuous Loop
 
 ::code-preview
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::component-example{name="word-rotate-loop"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="word-rotate-loop" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MWordRotate :words="['One', 'Two', 'Three']" :loop="false" />
-  </div>
+  <MWordRotate 
+    :words="['Forever', 'Always', 'Continuously']" 
+    :loop="true" 
+  />
 </template>
 ```
 ::

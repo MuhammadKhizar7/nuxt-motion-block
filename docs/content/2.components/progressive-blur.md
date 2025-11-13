@@ -1,15 +1,13 @@
 ---
 title: Progressive Blur
-description: Progressive blur effect that increases with distance from focus.
+description: Component that creates a progressive blur effect in a specified direction.
 navigation:
-  icon: i-lucide-eye
+  icon: i-lucide-blur
 ---
 
 # Progressive Blur
 
-The `ProgressiveBlur` component creates a progressive blur effect that increases with distance from focus. It's perfect for creating depth effects and visual hierarchy in your UI.
-
-The component works by applying a `backdrop-filter: blur()` to a series of layers, each with a different mask. This means it blurs the content *behind* it.
+The ProgressiveBlur component creates a progressive blur effect in a specified direction. It's perfect for creating visually appealing overlays and transitions with smooth gradient blur effects.
 
 ## Usage
 
@@ -17,26 +15,20 @@ The component works by applying a `backdrop-filter: blur()` to a series of layer
 ---
 label: Preview
 ---
-  :::UCard{class="relative w-full h-64 overflow-hidden"}
-    :::img{src="/hingol-national-park.jpg" alt="Hingol National Park" class="absolute inset-0 w-full h-full object-cover"}
-    :::MProgressiveBlur
-    :::
-    :::div{class="absolute inset-0 flex items-center justify-center"}
-      :::h3{class="text-white text-2xl font-bold"}
-      Content on top
-      :::
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="progressive-blur-example" />
   :::
 #code
 ```vue
 <template>
-  <UCard class="relative w-full h-64 overflow-hidden">
-    <img src="/hingol-national-park.jpg" alt="Hingol National Park" class="absolute inset-0 w-full h-full object-cover" />
-    <MProgressiveBlur />
-    <div class="absolute inset-0 flex items-center justify-center">
-      <h3 class="text-white text-2xl font-bold">Content on top</h3>
-    </div>
-  </UCard>
+  <div class="relative h-64">
+    <img 
+      src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+      alt="Mountain" 
+      class="w-full h-full object-cover"
+    />
+    <MProgressiveBlur class="absolute inset-0" />
+  </div>
 </template>
 ```
 ::
@@ -79,124 +71,146 @@ label: Preview
 
 ## Examples
 
-### Blur Direction
-
-You can change the direction of the blur effect using the `direction` prop.
+### Basic Progressive Blur
 
 ::code-preview
 ---
 label: Preview
 ---
-  :::div{class="grid grid-cols-2 gap-4 w-full"}
-    :::UCard{class="relative w-full h-64 overflow-hidden"}
-      :::img{src="/hingol-national-park.jpg" alt="Hingol National Park" class="absolute inset-0 w-full h-full object-cover"}
-      :::MProgressiveBlur{direction="top"}
-      :::
-      :::div{class="absolute inset-0 flex items-start justify-center pt-4"}
-        :::h3{class="text-white text-xl font-bold"}
-        Top
-        :::
-      :::
-    :::
-    :::UCard{class="relative w-full h-64 overflow-hidden"}
-      :::img{src="/hingol-national-park.jpg" alt="Hingol National Park" class="absolute inset-0 w-full h-full object-cover"}
-      :::MProgressiveBlur{direction="right"}
-      :::
-      :::div{class="absolute inset-0 flex items-center justify-end pr-4"}
-        :::h3{class="text-white text-xl font-bold"}
-        Right
-        :::
-      :::
-    :::
-    :::UCard{class="relative w-full h-64 overflow-hidden"}
-      :::img{src="/hingol-national-park.jpg" alt="Hingol National Park" class="absolute inset-0 w-full h-full object-cover"}
-      :::
-      :::MProgressiveBlur{direction="bottom"}
-      :::
-      :::div{class="absolute inset-0 flex items-end justify-center pb-4"}
-        :::h3{class="text-white text-xl font-bold"}
-        Bottom
-        :::
-      :::
-    :::
-    :::UCard{class="relative w-full h-64 overflow-hidden"}
-      :::img{src="/hingol-national-park.jpg" alt="Hingol National Park" class="absolute inset-0 w-full h-full object-cover"}
-      :::
-      :::MProgressiveBlur{direction="left"}
-      :::
-      :::div{class="absolute inset-0 flex items-center justify-start pl-4"}
-        :::h3{class="text-white text-xl font-bold"}
-        Left
-        :::
-      :::
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="progressive-blur-basic" />
   :::
 #code
 ```vue
 <template>
-  <div class="grid grid-cols-2 gap-4">
-    <UCard class="relative w-full h-64 overflow-hidden">
-      <img src="/hingol-national-park.jpg" alt="Hingol National Park" class="absolute inset-0 w-full h-full object-cover" />
-      <MProgressiveBlur direction="top" />
-      <div class="absolute inset-0 flex items-start justify-center pt-4">
-        <h3 class="text-white text-xl font-bold">Top</h3>
-      </div>
-    </UCard>
-    <UCard class="relative w-full h-64 overflow-hidden">
-      <img src="/hingol-national-park.jpg" alt="Hingol National Park" class="absolute inset-0 w-full h-full object-cover" />
-      <MProgressiveBlur direction="right" />
-      <div class="absolute inset-0 flex items-center justify-end pr-4">
-        <h3 class="text-white text-xl font-bold">Right</h3>
-      </div>
-    </UCard>
-    <UCard class="relative w-full h-64 overflow-hidden">
-      <img src="/hingol-national-park.jpg" alt="Hingol National Park" class="absolute inset-0 w-full h-full object-cover" />
-      <MProgressiveBlur direction="bottom" />
-      <div class="absolute inset-0 flex items-end justify-center pb-4">
-        <h3 class="text-white text-xl font-bold">Bottom</h3>
-      </div>
-    </UCard>
-    <UCard class="relative w-full h-64 overflow-hidden">
-      <img src="/hingol-national-park.jpg" alt="Hingol National Park" class="absolute inset-0 w-full h-full object-cover" />
-      <MProgressiveBlur direction="left" />
-      <div class="absolute inset-0 flex items-center justify-start pl-4">
-        <h3 class="text-white text-xl font-bold">Left</h3>
-      </div>
-    </UCard>
+  <div class="relative h-64">
+    <img 
+      src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+      alt="Mountain" 
+      class="w-full h-full object-cover"
+    />
+    <MProgressiveBlur class="absolute inset-0" />
   </div>
 </template>
 ```
 ::
 
-### Custom Intensity and Layers
-
-You can customize the blur effect with `blurIntensity` and `blurLayers`.
+### Top Direction
 
 ::code-preview
 ---
 label: Preview
 ---
-  :::UCard{class="relative w-full h-64 overflow-hidden"}
-    :::img{src="/hingol-national-park.jpg" alt="Hingol National Park" class="absolute inset-0 w-full h-full object-cover"}
-    :::
-    :::MProgressiveBlur{:blur-intensity="0.5" :blur-layers="12"}
-    :::
-    :::div{class="absolute inset-0 flex items-center justify-center"}
-      :::h3{class="text-white text-2xl font-bold"}
-      More Intense Blur
-      :::
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="progressive-blur-top" />
   :::
 #code
 ```vue
 <template>
-  <UCard class="relative w-full h-64 overflow-hidden">
-    <img src="/hingol-national-park.jpg" alt="Hingol National Park" class="absolute inset-0 w-full h-full object-cover" />
-    <MProgressiveBlur :blur-intensity="0.5" :blur-layers="12" />
-    <div class="absolute inset-0 flex items-center justify-center">
-      <h3 class="text-white text-2xl font-bold">More Intense Blur</h3>
-    </div>
-  </UCard>
+  <div class="relative h-64">
+    <img 
+      src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+      alt="Ocean" 
+      class="w-full h-full object-cover"
+    />
+    <MProgressiveBlur direction="top" class="absolute inset-0" />
+  </div>
+</template>
+```
+::
+
+### Right Direction
+
+::code-preview
+---
+label: Preview
+---
+  :::div{class="flex justify-center"}
+    <component-example name="progressive-blur-right" />
+  :::
+#code
+```vue
+<template>
+  <div class="relative h-64">
+    <img 
+      src="https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+      alt="Forest" 
+      class="w-full h-full object-cover"
+    />
+    <MProgressiveBlur direction="right" class="absolute inset-0" />
+  </div>
+</template>
+```
+::
+
+### Bottom Direction
+
+::code-preview
+---
+label: Preview
+---
+  :::div{class="flex justify-center"}
+    <component-example name="progressive-blur-bottom" />
+  :::
+#code
+```vue
+<template>
+  <div class="relative h-64">
+    <img 
+      src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+      alt="City" 
+      class="w-full h-full object-cover"
+    />
+    <MProgressiveBlur direction="bottom" class="absolute inset-0" />
+  </div>
+</template>
+```
+::
+
+### Left Direction
+
+::code-preview
+---
+label: Preview
+---
+  :::div{class="flex justify-center"}
+    <component-example name="progressive-blur-left" />
+  :::
+#code
+```vue
+<template>
+  <div class="relative h-64">
+    <img 
+      src="https://images.unsplash.com/photo-1587614382346-4ec70e388b28?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+      alt="Nature" 
+      class="w-full h-full object-cover"
+    />
+    <MProgressiveBlur direction="left" class="absolute inset-0" />
+  </div>
+</template>
+```
+::
+
+### With Custom Intensity
+
+::code-preview
+---
+label: Preview
+---
+  :::div{class="flex justify-center"}
+    <component-example name="progressive-blur-intensity" />
+  :::
+#code
+```vue
+<template>
+  <div class="relative h-64">
+    <img 
+      src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+      alt="Beach" 
+      class="w-full h-full object-cover"
+    />
+    <MProgressiveBlur :blur-intensity="0.5" :blur-layers="12" class="absolute inset-0" />
+  </div>
 </template>
 ```
 ::

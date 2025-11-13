@@ -15,9 +15,8 @@ The Dock component provides a macOS-style dock with magnification effects and sm
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::component-example{name="dock-example"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="dock-example" />
   :::
 #code
 ```vue
@@ -87,95 +86,5 @@ const handleAppClick = (app: typeof apps.value[0]) => {
   })
 }
 </script>
-
 ```
 ::
-
-## MDock Props
-
-::field-group
-  ::field{name="distance" type="number" default="150"}
-  Distance for magnification effect.
-  ::
-  
-  ::field{name="panelHeight" type="number" default="64"}
-  Height of the dock panel.
-  ::
-  
-  ::field{name="magnification" type="number" default="80"}
-  Magnification factor.
-  ::
-  
-  ::field{name="spring" type="SpringOptions" default="{ mass: 0.1, stiffness: 150, damping: 12 }"}
-  Spring physics options.
-  ::
-  
-  ::field{name="variant" type="'bottom' | 'top' | 'left' | 'right' | 'floating' | 'compact'" default="'bottom'"}
-  Dock position variant.
-  ::
-  
-  ::field{name="size" type="'sm' | 'md' | 'lg'" default="'md'"}
-  Dock size preset.
-  ::
-  
-  ::field{name="ariaLabel" type="string" default="'Application dock'"}
-  Accessibility label.
-  ::
-  
-  ::field{name="showLabels" type="boolean" default="true"}
-  Show/hide labels.
-  ::
-  
-  ::field{name="background" type="'glass' | 'solid' | 'none'" default="'glass'"}
-  Background style.
-  ::
-  
-  ::field{name="animation" type="'spring' | 'ease' | 'none'" default="'spring'"}
-  Animation type.
-  ::
-::
-
-## MDock Slots
-
-::field-group
-  ::field{name="default" type="none"}
-  Dock items.
-  ::
-::
-
-## MDockItem Props
-
-::field-group
-  ::field{name="id" type="string" default="Random ID"}
-  Unique identifier for the item.
-  ::
-  
-  ::field{name="disabled" type="boolean" default="false"}
-  Disable the item.
-  ::
-::
-
-## MDockItem Slots
-
-::field-group
-  ::field{name="default" type="none"}
-  Item content.
-  ::
-::
-
-## MDockIcon Props
-
-::field-group
-  ::field{name="name" type="string" :required="true"}
-  Icon name from icon library.
-  ::
-::
-
-## MDockLabel Props
-
-::field-group
-  ::field{name="text" type="string" :required="true"}
-  Label text.
-  ::
-::
-

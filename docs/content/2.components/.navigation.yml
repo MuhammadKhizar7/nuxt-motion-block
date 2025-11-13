@@ -2,16 +2,76 @@ title: Components & Composables
 items:
   - title: Introduction
     to: /components
-  - title: Layout & Background
+  - title: 3D Components
     items:
+      - title: 3D Card
+        to: /components/3d-card
+  - title: Background Components
+    items:
+      - title: Animated Spotlight
+        to: /components/animated-spotlight
+      - title: Aurora Background
+        to: /components/aurora-background
+      - title: Background Beams
+        to: /components/background-beams
+      - title: Background Gradient Animation
+        to: /components/background-gradient-animation
+      - title: Background Lines
+        to: /components/background-lines
+      - title: Background Ripple Effect
+        to: /components/background-ripple-effect
+      - title: Boxes Core
+        to: /components/boxes-core
+      - title: Directional Light
+        to: /components/directional-light
+      - title: Dotted Glow Background
+        to: /components/dotted-glow-background
+      - title: Lamp Container
+        to: /components/lamp-container
+      - title: Meteors
+        to: /components/meteors
+      - title: Shooting Stars
+        to: /components/shooting-stars
+      - title: Stars Background
+        to: /components/stars-background
+      - title: Vortex
+        to: /components/vortex
       - title: AnimatedBackground
         to: /components/animated-background
+  - title: Card Components
+    items:
+      - title: Card Stack
+        to: /components/card-stack
+      - title: Draggable Card
+        to: /components/draggable-card
+      - title: Evervault Card
+        to: /components/ever-vault-card
+      - title: Focus Cards
+        to: /components/focus-cards
+      - title: Glare Card
+        to: /components/glare-card
+      - title: Glowing Stars Card
+        to: /components/glowing-stars-card
+      - title: Wobble Card
+        to: /components/wobble-card
+  - title: Directional Components
+    items:
+      - title: Direction Aware Hover
+        to: /components/direction-aware-hover
+      - title: Direction Aware Hover New
+        to: /components/direction-aware-hover-new
+  - title: Layout & Background
+    items:
       - title: AnimatedGroup
         to: /components/animated-group
+      - title: Collision
+        to: /components/collision
   - title: Interactive Elements
     items:
       - title: Dock
         to: /components/dock
+      - title: Image Comparison
+        to: /components/image-comparison
   - title: Numbers & Text
     items:
       - title: AnimatedNumber
@@ -22,6 +82,8 @@ items:
         to: /components/sliding-number
       - title: TextGlitch
         to: /components/text-glitch
+      - title: TextGlitch New
+        to: /components/text-glitch-new
       - title: TextGradient
         to: /components/text-gradient
       - title: TextLoop
@@ -38,16 +100,34 @@ items:
         to: /components/text-shimmer
       - title: TextShimmerWave
         to: /components/text-shimmer-wave
+      - title: True Focus
+        to: /components/true-focus
       - title: TypingText
         to: /components/typing-text
+      - title: Variable Proximity
+        to: /components/variable-proximity
       - title: WordRotate
         to: /components/word-rotate
+  - title: Popover Components
+    items:
+      - title: Morphing Popover
+        to: /components/morphing-popover
   - title: Visual Effects
     items:
       - title: BorderTrail
         to: /components/border-trail
+      - title: Div Grid
+        to: /components/div-grid
+      - title: Flowing Stroke
+        to: /components/flowing-stroke
       - title: GlowEffect
         to: /components/glow-effect
+      - title: Glowing Effect
+        to: /components/glowing-effect
+      - title: Mask Container
+        to: /components/mask-container
+      - title: Pixelated Canvas
+        to: /components/pixelated-canvas
       - title: ProgressiveBlur
         to: /components/progressive-blur
       - title: Spotlight
@@ -58,7 +138,7 @@ items:
     items:
       - title: Cursor
         to: /components/cursor
-      - title: DragAndDrop
+      - title: Drag And Drop
         to: /components/drag-and-drop
       - title: ForceDot
         to: /components/force-dot
@@ -70,8 +150,10 @@ items:
     items:
       - title: InView
         to: /components/in-view
-      - title: InfiniteSlider
+      - title: Infinite Slider
         to: /components/infinite-slider
+      - title: Scroll Velocity
+        to: /components/scroll-velocity
       - title: ScrollProgress
         to: /components/scroll-progress
   - title: Composables

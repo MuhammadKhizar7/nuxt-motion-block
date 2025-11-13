@@ -15,9 +15,8 @@ The TextReveal component animates text with various reveal effects. It's perfect
 ---
 label: Preview
 ---
-  :::div{class="w-full"}
-    :::MTextReveal{text="Reveal this text with animation"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="text-reveal-example" />
   :::
 #code
 ```vue
@@ -58,16 +57,13 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="w-full"}
-    :::MTextReveal{effect="fade" text="This text fades in character by character"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="text-reveal-fade" />
   :::
 #code
 ```vue
 <template>
-  <div class="w-full">
-    <MTextReveal effect="fade" text="This text fades in character by character" />
-  </div>
+  <MTextReveal effect="fade" text="This text fades in character by character" />
 </template>
 ```
 ::
@@ -78,69 +74,64 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="w-full"}
-    :::MTextReveal{effect="slide" :duration="0.8" text="This text slides in from below"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="text-reveal-slide" />
   :::
 #code
 ```vue
 <template>
-  <div class="w-full">
-    <MTextReveal effect="slide" :duration="0.8" text="This text slides in from below" />
-  </div>
+  <MTextReveal effect="slide" :duration="0.8" text="This text slides in from below" />
 </template>
 ```
 ::
 
 ### Typewriter Effect
 
-This example simulates a typewriter effect by using the `fade` effect with a longer stagger between characters.
-
 ::code-preview
 ---
 label: Preview
 ---
-  :::div{class="w-full"}
-    :::MTextReveal{effect="fade" :duration="2" :delay="0.5" :stagger="0.1" text="This text is typed out like a typewriter"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="text-reveal-typewriter" />
   :::
 #code
 ```vue
 <template>
-  <div class="w-full">
-    <MTextReveal 
-      effect="fade" 
-      :duration="2" 
-      :delay="0.5"
-      :stagger="0.1"
-      text="This text is typed out like a typewriter"
-    />
-  </div>
+  <MTextReveal effect="fade" :duration="2" :delay="0.5" :stagger="0.1" text="This text is typed out like a typewriter" />
 </template>
 ```
 ::
 
-### With Stagger Delay
+### Slow Stagger
 
 ::code-preview
 ---
 label: Preview
 ---
-  :::div{class="p-4 space-y-6"}
-    :::MTextReveal{:stagger="0.1" text="Slow stagger effect"}
-    :::
-    
-    :::MTextReveal{:stagger="0.02" text="Fast stagger effect"}
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="text-reveal-slow" />
   :::
 #code
 ```vue
 <template>
-  <div class="p-4 space-y-6">
-    <MTextReveal :stagger="0.1" text="Slow stagger effect" />
-    
-    <MTextReveal :stagger="0.02" text="Fast stagger effect" />
-  </div>
+  <MTextReveal :stagger="0.1" text="Slow stagger effect" />
+</template>
+```
+::
+
+### Fast Stagger
+
+::code-preview
+---
+label: Preview
+---
+  :::div{class="flex justify-center"}
+    <component-example name="text-reveal-fast" />
+  :::
+#code
+```vue
+<template>
+  <MTextReveal :stagger="0.02" text="Fast stagger effect" />
 </template>
 ```
 ::

@@ -109,7 +109,7 @@ const y2 = ref(50)
 
 const updateScrollProgress = () => {
   if (!containerRef.value) return
-
+// @ts-ignore
   const rect = containerRef.value.$el.getBoundingClientRect()
   const windowHeight = window.innerHeight
   const elementTop = rect.top

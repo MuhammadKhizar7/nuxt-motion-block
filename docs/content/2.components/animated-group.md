@@ -1,13 +1,13 @@
 ---
 title: Animated Group
-description: Groups animations together with coordinated timing and effects.
+description: Component that animates a group of elements with staggered delays.
 navigation:
   icon: i-lucide-layers
 ---
 
 # Animated Group
 
-The AnimatedGroup component groups animations together with coordinated timing and effects. It's perfect for creating staggered animations where child elements animate in sequence with a delay between each one.
+The AnimatedGroup component animates a group of elements with staggered delays. It's perfect for creating engaging entrance animations for lists, grids, and other collections of elements.
 
 ## Usage
 
@@ -15,31 +15,19 @@ The AnimatedGroup component groups animations together with coordinated timing a
 ---
 label: Preview
 ---
-  :::div{class="p-4"}
-    :::MAnimatedGroup
-      :::div{class="p-4 bg-blue-500 text-white rounded mb-2"}
-      Item 1
-      :::
-      :::div{class="p-4 bg-green-500 text-white rounded mb-2"}
-      Item 2
-      :::
-      :::div{class="p-4 bg-purple-500 text-white rounded mb-2"}
-      Item 3
-      :::
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="animated-group-example" />
   :::
 #code
 ```vue
 <template>
   <MAnimatedGroup>
-    <div class="p-4 bg-blue-500 text-white rounded mb-2">
-      Item 1
-    </div>
-    <div class="p-4 bg-green-500 text-white rounded mb-2">
-      Item 2
-    </div>
-    <div class="p-4 bg-purple-500 text-white rounded mb-2">
-      Item 3
+    <div class="grid grid-cols-3 gap-4">
+      <div
+        v-for="i in 6"
+        :key="i"
+        class="h-20 w-20 rounded-lg bg-primary"
+      />
     </div>
   </MAnimatedGroup>
 </template>
@@ -78,149 +66,105 @@ label: Preview
 ---
 label: Preview
 ---
-  :::MAnimatedGroup
-    :::div{class="p-3 bg-gradient-to-r from-blue-400 to-blue-600 text-white rounded mb-2"}
-    First Item
-    :::
-    :::div{class="p-3 bg-gradient-to-r from-green-400 to-green-600 text-white rounded mb-2"}
-    Second Item
-    :::
-    :::div{class="p-3 bg-gradient-to-r from-purple-400 to-purple-600 text-white rounded mb-2"}
-    Third Item
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="animated-group-basic" />
   :::
 #code
 ```vue
 <template>
   <MAnimatedGroup>
-    <div class="p-3 bg-gradient-to-r from-blue-400 to-blue-600 text-white rounded mb-2">
-      First Item
-    </div>
-    <div class="p-3 bg-gradient-to-r from-green-400 to-green-600 text-white rounded mb-2">
-      Second Item
-    </div>
-    <div class="p-3 bg-gradient-to-r from-purple-400 to-purple-600 text-.white rounded mb-2">
-      Third Item
+    <div class="flex space-x-4">
+      <div
+        v-for="i in 4"
+        :key="i"
+        class="h-16 w-16 rounded-lg bg-secondary"
+      />
     </div>
   </MAnimatedGroup>
 </template>
 ```
 ::
 
-### With Custom Stagger
+### With Stagger Animation
 
 ::code-preview
 ---
 label: Preview
 ---
-  :::MAnimatedGroup{:stagger="0.3"}
-    :::div{class="p-3 bg-gradient-to-r from-amber-400 to-amber-600 text-white rounded mb-2"}
-    Slow Stagger 1
-    :::
-    :::div{class="p-3 bg-gradient-to-r from-rose-400 to-rose-600 text-white rounded mb-2"}
-    Slow Stagger 2
-    :::
-    :::div{class="p-3 bg-gradient-to-r from-emerald-400 to-emerald-600 text-white rounded mb-2"}
-    Slow Stagger 3
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="animated-group-stagger" />
   :::
 #code
 ```vue
 <template>
   <MAnimatedGroup :stagger="0.3">
-    <div class="p-3 bg-gradient-to-r from-amber-400 to-amber-600 text-white rounded mb-2">
-      Slow Stagger 1
-    </div>
-    <div class="p-3 bg-gradient-to-r from-rose-400 to-rose-600 text-white rounded mb-2">
-      Slow Stagger 2
-    </div>
-    <div class="p-3 bg-gradient-to-r from-emerald-400 to-emerald-600 text-white rounded mb-2">
-      Slow Stagger 3
+    <div class="flex flex-wrap gap-4">
+      <div
+        v-for="i in 8"
+        :key="i"
+        class="h-12 w-12 rounded-lg bg-tertiary"
+      />
     </div>
   </MAnimatedGroup>
 </template>
 ```
 ::
 
-### With Custom Duration and Easing
+### With Custom Duration
 
 ::code-preview
 ---
 label: Preview
 ---
-  :::MAnimatedGroup{:duration="1" easing="ease-in-out"}
-    :::div{class="p-3 bg-gradient-to-r from-cyan-400 to-cyan-600 text-white rounded mb-2"}
-    Slow Ease 1
-    :::
-    :::div{class="p-3 bg-gradient-to-r from-fuchsia-400 to-fuchsia-600 text-white rounded mb-2"}
-    Slow Ease 2
-    :::
-    :::div{class="p-3 bg-gradient-to-r from-lime-400 to-lime-600 text-white rounded mb-2"}
-    Slow Ease 3
-    :::
+  :::div{class="flex justify-center"}
+    <component-example name="animated-group-duration" />
   :::
 #code
 ```vue
 <template>
   <MAnimatedGroup :duration="1" easing="ease-in-out">
-    <div class="p-3 bg-gradient-to-r from-cyan-400 to-cyan-600 text-white rounded mb-2">
-      Slow Ease 1
-    </div>
-    <div class="p-3 bg-gradient-to-r from-fuchsia-400 to-fuchsia-600 text-white rounded mb-2">
-      Slow Ease 2
-    </div>
-    <div class="p-3 bg-gradient-to-r from-lime-400 to-lime-600 text-white rounded mb-2">
-      Slow Ease 3
+    <div class="grid grid-cols-4 gap-3">
+      <div
+        v-for="i in 12"
+        :key="i"
+        class="h-14 w-14 rounded-lg bg-primary"
+      />
     </div>
   </MAnimatedGroup>
 </template>
 ```
 ::
 
-### With Refresh Button
+### With Refresh Trigger
 
 ::code-preview
 ---
 label: Preview
 ---
-::div
-  ::component-example{name="animated-group-with-refresh"}
-::
+  :::div{class="flex justify-center"}
+    <component-example name="animated-group-with-refresh" />
+  :::
 #code
 ```vue
 <template>
-  <div class="p-4">
-    <MAnimatedGroup :key="animationKey">
-      <div class="p-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded mb-2">
-        Animated Item 1
-      </div>
-      <div class="p-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded mb-2">
-        Animated Item 2
-      </div>
-      <div class="p-3 bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded mb-2">
-        Animated Item 3
+  <div class="space-y-4">
+    <UButton @click="refreshKey++">Refresh Animation</UButton>
+    <MAnimatedGroup :key="refreshKey">
+      <div class="flex space-x-3">
+        <div
+          v-for="i in 5"
+          :key="i"
+          class="h-16 w-16 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600"
+        />
       </div>
     </MAnimatedGroup>
-    <div class="mt-4">
-      <UButton 
-        icon="i-lucide-refresh-cw" 
-        size="sm" 
-        @click="refreshAnimation"
-      >
-        Replay Animation
-      </UButton>
-    </div>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
 
-const animationKey = ref(0)
-
-const refreshAnimation = () => {
-  animationKey.value++
-}
+const refreshKey = ref(0)
 </script>
 ```
 ::
