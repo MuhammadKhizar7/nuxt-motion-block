@@ -15,7 +15,7 @@ The TextShimmer component creates text with a shimmer effect that moves across t
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-shimmer-wave-styled" />
   :::
 #code
@@ -58,7 +58,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-shimmer-basic" />
   :::
 #code
@@ -75,7 +75,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-shimmer-slow" />
   :::
 #code
@@ -92,7 +92,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-shimmer-heading" />
   :::
 #code
@@ -109,7 +109,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-shimmer-wide" />
   :::
 #code
@@ -126,7 +126,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-shimmer-styled" />
   :::
 #code
@@ -136,3 +136,4 @@ label: Preview
 </template>
 ```
 ::
+

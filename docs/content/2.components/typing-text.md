@@ -15,7 +15,7 @@ The TypingText component creates a typing effect for text content. It's perfect 
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="typing-text-cycling" />
   :::
 #code
@@ -98,7 +98,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="typing-text-basic" />
   :::
 #code
@@ -115,7 +115,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="typing-text-fast" />
   :::
 #code
@@ -132,7 +132,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="typing-text-cursor" />
   :::
 #code
@@ -149,7 +149,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="typing-text-slide" />
   :::
 #code
@@ -166,7 +166,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="typing-text-styled" />
   :::
 #code
@@ -183,7 +183,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="typing-text-manual" />
   :::
 #code
@@ -210,3 +210,4 @@ const typingRef = ref()
 </script>
 ```
 ::
+

@@ -15,7 +15,7 @@ The BackgroundGradientAnimation component creates an animated background with cu
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="background-gradient-animation-example" />
   :::
 #code
@@ -102,7 +102,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="background-gradient-animation-basic" />
   :::
 #code
@@ -125,7 +125,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="background-gradient-animation-custom-colors" />
   :::
 #code

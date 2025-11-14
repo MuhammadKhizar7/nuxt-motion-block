@@ -15,7 +15,7 @@ The GlowingEffect component creates an interactive glowing effect that responds 
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="glowing-effect-example" />
   :::
 #code
@@ -142,7 +142,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="glowing-effect-basic" />
   :::
 #code
@@ -173,7 +173,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="glowing-effect-color" />
   :::
 #code
@@ -205,7 +205,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="glowing-effect-blur" />
   :::
 #code

@@ -15,7 +15,7 @@ The DivGrid component creates a grid of div elements with customizable size, col
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="div-grid-example" />
   :::
 #code
@@ -95,7 +95,7 @@ const handleCellClick = (row: number, col: number) => {
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="div-grid-basic" />
   :::
 #code
@@ -120,7 +120,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="div-grid-custom" />
   :::
 #code

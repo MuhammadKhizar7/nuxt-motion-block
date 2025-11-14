@@ -15,7 +15,7 @@ The BackgroundRippleEffect component creates an interactive background ripple ef
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="background-ripple-effect-example" />
   :::
 #code
@@ -75,7 +75,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="background-ripple-effect-basic" />
   :::
 #code
@@ -101,7 +101,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="background-ripple-effect-custom" />
   :::
 #code

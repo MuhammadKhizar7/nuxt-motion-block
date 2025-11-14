@@ -15,7 +15,7 @@ The GlowingStarsCard component creates a card with an animated glowing stars eff
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="glowing-stars-card-example" />
   :::
 #code
@@ -73,7 +73,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="glowing-stars-card-basic" />
   :::
 #code
@@ -101,7 +101,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="glowing-stars-card-custom" />
   :::
 #code

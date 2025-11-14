@@ -15,7 +15,7 @@ The DottedGlowBackground component creates an animated dotted background with gl
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="dotted-glow-background-example" />
   :::
 #code
@@ -129,7 +129,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="dotted-glow-background-basic" />
   :::
 #code
@@ -155,7 +155,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="dotted-glow-background-custom" />
   :::
 #code

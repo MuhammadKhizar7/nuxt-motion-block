@@ -15,7 +15,7 @@ The TextGlitch component creates a glitch effect for text elements. It's perfect
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-glitch-custom-colors" />
   :::
 #code
@@ -78,7 +78,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-glitch-basic" />
   :::
 #code
@@ -95,7 +95,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-glitch-auto" />
   :::
 #code
@@ -112,7 +112,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-glitch-extreme" />
   :::
 #code
@@ -129,7 +129,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-glitch-manual" />
   :::
 #code
@@ -155,3 +155,4 @@ const glitchRef = ref()
 </script>
 ```
 ::
+

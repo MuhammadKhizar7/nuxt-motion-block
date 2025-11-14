@@ -15,7 +15,7 @@ The AnimatedSpotlight component creates an animated spotlight effect with custom
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="animated-spotlight-example" />
   :::
 #code
@@ -84,7 +84,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="animated-spotlight-basic" />
   :::
 #code
@@ -110,7 +110,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="animated-spotlight-custom" />
   :::
 #code

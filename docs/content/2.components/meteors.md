@@ -15,7 +15,7 @@ The Meteors component creates an animated meteor shower effect with customizable
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="meteors-example" />
   :::
 #code
@@ -52,7 +52,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="meteors-basic" />
   :::
 #code
@@ -74,7 +74,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="meteors-custom-count" />
   :::
 #code

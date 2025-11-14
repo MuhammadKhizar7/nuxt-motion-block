@@ -15,7 +15,7 @@ The WobbleCard component creates a card with a wobble effect that responds to cu
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="wobble-card-example" />
   :::
 #code
@@ -55,7 +55,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="wobble-card-basic" />
   :::
 #code
@@ -77,7 +77,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="wobble-card-container" />
   :::
 #code
@@ -99,7 +99,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="wobble-card-gradient" />
   :::
 #code
@@ -121,7 +121,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="wobble-card-dark" />
   :::
 #code
@@ -143,7 +143,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="wobble-card-slate" />
   :::
 #code
@@ -158,3 +158,4 @@ label: Preview
 </template>
 ```
 ::
+

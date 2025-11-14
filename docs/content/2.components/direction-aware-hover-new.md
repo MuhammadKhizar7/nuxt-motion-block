@@ -15,7 +15,7 @@ The DirectionAwareHoverNew component is an enhanced version of the DirectionAwar
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="direction-aware-hover-new-example" />
   :::
 #code
@@ -63,7 +63,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="direction-aware-hover-new-basic" />
   :::
 #code
@@ -85,7 +85,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="direction-aware-hover-new-custom-content" />
   :::
 #code
@@ -111,7 +111,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="direction-aware-hover-new-custom-image" />
   :::
 #code
@@ -136,7 +136,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="direction-aware-hover-new-custom-sizing" />
   :::
 #code

@@ -15,7 +15,7 @@ The ProgressiveBlur component creates a progressive blur effect in a specified d
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="progressive-blur-example" />
   :::
 #code
@@ -77,7 +77,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="progressive-blur-basic" />
   :::
 #code
@@ -101,7 +101,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="progressive-blur-top" />
   :::
 #code
@@ -125,7 +125,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="progressive-blur-right" />
   :::
 #code
@@ -149,7 +149,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="progressive-blur-bottom" />
   :::
 #code
@@ -173,7 +173,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="progressive-blur-left" />
   :::
 #code
@@ -197,7 +197,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="progressive-blur-intensity" />
   :::
 #code

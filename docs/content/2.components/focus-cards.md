@@ -15,7 +15,7 @@ The FocusCards component creates an interactive grid of cards that expand and fo
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="focus-cards-example" />
   :::
 #code
@@ -83,7 +83,7 @@ Each card in the [cards](#cards) array should have the following properties:
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="focus-cards-basic" />
   :::
 #code
@@ -123,7 +123,7 @@ const cards = [
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="focus-cards-content" />
   :::
 #code
@@ -165,7 +165,7 @@ const cards = [
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="focus-cards-sizes" />
   :::
 #code
@@ -199,7 +199,7 @@ const cards = [
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="focus-cards-gradient" />
   :::
 #code
@@ -226,3 +226,4 @@ const cards = [
 </script>
 ```
 ::
+

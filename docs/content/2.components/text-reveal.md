@@ -15,7 +15,7 @@ The TextReveal component animates text with various reveal effects. It's perfect
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-reveal-example" />
   :::
 #code
@@ -57,7 +57,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-reveal-fade" />
   :::
 #code
@@ -74,7 +74,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-reveal-slide" />
   :::
 #code
@@ -91,7 +91,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-reveal-typewriter" />
   :::
 #code
@@ -108,7 +108,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-reveal-slow" />
   :::
 #code
@@ -125,7 +125,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-reveal-fast" />
   :::
 #code

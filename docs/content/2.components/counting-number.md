@@ -15,7 +15,7 @@ The CountingNumber component creates animated number counters with various anima
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="counting-number-with-formatting" />
   :::
 #code
@@ -82,7 +82,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="counting-number-basic" />
   :::
 #code
@@ -99,7 +99,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="counting-number-duration" />
   :::
 #code
@@ -116,7 +116,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="counting-number-styling" />
   :::
 #code

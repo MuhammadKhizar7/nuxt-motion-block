@@ -15,7 +15,7 @@ The DirectionalLight component creates an SVG-based directional light effect tha
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="directional-light-example" />
   :::
 #code
@@ -54,7 +54,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="directional-light-basic" />
   :::
 #code
@@ -76,7 +76,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="directional-light-custom-colors" />
   :::
 #code
@@ -98,7 +98,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="directional-light-example" />
   :::
 #code

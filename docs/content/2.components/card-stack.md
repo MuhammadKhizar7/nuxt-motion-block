@@ -15,7 +15,7 @@ The CardStack component creates an animated stack of cards that automatically ro
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center h-64"}
+  :::div{class="flex justify-center w-full h-full h-64"}
     <component-example name="card-stack-example" />
   :::
 #code
@@ -112,7 +112,7 @@ Each card in the [items](#items) array should have the following properties:
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center h-64"}
+  :::div{class="flex justify-center w-full h-full h-64"}
     <component-example name="card-stack-basic" />
   :::
 #code
@@ -133,7 +133,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center h-64"}
+  :::div{class="flex justify-center w-full h-full h-64"}
     <component-example name="card-stack-custom-offset" />
   :::
 #code
@@ -158,7 +158,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="card-stack-manual-control" />
   :::
 #code

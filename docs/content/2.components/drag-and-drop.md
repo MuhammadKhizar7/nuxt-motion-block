@@ -15,7 +15,7 @@ The DragAndDrop component provides interactive drag and drop functionality with 
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="drag-and-drop-example" />
   :::
 #code
@@ -173,7 +173,7 @@ const handleItemsChange = (newItems) => {
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="drag-and-drop-grid" />
   :::
 #code
@@ -219,7 +219,7 @@ const items = ref([
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="drag-and-drop-multi-select" />
   :::
 #code

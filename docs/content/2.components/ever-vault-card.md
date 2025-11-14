@@ -15,7 +15,7 @@ The Evervault Card component creates a cybersecurity-inspired card with dynamic 
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="ever-vault-card-example" />
   :::
 #code
@@ -56,7 +56,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="ever-vault-card-basic" />
   :::
 #code
@@ -79,7 +79,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="ever-vault-card-gradient" />
   :::
 #code
@@ -102,7 +102,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="ever-vault-card-styled" />
   :::
 #code
@@ -125,7 +125,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="ever-vault-card-interactive" />
   :::
 #code
@@ -142,3 +142,4 @@ label: Preview
 </template>
 ```
 ::
+

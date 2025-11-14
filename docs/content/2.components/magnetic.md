@@ -15,7 +15,7 @@ The Magnetic component creates a magnetic effect, attracting elements toward the
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="magnetic-example" />
   :::
 #code
@@ -56,7 +56,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="magnetic-basic" />
   :::
 #code
@@ -75,7 +75,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="magnetic-intensity" />
   :::
 #code
@@ -94,7 +94,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="magnetic-parent" />
   :::
 #code
@@ -113,7 +113,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="magnetic-spring" />
   :::
 #code

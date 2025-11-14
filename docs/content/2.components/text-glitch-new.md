@@ -15,7 +15,7 @@ The TextGlitchNew component creates text with a glitch effect that creates a dig
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-glitch-new-example" />
   :::
 #code
@@ -60,7 +60,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-glitch-new-basic" />
   :::
 #code
@@ -79,7 +79,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-glitch-new-hover" />
   :::
 #code

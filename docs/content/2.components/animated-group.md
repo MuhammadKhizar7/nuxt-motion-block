@@ -15,7 +15,7 @@ The AnimatedGroup component animates a group of elements with staggered delays. 
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="animated-group-example" />
   :::
 #code
@@ -66,7 +66,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="animated-group-basic" />
   :::
 #code
@@ -91,7 +91,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="animated-group-stagger" />
   :::
 #code
@@ -102,7 +102,7 @@ label: Preview
       <div
         v-for="i in 8"
         :key="i"
-        class="h-12 w-12 rounded-lg bg-tertiary"
+        class="h-12 w-12 rounded-lg bg-secondary"
       />
     </div>
   </MAnimatedGroup>
@@ -116,7 +116,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="animated-group-duration" />
   :::
 #code
@@ -141,7 +141,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="animated-group-with-refresh" />
   :::
 #code

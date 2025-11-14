@@ -15,7 +15,7 @@ The Cursor component creates a custom animated cursor with various styles and in
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="cursor-interactive-example" />
   :::
 #code
@@ -65,7 +65,7 @@ Configuration for the spring physics used in the cursor's movement.
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="cursor-with-image" />
   :::
 #code
@@ -88,7 +88,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="cursor-basic" />
   :::
 #code
@@ -111,7 +111,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="cursor-interactive-example" />
   :::
 #code
@@ -184,7 +184,7 @@ const isHovering = ref(false)
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="cursor-with-image" />
   :::
 #code

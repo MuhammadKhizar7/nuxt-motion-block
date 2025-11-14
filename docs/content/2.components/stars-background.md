@@ -15,7 +15,7 @@ The StarsBackground component creates an animated starfield background with cust
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="stars-background-example" />
   :::
 #code
@@ -68,7 +68,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="stars-background-basic" />
   :::
 #code
@@ -90,7 +90,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="stars-background-custom" />
   :::
 #code

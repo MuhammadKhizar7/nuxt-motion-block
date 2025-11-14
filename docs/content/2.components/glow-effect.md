@@ -15,7 +15,7 @@ The GlowEffect component adds a dynamic glow effect with customizable colors and
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="glow-effect-example" />
   :::
 #code
@@ -71,7 +71,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="glow-effect-basic" />
   :::
 #code
@@ -92,7 +92,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="glow-effect-color" />
   :::
 #code
@@ -113,7 +113,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="glow-effect-blur" />
   :::
 #code
@@ -127,3 +127,4 @@ label: Preview
 </template>
 ```
 ::
+

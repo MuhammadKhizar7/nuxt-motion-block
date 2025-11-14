@@ -15,7 +15,7 @@ The WordRotate component rotates through different words with smooth transitions
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="word-rotate-basic" />
   :::
 #code
@@ -78,7 +78,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="word-rotate-basic" />
   :::
 #code
@@ -95,7 +95,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="word-rotate-flip" />
   :::
 #code
@@ -115,7 +115,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="word-rotate-slide" />
   :::
 #code
@@ -135,7 +135,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="word-rotate-pause" />
   :::
 #code
@@ -155,7 +155,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="word-rotate-style" />
   :::
 #code
@@ -175,7 +175,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="word-rotate-loop" />
   :::
 #code

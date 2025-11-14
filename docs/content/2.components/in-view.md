@@ -15,7 +15,7 @@ The InView component triggers animations when it comes into view. It uses the In
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="in-view-with-custom-animation" />
   :::
 #code
@@ -75,7 +75,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="in-view-basic" />
   :::
 #code
@@ -96,7 +96,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="in-view-threshold" />
   :::
 #code
@@ -117,7 +117,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="in-view-repeat" />
   :::
 #code
@@ -138,7 +138,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="in-view-custom" />
   :::
 #code
@@ -158,3 +158,4 @@ label: Preview
 </template>
 ```
 ::
+

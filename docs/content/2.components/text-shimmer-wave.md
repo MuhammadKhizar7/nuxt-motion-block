@@ -15,7 +15,7 @@ The TextShimmerWave component creates text with a wave-like shimmer animation ef
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-shimmer-wave-styled" />
   :::
 #code
@@ -82,7 +82,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-shimmer-wave-manual" />
   :::
 #code
@@ -123,7 +123,7 @@ const stopAnimation = () => {
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-shimmer-wave-basic" />
   :::
 #code
@@ -140,7 +140,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-shimmer-wave-slow" />
   :::
 #code
@@ -157,7 +157,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-shimmer-wave-heading" />
   :::
 #code
@@ -174,7 +174,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-shimmer-wave-big" />
   :::
 #code
@@ -198,7 +198,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-shimmer-wave-styled" />
   :::
 #code
@@ -222,7 +222,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-shimmer-wave-manual" />
   :::
 #code
@@ -255,3 +255,4 @@ const triggerWave = () => {
 </script>
 ```
 ::
+

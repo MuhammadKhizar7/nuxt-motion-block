@@ -15,7 +15,7 @@ The DirectionAwareHover component creates a card that reveals content based on t
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="direction-aware-hover-example" />
   :::
 #code
@@ -63,7 +63,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="direction-aware-hover-basic" />
   :::
 #code
@@ -85,7 +85,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="direction-aware-hover-custom-content" />
   :::
 #code
@@ -111,7 +111,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="direction-aware-hover-custom-image" />
   :::
 #code
@@ -136,7 +136,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="direction-aware-hover-custom-sizing" />
   :::
 #code

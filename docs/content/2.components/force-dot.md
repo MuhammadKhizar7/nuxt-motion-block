@@ -15,7 +15,7 @@ The ForceDot component creates an interactive particle system with physics-based
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="force-dot-example" />
   :::
 #code
@@ -78,7 +78,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="force-dot-basic" />
   :::
 #code
@@ -95,7 +95,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="force-dot-custom" />
   :::
 #code
@@ -112,7 +112,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="force-dot-attract" />
   :::
 #code
@@ -129,7 +129,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="force-dot-styled" />
   :::
 #code

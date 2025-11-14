@@ -15,7 +15,7 @@ The ImageComparison component creates an interactive image comparison slider tha
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="image-comparison-example" />
   :::
 #code
@@ -164,7 +164,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="image-comparison-basic" />
   :::
 #code
@@ -193,7 +193,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="image-comparison-vertical" />
   :::
 #code
@@ -225,7 +225,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="image-comparison-custom-position" />
   :::
 #code
@@ -257,7 +257,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="image-comparison-position-indicator" />
   :::
 #code
@@ -289,7 +289,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="image-comparison-controls" />
   :::
 #code

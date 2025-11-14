@@ -140,7 +140,7 @@ The MorphingPopoverTrigger component doesn't accept any props. All configuration
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="morphing-popover-basic" />
   :::
 #code
@@ -169,7 +169,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="morphing-popover-top" />
   :::
 #code
@@ -197,7 +197,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="morphing-popover-left" />
   :::
 #code
@@ -225,7 +225,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="morphing-popover-styled" />
   :::
 #code
@@ -257,7 +257,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="morphing-popover-controlled" />
   :::
 #code
@@ -292,3 +292,4 @@ const open = ref(false)
 </script>
 ```
 ::
+

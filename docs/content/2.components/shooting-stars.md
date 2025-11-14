@@ -15,7 +15,7 @@ The ShootingStars component creates an animated shooting stars effect with custo
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="shooting-stars-example" />
   :::
 #code
@@ -81,7 +81,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="shooting-stars-basic" />
   :::
 #code
@@ -103,7 +103,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="shooting-stars-custom" />
   :::
 #code

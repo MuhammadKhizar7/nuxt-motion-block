@@ -15,7 +15,7 @@ The Spotlight component creates a spotlight effect following the cursor. It's pe
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="spotlight-example" />
   :::
 #code
@@ -55,7 +55,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="spotlight-basic" />
   :::
 #code
@@ -77,7 +77,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="spotlight-gradient" />
   :::
 #code
@@ -99,7 +99,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="spotlight-size" />
   :::
 #code
@@ -121,7 +121,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="spotlight-styled" />
   :::
 #code
@@ -143,7 +143,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="spotlight-spring" />
   :::
 #code
@@ -158,3 +158,4 @@ label: Preview
 </template>
 ```
 ::
+

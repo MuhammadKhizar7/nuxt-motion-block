@@ -15,7 +15,7 @@ The LampContainer component creates an animated lamp effect with gradient lighti
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="lamp-container-example" />
   :::
 #code
@@ -75,7 +75,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="lamp-container-basic" />
   :::
 #code
@@ -97,7 +97,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="lamp-container-custom" />
   :::
 #code

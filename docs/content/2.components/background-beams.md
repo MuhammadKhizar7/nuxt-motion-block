@@ -15,7 +15,7 @@ The BackgroundBeams component creates an animated SVG background with customizab
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="background-beams-example" />
   :::
 #code
@@ -72,7 +72,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="background-beams-basic" />
   :::
 #code
@@ -98,7 +98,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="background-beams-custom" />
   :::
 #code

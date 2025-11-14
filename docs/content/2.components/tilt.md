@@ -15,7 +15,7 @@ The Tilt component creates a 3D tilt effect based on cursor movement. It's perfe
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="tilt-card" />
   :::
 #code
@@ -71,7 +71,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="tilt-basic" />
   :::
 #code
@@ -93,7 +93,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="tilt-rotation" />
   :::
 #code
@@ -115,7 +115,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="tilt-reverse" />
   :::
 #code
@@ -137,7 +137,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="tilt-spring" />
   :::
 #code
@@ -159,7 +159,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="tilt-manual" />
   :::
 #code
@@ -187,3 +187,4 @@ const tiltEnabled = ref(true)
 </script>
 ```
 ::
+

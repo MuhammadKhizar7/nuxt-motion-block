@@ -15,7 +15,7 @@ The InfiniteSlider component creates an infinite horizontal sliding animation wi
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="infinite-slider-example" />
   :::
 #code
@@ -57,7 +57,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="infinite-slider-basic" />
   :::
 #code
@@ -85,7 +85,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="infinite-slider-slow" />
   :::
 #code

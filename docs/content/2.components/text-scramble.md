@@ -15,7 +15,7 @@ The TextScramble component creates text that scrambles through random characters
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-scramble-manual" />
   :::
 #code
@@ -70,7 +70,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-scramble-basic" />
   :::
 #code
@@ -87,7 +87,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-scramble-fast" />
   :::
 #code
@@ -104,7 +104,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-scramble-symbol" />
   :::
 #code
@@ -121,7 +121,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-scramble-heading" />
   :::
 #code
@@ -138,7 +138,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-scramble-manual" />
   :::
 #code
@@ -170,3 +170,4 @@ const triggerScramble = () => {
 </script>
 ```
 ::
+

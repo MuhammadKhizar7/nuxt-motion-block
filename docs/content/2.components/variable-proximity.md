@@ -15,7 +15,7 @@ The VariableProximity component creates a text effect that responds to mouse pro
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="variable-proximity-example" />
   :::
 #code
@@ -92,7 +92,7 @@ const containerRef = ref(null)
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="variable-proximity-basic" />
   :::
 #code
@@ -132,7 +132,7 @@ const containerRef = ref(null)
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="variable-proximity-custom" />
   :::
 #code

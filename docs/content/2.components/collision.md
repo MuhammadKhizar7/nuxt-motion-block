@@ -15,7 +15,7 @@ The Collision component system creates animated beams that travel across the scr
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="collision-example" />
   :::
 #code
@@ -107,7 +107,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="collision-basic" />
   :::
 #code
@@ -131,7 +131,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="collision-custom-colors" />
   :::
 #code
@@ -183,7 +183,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="collision-custom-config" />
   :::
 #code
@@ -234,7 +234,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="collision-dark-theme" />
   :::
 #code
@@ -258,7 +258,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="collision-multiple-targets" />
   :::
 #code

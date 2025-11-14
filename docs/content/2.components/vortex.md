@@ -15,7 +15,7 @@ The Vortex component creates an animated particle vortex effect using canvas-bas
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="vortex-example" />
   :::
 #code
@@ -96,7 +96,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="vortex-basic" />
   :::
 #code
@@ -122,7 +122,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="vortex-custom" />
   :::
 #code

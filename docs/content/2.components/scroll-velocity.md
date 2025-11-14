@@ -15,7 +15,7 @@ The ScrollVelocity component creates text animations that respond to scroll velo
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="scroll-velocity-example" />
   :::
 #code
@@ -95,7 +95,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="scroll-velocity-basic" />
   :::
 #code
@@ -118,7 +118,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="scroll-velocity-custom" />
   :::
 #code

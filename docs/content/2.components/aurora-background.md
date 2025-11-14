@@ -15,7 +15,7 @@ The AuroraBackground component creates an animated background with aurora-like g
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="aurora-background-example" />
   :::
 #code
@@ -56,7 +56,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="aurora-background-basic" />
   :::
 #code
@@ -79,7 +79,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="aurora-background-custom-styling" />
   :::
 #code

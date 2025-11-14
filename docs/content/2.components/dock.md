@@ -15,7 +15,7 @@ The Dock component provides a macOS-style dock with magnification effects and sm
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="dock-example" />
   :::
 #code

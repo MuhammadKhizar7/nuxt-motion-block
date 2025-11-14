@@ -15,7 +15,7 @@ The 3D Card component creates an interactive card with 3D perspective effects th
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="three-d-card-example" />
   :::
 #code
@@ -107,7 +107,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="three-d-card-basic" />
   :::
 #code
@@ -136,7 +136,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="three-d-card-high-intensity" />
   :::
 #code
@@ -165,7 +165,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="three-d-card-multiple-items" />
   :::
 #code
@@ -199,7 +199,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="three-d-card-custom-styling" />
   :::
 #code
@@ -233,7 +233,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="three-d-card-nuxt-u-i" />
   :::
 #code

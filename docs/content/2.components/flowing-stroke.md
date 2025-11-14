@@ -15,7 +15,7 @@ The FlowingStroke component creates an animated flowing stroke effect with a cus
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="flowing-stroke-example" />
   :::
 #code
@@ -76,7 +76,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="flowing-stroke-basic" />
   :::
 #code
@@ -99,7 +99,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="flowing-stroke-custom" />
   :::
 #code

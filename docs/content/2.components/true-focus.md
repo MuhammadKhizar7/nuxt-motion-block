@@ -15,7 +15,7 @@ The TrueFocus component creates a text focus effect with animated borders and bl
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="true-focus-example" />
   :::
 #code
@@ -76,7 +76,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="true-focus-basic" />
   :::
 #code
@@ -100,7 +100,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="true-focus-custom" />
   :::
 #code

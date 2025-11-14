@@ -15,7 +15,7 @@ The TextGradient component creates text with animated gradient effects and vario
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-gradient-custom-colors" />
   :::
 #code
@@ -90,7 +90,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-gradient-basic" />
   :::
 #code
@@ -107,7 +107,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-gradient-custom-colors" />
   :::
 #code
@@ -130,7 +130,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-gradient-vertical" />
   :::
 #code
@@ -147,7 +147,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-gradient-rainbow" />
   :::
 #code
@@ -164,7 +164,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-gradient-hover" />
   :::
 #code
@@ -181,7 +181,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="text-gradient-heading" />
   :::
 #code

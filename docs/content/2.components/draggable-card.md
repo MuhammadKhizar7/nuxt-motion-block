@@ -15,7 +15,7 @@ The DraggableCard component creates an interactive card that can be dragged arou
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="draggable-card-example" />
   :::
 #code
@@ -55,7 +55,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="draggable-card-basic" />
   :::
 #code
@@ -77,7 +77,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="draggable-card-styled" />
   :::
 #code
@@ -101,7 +101,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="draggable-card-container" />
   :::
 #code
@@ -123,7 +123,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="draggable-card-content" />
   :::
 #code

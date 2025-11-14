@@ -15,7 +15,7 @@ The ScrollProgress component displays a progress bar indicating scroll position.
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="scroll-progress-example" />
   :::
 #code
@@ -53,7 +53,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="scroll-progress-basic" />
   :::
 #code
@@ -73,7 +73,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="scroll-progress-gradient" />
   :::
 #code
@@ -93,7 +93,7 @@ label: Preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="scroll-progress-spring" />
   :::
 #code
