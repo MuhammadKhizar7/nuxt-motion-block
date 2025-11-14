@@ -16,7 +16,7 @@ The ForceDot component creates an interactive particle system with physics-based
 label: Preview
 ---
   :::div{class="flex justify-center w-full h-full"}
-    <component-example name="force-dot-example" />
+    <component-example name="force-dot-basic" />
   :::
 #code
 ```vue

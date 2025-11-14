@@ -1,7 +1,5 @@
 <template>
-  <ClientOnly>
-    <MFocusCards :cards="cards" />
-  </ClientOnly>
+  <MFocusCards :cards="cards" />
 </template>
 
 <script setup>
