@@ -16,7 +16,7 @@ The FocusCards component creates an interactive grid of cards that expand and fo
 label: Preview
 ---
   :::div{class="flex justify-center w-full h-full"}
-    <component-example name="focus-cards-example" />
+    <component-example name="focus-cards-basic" />
   :::
 #code
 ```vue
@@ -30,19 +30,19 @@ const cards = [
     id: 1,
     title: 'Focus Card',
     description: 'This is a focus card with hover effects',
-    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+    src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
   },
   {
     id: 2,
     title: 'Second Card',
     description: 'Another focus card in the collection',
-    image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+    src: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
   },
   {
     id: 3,
     title: 'Third Card',
     description: 'The final card in this set',
-    image: 'https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+    src: 'https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
   }
 ]
 </script>
@@ -98,19 +98,19 @@ const cards = [
     id: 1,
     title: 'Mountain View',
     description: 'Beautiful mountain landscape',
-    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+    src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
   },
   {
     id: 2,
     title: 'Ocean Sunset',
     description: 'Stunning ocean view at sunset',
-    image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+    src: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
   },
   {
     id: 3,
     title: 'Forest Path',
     description: 'Peaceful walking trail through the woods',
-    image: 'https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+    src: 'https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
   }
 ]
 </script>
@@ -146,13 +146,13 @@ const cards = [
     id: 1,
     title: 'Custom Card 1',
     description: 'This card has custom content',
-    image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+    src: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
   },
   {
     id: 2,
     title: 'Custom Card 2',
     description: 'Another card with custom styling',
-    image: 'https://images.unsplash.com/photo-1587614382346-4ec70e388b28?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+    src: 'https://images.unsplash.com/photo-1587614382346-4ec70e388b28?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
   }
 ]
 </script>
@@ -180,13 +180,13 @@ const cards = [
     id: 1,
     title: 'Large Card',
     description: 'This card has a larger height',
-    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+    src: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
   },
   {
     id: 2,
     title: 'Another Large Card',
     description: 'Consistent sizing across all cards',
-    image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+    src: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
   }
 ]
 </script>
@@ -214,13 +214,13 @@ const cards = [
     id: 1,
     title: 'Gradient Overlay',
     description: 'Cards with gradient overlay effect',
-    image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+    src: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
   },
   {
     id: 2,
     title: 'Dark Overlay',
     description: 'Enhanced text visibility with dark overlay',
-    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+    src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
   }
 ]
 </script>
