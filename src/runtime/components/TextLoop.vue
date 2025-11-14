@@ -1,9 +1,9 @@
 <template>
   <div
-    :class="['relative inline-block whitespace-nowrap', className]"
-    :style="{ height: containerHeight }"
+    :class="['relative inline-flex items-center justify-center align-baseline', className]"
+    :style="{ height: containerHeight, display: 'inline-flex', verticalAlign: 'baseline' }"
   >
-    <AnimatePresence exit-before-enter>
+    <AnimatePresence mode="wait">
       <Motion
         :key="currentIndex"
         :initial="computedVariants.initial"
@@ -13,10 +13,9 @@
         :style="{
           transformStyle: 'preserve-3d',
           backfaceVisibility: 'hidden',
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
+          position: 'relative',
+          display: 'inline-block',
+          verticalAlign: 'baseline',
         }"
         @motionstart="onMotionStart"
       >
