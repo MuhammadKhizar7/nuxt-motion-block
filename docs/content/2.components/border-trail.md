@@ -21,7 +21,17 @@ label: Preview
 #code
 ```vue
 <template>
-  <MBorderTrail />
+  <UCard class="relative overflow-hidden">
+    <MBorderTrail 
+      class="bg-gradient-to-r from-green-500 to-teal-500" 
+      :size="40"
+      :transition="{ duration: 3, ease: 'easeInOut' }"
+    />
+    <template #header>
+      <h3 class="text-xl font-bold">Notification Card</h3>
+    </template>
+    <p class="text-gray-600 dark:text-gray-400">You have 3 new messages</p>
+  </UCard>
 </template>
 ```
 ::
@@ -52,70 +62,146 @@ label: Preview
 
 ## Examples
 
-### Basic Border Trail
+### Notification Badge
 
 ::code-preview
 ---
 label: Preview
 ---
   :::div{class="flex justify-center w-full h-full"}
-    <component-example name="border-trail-basic" />
+    <component-example name="border-trail-notification" />
   :::
 #code
 ```vue
 <template>
-  <MBorderTrail />
+  <UCard class="relative overflow-hidden max-w-sm">
+    <MBorderTrail 
+      class="bg-gradient-to-r from-red-500 to-orange-500" 
+      :size="30"
+      :transition="{ duration: 2, ease: 'easeInOut' }"
+    />
+    <template #header>
+      <div class="flex items-center justify-between">
+        <h3 class="text-lg font-bold">Alert</h3>
+        <UBadge variant="solid" color="red">!</UBadge>
+      </div>
+    </template>
+    <p class="text-gray-600 dark:text-gray-400">System maintenance scheduled</p>
+  </UCard>
 </template>
 ```
 ::
 
-### With Custom Size
+### Interactive Button
 
 ::code-preview
 ---
 label: Preview
 ---
   :::div{class="flex justify-center w-full h-full"}
-    <component-example name="border-trail-size" />
+    <component-example name="border-trail-button" />
   :::
 #code
 ```vue
 <template>
-  <MBorderTrail :size="40" class="bg-blue-500" />
+  <div class="flex flex-col items-center gap-6">
+    <UButton 
+      color="primary"
+      size="lg"
+      class="relative overflow-hidden"
+      @mouseenter="isHovered = true"
+      @mouseleave="isHovered = false"
+    >
+      <MBorderTrail 
+        v-if="isHovered"
+        class="bg-white/30" 
+        :size="20"
+        :transition="{ duration: 1.5, ease: 'easeInOut' }"
+      />
+      <span class="relative z-10">Hover Me</span>
+    </UButton>
+    
+    <p class="text-gray-600 dark:text-gray-400 text-sm max-w-xs text-center">
+      This button shows the border trail effect only on hover, creating a subtle interactive experience.
+    </p>
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const isHovered = ref(false)
+</script>
+```
+::
+
+### Profile Card
+
+::code-preview
+---
+label: Preview
+---
+  :::div{class="flex justify-center w-full h-full"}
+    <component-example name="border-trail-profile" />
+  :::
+#code
+```vue
+<template>
+  <UCard class="relative overflow-hidden max-w-sm">
+    <MBorderTrail 
+      class="bg-gradient-to-r from-cyan-500 to-blue-500" 
+      :size="50"
+      :transition="{ duration: 4, ease: 'easeInOut' }"
+    />
+    <template #header>
+      <div class="flex flex-col items-center">
+        <UAvatar 
+          src="https://avatars.githubusercontent.com/u/1?v=4" 
+          alt="Profile" 
+          size="xl"
+          class="mb-4 ring-2 ring-cyan-500"
+        />
+        <h3 class="text-xl font-bold">John Doe</h3>
+        <p class="text-gray-600 dark:text-gray-400">Senior Developer</p>
+      </div>
+    </template>
+    <div class="flex gap-2 justify-center">
+      <UButton color="white">Message</UButton>
+      <UButton color="primary">Connect</UButton>
+    </div>
+  </UCard>
 </template>
 ```
 ::
 
-### With Custom Transition
+### Loading State
 
 ::code-preview
 ---
 label: Preview
 ---
   :::div{class="flex justify-center w-full h-full"}
-    <component-example name="border-trail-transition" />
+    <component-example name="border-trail-loading" />
   :::
 #code
 ```vue
 <template>
-  <MBorderTrail :transition="{ repeat: Infinity, duration: 5, ease: 'easeInOut' }" class="bg-purple-500" />
-</template>
-```
-::
-
-### With Custom Styling
-
-::code-preview
----
-label: Preview
----
-  :::div{class="flex justify-center w-full h-full"}
-    <component-example name="border-trail-styling" />
-  :::
-#code
-```vue
-<template>
-  <MBorderTrail class="bg-gradient-to-r from-red-500 to-orange-500 rounded-lg" />
+  <UCard class="relative overflow-hidden max-w-sm">
+    <MBorderTrail 
+      class="bg-gradient-to-r from-amber-500 to-orange-500" 
+      :size="35"
+      :transition="{ duration: 2.5, ease: 'easeInOut' }"
+    />
+    <div class="flex flex-col items-center text-center">
+      <div class="mb-4">
+        <UIcon name="i-lucide-loader" class="w-12 h-12 text-amber-500 animate-spin" />
+      </div>
+      <h3 class="text-lg font-bold">Processing</h3>
+      <p class="text-gray-600 dark:text-gray-400 mt-2">
+        Your request is being processed. This usually takes a few seconds.
+      </p>
+    </div>
+  </UCard>
 </template>
 ```
 ::

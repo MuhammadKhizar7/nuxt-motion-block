@@ -21,7 +21,7 @@ label: Preview
 #code
 ```vue
 <template>
-  <MEverVaultCard :gradient-colors="['from-green-500', 'to-blue-700']">
+  <MEverVaultCard gradient-colors="from-green-500 to-blue-700">
     <div class="space-y-4">
       <UIcon name="i-lucide-lock" class="w-8 h-8 text-white mx-auto" />
       <h3 class="text-xl font-bold text-white text-center">Secure Vault</h3>
@@ -85,7 +85,7 @@ label: Preview
 #code
 ```vue
 <template>
-  <MEverVaultCard :gradient-colors="['from-red-500', 'to-pink-700', 'via-rose-400']">
+  <MEverVaultCard gradient-colors="from-red-500 to-pink-700 via-rose-400">
     <div class="space-y-4">
       <UIcon name="i-lucide-zap" class="w-8 h-8 text-white mx-auto" />
       <h3 class="text-xl font-bold text-white text-center">High Voltage</h3>

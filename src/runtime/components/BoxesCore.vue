@@ -10,7 +10,8 @@
     <div
       v-for="(_, i) in rowsArray"
       :key="`row-${i}`"
-      class="relative h-8 w-16 border-l border-slate-700"
+      class="relative h-8 w-16 border-l"
+      :class="borderClass"
     >
       <motion.div
         v-for="(_, j) in colsArray"
@@ -22,7 +23,8 @@
         :animate="{
           transition: { duration: 2 },
         }"
-        class="relative h-8 w-16 border-t border-r border-slate-700"
+        class="relative h-8 w-16 border-t border-r"
+        :class="borderClass"
       >
         <svg
           v-if="showPlusSigns && j % 2 === 0 && i % 2 === 0"
@@ -31,7 +33,8 @@
           viewBox="0 0 24 24"
           stroke-width="1.5"
           stroke="currentColor"
-          class="pointer-events-none absolute -top-[14px] -left-[22px] h-6 w-10 stroke-[1px] text-slate-700"
+          class="pointer-events-none absolute -top-[14px] -left-[22px] h-6 w-10 stroke-[1px]"
+          :class="borderClass.replace('border-', 'text-')"
         >
           <path
             stroke-linecap="round"
@@ -50,34 +53,37 @@ import { motion } from 'motion-v'
 
 // Define props with defaults
 interface Props {
-  class: string
+  class?: string
   rows?: number
   cols?: number
   colors?: string[]
   skew?: boolean
   showPlusSigns?: boolean
+  borderColor?: string
   [key: string]: any
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  class: '',
   rows: 150,
   cols: 100,
   skew: true,
   showPlusSigns: true,
+  borderColor: 'border-muted',
   colors: () => [
-    'var(--color-primary-500)',
-    'var(--color-pink-500)',
-    'var(--color-emerald-500)',
-    'var(--color-yellow-500)',
-    'var(--color-red-500)',
-    'var(--color-purple-500)',
-    'var(--color-primary-500)',
-    'var(--color-indigo-500)',
-    'var(--color-violet-500)',
+    '#93c5fd',
+    '#f9a8d4',
+    '#86efac',
+    '#fde047',
+    '#fca5a5',
+    '#d8b4fe',
+    '#93c5fd',
+    '#a5b4fc',
+    '#c4b5fd',
   ],
 })
 
-const { ...rest } = props
+const { class: _, borderColor, ...rest } = props
 
 // Computed properties for reactive arrays
 const rowsArray = computed(() => Array.from({ length: props.rows }))
@@ -87,8 +93,11 @@ const colsArray = computed(() => Array.from({ length: props.cols }))
 const containerStyle = computed(() => ({
   transform: props.skew
     ? `translate(-40%,-60%) skewX(-48deg) skewY(14deg) scale(0.675) rotate(0deg) translateZ(0)`
-    : `translate(-40%,-60%) scale(0.675) rotate(0deg) translateZ(0)`,
+    : `scale(0.675) translateZ(0)`,
 }))
+
+// Computed class for border color
+const borderClass = computed(() => props.borderColor)
 
 const getRandomColor = () => {
   return props.colors[Math.floor(Math.random() * props.colors.length)]
