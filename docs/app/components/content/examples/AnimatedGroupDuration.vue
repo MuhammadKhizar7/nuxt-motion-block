@@ -1,5 +1,19 @@
 <template>
-  <MAnimatedGroup :duration="1" easing="ease-in-out">
+  <MAnimatedGroup 
+    :stagger-children="0.1"
+    :variants="{
+      item: {
+        hidden: { opacity: 0 },
+        visible: {
+          opacity: 1,
+          transition: {
+            duration: 1,
+            ease: 'easeInOut'
+          }
+        }
+      }
+    }"
+  >
     <div class="grid grid-cols-4 gap-3">
       <div
         v-for="i in 12"

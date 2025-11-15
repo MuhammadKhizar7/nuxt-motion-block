@@ -25,28 +25,43 @@ label: Preview
     :transition="{ duration: 300 }"
     background-class="bg-blue-500 rounded-lg -z-1"
   >
-    <div class="flex space-x-2">
-      <button 
-        data-id="home" 
-        class="px-4 py-2 rounded-md"
-      >
-        Home
-      </button>
-      <button 
-        data-id="about" 
-        class="px-4 py-2 rounded-md"
-      >
-        About
-      </button>
-      <button 
-        data-id="contact" 
-        class="px-4 py-2 rounded-md"
-      >
-        Contact
-      </button>
-    </div>
+    <!-- Using NavigationMenu with custom slot to add data-id attributes -->
+    <UNavigationMenu 
+      :items="navbarItems" 
+      class="bg-transparent"
+    >
+      <template #item="{ item }">
+        <ULink
+          :to="item.to"
+          :data-id="item.id"
+          class="px-4 py-2 rounded-md text-muted hover:text-highlighted transition-colors"
+        >
+          {{ item.label }}
+        </ULink>
+      </template>
+    </UNavigationMenu>
   </MAnimatedBackground>
 </template>
+
+<script setup>
+const navbarItems = [
+  {
+    label: 'Home',
+    to: '#',
+    id: 'home'
+  },
+  {
+    label: 'About',
+    to: '#',
+    id: 'about'
+  },
+  {
+    label: 'Contact',
+    to: '#',
+    id: 'contact'
+  }
+]
+</script>
 ```
 ::
 
@@ -112,59 +127,26 @@ label: Preview
       </p>
     </div>
     
-    <MAnimatedBackground class="rounded-xl overflow-hidden shadow-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+    <MAnimatedBackground 
+      class="rounded-xl overflow-hidden shadow-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700"
+      background-class="bg-blue-500 rounded-lg -z-1"
+    >
       <div class="p-2 bg-gray-50 dark:bg-gray-700/50">
-        <div class="flex flex-wrap gap-2">
-          <div 
-            data-id="overview" 
-            class="px-5 py-3 bg-white dark:bg-gray-800 rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200 flex items-center gap-3 border border-gray-200 dark:border-gray-600"
-          >
-            <div class="w-8 h-8 rounded-lg bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center">
-              <UIcon name="i-lucide-layout-dashboard" class="w-4 h-4 text-blue-600 dark:text-blue-400" />
-            </div>
-            <span class="font-medium text-gray-900 dark:text-white">Overview</span>
-          </div>
-          
-          <div 
-            data-id="analytics" 
-            class="px-5 py-3 bg-white dark:bg-gray-800 rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200 flex items-center gap-3 border border-gray-200 dark:border-gray-600"
-          >
-            <div class="w-8 h-8 rounded-lg bg-purple-100 dark:bg-purple-900/50 flex items-center justify-center">
-              <UIcon name="i-lucide-bar-chart-3" class="w-4 h-4 text-purple-600 dark:text-purple-400" />
-            </div>
-            <span class="font-medium text-gray-900 dark:text-white">Analytics</span>
-          </div>
-          
-          <div 
-            data-id="reports" 
-            class="px-5 py-3 bg-white dark:bg-gray-800 rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200 flex items-center gap-3 border border-gray-200 dark:border-gray-600"
-          >
-            <div class="w-8 h-8 rounded-lg bg-green-100 dark:bg-green-900/50 flex items-center justify-center">
-              <UIcon name="i-lucide-file-text" class="w-4 h-4 text-green-600 dark:text-green-400" />
-            </div>
-            <span class="font-medium text-gray-900 dark:text-white">Reports</span>
-          </div>
-          
-          <div 
-            data-id="users" 
-            class="px-5 py-3 bg-white dark:bg-gray-800 rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200 flex items-center gap-3 border border-gray-200 dark:border-gray-600"
-          >
-            <div class="w-8 h-8 rounded-lg bg-orange-100 dark:bg-orange-900/50 flex items-center justify-center">
-              <UIcon name="i-lucide-users" class="w-4 h-4 text-orange-600 dark:text-orange-400" />
-            </div>
-            <span class="font-medium text-gray-900 dark:text-white">Users</span>
-          </div>
-          
-          <div 
-            data-id="settings" 
-            class="px-5 py-3 bg-white dark:bg-gray-800 rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200 flex items-center gap-3 border border-gray-200 dark:border-gray-600"
-          >
-            <div class="w-8 h-8 rounded-lg bg-gray-100 dark:bg-gray-700 flex items-center justify-center">
-              <UIcon name="i-lucide-settings" class="w-4 h-4 text-gray-600 dark:text-gray-400" />
-            </div>
-            <span class="font-medium text-gray-900 dark:text-white">Settings</span>
-          </div>
-        </div>
+        <!-- Using NavigationMenu with custom slot to add data-id attributes -->
+        <UNavigationMenu 
+          :items="navbarItems" 
+          class="flex flex-wrap gap-2 bg-transparent"
+        >
+          <template #item="{ item }">
+            <ULink
+              :to="item.to"
+              :data-id="item.id"
+              class="px-5 py-3 bg-white dark:bg-gray-800 rounded-lg cursor-pointer border border-gray-200 dark:border-gray-600 flex items-center gap-3 transition-all duration-200 text-muted hover:text-highlighted"
+            >
+              {{ item.label }}
+            </ULink>
+          </template>
+        </UNavigationMenu>
       </div>
       
       <div class="p-6">
@@ -251,6 +233,36 @@ label: Preview
     </div>
   </div>
 </template>
+
+<script setup>
+const navbarItems = [
+  {
+    label: 'Overview',
+    to: '#',
+    id: 'overview'
+  },
+  {
+    label: 'Analytics',
+    to: '#',
+    id: 'analytics'
+  },
+  {
+    label: 'Reports',
+    to: '#',
+    id: 'reports'
+  },
+  {
+    label: 'Users',
+    to: '#',
+    id: 'users'
+  },
+  {
+    label: 'Settings',
+    to: '#',
+    id: 'settings'
+  }
+]
+</script>
 ```
 ::
 
@@ -267,31 +279,56 @@ label: Preview
 ```vue
 <template>
   <MAnimatedBackground
-    background-class="bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
+    background-class="bg-gradient-to-r from-purple-500 to-pink-500 rounded-full shadow-lg -z-1 p-1"
     :transition="{ duration: 500, ease: 'ease-in-out' }"
   >
-    <div class="flex space-x-4 p-2">
-      <button 
-        data-id="tab1" 
-        class="px-6 py-3 font-medium transition-colors"
+    <!-- Using custom tab implementation with data-id attributes -->
+    <div class="flex space-x-4 p-2 rounded-full bg-transparent">
+      <UButton
+        v-for="(item, index) in tabItems"
+        :key="index"
+        :data-id="item.id"
+        :color="activeTab === index ? 'primary' : 'gray'"
+        variant="soft"
+        size="md"
+        class="px-6 py-3 font-medium transition-colors rounded-full"
+        :class="activeTab === index ? 'text-white' : 'text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white'"
+        @click="activeTab = index"
       >
-        Tab 1
-      </button>
-      <button 
-        data-id="tab2" 
-        class="px-6 py-3 font-medium transition-colors"
-      >
-        Tab 2
-      </button>
-      <button 
-        data-id="tab3" 
-        class="px-6 py-3 font-medium transition-colors"
-      >
-        Tab 3
-      </button>
+        {{ item.label }}
+      </UButton>
+    </div>
+    
+    <!-- Tab content -->
+    <div class="mt-4 p-4">
+      <p>{{ tabItems[activeTab].content }}</p>
     </div>
   </MAnimatedBackground>
 </template>
+
+<script setup>
+import { ref } from 'vue'
+
+const activeTab = ref(0)
+
+const tabItems = [
+  {
+    label: 'Tab 1',
+    content: 'Content for Tab 1',
+    id: 'tab1'
+  },
+  {
+    label: 'Tab 2',
+    content: 'Content for Tab 2',
+    id: 'tab2'
+  },
+  {
+    label: 'Tab 3',
+    content: 'Content for Tab 3',
+    id: 'tab3'
+  }
+]
+</script>
 ```
 ::
 
@@ -311,19 +348,43 @@ label: Preview
     enable-hover
     background-class="bg-emerald-500 rounded-lg shadow-lg -z-1"
   >
-    <div class="flex space-x-3">
-      <div data-id="nav1" class="px-4 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 rounded">
-        Navigation 1
-      </div>
-      <div data-id="nav2" class="px-4 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 rounded">
-        Navigation 2
-      </div>
-      <div data-id="nav3" class="px-4 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 rounded">
-        Navigation 3
-      </div>
-    </div>
+    <!-- Using NavigationMenu with custom slot to add data-id attributes -->
+    <UNavigationMenu 
+      :items="navbarItems" 
+      class="flex space-x-3 bg-transparent"
+    >
+      <template #item="{ item }">
+        <ULink
+          :to="item.to"
+          :data-id="item.id"
+          class="px-4 py-2 cursor-pointer rounded transition-colors text-muted hover:text-highlighted hover:bg-gray-100 dark:hover:bg-gray-800"
+        >
+          {{ item.label }}
+        </ULink>
+      </template>
+    </UNavigationMenu>
   </MAnimatedBackground>
 </template>
+
+<script setup>
+const navbarItems = [
+  {
+    label: 'Navigation 1',
+    to: '#',
+    id: 'nav1'
+  },
+  {
+    label: 'Navigation 2',
+    to: '#',
+    id: 'nav2'
+  },
+  {
+    label: 'Navigation 3',
+    to: '#',
+    id: 'nav3'
+  }
+]
+</script>
 ```
 ::
 
@@ -344,11 +405,13 @@ label: Preview
     :transition="{ duration: 500, ease: 'ease-in-out' }"
     enable-hover
   >
-    <div class="grid grid-cols-2 gap-4 md:grid-cols-3 rounded-lg">
-      <div
+    <!-- Using UCard with data-id attributes for hover tracking -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <UCard 
         v-for="(item, index) in ITEMS"
         :key="index"
         :data-id="`card-${index}`"
+        class="hover:shadow-md transition-shadow cursor-pointer"
       >
         <div class="flex select-none flex-col gap-2 p-4">
           <h3 class="text-base font-medium text-zinc-800 dark:text-zinc-50">
@@ -358,12 +421,42 @@ label: Preview
             {{ item.description }}
           </p>
         </div>
+      </UCard>
+    </div>
+    
+    <!-- Using custom tab implementation with data-id attributes -->
+    <div class="mt-6">
+      <div class="mt-4 rounded-lg p-1 bg-zinc-100 dark:bg-zinc-800">
+        <div class="flex gap-1">
+          <UButton
+            v-for="(item, index) in tabItems"
+            :key="index"
+            :data-id="item.id"
+            :color="activeTab === index ? 'white' : 'gray'"
+            variant="soft"
+            size="sm"
+            class="px-4 py-2 font-medium transition-colors rounded-md"
+            :class="activeTab === index ? 'text-zinc-900 dark:text-white' : 'text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white'"
+            @click="activeTab = index"
+          >
+            {{ item.label }}
+          </UButton>
+        </div>
+      </div>
+      
+      <!-- Tab content -->
+      <div class="mt-4 p-4 bg-white dark:bg-zinc-700 rounded-md shadow">
+        <p>{{ tabItems[activeTab].content }}</p>
       </div>
     </div>
   </MAnimatedBackground>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
+
+const activeTab = ref(0)
+
 const ITEMS = [
   {
     id: 1,
@@ -396,9 +489,24 @@ const ITEMS = [
     description: 'Delete items with swipe gestures.'
   }
 ]
-</script>
 
+const tabItems = [
+  {
+    label: 'Overview',
+    content: 'Overview content',
+    id: 'overview'
+  },
+  {
+    label: 'Settings',
+    content: 'Settings content',
+    id: 'settings'
+  },
+  {
+    label: 'Advanced',
+    content: 'Advanced content',
+    id: 'advanced'
+  }
+]
+</script>
 ```
 ::
-
-

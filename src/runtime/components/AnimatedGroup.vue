@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent, h, useSlots, computed, type PropType, type VNode, Comment, Text, Fragment } from 'vue'
 import { Motion } from 'motion-v'
-import type { Variant } from 'motion-v'
+import type { Variant, Transition } from 'motion-v'
 
 // Defines a type for a variants object that holds multiple animation states.
 type Variants = Record<string, Variant>
@@ -21,7 +21,7 @@ export type PresetType
 export default defineComponent({
   name: 'AnimatedGroup',
   props: {
-    className: String,
+    class: String,
     variants: Object as PropType<{ container?: Variants, item?: Variants }>,
     preset: String as PropType<PresetType>,
     as: {
@@ -53,12 +53,8 @@ export default defineComponent({
     const slots = useSlots()
 
     const defaultContainerVariants: Variants = {
-      visible: {
-        transition: {
-          staggerChildren: props.staggerChildren,
-          staggerDirection: props.staggerDirection,
-        },
-      },
+      hidden: {},
+      visible: {},
     }
 
     const defaultItemVariants: Variants = {
@@ -67,70 +63,88 @@ export default defineComponent({
     }
 
     const presetVariants: Record<PresetType, Variants> = {
-      'fade': {},
+      'fade': {
+        hidden: { opacity: 0 },
+        visible: { opacity: 1 },
+      },
       'slide': {
-        hidden: { y: 20 },
-        visible: { y: 0 },
+        hidden: { y: 20, opacity: 0 },
+        visible: { y: 0, opacity: 1 },
       },
       'scale': {
-        hidden: { scale: 0.8 },
-        visible: { scale: 1 },
+        hidden: { scale: 0.8, opacity: 0 },
+        visible: { scale: 1, opacity: 1 },
       },
       'blur': {
-        hidden: { filter: 'blur(4px)' },
-        visible: { filter: 'blur(0px)' },
+        hidden: { filter: 'blur(4px)', opacity: 0 },
+        visible: { filter: 'blur(0px)', opacity: 1 },
       },
       'blur-slide': {
-        hidden: { filter: 'blur(4px)', y: 20 },
-        visible: { filter: 'blur(0px)', y: 0 },
+        hidden: { filter: 'blur(4px)', y: 20, opacity: 0 },
+        visible: { filter: 'blur(0px)', y: 0, opacity: 1 },
       },
       'zoom': {
-        hidden: { scale: 0.5 },
+        hidden: { scale: 0.5, opacity: 0 },
         visible: {
           scale: 1,
+          opacity: 1,
           transition: { type: 'spring', stiffness: 300, damping: 20 },
         },
       },
       'flip': {
-        hidden: { rotateX: -90 },
+        hidden: { rotateX: -90, opacity: 0 },
         visible: {
           rotateX: 0,
+          opacity: 1,
           transition: { type: 'spring', stiffness: 300, damping: 20 },
         },
       },
       'bounce': {
-        hidden: { y: -50 },
+        hidden: { y: -50, opacity: 0 },
         visible: {
           y: 0,
+          opacity: 1,
           transition: { type: 'spring', stiffness: 400, damping: 10 },
         },
       },
       'rotate': {
-        hidden: { rotate: -180 },
+        hidden: { rotate: -180, opacity: 0 },
         visible: {
           rotate: 0,
+          opacity: 1,
           transition: { type: 'spring', stiffness: 200, damping: 15 },
         },
       },
       'swing': {
-        hidden: { rotate: -10 },
+        hidden: { rotate: -10, opacity: 0 },
         visible: {
           rotate: 0,
+          opacity: 1,
           transition: { type: 'spring', stiffness: 300, damping: 8 },
         },
       },
     }
 
-    const addDefaultVariants = (variants: Variants | undefined) => ({
-      hidden: { ...defaultItemVariants.hidden, ...(variants?.hidden || {}) },
-      visible: { ...defaultItemVariants.visible, ...(variants?.visible || {}) },
-    })
+    const addDefaultVariants = (variants: Variants | undefined) => {
+      if (!variants) return defaultItemVariants
+      return {
+        hidden: { ...defaultItemVariants.hidden, ...(variants.hidden || {}) },
+        visible: { ...defaultItemVariants.visible, ...(variants.visible || {}) },
+      }
+    }
 
-    const containerVariants = computed(() => props.variants?.container || defaultContainerVariants)
+    const containerVariants = computed(() => {
+      const baseVariants = props.variants?.container || defaultContainerVariants
+      // Ensure both hidden and visible states exist
+      return {
+        hidden: baseVariants.hidden || {},
+        visible: baseVariants.visible || {},
+      }
+    })
 
     const itemVariants = computed(() => {
       if (props.variants?.item)
-        return props.variants.item
+        return addDefaultVariants(props.variants.item)
       const preset = props.preset ? presetVariants[props.preset] : undefined
       return preset ? addDefaultVariants(preset) : defaultItemVariants
     })
@@ -154,16 +168,37 @@ export default defineComponent({
       return validNodes
     }
 
+    // Helper function to safely get variant by key
+    function getVariantByKey(variants: Variants, key: string): Variant | undefined {
+      return variants[key]
+    }
+
     return () => {
       const children = getValidChildren(slots.default ? slots.default() : [])
 
+      // Apply stagger delay through container transition
+      const containerTransition: Transition = {
+        staggerChildren: props.staggerChildren,
+        staggerDirection: props.staggerDirection,
+      }
+
+      // Get container states
+      const containerInitialState = getVariantByKey(containerVariants.value, props.initial) || containerVariants.value.hidden || {}
+      const containerAnimateState = getVariantByKey(containerVariants.value, props.animate) || containerVariants.value.visible || {}
+
+      // Create motion children with proper stagger handling
       const motionChildren = children.map((child) => {
+        // Get the initial and animate states for each child
+        const initialState = getVariantByKey(itemVariants.value, props.initial) || itemVariants.value.hidden || defaultItemVariants.hidden
+        const animateState = getVariantByKey(itemVariants.value, props.animate) || itemVariants.value.visible || defaultItemVariants.visible
+
         return h(
           // @ts-ignore
           Motion,
           {
             as: props.asChild,
-            variants: itemVariants.value as any,
+            initial: initialState,
+            animate: animateState,
           },
           () => [child],
         )
@@ -174,10 +209,10 @@ export default defineComponent({
         Motion,
         {
           as: props.as,
-          class: props.className,
-          initial: props.initial,
-          animate: props.animate,
-          variants: containerVariants.value as any,
+          class: props.class,
+          initial: containerInitialState,
+          animate: containerAnimateState,
+          transition: containerTransition,
         },
         () => motionChildren,
       )

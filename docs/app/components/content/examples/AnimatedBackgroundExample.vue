@@ -4,26 +4,41 @@
       :transition="{ duration: 300 }"
       background-class="bg-blue-500 rounded-lg -z-1"
     >
-      <div class="flex space-x-2">
-        <button 
-          data-id="home" 
-          class="px-4 py-2 rounded-md"
-        >
-          Home
-        </button>
-        <button 
-          data-id="about" 
-          class="px-4 py-2 rounded-md"
-        >
-          About
-        </button>
-        <button 
-          data-id="contact" 
-          class="px-4 py-2 rounded-md"
-        >
-          Contact
-        </button>
-      </div>
+      <!-- Using NavigationMenu with custom slot to add data-id attributes -->
+      <UNavigationMenu 
+        :items="navbarItems" 
+        class="bg-transparent"
+      >
+        <template #item="{ item }">
+          <ULink
+            :to="item.to"
+            :data-id="item.id"
+            class="px-4 py-2 rounded-md text-muted hover:text-highlighted transition-colors"
+          >
+            {{ item.label }}
+          </ULink>
+        </template>
+      </UNavigationMenu>
     </MAnimatedBackground>
   </div>
 </template>
+
+<script setup>
+const navbarItems = [
+  {
+    label: 'Home',
+    to: '#',
+    id: 'home'
+  },
+  {
+    label: 'About',
+    to: '#',
+    id: 'about'
+  },
+  {
+    label: 'Contact',
+    to: '#',
+    id: 'contact'
+  }
+]
+</script>

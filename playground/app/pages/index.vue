@@ -7,6 +7,142 @@
       A collection of animated components powered by Motion-V
     </p>
 
+    <!-- Animated Group Examples -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+      <!-- Animated Group Demo -->
+      <UCard>
+        <template #header>
+          <h2 class="text-xl font-semibold">
+            Animated Group
+          </h2>
+        </template>
+
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+          Staggered animation effect with configurable delay
+        </p>
+
+        <div class="mb-4">
+          <MAnimatedGroup 
+            :stagger-children="0.2"
+            preset="slide"
+          >
+            <div class="flex flex-wrap gap-3">
+              <div
+                v-for="i in 8"
+                :key="i"
+                class="h-12 w-12 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600"
+              />
+            </div>
+          </MAnimatedGroup>
+        </div>
+
+        <div class="mt-4">
+          <pre class="bg-gray-100 dark:bg-gray-900 p-3 rounded overflow-x-auto text-sm">
+&lt;MAnimatedGroup :stagger-children="0.2" preset="slide"&gt;
+  &lt;div class="flex flex-wrap gap-3"&gt;
+    &lt;div v-for="i in 8" :key="i" class="h-12 w-12 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600" /&gt;
+  &lt;/div&gt;
+&lt;/MAnimatedGroup&gt;</pre>
+        </div>
+      </UCard>
+      
+      <!-- Animated Group with Custom Variants -->
+      <UCard>
+        <template #header>
+          <h2 class="text-xl font-semibold">
+            Animated Group (Custom)
+          </h2>
+        </template>
+
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+          Custom animation variants with stagger effect
+        </p>
+
+        <div class="mb-4">
+          <MAnimatedGroup 
+            :stagger-children="0.15"
+            :variants="{
+              item: {
+                hidden: { opacity: 0, scale: 0.5, rotate: -180 },
+                visible: { opacity: 1, scale: 1, rotate: 0 }
+              }
+            }"
+          >
+            <div class="grid grid-cols-4 gap-3">
+              <div
+                v-for="i in 8"
+                :key="i"
+                class="h-16 w-16 rounded-lg bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center text-white font-bold"
+              >
+                {{ i }}
+              </div>
+            </div>
+          </MAnimatedGroup>
+        </div>
+
+        <div class="mt-4">
+          <pre class="bg-gray-100 dark:bg-gray-900 p-3 rounded overflow-x-auto text-sm">
+&lt;MAnimatedGroup 
+  :stagger-children="0.15"
+  :variants="{
+    item: {
+      hidden: { opacity: 0, scale: 0.5, rotate: -180 },
+      visible: { opacity: 1, scale: 1, rotate: 0 }
+    }
+  }"&gt;
+  &lt;div class="grid grid-cols-4 gap-3"&gt;
+    &lt;div v-for="i in 8" :key="i" class="h-16 w-16 rounded-lg bg-gradient-to-br from-green-500 to-teal-600"&gt;
+      &#123;&#123; i &#125;&#125;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/MAnimatedGroup&gt;</pre>
+        </div>
+      </UCard>
+      
+      <!-- Animated Group with Refresh -->
+      <UCard>
+        <template #header>
+          <h2 class="text-xl font-semibold">
+            Animated Group (Refresh)
+          </h2>
+        </template>
+
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+          Refresh animation with key change
+        </p>
+
+        <div class="mb-4 space-y-4">
+          <UButton @click="refreshKey++">Refresh Animation</UButton>
+          <MAnimatedGroup 
+            :key="refreshKey"
+            :stagger-children="0.1"
+            preset="bounce"
+          >
+            <div class="flex space-x-3">
+              <div
+                v-for="i in 6"
+                :key="i"
+                class="h-16 w-16 rounded-lg bg-gradient-to-br from-orange-500 to-red-600"
+              />
+            </div>
+          </MAnimatedGroup>
+        </div>
+
+        <div class="mt-4">
+          <pre class="bg-gray-100 dark:bg-gray-900 p-3 rounded overflow-x-auto text-sm">
+&lt;UButton @click="refreshKey++"&gt;Refresh Animation&lt;/UButton&gt;
+&lt;MAnimatedGroup 
+  :key="refreshKey"
+  :stagger-children="0.1"
+  preset="bounce"&gt;
+  &lt;div class="flex space-x-3"&gt;
+    &lt;div v-for="i in 6" :key="i" class="h-16 w-16 rounded-lg bg-gradient-to-br from-orange-500 to-red-600" /&gt;
+  &lt;/div&gt;
+&lt;/MAnimatedGroup&gt;</pre>
+        </div>
+      </UCard>
+    </div>
+
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
       <!-- Magnetic Demo -->
       <!-- <UCard>
@@ -867,4 +1003,7 @@ const imageCards = [
     description: 'Peaceful forest walking path',
   },
 ]
+
+const refreshKey = ref(0)
+
 </script>

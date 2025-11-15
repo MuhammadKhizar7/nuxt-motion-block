@@ -7,59 +7,26 @@
       </p>
     </div>
     
-    <MAnimatedBackground class="rounded-xl overflow-hidden shadow-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+    <MAnimatedBackground 
+      class="rounded-xl overflow-hidden shadow-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700"
+      background-class="bg-blue-500 rounded-lg -z-1"
+    >
       <div class="p-2 bg-gray-50 dark:bg-gray-700/50">
-        <div class="flex flex-wrap gap-2">
-          <div 
-            data-id="overview" 
-            class="px-5 py-3 bg-white dark:bg-gray-800 rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200 flex items-center gap-3 border border-gray-200 dark:border-gray-600"
-          >
-            <div class="w-8 h-8 rounded-lg bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center">
-              <UIcon name="i-lucide-layout-dashboard" class="w-4 h-4 text-blue-600 dark:text-blue-400" />
-            </div>
-            <span class="font-medium text-gray-900 dark:text-white">Overview</span>
-          </div>
-          
-          <div 
-            data-id="analytics" 
-            class="px-5 py-3 bg-white dark:bg-gray-800 rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200 flex items-center gap-3 border border-gray-200 dark:border-gray-600"
-          >
-            <div class="w-8 h-8 rounded-lg bg-purple-100 dark:bg-purple-900/50 flex items-center justify-center">
-              <UIcon name="i-lucide-bar-chart-3" class="w-4 h-4 text-purple-600 dark:text-purple-400" />
-            </div>
-            <span class="font-medium text-gray-900 dark:text-white">Analytics</span>
-          </div>
-          
-          <div 
-            data-id="reports" 
-            class="px-5 py-3 bg-white dark:bg-gray-800 rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200 flex items-center gap-3 border border-gray-200 dark:border-gray-600"
-          >
-            <div class="w-8 h-8 rounded-lg bg-green-100 dark:bg-green-900/50 flex items-center justify-center">
-              <UIcon name="i-lucide-file-text" class="w-4 h-4 text-green-600 dark:text-green-400" />
-            </div>
-            <span class="font-medium text-gray-900 dark:text-white">Reports</span>
-          </div>
-          
-          <div 
-            data-id="users" 
-            class="px-5 py-3 bg-white dark:bg-gray-800 rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200 flex items-center gap-3 border border-gray-200 dark:border-gray-600"
-          >
-            <div class="w-8 h-8 rounded-lg bg-orange-100 dark:bg-orange-900/50 flex items-center justify-center">
-              <UIcon name="i-lucide-users" class="w-4 h-4 text-orange-600 dark:text-orange-400" />
-            </div>
-            <span class="font-medium text-gray-900 dark:text-white">Users</span>
-          </div>
-          
-          <div 
-            data-id="settings" 
-            class="px-5 py-3 bg-white dark:bg-gray-800 rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200 flex items-center gap-3 border border-gray-200 dark:border-gray-600"
-          >
-            <div class="w-8 h-8 rounded-lg bg-gray-100 dark:bg-gray-700 flex items-center justify-center">
-              <UIcon name="i-lucide-settings" class="w-4 h-4 text-gray-600 dark:text-gray-400" />
-            </div>
-            <span class="font-medium text-gray-900 dark:text-white">Settings</span>
-          </div>
-        </div>
+        <!-- Using NavigationMenu with custom slot to add data-id attributes -->
+        <UNavigationMenu 
+          :items="navbarItems" 
+          class="flex flex-wrap gap-2 bg-transparent"
+        >
+          <template #item="{ item }">
+            <ULink
+              :to="item.to"
+              :data-id="item.id"
+              class="px-5 py-3 bg-white dark:bg-gray-800 rounded-lg cursor-pointer border border-gray-200 dark:border-gray-600 flex items-center gap-3 transition-all duration-200 text-muted hover:text-highlighted"
+            >
+              {{ item.label }}
+            </ULink>
+          </template>
+        </UNavigationMenu>
       </div>
       
       <div class="p-6">
@@ -146,3 +113,33 @@
     </div>
   </div>
 </template>
+
+<script setup>
+const navbarItems = [
+  {
+    label: 'Overview',
+    to: '#',
+    id: 'overview'
+  },
+  {
+    label: 'Analytics',
+    to: '#',
+    id: 'analytics'
+  },
+  {
+    label: 'Reports',
+    to: '#',
+    id: 'reports'
+  },
+  {
+    label: 'Users',
+    to: '#',
+    id: 'users'
+  },
+  {
+    label: 'Settings',
+    to: '#',
+    id: 'settings'
+  }
+]
+</script>

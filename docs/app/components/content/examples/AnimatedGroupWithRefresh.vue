@@ -1,34 +1,20 @@
 <template>
-  <div class="p-4">
-    <MAnimatedGroup :key="animationKey">
-      <div class="p-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded mb-2">
-        Animated Item 1
-      </div>
-      <div class="p-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded mb-2">
-        Animated Item 2
-      </div>
-      <div class="p-3 bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded mb-2">
-        Animated Item 3
+  <div class="space-y-4">
+    <UButton @click="refreshKey++">Refresh Animation</UButton>
+    <MAnimatedGroup :key="refreshKey" :stagger-children="0.1">
+      <div class="flex space-x-3">
+        <div
+          v-for="i in 5"
+          :key="i"
+          class="h-16 w-16 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600"
+        />
       </div>
     </MAnimatedGroup>
-    <div class="mt-4">
-      <UButton 
-        icon="i-lucide-refresh-cw" 
-        size="sm" 
-        @click="refreshAnimation"
-      >
-        Replay Animation
-      </UButton>
-    </div>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
 
-const animationKey = ref(0)
-
-const refreshAnimation = () => {
-  animationKey.value++
-}
+const refreshKey = ref(0)
 </script>

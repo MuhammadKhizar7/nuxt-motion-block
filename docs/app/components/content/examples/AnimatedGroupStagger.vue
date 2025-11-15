@@ -1,5 +1,5 @@
 <template>
-  <MAnimatedGroup :stagger="0.3">
+  <MAnimatedGroup :stagger-children="0.3">
     <div class="flex flex-wrap gap-4">
       <div
         v-for="i in 8"
