@@ -7,20 +7,21 @@
     
     <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow">
       <MAnimatedGroup 
-        preset="bounce"
+        :preset="currentPreset"
         :stagger-children="0.05"
+        :key="currentPreset"
+        class="flex flex-wrap gap-2"
       >
-        <div class="flex flex-wrap gap-2 justify-center">
-          <UBadge 
-            v-for="i in 8" 
-            :key="i"
-            color="primary"
-            variant="solid"
-            size="lg"
-          >
-            Item {{ i }}
-          </UBadge>
-        </div>
+        <UBadge 
+          v-for="i in 8" 
+          :key="i"
+          color="primary"
+          variant="solid"
+          size="lg"
+          class="m-1 inline-block"
+        >
+          Item {{ i }}
+        </UBadge>
       </MAnimatedGroup>
     </div>
     
@@ -57,8 +58,5 @@ const currentPreset = ref('bounce')
 
 const changePreset = (preset) => {
   currentPreset.value = preset
-  // In a real implementation, you would update the component props
-  // For this example, we'll just show an alert
-  alert(`Preset changed to: ${preset}`)
 }
 </script>

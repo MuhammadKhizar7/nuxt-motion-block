@@ -14,15 +14,14 @@
             visible: { opacity: 1, y: 0 }
           }
         }"
+        class="flex flex-wrap gap-2"
       >
-        <div class="grid grid-cols-3 gap-3">
-          <div
-            v-for="i in 6"
-            :key="i"
-            class="h-12 w-12 rounded-lg bg-primary flex items-center justify-center text-white font-bold"
-          >
-            {{ i }}
-          </div>
+        <div
+          v-for="i in 6"
+          :key="i"
+          class="h-12 w-12 rounded-lg bg-primary flex items-center justify-center text-white font-bold m-1"
+        >
+          {{ i }}
         </div>
       </MAnimatedGroup>
     </div>

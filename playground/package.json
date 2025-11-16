@@ -10,5 +10,8 @@
   "dependencies": {
     "motion-v": "1.7.2",
     "nuxt": "^4.1.2"
+  },
+  "devDependencies": {
+    "@nuxt/icon": "^2.1.0"
   }
 }

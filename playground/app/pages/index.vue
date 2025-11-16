@@ -25,23 +25,21 @@
           <MAnimatedGroup 
             :stagger-children="0.2"
             preset="slide"
+            initial="hidden"
+            animate="visible"
           >
-            <div class="flex flex-wrap gap-3">
-              <div
-                v-for="i in 8"
-                :key="i"
-                class="h-12 w-12 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600"
-              />
-            </div>
+            <div
+              v-for="i in 8"
+              :key="i"
+              class="h-12 w-12 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 inline-block m-1"
+            />
           </MAnimatedGroup>
         </div>
 
         <div class="mt-4">
           <pre class="bg-gray-100 dark:bg-gray-900 p-3 rounded overflow-x-auto text-sm">
 &lt;MAnimatedGroup :stagger-children="0.2" preset="slide"&gt;
-  &lt;div class="flex flex-wrap gap-3"&gt;
-    &lt;div v-for="i in 8" :key="i" class="h-12 w-12 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600" /&gt;
-  &lt;/div&gt;
+  &lt;div v-for="i in 8" :key="i" class="h-12 w-12 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600" /&gt;
 &lt;/MAnimatedGroup&gt;</pre>
         </div>
       </UCard>
@@ -67,15 +65,15 @@
                 visible: { opacity: 1, scale: 1, rotate: 0 }
               }
             }"
+            initial="hidden"
+            animate="visible"
           >
-            <div class="grid grid-cols-4 gap-3">
-              <div
-                v-for="i in 8"
-                :key="i"
-                class="h-16 w-16 rounded-lg bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center text-white font-bold"
-              >
-                {{ i }}
-              </div>
+            <div
+              v-for="i in 8"
+              :key="i"
+              class="h-16 w-16 rounded-lg bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center text-white font-bold inline-block m-1"
+            >
+              {{ i }}
             </div>
           </MAnimatedGroup>
         </div>
@@ -90,10 +88,8 @@
       visible: { opacity: 1, scale: 1, rotate: 0 }
     }
   }"&gt;
-  &lt;div class="grid grid-cols-4 gap-3"&gt;
-    &lt;div v-for="i in 8" :key="i" class="h-16 w-16 rounded-lg bg-gradient-to-br from-green-500 to-teal-600"&gt;
-      &#123;&#123; i &#125;&#125;
-    &lt;/div&gt;
+  &lt;div v-for="i in 8" :key="i" class="h-16 w-16 rounded-lg bg-gradient-to-br from-green-500 to-teal-600"&gt;
+    &#123;&#123; i &#125;&#125;
   &lt;/div&gt;
 &lt;/MAnimatedGroup&gt;</pre>
         </div>
@@ -117,14 +113,14 @@
             :key="refreshKey"
             :stagger-children="0.1"
             preset="bounce"
+            initial="hidden"
+            animate="visible"
           >
-            <div class="flex space-x-3">
-              <div
-                v-for="i in 6"
-                :key="i"
-                class="h-16 w-16 rounded-lg bg-gradient-to-br from-orange-500 to-red-600"
-              />
-            </div>
+            <div
+              v-for="i in 6"
+              :key="i"
+              class="h-16 w-16 rounded-lg bg-gradient-to-br from-orange-500 to-red-600 inline-block m-1"
+            />
           </MAnimatedGroup>
         </div>
 
@@ -135,9 +131,7 @@
   :key="refreshKey"
   :stagger-children="0.1"
   preset="bounce"&gt;
-  &lt;div class="flex space-x-3"&gt;
-    &lt;div v-for="i in 6" :key="i" class="h-16 w-16 rounded-lg bg-gradient-to-br from-orange-500 to-red-600" /&gt;
-  &lt;/div&gt;
+  &lt;div v-for="i in 6" :key="i" class="h-16 w-16 rounded-lg bg-gradient-to-br from-orange-500 to-red-600" /&gt;
 &lt;/MAnimatedGroup&gt;</pre>
         </div>
       </UCard>

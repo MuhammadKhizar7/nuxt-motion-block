@@ -54,7 +54,11 @@ export default defineComponent({
 
     const defaultContainerVariants: Variants = {
       hidden: {},
-      visible: {},
+      visible: {
+        transition: {
+          staggerChildren: 0.1,
+        },
+      },
     }
 
     const defaultItemVariants: Variants = {
@@ -135,11 +139,27 @@ export default defineComponent({
 
     const containerVariants = computed(() => {
       const baseVariants = props.variants?.container || defaultContainerVariants
-      // Ensure both hidden and visible states exist
-      return {
+      // Ensure both hidden and visible states exist with proper stagger in transition
+      
+      // Properly merge transition properties to preserve existing transitions while adding stagger
+      const baseTransition: any = (baseVariants.visible && typeof baseVariants.visible === 'object' && (baseVariants.visible as any).transition) 
+        ? (baseVariants.visible as any).transition 
+        : {}
+        
+      const result: Variants = {
+        // Always include hidden state
         hidden: baseVariants.hidden || {},
-        visible: baseVariants.visible || {},
+        visible: {
+          ...(baseVariants.visible || {}),
+          transition: {
+            ...baseTransition,
+            staggerChildren: props.staggerChildren,
+            staggerDirection: props.staggerDirection,
+          }
+        },
       }
+      
+      return result
     })
 
     const itemVariants = computed(() => {
@@ -168,46 +188,64 @@ export default defineComponent({
       return validNodes
     }
 
+    // Helper function to flatten children and extract only the actual items
+    function flattenChildren(nodes: VNode[]): VNode[] {
+      const flattened: VNode[] = []
+      for (const node of nodes) {
+        // Skip comments and empty text nodes
+        if (node.type === Comment) {
+          continue
+        }
+        if (node.type === Text && (node.children as string).trim() === '') {
+          continue
+        }
+        
+        // If it's a Fragment, flatten its children
+        if (node.type === Fragment) {
+          flattened.push(...flattenChildren(node.children as VNode[]))
+        }
+        // If it's a regular element with children that are arrays (like v-for), flatten them
+        else if (node.children && Array.isArray(node.children)) {
+          // Check if this is a wrapper element (like a div containing multiple items)
+          // We'll assume that if a node has multiple children that aren't text/comments,
+          // it's a wrapper and we should flatten its children
+          const nonTextChildren = node.children.filter(child => 
+            child && (typeof child !== 'string' || child.trim() !== '')
+          )
+          
+          // If it has multiple non-text children, it's likely a wrapper
+          if (nonTextChildren.length > 1) {
+            // Flatten the children directly
+            flattened.push(...flattenChildren(node.children as VNode[]))
+          } else {
+            // Otherwise, keep the node as is
+            flattened.push(node)
+          }
+        }
+        // Otherwise, keep the node as is
+        else {
+          flattened.push(node)
+        }
+      }
+      return flattened
+    }
+
     // Helper function to safely get variant by key
     function getVariantByKey(variants: Variants, key: string): Variant | undefined {
       return variants[key]
     }
 
     return () => {
-      const children = getValidChildren(slots.default ? slots.default() : [])
-
-      // Apply stagger delay through container transition
-      const containerTransition: Transition = {
-        staggerChildren: props.staggerChildren,
-        staggerDirection: props.staggerDirection,
-      }
-
-      // Get container states
-      const containerInitialState = getVariantByKey(containerVariants.value, props.initial) || containerVariants.value.hidden || {}
-      const containerAnimateState = getVariantByKey(containerVariants.value, props.animate) || containerVariants.value.visible || {}
+      const children = flattenChildren(slots.default ? slots.default() : [])
 
       // Create motion children with proper stagger handling
-      const motionChildren = children.map((child, index) => {
-        // Get the initial and animate states for each child
-        const initialState = getVariantByKey(itemVariants.value, props.initial) || itemVariants.value.hidden || defaultItemVariants.hidden
-        const animateState = getVariantByKey(itemVariants.value, props.animate) || itemVariants.value.visible || defaultItemVariants.visible
-
-        // Calculate delay for this child based on stagger settings
-        const delay = props.staggerDirection === 1 
-          ? index * props.staggerChildren
-          : (children.length - 1 - index) * props.staggerChildren
-
+      const motionChildren = children.map((child) => {
         return h(
           // @ts-ignore
           Motion,
           {
             as: props.asChild,
-            initial: initialState,
-            animate: animateState,
-            transition: {
-              delay,
-              ...(animateState.transition || {})
-            }
+            variants: itemVariants.value,
           },
           () => [child],
         )
@@ -219,9 +257,9 @@ export default defineComponent({
         {
           as: props.as,
           class: props.class,
-          initial: containerInitialState,
-          animate: containerAnimateState,
-          transition: containerTransition,
+          initial: props.initial,
+          animate: props.animate,
+          variants: containerVariants.value,
         },
         () => motionChildren,
       )

@@ -30,14 +30,12 @@ label: Preview
       }
     }"
   >
-    <div class="grid grid-cols-3 gap-3">
-      <div
-        v-for="i in 6"
-        :key="i"
-        class="h-12 w-12 rounded-lg bg-primary flex items-center justify-center text-white font-bold"
-      >
-        {{ i }}
-      </div>
+    <div
+      v-for="i in 6"
+      :key="i"
+      class="h-12 w-12 rounded-lg bg-primary flex items-center justify-center text-white font-bold"
+    >
+      {{ i }}
     </div>
   </MAnimatedGroup>
 </template>
@@ -102,17 +100,15 @@ label: Preview
     preset="bounce"
     :stagger-children="0.05"
   >
-    <div class="flex flex-wrap gap-2 justify-center">
-      <UBadge 
-        v-for="i in 8" 
-        :key="i"
-        color="primary"
-        variant="solid"
-        size="lg"
-      >
-        Item {{ i }}
-      </UBadge>
-    </div>
+    <UBadge 
+      v-for="i in 8" 
+      :key="i"
+      color="primary"
+      variant="solid"
+      size="lg"
+    >
+      Item {{ i }}
+    </UBadge>
   </MAnimatedGroup>
 </template>
 ```
@@ -146,14 +142,12 @@ label: Preview
       }
     }"
   >
-    <div class="grid grid-cols-4 gap-3">
-      <div
-        v-for="i in 8"
-        :key="i"
-        class="h-10 w-10 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center text-white font-bold"
-      >
-        {{ i }}
-      </div>
+    <div
+      v-for="i in 8"
+      :key="i"
+      class="h-10 w-10 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center text-white font-bold"
+    >
+      {{ i }}
     </div>
   </MAnimatedGroup>
 </template>

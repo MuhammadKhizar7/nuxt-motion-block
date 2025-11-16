@@ -8,6 +8,7 @@
     <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow">
       <MAnimatedGroup 
         :stagger-children="0.15"
+        :key="isAnimating"
         :variants="{
           item: {
             hidden: { opacity: 0, scale: 0.8 },
@@ -21,15 +22,14 @@
             }
           }
         }"
+        class="flex flex-wrap gap-2"
       >
-        <div class="grid grid-cols-4 gap-3">
-          <div
-            v-for="i in 8"
-            :key="i"
-            class="h-10 w-10 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center text-white font-bold"
-          >
-            {{ i }}
-          </div>
+        <div
+          v-for="i in 8"
+          :key="i"
+          class="h-10 w-10 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center text-white font-bold m-1"
+        >
+          {{ i }}
         </div>
       </MAnimatedGroup>
     </div>
@@ -53,8 +53,5 @@ const isAnimating = ref(true)
 
 const toggleAnimation = () => {
   isAnimating.value = !isAnimating.value
-  // In a real implementation, you would control the animation state
-  // For this example, we'll just show an alert
-  alert(`Animation ${isAnimating.value ? 'started' : 'stopped'}`)
 }
 </script>
