@@ -187,10 +187,15 @@ export default defineComponent({
       const containerAnimateState = getVariantByKey(containerVariants.value, props.animate) || containerVariants.value.visible || {}
 
       // Create motion children with proper stagger handling
-      const motionChildren = children.map((child) => {
+      const motionChildren = children.map((child, index) => {
         // Get the initial and animate states for each child
         const initialState = getVariantByKey(itemVariants.value, props.initial) || itemVariants.value.hidden || defaultItemVariants.hidden
         const animateState = getVariantByKey(itemVariants.value, props.animate) || itemVariants.value.visible || defaultItemVariants.visible
+
+        // Calculate delay for this child based on stagger settings
+        const delay = props.staggerDirection === 1 
+          ? index * props.staggerChildren
+          : (children.length - 1 - index) * props.staggerChildren
 
         return h(
           // @ts-ignore
@@ -199,6 +204,10 @@ export default defineComponent({
             as: props.asChild,
             initial: initialState,
             animate: animateState,
+            transition: {
+              delay,
+              ...(animateState.transition || {})
+            }
           },
           () => [child],
         )
