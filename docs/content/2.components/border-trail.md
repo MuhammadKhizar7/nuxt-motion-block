@@ -21,7 +21,8 @@ label: Preview
 #code
 ```vue
 <template>
-  <UCard class="relative overflow-hidden">
+ <!-- MBorderTrail inherits parent's rounded class so it matches the card's border radius by setting rounded-lg in body ui property -->
+  <UCard class="relative overflow-hidden" :ui="{ body: 'rounded-lg' }">
     <MBorderTrail 
       class="bg-gradient-to-r from-green-500 to-teal-500" 
       :size="40"
@@ -74,7 +75,7 @@ label: Preview
 #code
 ```vue
 <template>
-  <UCard class="relative overflow-hidden max-w-sm">
+  <UCard class="relative overflow-hidden max-w-sm" :ui="{ body: 'rounded-lg' }">
     <MBorderTrail 
       class="bg-gradient-to-r from-red-500 to-orange-500" 
       :size="30"
@@ -147,7 +148,7 @@ label: Preview
 #code
 ```vue
 <template>
-  <UCard class="relative overflow-hidden max-w-sm">
+  <UCard class="relative overflow-hidden max-w-sm" :ui="{ body: 'rounded-lg' }">
     <MBorderTrail 
       class="bg-gradient-to-r from-cyan-500 to-blue-500" 
       :size="50"
@@ -186,7 +187,7 @@ label: Preview
 #code
 ```vue
 <template>
-  <UCard class="relative overflow-hidden max-w-sm">
+  <UCard class="relative overflow-hidden max-w-sm" :ui="{ body: 'rounded-lg' }">
     <MBorderTrail 
       class="bg-gradient-to-r from-amber-500 to-orange-500" 
       :size="35"

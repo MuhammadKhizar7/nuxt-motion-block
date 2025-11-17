@@ -1,5 +1,5 @@
 <template>
-  <UCard class="relative overflow-hidden max-w-md mx-auto">
+  <UCard class="relative overflow-hidden max-w-md mx-auto" :ui="{ body: 'rounded-lg' }">
     <MBorderTrail 
       class="bg-gradient-to-r from-blue-500 to-purple-600" 
       :size="40"

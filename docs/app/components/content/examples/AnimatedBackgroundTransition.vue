@@ -10,7 +10,7 @@
         v-for="(item, index) in ITEMS"
         :key="index"
         :data-id="`card-${index}`"
-        class="hover:shadow-md transition-shadow cursor-pointer"
+        class="hover:shadow-md transition-shadow cursor-pointer bg-transparent"
       >
         <div class="flex select-none flex-col gap-2 p-4">
           <h3 class="text-base font-medium text-zinc-800 dark:text-zinc-50">

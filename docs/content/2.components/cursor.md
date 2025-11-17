@@ -92,7 +92,7 @@ Configuration for the spring physics used in the cursor's movement.
 label: Preview
 ---
   :::div{class="flex justify-center w-full h-full"}
-    <component-example name="cursor-with-image" />
+    <component-example name="cursor-basic-pink" />
   :::
 #code
 ```vue

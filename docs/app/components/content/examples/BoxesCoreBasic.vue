@@ -1,6 +1,6 @@
 <template>
-  <div class="relative rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-xl">
-    <MBoxesCore
+  <div class="w-full h-full relative rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-xl">
+    <MBoxesCore 
       class="h-[500px] w-full opacity-20"
       :rows="50"
       :cols="40"
@@ -9,8 +9,8 @@
       :show-plus-signs="true"
       border-color="border-gray-200 dark:border-gray-700"
     />
-    <div class="absolute inset-0 flex items-center justify-center p-4">
-      <div class="text-center p-10 relative z-10 bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl rounded-2xl shadow-2xl max-w-2xl mx-auto border border-gray-200 dark:border-gray-700">
+    <div class="flex items-center justify-center p-4">
+      <div class="text-center p-10 relative z-10">
         <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 dark:bg-blue-900/30 rounded-full mb-6">
           <UIcon name="i-lucide-sparkles" class="w-5 h-5 text-blue-600 dark:text-blue-400" />
           <span class="text-blue-700 dark:text-blue-300 font-medium">Next-Gen UI</span>

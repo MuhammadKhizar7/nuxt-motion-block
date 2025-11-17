@@ -1,7 +1,8 @@
 <template>
   <div class="flex flex-col items-center gap-6">
     <UButton 
-      color="primary"
+      color="neutral"
+      variant="outline"
       size="lg"
       class="relative overflow-hidden"
       @mouseenter="isHovered = true"
