@@ -5,7 +5,7 @@
     class="bg-gradient-to-br from-purple-50 to-pink-100 dark:from-slate-900 dark:to-slate-800 min-h-96"
   >
     <template #content>
-      <span class="text-black dark:text-white">Large Reveal Area</span>
+      <span class="text-primary">Large Reveal Area</span>
     </template>
 
     <template #reveal>

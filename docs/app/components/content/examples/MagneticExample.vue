@@ -1,11 +1,8 @@
 <template>
   <div class="flex justify-center">
-    <MMagnetic
-      :intensity="0.8"
-      :range="120"
-    >
+    <MMagnetic>
       <UButton color="primary">
-        Low Intensity
+        Magnetic Button
       </UButton>
     </MMagnetic>
   </div>

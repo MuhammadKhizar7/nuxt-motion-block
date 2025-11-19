@@ -5,7 +5,7 @@
     class="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-slate-900 dark:to-slate-800"
   >
     <template #content>
-      <span class="text-black dark:text-white">Hover to Reveal</span>
+      <span class="text-blue-500">Hover to Reveal</span>
     </template>
 
     <template #reveal>
@@ -14,7 +14,7 @@
           Mask Reveal Effect
         </h2>
         <p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-          Move your cursor around to reveal the content behind the mask. 
+          Move your cursor around to reveal the content behind the mask.
           The mask follows your cursor position with a smooth animation.
         </p>
       </div>

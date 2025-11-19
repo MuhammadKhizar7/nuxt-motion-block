@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center min-h-48">
+  <div class="flex justify-center min-h-48 items-center">
     <MMorphingPopover>
       <MMorphingPopoverTrigger>
         <UButton color="primary">Open Popover</UButton>

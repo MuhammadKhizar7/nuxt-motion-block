@@ -10,13 +10,24 @@
         <UButton color="primary">Controlled Popover</UButton>
       </MMorphingPopoverTrigger>
       
-      <MMorphingPopoverContent class="p-4 w-80">
-        <h3 class="font-bold text-lg mb-2">Controlled Popover</h3>
-        <p class="text-gray-600 dark:text-gray-400 mb-4">
-          This popover is controlled programmatically.
-        </p>
-        <UButton @click="open = false" color="primary" variant="solid" size="sm">Close</UButton>
-      </MMorphingPopoverContent>
+      <template #content="{ close }">
+        <div class="p-4 w-80">
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="font-bold text-lg">Controlled Popover</h3>
+            <UButton 
+              color="gray" 
+              variant="ghost" 
+              size="xs" 
+              icon="i-lucide-x" 
+              @click="close"
+            />
+          </div>
+          <p class="text-gray-600 dark:text-gray-400 mb-4">
+            This popover is controlled programmatically.
+          </p>
+          <UButton @click="open = false" color="primary" variant="solid" size="sm">Close</UButton>
+        </div>
+      </template>
     </MMorphingPopover>
   </div>
 </template>
