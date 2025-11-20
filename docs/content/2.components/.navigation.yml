@@ -68,6 +68,8 @@ items:
         to: /components/collision
   - title: Interactive Elements
     items:
+      - title: Animated Dialog
+        to: /components/animated-dialog
       - title: Dock
         to: /components/dock
       - title: Image Comparison
