@@ -72,6 +72,8 @@ items:
         to: /components/dock
       - title: Image Comparison
         to: /components/image-comparison
+      - title: Morphing Popover
+        to: /components/morphing-popover
   - title: Numbers & Text
     items:
       - title: AnimatedNumber
@@ -108,10 +110,6 @@ items:
         to: /components/variable-proximity
       - title: WordRotate
         to: /components/word-rotate
-  - title: Popover Components
-    items:
-      - title: Morphing Popover
-        to: /components/morphing-popover
   - title: Visual Effects
     items:
       - title: BorderTrail

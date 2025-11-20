@@ -5,26 +5,23 @@
     </h1>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <!-- Basic Morphing Popover -->
+      <!-- Basic Morphing Popover (Click Mode) -->
       <div class="p-6 border rounded-lg">
         <h2 class="text-xl font-semibold mb-4">
-          Basic Morphing Popover
+          Click Mode Popover
         </h2>
-        <MMorphingPopover>
-          <MMorphingPopoverTrigger>
-            <UButton
-              label="Open Basic Popover"
-              color="primary"
-            />
-          </MMorphingPopoverTrigger>
-
+        <MMorphingPopover mode="click" :scale="0.95">
+          <UButton
+            label="Open Click Popover"
+            color="primary"
+          />
           <template #content>
             <div class="p-4 w-64">
               <h3 class="text-lg font-semibold mb-2">
-                Basic Popover
+                Click Popover
               </h3>
               <p class="text-gray-600 dark:text-gray-300 mb-4">
-                This is a basic morphing popover with default animations.
+                This popover opens on click with motion-v animations.
               </p>
               <UButton
                 label="Action"
@@ -37,138 +34,92 @@
         </MMorphingPopover>
       </div>
 
-      <!-- Custom Animation Variants -->
-      <div class="p-6 border rounded-lg">
-        <h2 class="text-xl font-semibold mb-4">
-          Custom Animation
-        </h2>
-        <MMorphingPopover
-          :variants="customVariants"
-          :transition="customTransition"
-        >
-          <MMorphingPopoverTrigger>
-            <UButton
-              label="Open Custom Popover"
-              color="secondary"
-            />
-          </MMorphingPopoverTrigger>
-
-          <template #content>
-            <div class="p-4 w-64">
-              <h3 class="text-lg font-semibold mb-2">
-                Custom Animation
-              </h3>
-              <p class="text-gray-600 dark:text-gray-300 mb-4">
-                This popover has custom morphing animations with rotation effects.
-              </p>
-              <UButton
-                label="Action"
-                color="secondary"
-                variant="outline"
-                size="sm"
-              />
-            </div>
-          </template>
-        </MMorphingPopover>
-      </div>
-
-      <!-- With Anchor Slot -->
-      <div class="p-6 border rounded-lg">
-        <h2 class="text-xl font-semibold mb-4">
-          With Anchor Slot
-        </h2>
-        <MMorphingPopover>
-          <template #anchor>
-            <UInput placeholder="Focus to open popover" />
-          </template>
-
-          <template #content>
-            <div class="p-4 w-64">
-              <h3 class="text-lg font-semibold mb-2">
-                Anchor Slot
-              </h3>
-              <p class="text-gray-600 dark:text-gray-300 mb-4">
-                This popover uses the anchor slot for custom positioning.
-              </p>
-              <UButton
-                label="Action"
-                color="neutral"
-                variant="outline"
-                size="sm"
-              />
-            </div>
-          </template>
-        </MMorphingPopover>
-      </div>
-
       <!-- Hover Mode -->
       <div class="p-6 border rounded-lg">
         <h2 class="text-xl font-semibold mb-4">
-          Hover Mode
+          Hover Mode Popover
         </h2>
         <MMorphingPopover
           mode="hover"
           :open-delay="300"
           :close-delay="200"
+          :scale="0.95"
         >
-          <MMorphingPopoverTrigger>
-            <UButton
-              label="Hover Over Me"
-              color="success"
-            />
-          </MMorphingPopoverTrigger>
-
+          <UButton
+            label="Hover Over Me"
+            color="success"
+          />
           <template #content>
             <div class="p-4 w-64">
               <h3 class="text-lg font-semibold mb-2">
                 Hover Popover
               </h3>
               <p class="text-gray-600 dark:text-gray-300">
-                This popover opens on hover with custom delays.
+                This popover opens on hover with motion-v animations.
               </p>
             </div>
           </template>
         </MMorphingPopover>
       </div>
-      <!-- Nuxt ui Popover -->
-       <div class="p-6 border rounded-lg">
+      
+      <!-- Custom Scale -->
+      <div class="p-6 border rounded-lg">
         <h2 class="text-xl font-semibold mb-4">
-          Nuxt ui Popover
+          Custom Scale Animation
         </h2>
-       <UPopover>
-      <UButton label="Open" color="neutral" variant="subtle" />
-
-      <template #content>
-        Popover Content
-      </template>
-    </UPopover>
+        <MMorphingPopover mode="click" :scale="0.9">
+          <UButton
+            label="Strong Morph"
+            color="secondary"
+          />
+          <template #content>
+            <div class="p-4 w-64">
+              <h3 class="text-lg font-semibold mb-2">
+                Strong Morphing
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300">
+                This popover uses a stronger motion-v morphing effect.
+              </p>
+            </div>
+          </template>
+        </MMorphingPopover>
+      </div>
+      
+      <!-- Bounce Animation -->
+      <div class="p-6 border rounded-lg">
+        <h2 class="text-xl font-semibold mb-4">
+          Bounce Animation
+        </h2>
+        <MMorphingPopover mode="click" :scale="0.95">
+          <UButton
+            label="Bouncy Popover"
+            color="warning"
+          />
+          <template #content>
+            <div class="p-4 w-64">
+              <h3 class="text-lg font-semibold mb-2">
+                Bouncy Morphing
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300">
+                This popover uses motion-v with extra bounce.
+              </p>
+            </div>
+          </template>
+        </MMorphingPopover>
+      </div>
+      
+      <!-- Nuxt UI Popover (Control) -->
+      <div class="p-6 border rounded-lg">
+        <h2 class="text-xl font-semibold mb-4">
+          Nuxt UI Popover (Control)
+        </h2>
+        <UPopover mode="click">
+          <UButton label="Open Control" color="neutral" variant="subtle" />
+          <template #content>
+            Control Popover Content
+          </template>
+        </UPopover>
       </div>
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-const customVariants = {
-  initial: {
-    opacity: 0,
-    scale: 0.5,
-    rotate: -15,
-  },
-  animate: {
-    opacity: 1,
-    scale: 1,
-    rotate: 0,
-  },
-  exit: {
-    opacity: 0,
-    scale: 0.5,
-    rotate: 15,
-  },
-}
-
-const customTransition = {
-  type: 'spring',
-  bounce: 0.2,
-  duration: 0.5,
-}
-</script>
