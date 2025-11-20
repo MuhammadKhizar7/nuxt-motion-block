@@ -1,6 +1,5 @@
 <template>
-  <!-- Simple wrapper component that directly uses UPopover without any interference -->
-  <UPopover
+ <UPopover
     v-model:open="isOpen"
     :mode="mode"
     :content="contentProps"
@@ -15,17 +14,12 @@
     @update:open="handleOpenChange"
   >
     <template #default>
-      <!-- Optimized motion-v animation for the trigger element -->
       <motion.div
-        :animate="{ 
-          scale: isOpen ? 1 : scale
-        }"
-        :transition="{
-          type: 'spring',
-          stiffness: 800,
-          damping: 30,
-          mass: 1
-        }"
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        :variants="triggerVariants"
+        :transition="triggerTransition"
         class="inline-block will-change-transform"
       >
         <slot />
@@ -38,21 +32,11 @@
         <AnimatePresence>
           <motion.div
             v-if="isOpen"
-            :initial="{ opacity: 0, scale: 0.95 }"
-            :animate="{ 
-              opacity: 1, 
-              scale: 1
-            }"
-            :exit="{ 
-              opacity: 0, 
-              scale: 0.95
-            }"
-            :transition="{
-              type: 'spring',
-              stiffness: 600,
-              damping: 25,
-              mass: 1
-            }"
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            :variants="contentVariants"
+            :transition="contentTransition"
             class="will-change-transform"
             :style="{
               transformOrigin: 'var(--reka-popover-content-transform-origin, center)'
@@ -73,6 +57,14 @@
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue'
 import { motion, AnimatePresence } from 'motion-v'
+import type { Variant, Transition } from 'motion-v'
+
+interface Variants {
+  initial?: Variant
+  animate?: Variant
+  exit?: Variant
+}
+
 
 interface Props {
   mode?: 'click' | 'hover'
@@ -88,6 +80,9 @@ interface Props {
   ui?: object
   // Morphing effect props
   scale?: number
+  // Custom animation props (matching React API)
+  variants?: Variants
+  transition?: Transition
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -99,7 +94,9 @@ const props = withDefaults(defineProps<Props>(), {
   closeDelay: 0,
   arrow: false,
   portal: true,
-  scale: 0.95
+  scale: 0.95,
+  variants: () => ({}),
+  transition: () => ({})
 })
 
 const emit = defineEmits<{
@@ -120,6 +117,68 @@ const handleOpenChange = (open: boolean) => {
   isOpen.value = open
   emit('update:open', open)
 }
+
+// Default variants matching  implementation
+const defaultTriggerVariants = computed(() => {
+  return {
+    initial: { scale: props.scale },
+    animate: { scale: isOpen.value ? 1 : props.scale },
+    exit: { scale: props.scale }
+  }
+})
+
+const defaultContentVariants = computed(() => {
+  return {
+    initial: { opacity: 0, scale: 0.95 },
+    animate: { opacity: 1, scale: 1 },
+    exit: { opacity: 0, scale: 0.95 }
+  }
+})
+
+// Computed variants with fallback to defaults
+const triggerVariants = computed(() => {
+  return {
+    initial: { ...(props.variants?.initial || {}), ...defaultTriggerVariants.value.initial },
+    animate: { ...(props.variants?.animate || {}), ...defaultTriggerVariants.value.animate },
+    exit: { ...(props.variants?.exit || {}), ...defaultTriggerVariants.value.exit }
+  }
+})
+
+const contentVariants = computed(() => {
+  return {
+    initial: { ...(props.variants?.initial || {}), ...defaultContentVariants.value.initial },
+    animate: { ...(props.variants?.animate || {}), ...defaultContentVariants.value.animate },
+    exit: { ...(props.variants?.exit || {}), ...defaultContentVariants.value.exit }
+  }
+})
+
+// Default transitions matching implementation
+const defaultTriggerTransition = {
+  type: 'spring' as const,
+  bounce: 0.1,
+  duration: 0.3
+}
+
+const defaultContentTransition = {
+  type: 'spring' as const,
+  bounce: 0.1,
+  duration: 0.4
+}
+
+// Computed transitions with fallback to defaults
+const triggerTransition = computed(() => {
+  return {
+    ...defaultTriggerTransition,
+    ...props.transition
+  }
+})
+
+const contentTransition = computed(() => {
+  return {
+    ...defaultContentTransition,
+    ...props.transition
+  }
+})
 
 const contentClasses = computed(() => {
   return [

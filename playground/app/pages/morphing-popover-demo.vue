@@ -85,23 +85,54 @@
         </MMorphingPopover>
       </div>
       
-      <!-- Bounce Animation -->
+      <!-- Custom Variants and Transition -->
       <div class="p-6 border rounded-lg">
         <h2 class="text-xl font-semibold mb-4">
-          Bounce Animation
+          Custom Variants & Transition
         </h2>
-        <MMorphingPopover mode="click" :scale="0.95">
+        <MMorphingPopover 
+          mode="click"
+          :variants="customVariants"
+          :transition="customTransition"
+        >
           <UButton
-            label="Bouncy Popover"
+            label="Custom Animation"
             color="warning"
           />
           <template #content>
             <div class="p-4 w-64">
               <h3 class="text-lg font-semibold mb-2">
-                Bouncy Morphing
+                Custom Animation
               </h3>
               <p class="text-gray-600 dark:text-gray-300">
-                This popover uses motion-v with extra bounce.
+                This popover uses custom variants and transition props.
+              </p>
+            </div>
+          </template>
+        </MMorphingPopover>
+      </div>
+      
+      <!-- Rotate Animation -->
+      <div class="p-6 border rounded-lg">
+        <h2 class="text-xl font-semibold mb-4">
+          Rotate Animation
+        </h2>
+        <MMorphingPopover 
+          mode="click"
+          :variants="rotateVariants"
+          :transition="{ type: 'spring', stiffness: 200, damping: 15 }"
+        >
+          <UButton
+            label="Rotate Popover"
+            color="info"
+          />
+          <template #content>
+            <div class="p-4 w-64">
+              <h3 class="text-lg font-semibold mb-2">
+                Rotate Animation
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300">
+                This popover rotates while morphing.
               </p>
             </div>
           </template>
@@ -123,3 +154,23 @@
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+const customVariants = {
+  initial: { opacity: 0, scale: 0.5, rotate: -15 },
+  animate: { opacity: 1, scale: 1, rotate: 0 },
+  exit: { opacity: 0, scale: 0.5, rotate: 15 }
+}
+
+const customTransition = {
+  type: 'spring',
+  bounce: 0.2,
+  duration: 0.5
+}
+
+const rotateVariants = {
+  initial: { opacity: 0, scale: 0.8, rotate: -90 },
+  animate: { opacity: 1, scale: 1, rotate: 0 },
+  exit: { opacity: 0, scale: 0.8, rotate: 90 }
+}
+</script>
