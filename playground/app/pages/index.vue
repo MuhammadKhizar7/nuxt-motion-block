@@ -8,7 +8,7 @@
     </p>
 
     <!-- Navigation to Demo Pages -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
       <UCard>
         <UButton
           to="/morphing-popover-demo"
@@ -39,6 +39,17 @@
           class="w-full"
         >
           Collision Demo
+        </UButton>
+      </UCard>
+
+      <UCard>
+        <UButton
+          to="/animated-dialog-demo"
+          color="info"
+          variant="soft"
+          class="w-full"
+        >
+          Animated Dialog Demo
         </UButton>
       </UCard>
     </div>
