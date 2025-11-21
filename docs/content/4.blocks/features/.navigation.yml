@@ -1,0 +1,9 @@
+title: Features
+description: Feature sections to showcase product capabilities and benefits.
+navigation:
+  icon: i-lucide-box
+  items:
+    - title: 'Feature Grid'
+      to: '/blocks/features/feature-grid'
+    - title: 'Glare Card Features'
+      to: '/blocks/features/glare-card-features'

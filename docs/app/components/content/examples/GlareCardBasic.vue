@@ -9,7 +9,12 @@
       </div>
       
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <MGlareCard class="w-full h-80">
+        <MGlareCard 
+          class="w-full h-80 bg-gray-800"
+          glare-color="rgba(59,130,246,0.8)"
+          glare-color-inner="rgba(59,130,246,0.65)"
+          glare-color-outer="rgba(59,130,246,0)"
+        >
           <div class="text-center space-y-4 p-6">
             <div class="w-16 h-16 rounded-full bg-blue-500/20 flex items-center justify-center mx-auto">
               <UIcon name="i-lucide-zap" class="w-8 h-8 text-blue-400" />
@@ -24,7 +29,12 @@
           </div>
         </MGlareCard>
         
-        <MGlareCard class="w-full h-80">
+        <MGlareCard 
+          class="w-full h-80 bg-gray-800"
+          glare-color="rgba(139,92,246,0.8)"
+          glare-color-inner="rgba(139,92,246,0.65)"
+          glare-color-outer="rgba(139,92,246,0)"
+        >
           <div class="text-center space-y-4 p-6">
             <div class="w-16 h-16 rounded-full bg-purple-500/20 flex items-center justify-center mx-auto">
               <UIcon name="i-lucide-sparkles" class="w-8 h-8 text-purple-400" />
@@ -39,7 +49,12 @@
           </div>
         </MGlareCard>
         
-        <MGlareCard class="w-full h-80">
+        <MGlareCard 
+          class="w-full h-80 bg-gray-800"
+          glare-color="rgba(16,185,129,0.8)"
+          glare-color-inner="rgba(16,185,129,0.65)"
+          glare-color-outer="rgba(16,185,129,0)"
+        >
           <div class="text-center space-y-4 p-6">
             <div class="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center mx-auto">
               <UIcon name="i-lucide-code" class="w-8 h-8 text-green-400" />

@@ -1,5 +1,10 @@
 <template>
-  <MGlareCard class="w-96 h-80">
+  <MGlareCard 
+    class="w-96 h-80 bg-gray-800"
+    glare-color="rgba(59,130,246,0.8)"
+    glare-color-inner="rgba(59,130,246,0.65)"
+    glare-color-outer="rgba(59,130,246,0)"
+  >
     <template #header>
       <div class="flex items-center justify-between p-4">
         <div class="flex items-center space-x-3">
@@ -15,7 +20,7 @@
         </div>
         <UButton 
           icon="i-heroicons-ellipsis-horizontal" 
-          color="gray" 
+          color="neutral" 
           variant="ghost" 
           size="xs"
         />
@@ -49,7 +54,7 @@
       <div class="flex justify-between p-4 border-t border-slate-700/50">
         <UButton 
           icon="i-heroicons-heart" 
-          color="gray" 
+          color="neutral" 
           variant="ghost" 
           size="sm"
           class="flex-1 mr-1"
@@ -58,7 +63,7 @@
         </UButton>
         <UButton 
           icon="i-heroicons-chat-bubble-left-right" 
-          color="gray" 
+          color="neutral" 
           variant="ghost" 
           size="sm"
           class="flex-1 mx-1"
@@ -67,7 +72,7 @@
         </UButton>
         <UButton 
           icon="i-heroicons-arrow-up-tray" 
-          color="gray" 
+          color="neutral" 
           variant="ghost" 
           size="sm"
           class="flex-1 ml-1"

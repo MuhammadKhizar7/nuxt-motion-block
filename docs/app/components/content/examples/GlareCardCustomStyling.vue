@@ -1,5 +1,10 @@
 <template>
-  <MGlareCard class="w-80 h-96 rounded-2xl border-2 border-purple-500/30">
+  <MGlareCard 
+    class="w-80 h-96 rounded-2xl border-2 border-purple-500/30 bg-gray-800"
+    glare-color="rgba(192,132,252,0.8)"
+    glare-color-inner="rgba(192,132,252,0.65)"
+    glare-color-outer="rgba(192,132,252,0)"
+  >
     <div class="flex flex-col items-center justify-center h-full space-y-6 p-6">
       <div class="bg-gradient-to-r from-purple-500 to-pink-500 p-3 rounded-full">
         <UIcon name="i-heroicons-light-bulb" class="w-8 h-8 text-white" />

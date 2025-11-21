@@ -1,16 +1,98 @@
+---
+title: Glare Card
+description: Interactive card with dynamic glare effects that respond to mouse movement.
+navigation:
+  icon: i-lucide-sun
+---
+
+# Glare Card
+
+The Glare Card component creates an interactive card with dynamic glare effects that respond to mouse movement. As you move your cursor over the card, a realistic light reflection effect follows your movement, creating an engaging 3D-like experience.
+
+## Usage
+
+::code-preview
+---
+label: Preview
+---
+  :::div{class="flex justify-center w-full h-full"}
+    <component-example name="glare-card-example" />
+  :::
+#code
+```vue
+<template>
+  <MGlareCard>
+    <div class="flex flex-col items-center justify-center h-full space-y-4">
+      <div class="bg-gradient-to-r from-blue-500 to-purple-500 p-3 rounded-full">
+        <UIcon name="i-heroicons-sparkles" class="w-8 h-8 text-white" />
+      </div>
+      <h3 class="text-2xl font-bold text-white">Glare Effect</h3>
+      <p class="text-slate-400 text-center">
+        Move your cursor over the card to see the dynamic glare effect in action.
+      </p>
+      <UButton color="primary" @click="handleClick">
+        Try It
+      </UButton>
+    </div>
+  </MGlareCard>
+</template>
+
+<script setup>
+const handleClick = () => {
+  alert('Glare effect is working!')
+}
+</script>
+```
+::
+
+## Props
+
+::field-group
+  ::field{name="class" type="string" default="''"}
+  CSS classes to apply to the card.
+  ::
+  
+  ::field{name="ui" type="object" default="{}"}
+  UI configuration for the underlying UCard component.
+  ::
+  
+  ::field{name="glareColor" type="string" default="'rgba(255,255,255,0.8)'"}
+  Primary glare color at the center of the effect.
+  ::
+  
+  ::field{name="glareColorInner" type="string" default="'rgba(255,255,255,0.65)'"}
+  Inner glare color between the center and outer edge.
+  ::
+  
+  ::field{name="glareColorOuter" type="string" default="'rgba(255,255,255,0)'"}
+  Outer glare color at the edge of the effect.
+  ::
+  
+  ::field{name="rainbowColors" type="string[]" default="['rgb(255,119,115)', 'rgba(255,237,95,1)', 'rgba(168,255,95,1)', 'rgba(131,255,247,1)', 'rgba(120,148,255,1)', 'rgb(216,117,255)', 'rgb(255,119,115)']"}
+  Colors for the rainbow pattern effect.
+  ::
+::
+
+## Examples
+
 ### Custom Styling
 
 ::code-preview
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="glare-card-custom-styling" />
   :::
 #code
 ```vue
 <template>
-  <MGlareCard class="w-80 h-96 rounded-2xl border-2 border-purple-500/30">
+  <MGlareCard 
+    class="w-80 h-96 rounded-2xl border-2 border-purple-500/30"
+    glare-color="rgba(192,132,252,0.8)"
+    glare-color-inner="rgba(192,132,252,0.65)"
+    glare-color-outer="rgba(192,132,252,0)"
+  >
     <div class="flex flex-col items-center justify-center h-full space-y-6 p-6">
       <div class="bg-gradient-to-r from-purple-500 to-pink-500 p-3 rounded-full">
         <UIcon name="i-heroicons-light-bulb" class="w-8 h-8 text-white" />
@@ -47,13 +129,18 @@ const handleClick = () => {
 ---
 label: Preview
 ---
-  :::div{class="flex justify-center"}
+  :::div{class="flex justify-center w-full h-full"}
     <component-example name="glare-card-advanced" />
   :::
 #code
 ```vue
 <template>
-  <MGlareCard class="w-96 h-80">
+  <MGlareCard 
+    class="w-96 h-80"
+    glare-color="rgba(59,130,246,0.8)"
+    glare-color-inner="rgba(59,130,246,0.65)"
+    glare-color-outer="rgba(59,130,246,0)"
+  >
     <template #header>
       <div class="flex items-center justify-between p-4">
         <div class="flex items-center space-x-3">
@@ -69,7 +156,7 @@ label: Preview
         </div>
         <UButton 
           icon="i-heroicons-ellipsis-horizontal" 
-          color="gray" 
+          color="neutral" 
           variant="ghost" 
           size="xs"
         />
@@ -103,7 +190,7 @@ label: Preview
       <div class="flex justify-between p-4 border-t border-slate-700/50">
         <UButton 
           icon="i-heroicons-heart" 
-          color="gray" 
+          color="neutral" 
           variant="ghost" 
           size="sm"
           class="flex-1 mr-1"
@@ -112,7 +199,7 @@ label: Preview
         </UButton>
         <UButton 
           icon="i-heroicons-chat-bubble-left-right" 
-          color="gray" 
+          color="neutral" 
           variant="ghost" 
           size="sm"
           class="flex-1 mx-1"
@@ -121,7 +208,7 @@ label: Preview
         </UButton>
         <UButton 
           icon="i-heroicons-arrow-up-tray" 
-          color="gray" 
+          color="neutral" 
           variant="ghost" 
           size="sm"
           class="flex-1 ml-1"
@@ -135,4 +222,50 @@ label: Preview
 ```
 ::
 
-## Features
+### Custom Background Effects
+
+::code-preview
+---
+label: Preview
+---
+  :::div{class="flex justify-center w-full h-full"}
+    <component-example name="glare-card-background-effects" />
+  :::
+#code
+```vue
+<template>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- Glare Card with custom rainbow colors -->
+    <MGlareCard 
+      class="h-64"
+      glare-color="rgba(239,68,68,0.8)"
+      glare-color-inner="rgba(239,68,68,0.65)"
+      glare-color-outer="rgba(239,68,68,0)"
+      :rainbow-colors="['#ef4444', '#f97316', '#eab308', '#22c55e', '#3b82f6', '#8b5cf6', '#ec4899']"
+    >
+      <div class="flex flex-col items-center justify-center h-full space-y-4">
+        <h3 class="text-xl font-bold text-white">Custom Rainbow Effect</h3>
+        <p class="text-slate-400 text-center">
+          Custom rainbow colors with red glare
+        </p>
+      </div>
+    </MGlareCard>
+    
+    <!-- Glare Card with default rainbow -->
+    <MGlareCard 
+      class="h-64"
+      glare-color="rgba(59,130,246,0.8)"
+      glare-color-inner="rgba(59,130,246,0.65)"
+      glare-color-outer="rgba(59,130,246,0)"
+    >
+      <div class="flex flex-col items-center justify-center h-full space-y-4">
+        <h3 class="text-xl font-bold text-white">Default Rainbow</h3>
+        <p class="text-slate-400 text-center">
+          Default rainbow effect with blue glare
+        </p>
+      </div>
+    </MGlareCard>
+  </div>
+</template>
+```
+::

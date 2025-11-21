@@ -1,4 +1,59 @@
 title: Blocks
 description: Collection of reusable UI components and blocks.
 navigation:
-  icon: false
+  icon: i-lucide-layout-grid
+  items:
+    - title: 'Hero Sections'
+      items:
+        - title: 'Gradient Hero'
+          to: '/blocks/hero-sections/gradient-hero'
+        - title: 'Animated Background Hero'
+          to: '/blocks/hero-sections/animated-background-hero'
+    - title: 'Navigation'
+      items:
+        - title: 'Modern Navbar'
+          to: '/blocks/navigation/modern-navbar'
+        - title: 'Sticky Header'
+          to: '/blocks/navigation/sticky-header'
+    - title: 'Features'
+      items:
+        - title: 'Feature Grid'
+          to: '/blocks/features/feature-grid'
+        - title: 'Feature Cards'
+          to: '/blocks/features/feature-cards'
+    - title: 'Testimonials'
+      items:
+        - title: 'Testimonial Carousel'
+          to: '/blocks/testimonials/testimonial-carousel'
+        - title: 'Review Cards'
+          to: '/blocks/testimonials/review-cards'
+    - title: 'Pricing'
+      items:
+        - title: 'Pricing Cards'
+          to: '/blocks/pricing/pricing-cards'
+        - title: 'Comparison Table'
+          to: '/blocks/pricing/comparison-table'
+    - title: 'Call to Action'
+      items:
+        - title: 'Centered CTA'
+          to: '/blocks/cta/centered-cta'
+        - title: 'Split CTA'
+          to: '/blocks/cta/split-cta'
+    - title: 'Footers'
+      items:
+        - title: 'Simple Footer'
+          to: '/blocks/footers/simple-footer'
+        - title: 'Multi-column Footer'
+          to: '/blocks/footers/multi-column-footer'
+    - title: 'Featured Components'
+      items:
+        - title: 'Animated Spotlight'
+          to: '/blocks/featured-components/animated-spotlight'
+        - title: 'Animated Gradient'
+          to: '/blocks/featured-components/animated-gradient'
+        - title: 'Ripple Effect'
+          to: '/blocks/featured-components/ripple-effect'
+    - title: 'Complete Examples'
+      items:
+        - title: 'Landing Page'
+          to: '/blocks/complete-landing-page'
