@@ -1,5 +1,5 @@
 <template>
- <UPopover
+  <UPopover
     v-model:open="isOpen"
     :mode="mode"
     :content="contentProps"
@@ -25,8 +25,11 @@
         <slot />
       </motion.div>
     </template>
-    
-    <template v-if="$slots.content" #content>
+
+    <template
+      v-if="$slots.content"
+      #content
+    >
       <!-- Origin-aware animation for the content -->
       <div :class="contentClasses">
         <AnimatePresence>
@@ -39,7 +42,7 @@
             :transition="contentTransition"
             class="will-change-transform"
             :style="{
-              transformOrigin: 'var(--reka-popover-content-transform-origin, center)'
+              transformOrigin: 'var(--reka-popover-content-transform-origin, center)',
             }"
           >
             <slot name="content" />
@@ -47,8 +50,11 @@
         </AnimatePresence>
       </div>
     </template>
-    
-    <template v-if="$slots.anchor" #anchor>
+
+    <template
+      v-if="$slots.anchor"
+      #anchor
+    >
       <slot name="anchor" />
     </template>
   </UPopover>
@@ -64,7 +70,6 @@ interface Variants {
   animate?: Variant
   exit?: Variant
 }
-
 
 interface Props {
   mode?: 'click' | 'hover'
@@ -96,7 +101,7 @@ const props = withDefaults(defineProps<Props>(), {
   portal: true,
   scale: 0.95,
   variants: () => ({}),
-  transition: () => ({})
+  transition: () => ({}),
 })
 
 const emit = defineEmits<{
@@ -123,7 +128,7 @@ const defaultTriggerVariants = computed(() => {
   return {
     initial: { scale: props.scale },
     animate: { scale: isOpen.value ? 1 : props.scale },
-    exit: { scale: props.scale }
+    exit: { scale: props.scale },
   }
 })
 
@@ -131,7 +136,7 @@ const defaultContentVariants = computed(() => {
   return {
     initial: { opacity: 0, scale: 0.95 },
     animate: { opacity: 1, scale: 1 },
-    exit: { opacity: 0, scale: 0.95 }
+    exit: { opacity: 0, scale: 0.95 },
   }
 })
 
@@ -140,7 +145,7 @@ const triggerVariants = computed(() => {
   return {
     initial: { ...(props.variants?.initial || {}), ...defaultTriggerVariants.value.initial },
     animate: { ...(props.variants?.animate || {}), ...defaultTriggerVariants.value.animate },
-    exit: { ...(props.variants?.exit || {}), ...defaultTriggerVariants.value.exit }
+    exit: { ...(props.variants?.exit || {}), ...defaultTriggerVariants.value.exit },
   }
 })
 
@@ -148,7 +153,7 @@ const contentVariants = computed(() => {
   return {
     initial: { ...(props.variants?.initial || {}), ...defaultContentVariants.value.initial },
     animate: { ...(props.variants?.animate || {}), ...defaultContentVariants.value.animate },
-    exit: { ...(props.variants?.exit || {}), ...defaultContentVariants.value.exit }
+    exit: { ...(props.variants?.exit || {}), ...defaultContentVariants.value.exit },
   }
 })
 
@@ -156,27 +161,27 @@ const contentVariants = computed(() => {
 const defaultTriggerTransition = {
   type: 'spring' as const,
   bounce: 0.1,
-  duration: 0.3
+  duration: 0.3,
 }
 
 const defaultContentTransition = {
   type: 'spring' as const,
   bounce: 0.1,
-  duration: 0.4
+  duration: 0.4,
 }
 
 // Computed transitions with fallback to defaults
 const triggerTransition = computed(() => {
   return {
     ...defaultTriggerTransition,
-    ...props.transition
+    ...props.transition,
   }
 })
 
 const contentTransition = computed(() => {
   return {
     ...defaultContentTransition,
-    ...props.transition
+    ...props.transition,
   }
 })
 
@@ -187,7 +192,7 @@ const contentClasses = computed(() => {
     'outline-none focus:outline-none',
     'border-default',
     'bg-default',
-    'text-default'
+    'text-default',
   ].join(' ')
 })
 
@@ -196,7 +201,7 @@ const contentProps = computed(() => {
     side: 'bottom',
     sideOffset: 8,
     collisionPadding: 8,
-    ...props.content
+    ...props.content,
   }
 })
 </script>

@@ -392,33 +392,33 @@ const features = [
   {
     title: 'Beautiful Animations',
     description: 'Pre-built animations that bring your interface to life with smooth transitions and effects.',
-    icon: 'i-heroicons-sparkles'
+    icon: 'i-heroicons-sparkles',
   },
   {
     title: 'Easy to Customize',
     description: 'Fully customizable components that adapt to your brand and design requirements.',
-    icon: 'i-heroicons-adjustments-horizontal'
+    icon: 'i-heroicons-adjustments-horizontal',
   },
   {
     title: 'Nuxt UI Integration',
     description: 'Seamlessly integrates with Nuxt UI for a consistent design system.',
-    icon: 'i-simple-icons-nuxtdotjs'
+    icon: 'i-simple-icons-nuxtdotjs',
   },
   {
     title: 'Performance Optimized',
     description: 'Lightweight components that won\'t slow down your application.',
-    icon: 'i-heroicons-bolt'
+    icon: 'i-heroicons-bolt',
   },
   {
     title: 'Responsive Design',
     description: 'Looks great on all devices from mobile to desktop.',
-    icon: 'i-heroicons-device-phone-mobile'
+    icon: 'i-heroicons-device-phone-mobile',
   },
   {
     title: 'Developer Friendly',
     description: 'Well-documented components with clear examples and TypeScript support.',
-    icon: 'i-heroicons-code-bracket'
-  }
+    icon: 'i-heroicons-code-bracket',
+  },
 ]
 
 const testimonials = [
@@ -427,34 +427,34 @@ const testimonials = [
     author: {
       name: 'Alex Johnson',
       role: 'Frontend Developer',
-      avatar: 'https://picsum.photos/seed/alex/100/100'
+      avatar: 'https://picsum.photos/seed/alex/100/100',
     },
-    rating: 5
+    rating: 5,
   },
   {
     content: 'As a designer, I appreciate how these components balance aesthetics with functionality. They\'ve saved us countless hours of development time.',
     author: {
       name: 'Sarah Williams',
       role: 'UI/UX Designer',
-      avatar: 'https://picsum.photos/seed/sarah/100/100'
+      avatar: 'https://picsum.photos/seed/sarah/100/100',
     },
-    rating: 5
+    rating: 5,
   },
   {
     content: 'The documentation is excellent and the components are easy to integrate into our existing Nuxt projects. Highly recommended!',
     author: {
       name: 'Michael Chen',
       role: 'Tech Lead',
-      avatar: 'https://picsum.photos/seed/michael/100/100'
+      avatar: 'https://picsum.photos/seed/michael/100/100',
     },
-    rating: 4
-  }
+    rating: 4,
+  },
 ]
 
 const socialLinks = [
   { label: 'Twitter', to: '#', icon: 'i-simple-icons-x' },
   { label: 'GitHub', to: '#', icon: 'i-simple-icons-github' },
-  { label: 'LinkedIn', to: '#', icon: 'i-simple-icons-linkedin' }
+  { label: 'LinkedIn', to: '#', icon: 'i-simple-icons-linkedin' },
 ]
 
 const linkColumns = [
@@ -464,8 +464,8 @@ const linkColumns = [
       { label: 'Components', to: '#' },
       { label: 'Templates', to: '#' },
       { label: 'Pricing', to: '#' },
-      { label: 'Changelog', to: '#' }
-    ]
+      { label: 'Changelog', to: '#' },
+    ],
   },
   {
     title: 'Resources',
@@ -473,8 +473,8 @@ const linkColumns = [
       { label: 'Documentation', to: '#' },
       { label: 'Tutorials', to: '#' },
       { label: 'Blog', to: '#' },
-      { label: 'Support', to: '#' }
-    ]
+      { label: 'Support', to: '#' },
+    ],
   },
   {
     title: 'Company',
@@ -482,15 +482,15 @@ const linkColumns = [
       { label: 'About', to: '#' },
       { label: 'Careers', to: '#' },
       { label: 'Contact', to: '#' },
-      { label: 'Partners', to: '#' }
-    ]
-  }
+      { label: 'Partners', to: '#' },
+    ],
+  },
 ]
 
 const navigationItems = [
   {
     label: 'Home',
-    to: '#'
+    to: '#',
   },
   {
     label: 'Products',
@@ -498,18 +498,18 @@ const navigationItems = [
       {
         label: 'Web Components',
         description: 'Beautiful UI components with animations',
-        to: '#'
+        to: '#',
       },
       {
         label: 'Templates',
         description: 'Pre-built website templates',
-        to: '#'
-      }
-    ]
+        to: '#',
+      },
+    ],
   },
   {
     label: 'Pricing',
-    to: '#'
-  }
+    to: '#',
+  },
 ]
 </script>

@@ -1,32 +1,58 @@
 <template>
   <div class="p-4 space-y-4 max-w-xs">
     <div class="text-center">
-      <div class="text-sm text-gray-500 mb-1">Live Counter</div>
+      <div class="text-sm text-gray-500 mb-1">
+        Live Counter
+      </div>
       <div class="text-2xl font-bold text-blue-600">
         <MAnimatedNumber :value="count" />
       </div>
     </div>
-    
+
     <!-- Auto Toggle -->
     <div class="flex items-center justify-between bg-gray-100 dark:bg-gray-800 p-2 rounded">
       <span class="text-sm">Auto Update:</span>
-      <UToggle 
-        v-model="isAutoUpdating" 
+      <UToggle
+        v-model="isAutoUpdating"
         @update:model-value="toggleTimer"
       />
     </div>
-    
+
     <!-- Manual Controls -->
     <div class="grid grid-cols-2 gap-2">
-      <UButton @click="increment(10)" size="xs">+10</UButton>
-      <UButton @click="increment(50)" size="xs" variant="outline">+50</UButton>
-      <UButton @click="increment(100)" size="xs" color="green">+100</UButton>
-      <UButton @click="reset" size="xs" color="red" variant="outline">Reset</UButton>
+      <UButton
+        size="xs"
+        @click="increment(10)"
+      >
+        +10
+      </UButton>
+      <UButton
+        size="xs"
+        variant="outline"
+        @click="increment(50)"
+      >
+        +50
+      </UButton>
+      <UButton
+        size="xs"
+        color="green"
+        @click="increment(100)"
+      >
+        +100
+      </UButton>
+      <UButton
+        size="xs"
+        color="red"
+        variant="outline"
+        @click="reset"
+      >
+        Reset
+      </UButton>
     </div>
-    
+
     <!-- Status -->
     <div class="text-center text-xs text-gray-500">
-      Status: 
+      Status:
       <span :class="isAutoUpdating ? 'text-green-600' : 'text-red-600'">
         {{ isAutoUpdating ? 'Running' : 'Paused' }}
       </span>
@@ -59,7 +85,8 @@ const stopTimer = () => {
 const toggleTimer = (enabled) => {
   if (enabled) {
     startTimer()
-  } else {
+  }
+  else {
     stopTimer()
   }
 }

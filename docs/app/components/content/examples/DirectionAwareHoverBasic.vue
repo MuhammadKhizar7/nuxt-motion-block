@@ -3,17 +3,22 @@
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-12">
         <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 dark:bg-blue-900/30 rounded-full mb-4">
-          <UIcon name="i-lucide-image" class="w-5 h-5 text-blue-600 dark:text-blue-400" />
+          <UIcon
+            name="i-lucide-image"
+            class="w-5 h-5 text-blue-600 dark:text-blue-400"
+          />
           <span class="text-blue-700 dark:text-blue-300 font-medium">Creative Portfolio</span>
         </div>
-        <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Featured Projects</h2>
+        <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          Featured Projects
+        </h2>
         <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
           Explore our portfolio of creative work and innovative solutions that showcase our expertise and vision
         </p>
       </div>
-      
+
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-        <MDirectionAwareHover 
+        <MDirectionAwareHover
           v-for="(project, index) in projects"
           :key="index"
           :image-url="project.image"
@@ -23,58 +28,80 @@
             <div class="space-y-4 p-6">
               <div class="flex items-center gap-2 mb-2">
                 <div class="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center">
-                  <UIcon :name="project.icon" class="w-4 h-4 text-white" />
+                  <UIcon
+                    :name="project.icon"
+                    class="w-4 h-4 text-white"
+                  />
                 </div>
-                <UBadge :color="project.categoryColor" variant="solid" size="xs">
+                <UBadge
+                  :color="project.categoryColor"
+                  variant="solid"
+                  size="xs"
+                >
                   {{ project.category }}
                 </UBadge>
               </div>
-              <h3 class="text-2xl font-bold text-white">{{ project.title }}</h3>
-              <p class="text-white/90">{{ project.description }}</p>
+              <h3 class="text-2xl font-bold text-white">
+                {{ project.title }}
+              </h3>
+              <p class="text-white/90">
+                {{ project.description }}
+              </p>
               <div class="flex flex-wrap gap-2 mt-4">
-                <div 
-                  v-for="tag in project.tags" 
-                  :key="tag" 
+                <div
+                  v-for="tag in project.tags"
+                  :key="tag"
                   class="px-2 py-1 bg-white/20 rounded text-xs text-white"
                 >
                   {{ tag }}
                 </div>
               </div>
               <div class="flex gap-3 mt-6">
-                <UButton 
-                  color="primary" 
-                  variant="solid" 
-                  size="sm" 
+                <UButton
+                  color="primary"
+                  variant="solid"
+                  size="sm"
                   @click="viewProject(project)"
                 >
                   View Project
                 </UButton>
-                <UButton 
-                  color="primary" 
-                  variant="ghost" 
+                <UButton
+                  color="primary"
+                  variant="ghost"
                   size="sm"
                   @click="likeProject(project)"
                 >
-                  <UIcon name="i-lucide-heart" class="w-4 h-4" />
+                  <UIcon
+                    name="i-lucide-heart"
+                    class="w-4 h-4"
+                  />
                 </UButton>
               </div>
             </div>
           </template>
         </MDirectionAwareHover>
       </div>
-      
+
       <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border border-gray-200 dark:border-gray-700">
         <div class="flex flex-col md:flex-row items-center gap-8">
           <div class="flex-1">
-            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Want to see more of our work?</h3>
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+              Want to see more of our work?
+            </h3>
             <p class="text-gray-600 dark:text-gray-400 mb-6">
               Browse our complete portfolio to discover how we've helped businesses transform their digital presence.
             </p>
             <div class="flex flex-wrap gap-4">
-              <UButton size="lg" color="primary">
+              <UButton
+                size="lg"
+                color="primary"
+              >
                 View Full Portfolio
               </UButton>
-              <UButton size="lg" variant="outline">
+              <UButton
+                size="lg"
+                variant="outline"
+              >
                 Contact Us
               </UButton>
             </div>
@@ -82,44 +109,44 @@
           <div class="flex-1">
             <div class="grid grid-cols-3 gap-4">
               <div class="aspect-square rounded-xl overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
-                  alt="Project" 
+                <img
+                  src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+                  alt="Project"
                   class="w-full h-full object-cover"
                 >
               </div>
               <div class="aspect-square rounded-xl overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
-                  alt="Project" 
+                <img
+                  src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+                  alt="Project"
                   class="w-full h-full object-cover"
                 >
               </div>
               <div class="aspect-square rounded-xl overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1433086966358-54859d0ed716?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
-                  alt="Project" 
+                <img
+                  src="https://images.unsplash.com/photo-1433086966358-54859d0ed716?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+                  alt="Project"
                   class="w-full h-full object-cover"
                 >
               </div>
               <div class="aspect-square rounded-xl overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
-                  alt="Project" 
+                <img
+                  src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+                  alt="Project"
                   class="w-full h-full object-cover"
                 >
               </div>
               <div class="aspect-square rounded-xl overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
-                  alt="Project" 
+                <img
+                  src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+                  alt="Project"
                   class="w-full h-full object-cover"
                 >
               </div>
               <div class="aspect-square rounded-xl overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1433086966358-54859d0ed716?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
-                  alt="Project" 
+                <img
+                  src="https://images.unsplash.com/photo-1433086966358-54859d0ed716?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+                  alt="Project"
                   class="w-full h-full object-cover"
                 >
               </div>
@@ -140,7 +167,7 @@ const projects = [
     icon: 'i-lucide-mountain',
     category: 'Nature',
     categoryColor: 'green',
-    tags: ['Photography', 'Landscape', 'Outdoor']
+    tags: ['Photography', 'Landscape', 'Outdoor'],
   },
   {
     title: 'Alpine Adventure',
@@ -149,7 +176,7 @@ const projects = [
     icon: 'i-lucide-zap',
     category: 'Adventure',
     categoryColor: 'blue',
-    tags: ['Climbing', 'Alps', 'Extreme']
+    tags: ['Climbing', 'Alps', 'Extreme'],
   },
   {
     title: 'Forest Exploration',
@@ -158,7 +185,7 @@ const projects = [
     icon: 'i-lucide-tree-pine',
     category: 'Wildlife',
     categoryColor: 'emerald',
-    tags: ['Nature', 'Wildlife', 'Exploration']
+    tags: ['Nature', 'Wildlife', 'Exploration'],
   },
   {
     title: 'Urban Architecture',
@@ -167,7 +194,7 @@ const projects = [
     icon: 'i-lucide-building',
     category: 'Architecture',
     categoryColor: 'purple',
-    tags: ['City', 'Modern', 'Design']
+    tags: ['City', 'Modern', 'Design'],
   },
   {
     title: 'Ocean Waves',
@@ -176,7 +203,7 @@ const projects = [
     icon: 'i-lucide-waves',
     category: 'Seascape',
     categoryColor: 'cyan',
-    tags: ['Ocean', 'Coastal', 'Water']
+    tags: ['Ocean', 'Coastal', 'Water'],
   },
   {
     title: 'Desert Dunes',
@@ -185,8 +212,8 @@ const projects = [
     icon: 'i-lucide-sun',
     category: 'Desert',
     categoryColor: 'orange',
-    tags: ['Sand', 'Dunes', 'Sunset']
-  }
+    tags: ['Sand', 'Dunes', 'Sunset'],
+  },
 ]
 
 const viewProject = (project) => {

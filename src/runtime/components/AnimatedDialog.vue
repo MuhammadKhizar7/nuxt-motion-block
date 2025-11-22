@@ -20,6 +20,7 @@
       <slot />
     </template>
 
+    <!--  eslint-disable-next-line vue/no-template-shadow -->
     <template #content="{ close }">
       <div :class="contentClasses">
         <AnimatePresence>
@@ -33,9 +34,9 @@
             class="will-change-transform"
           >
             <!-- Custom header slot -->
-            <slot 
-              v-if="$slots.header" 
-              name="header" 
+            <slot
+              v-if="$slots.header"
+              name="header"
               :close="close"
             />
 
@@ -45,24 +46,42 @@
             </div>
 
             <!-- Footer -->
-            <div v-if="$slots.footer" :class="footerClasses">
-              <slot name="footer" :close="close" />
+            <div
+              v-if="$slots.footer"
+              :class="footerClasses"
+            >
+              <slot
+                name="footer"
+                :close="close"
+              />
             </div>
           </motion.div>
         </AnimatePresence>
       </div>
     </template>
 
-    <template v-if="$slots.title" #title>
+    <template
+      v-if="$slots.title"
+      #title
+    >
       <slot name="title" />
     </template>
 
-    <template v-if="$slots.description" #description>
+    <template
+      v-if="$slots.description"
+      #description
+    >
       <slot name="description" />
     </template>
 
-    <template v-if="$slots.close" #close="{ ui: closeUi }">
-      <slot name="close" :ui="closeUi" />
+    <template
+      v-if="$slots.close"
+      #close="{ ui: closeUi }"
+    >
+      <slot
+        name="close"
+        :ui="closeUi"
+      />
     </template>
   </UModal>
 </template>
@@ -71,6 +90,7 @@
 import { ref, computed, watch } from 'vue'
 import { motion, AnimatePresence } from 'motion-v'
 import type { Variant, Transition } from 'motion-v'
+// @ts-ignore
 import type { ButtonProps } from '#ui/types'
 
 interface Variants {
@@ -96,7 +116,7 @@ interface Props {
   open?: boolean
   defaultOpen?: boolean
   modal?: boolean
-  
+
   // Animation props
   scale?: number
   variants?: Variants
@@ -115,7 +135,7 @@ const props = withDefaults(defineProps<Props>(), {
   modal: true,
   scale: 0.95,
   variants: () => ({}),
-  transitionOptions: () => ({})
+  transitionOptions: () => ({}),
 })
 
 const emit = defineEmits<{
@@ -142,7 +162,7 @@ const defaultContentVariants = computed(() => {
   return {
     initial: { opacity: 0, scale: props.scale },
     animate: { opacity: 1, scale: 1 },
-    exit: { opacity: 0, scale: props.scale }
+    exit: { opacity: 0, scale: props.scale },
   }
 })
 
@@ -151,7 +171,7 @@ const contentVariants = computed(() => {
   return {
     initial: { ...(props.variants?.initial || {}), ...defaultContentVariants.value.initial },
     animate: { ...(props.variants?.animate || {}), ...defaultContentVariants.value.animate },
-    exit: { ...(props.variants?.exit || {}), ...defaultContentVariants.value.exit }
+    exit: { ...(props.variants?.exit || {}), ...defaultContentVariants.value.exit },
   }
 })
 
@@ -159,14 +179,14 @@ const contentVariants = computed(() => {
 const defaultTransition = {
   type: 'spring' as const,
   bounce: 0.1,
-  duration: 0.4
+  duration: 0.4,
 }
 
 // Computed transition with fallback to defaults
 const contentTransition = computed(() => {
   return {
     ...defaultTransition,
-    ...props.transitionOptions
+    ...props.transitionOptions,
   }
 })
 
@@ -178,26 +198,26 @@ const contentClasses = computed(() => {
     'outline-none focus:outline-none',
     'border-default',
     'bg-default',
-    'text-default'
+    'text-default',
   ].join(' ')
 })
 
 const bodyClasses = computed(() => {
   return [
-    'flex-1 p-4 sm:p-6'
+    'flex-1 p-4 sm:p-6',
   ].join(' ')
 })
 
 const footerClasses = computed(() => {
   return [
     'flex items-center gap-1.5 p-4 sm:px-6',
-    'border-t border-default'
+    'border-t border-default',
   ].join(' ')
 })
 
 const contentProps = computed(() => {
   return {
-    ...props.content
+    ...props.content,
   }
 })
 </script>

@@ -1,6 +1,6 @@
 <template>
   <section class="relative py-20 min-h-[400px]">
-    <MBackgroundGradientAnimation 
+    <MBackgroundGradientAnimation
       gradient-background-start="rgb(106, 182, 245)"
       gradient-background-end="rgb(139, 92, 246)"
       first-color="106, 182, 245"
@@ -13,7 +13,7 @@
       class="h-full w-full blur-md"
       container-class="absolute inset-0 z-0"
     />
-    
+
     <div class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <MAnimatedGroup
         preset="slide"

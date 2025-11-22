@@ -4,8 +4,8 @@
     background-class="bg-emerald-500 rounded-lg shadow-lg -z-1"
   >
     <!-- Using NavigationMenu with custom slot to add data-id attributes -->
-    <UNavigationMenu 
-      :items="navbarItems" 
+    <UNavigationMenu
+      :items="navbarItems"
       class="flex space-x-3 bg-transparent"
     >
       <template #item="{ item }">
@@ -26,17 +26,17 @@ const navbarItems = [
   {
     label: 'Navigation 1',
     to: '#',
-    id: 'nav1'
+    id: 'nav1',
   },
   {
     label: 'Navigation 2',
     to: '#',
-    id: 'nav2'
+    id: 'nav2',
   },
   {
     label: 'Navigation 3',
     to: '#',
-    id: 'nav3'
-  }
+    id: 'nav3',
+  },
 ]
 </script>

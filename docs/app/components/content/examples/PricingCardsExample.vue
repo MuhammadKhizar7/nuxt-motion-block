@@ -3,7 +3,10 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <div class="inline-flex items-center gap-2 mb-4 px-4 py-2 rounded-full text-sm font-medium bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300">
-          <UIcon name="i-heroicons-credit-card" class="w-4 h-4" />
+          <UIcon
+            name="i-heroicons-credit-card"
+            class="w-4 h-4"
+          />
           Pricing
         </div>
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -24,7 +27,10 @@
           class="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 relative"
           :class="{ 'ring-2 ring-primary-500 border-primary-500': plan.popular }"
         >
-          <div v-if="plan.popular" class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <div
+            v-if="plan.popular"
+            class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+          >
             <span class="bg-primary-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
               Most Popular
             </span>
@@ -46,12 +52,15 @@
             </div>
           </div>
           <ul class="space-y-3 mb-8">
-            <li 
-              v-for="(feature, featureIndex) in plan.features" 
+            <li
+              v-for="(feature, featureIndex) in plan.features"
               :key="featureIndex"
               class="flex items-center"
             >
-              <UIcon name="i-heroicons-check-circle-solid" class="w-5 h-5 text-green-500 mr-2" />
+              <UIcon
+                name="i-heroicons-check-circle-solid"
+                class="w-5 h-5 text-green-500 mr-2"
+              />
               <span class="text-gray-700 dark:text-gray-300">
                 {{ feature }}
               </span>
@@ -85,12 +94,12 @@ const plans = [
       'Up to 5 projects',
       'Basic components',
       'Email support',
-      '1GB storage'
+      '1GB storage',
     ],
     cta: {
       label: 'Get Started',
-      to: '#'
-    }
+      to: '#',
+    },
   },
   {
     name: 'Professional',
@@ -103,13 +112,13 @@ const plans = [
       'Priority support',
       '10GB storage',
       'Advanced animations',
-      'Custom branding'
+      'Custom branding',
     ],
     cta: {
       label: 'Try for free',
-      to: '#'
+      to: '#',
     },
-    popular: true
+    popular: true,
   },
   {
     name: 'Enterprise',
@@ -124,12 +133,12 @@ const plans = [
       'Advanced animations',
       'Custom branding',
       'Team management',
-      'API access'
+      'API access',
     ],
     cta: {
       label: 'Contact sales',
-      to: '#'
-    }
-  }
+      to: '#',
+    },
+  },
 ]
 </script>

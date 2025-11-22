@@ -68,27 +68,27 @@ const testimonials = [
     author: {
       name: 'Alex Johnson',
       role: 'Frontend Developer',
-      avatar: 'https://picsum.photos/seed/alex/100/100'
+      avatar: 'https://picsum.photos/seed/alex/100/100',
     },
-    rating: 5
+    rating: 5,
   },
   {
     content: 'As a designer, I appreciate how these components balance aesthetics with functionality. They\'ve saved us countless hours of development time.',
     author: {
       name: 'Sarah Williams',
       role: 'UI/UX Designer',
-      avatar: 'https://picsum.photos/seed/sarah/100/100'
+      avatar: 'https://picsum.photos/seed/sarah/100/100',
     },
-    rating: 5
+    rating: 5,
   },
   {
     content: 'The documentation is excellent and the components are easy to integrate into our existing Nuxt projects. Highly recommended!',
     author: {
       name: 'Michael Chen',
       role: 'Tech Lead',
-      avatar: 'https://picsum.photos/seed/michael/100/100'
+      avatar: 'https://picsum.photos/seed/michael/100/100',
     },
-    rating: 4
-  }
+    rating: 4,
+  },
 ]
 </script>

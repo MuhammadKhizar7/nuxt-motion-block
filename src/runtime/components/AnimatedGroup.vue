@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent, h, useSlots, computed, type PropType, type VNode, Comment, Text, Fragment } from 'vue'
 import { Motion } from 'motion-v'
-import type { Variant, Transition } from 'motion-v'
+import type { Variant } from 'motion-v'
 
 // Defines a type for a variants object that holds multiple animation states.
 type Variants = Record<string, Variant>
@@ -140,12 +140,12 @@ export default defineComponent({
     const containerVariants = computed(() => {
       const baseVariants = props.variants?.container || defaultContainerVariants
       // Ensure both hidden and visible states exist with proper stagger in transition
-      
+
       // Properly merge transition properties to preserve existing transitions while adding stagger
-      const baseTransition: any = (baseVariants.visible && typeof baseVariants.visible === 'object' && (baseVariants.visible as any).transition) 
-        ? (baseVariants.visible as any).transition 
+      const baseTransition: any = (baseVariants.visible && typeof baseVariants.visible === 'object' && (baseVariants.visible as any).transition)
+        ? (baseVariants.visible as any).transition
         : {}
-        
+
       const result: Variants = {
         // Always include hidden state
         hidden: baseVariants.hidden || {},
@@ -155,10 +155,10 @@ export default defineComponent({
             ...baseTransition,
             staggerChildren: props.staggerChildren,
             staggerDirection: props.staggerDirection,
-          }
+          },
         },
       }
-      
+
       return result
     })
 
@@ -168,25 +168,6 @@ export default defineComponent({
       const preset = props.preset ? presetVariants[props.preset] : undefined
       return preset ? addDefaultVariants(preset) : defaultItemVariants
     })
-
-    function getValidChildren(nodes: VNode[]): VNode[] {
-      const validNodes: VNode[] = []
-      for (const node of nodes) {
-        if (node.type === Comment) {
-          continue
-        }
-        if (node.type === Text && (node.children as string).trim() === '') {
-          continue
-        }
-        if (node.type === Fragment) {
-          validNodes.push(...getValidChildren(node.children as VNode[]))
-        }
-        else {
-          validNodes.push(node)
-        }
-      }
-      return validNodes
-    }
 
     // Helper function to flatten children and extract only the actual items
     function flattenChildren(nodes: VNode[]): VNode[] {
@@ -199,7 +180,7 @@ export default defineComponent({
         if (node.type === Text && (node.children as string).trim() === '') {
           continue
         }
-        
+
         // If it's a Fragment, flatten its children
         if (node.type === Fragment) {
           flattened.push(...flattenChildren(node.children as VNode[]))
@@ -209,15 +190,16 @@ export default defineComponent({
           // Check if this is a wrapper element (like a div containing multiple items)
           // We'll assume that if a node has multiple children that aren't text/comments,
           // it's a wrapper and we should flatten its children
-          const nonTextChildren = node.children.filter(child => 
-            child && (typeof child !== 'string' || child.trim() !== '')
+          const nonTextChildren = node.children.filter(child =>
+            child && (typeof child !== 'string' || child.trim() !== ''),
           )
-          
+
           // If it has multiple non-text children, it's likely a wrapper
           if (nonTextChildren.length > 1) {
             // Flatten the children directly
             flattened.push(...flattenChildren(node.children as VNode[]))
-          } else {
+          }
+          else {
             // Otherwise, keep the node as is
             flattened.push(node)
           }
@@ -228,11 +210,6 @@ export default defineComponent({
         }
       }
       return flattened
-    }
-
-    // Helper function to safely get variant by key
-    function getVariantByKey(variants: Variants, key: string): Variant | undefined {
-      return variants[key]
     }
 
     return () => {

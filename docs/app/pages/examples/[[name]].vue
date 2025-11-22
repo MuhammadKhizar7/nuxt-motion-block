@@ -25,40 +25,40 @@ const exampleComponent = computed(() => {
   if (!exampleName.value) {
     return null
   }
-  
+
   const componentName = toPascalCase(exampleName.value)
   const path = `../../components/content/examples/${componentName}.vue`
-  
+
   const componentLoader = examples[path] as AsyncComponentLoader<any> | undefined
   if (componentLoader) {
     return defineAsyncComponent(componentLoader)
   }
-  
+
   return null
 })
 
 // Set page title
 useHead({
-  title: `${exampleName.value} Example`
+  title: `${exampleName.value} Example`,
 })
 </script>
 
 <template>
   <!-- <UPage> -->
-    <!-- <UPageHeader
+  <!-- <UPageHeader
       :title="exampleName"
       :description="`Example demonstration for ${exampleName}`"
     /> -->
-    
-    <!-- <UPageBody> -->
-      <!-- <div class="flex justify-center w-full"> -->
-        <div class="">
-          <component
-            :is="exampleComponent"
-            v-if="exampleComponent"
-          />
-        </div>
-      <!-- </div> -->
-    <!-- </UPageBody> -->
+
+  <!-- <UPageBody> -->
+  <!-- <div class="flex justify-center w-full"> -->
+  <div class="">
+    <component
+      :is="exampleComponent"
+      v-if="exampleComponent"
+    />
+  </div>
+  <!-- </div> -->
+  <!-- </UPageBody> -->
   <!-- </UPage> -->
 </template>

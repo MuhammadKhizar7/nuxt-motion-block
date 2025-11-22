@@ -26,6 +26,7 @@ interface Props {
   cards: Card[]
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = defineProps<Props>()
 const hoveredIndex = ref<number | null>(null)
 </script>

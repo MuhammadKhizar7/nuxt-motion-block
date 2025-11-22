@@ -59,8 +59,10 @@ const xOff = 0.00125
 const yOff = 0.00125
 const zOff = 0.0005
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const HALF_PI: number = 0.5 * Math.PI
 const TAU: number = 2 * Math.PI
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const TO_RAD: number = Math.PI / 180
 
 let tick = 0

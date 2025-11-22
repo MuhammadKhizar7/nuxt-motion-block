@@ -56,13 +56,13 @@
           </template>
         </MAnimatedDialog>
       </div>
-      
+
       <!-- Custom Variants and Transition -->
       <div class="p-6 border rounded-lg">
         <h2 class="text-xl font-semibold mb-4">
           Custom Variants & Transition
         </h2>
-        <MAnimatedDialog 
+        <MAnimatedDialog
           :variants="customVariants"
           :transition-options="customTransition"
         >
@@ -82,13 +82,13 @@
           </template>
         </MAnimatedDialog>
       </div>
-      
+
       <!-- Rotate Animation -->
       <div class="p-6 border rounded-lg">
         <h2 class="text-xl font-semibold mb-4">
           Rotate Animation
         </h2>
-        <MAnimatedDialog 
+        <MAnimatedDialog
           :variants="rotateVariants"
           :transition-options="{ type: 'spring', stiffness: 200, damping: 15 }"
         >
@@ -108,13 +108,13 @@
           </template>
         </MAnimatedDialog>
       </div>
-      
+
       <!-- With Header and Footer -->
       <div class="p-6 border rounded-lg md:col-span-2">
         <h2 class="text-xl font-semibold mb-4">
           With Header and Footer
         </h2>
-        <MAnimatedDialog 
+        <MAnimatedDialog
           title="Dialog with Header and Footer"
           description="This dialog has custom header and footer slots"
         >
@@ -134,15 +134,15 @@
           </template>
           <template #footer="{ close }">
             <div class="flex gap-2">
-              <UButton 
-                label="Cancel" 
-                color="neutral" 
-                variant="outline" 
+              <UButton
+                label="Cancel"
+                color="neutral"
+                variant="outline"
                 @click="close"
               />
-              <UButton 
-                label="Confirm" 
-                color="primary" 
+              <UButton
+                label="Confirm"
+                color="primary"
                 @click="close"
               />
             </div>
@@ -157,18 +157,18 @@
 const customVariants = {
   initial: { opacity: 0, scale: 0.5, rotate: -15 },
   animate: { opacity: 1, scale: 1, rotate: 0 },
-  exit: { opacity: 0, scale: 0.5, rotate: 15 }
+  exit: { opacity: 0, scale: 0.5, rotate: 15 },
 }
 
 const customTransition = {
   type: 'spring',
   bounce: 0.2,
-  duration: 0.5
+  duration: 0.5,
 }
 
 const rotateVariants = {
   initial: { opacity: 0, scale: 0.8, rotate: -90 },
   animate: { opacity: 1, scale: 1, rotate: 0 },
-  exit: { opacity: 0, scale: 0.8, rotate: 90 }
+  exit: { opacity: 0, scale: 0.8, rotate: 90 },
 }
 </script>

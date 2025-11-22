@@ -10,7 +10,10 @@
         <h2 class="text-xl font-semibold mb-4">
           Click Mode Popover
         </h2>
-        <MMorphingPopover mode="click" :scale="0.95">
+        <MMorphingPopover
+          mode="click"
+          :scale="0.95"
+        >
           <UButton
             label="Open Click Popover"
             color="primary"
@@ -61,13 +64,16 @@
           </template>
         </MMorphingPopover>
       </div>
-      
+
       <!-- Custom Scale -->
       <div class="p-6 border rounded-lg">
         <h2 class="text-xl font-semibold mb-4">
           Custom Scale Animation
         </h2>
-        <MMorphingPopover mode="click" :scale="0.9">
+        <MMorphingPopover
+          mode="click"
+          :scale="0.9"
+        >
           <UButton
             label="Strong Morph"
             color="secondary"
@@ -84,13 +90,13 @@
           </template>
         </MMorphingPopover>
       </div>
-      
+
       <!-- Custom Variants and Transition -->
       <div class="p-6 border rounded-lg">
         <h2 class="text-xl font-semibold mb-4">
           Custom Variants & Transition
         </h2>
-        <MMorphingPopover 
+        <MMorphingPopover
           mode="click"
           :variants="customVariants"
           :transition="customTransition"
@@ -111,13 +117,13 @@
           </template>
         </MMorphingPopover>
       </div>
-      
+
       <!-- Rotate Animation -->
       <div class="p-6 border rounded-lg">
         <h2 class="text-xl font-semibold mb-4">
           Rotate Animation
         </h2>
-        <MMorphingPopover 
+        <MMorphingPopover
           mode="click"
           :variants="rotateVariants"
           :transition="{ type: 'spring', stiffness: 200, damping: 15 }"
@@ -138,14 +144,18 @@
           </template>
         </MMorphingPopover>
       </div>
-      
+
       <!-- Nuxt UI Popover (Control) -->
       <div class="p-6 border rounded-lg">
         <h2 class="text-xl font-semibold mb-4">
           Nuxt UI Popover (Control)
         </h2>
         <UPopover mode="click">
-          <UButton label="Open Control" color="neutral" variant="subtle" />
+          <UButton
+            label="Open Control"
+            color="neutral"
+            variant="subtle"
+          />
           <template #content>
             Control Popover Content
           </template>
@@ -159,18 +169,18 @@
 const customVariants = {
   initial: { opacity: 0, scale: 0.5, rotate: -15 },
   animate: { opacity: 1, scale: 1, rotate: 0 },
-  exit: { opacity: 0, scale: 0.5, rotate: 15 }
+  exit: { opacity: 0, scale: 0.5, rotate: 15 },
 }
 
 const customTransition = {
   type: 'spring',
   bounce: 0.2,
-  duration: 0.5
+  duration: 0.5,
 }
 
 const rotateVariants = {
   initial: { opacity: 0, scale: 0.8, rotate: -90 },
   animate: { opacity: 1, scale: 1, rotate: 0 },
-  exit: { opacity: 0, scale: 0.8, rotate: 90 }
+  exit: { opacity: 0, scale: 0.8, rotate: 90 },
 }
 </script>

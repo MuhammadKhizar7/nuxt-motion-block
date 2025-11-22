@@ -255,7 +255,7 @@ const startAutoPlay = () => {
 
   stopAutoPlay()
   // Only set up interval in the browser, not on the server
-  if (process.client) {
+  if (import.meta.client) {
     autoPlayInterval.value = setInterval(() => {
       const newPosition = (sliderPosition.value + 10) % 100
       motionValue.set(newPosition)

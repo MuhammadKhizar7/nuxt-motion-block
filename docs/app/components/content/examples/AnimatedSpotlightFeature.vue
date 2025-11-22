@@ -3,7 +3,10 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <div class="inline-flex items-center gap-2 mb-4 px-4 py-2 rounded-full text-sm font-medium bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300">
-          <UIcon name="i-heroicons-sparkles" class="w-4 h-4" />
+          <UIcon
+            name="i-heroicons-sparkles"
+            class="w-4 h-4"
+          />
           Featured Component
         </div>
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -31,7 +34,10 @@
             >
               <div class="p-8 text-center">
                 <div class="w-16 h-16 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center mx-auto mb-6">
-                  <UIcon name="i-heroicons-light-bulb" class="w-8 h-8 text-primary-600 dark:text-primary-400" />
+                  <UIcon
+                    name="i-heroicons-light-bulb"
+                    class="w-8 h-8 text-primary-600 dark:text-primary-400"
+                  />
                 </div>
                 <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                   Interactive Demo

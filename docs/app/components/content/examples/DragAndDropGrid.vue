@@ -1,6 +1,8 @@
 <template>
   <div class="p-4 bg-gray-50 dark:bg-gray-900 rounded-lg">
-    <h3 class="text-lg font-bold mb-4 text-gray-900 dark:text-white">Drag and Drop Grid</h3>
+    <h3 class="text-lg font-bold mb-4 text-gray-900 dark:text-white">
+      Drag and Drop Grid
+    </h3>
     <MDragAndDrop
       v-model:items="items"
       layout="grid"
@@ -10,8 +12,12 @@
     >
       <template #default="{ item }">
         <div class="p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 text-center">
-          <div class="font-medium text-gray-900 dark:text-white">{{ item.name }}</div>
-          <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">{{ item.category }}</div>
+          <div class="font-medium text-gray-900 dark:text-white">
+            {{ item.name }}
+          </div>
+          <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">
+            {{ item.category }}
+          </div>
         </div>
       </template>
     </MDragAndDrop>

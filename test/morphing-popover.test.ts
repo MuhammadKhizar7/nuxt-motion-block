@@ -1,6 +1,5 @@
 import { describe, it, expect } from 'vitest'
 import { mount } from '@vue/test-utils'
-import { ref } from 'vue'
 import { MorphingPopover } from '../src/runtime/components/MorphingPopover/MorphingPopoverIndex'
 
 describe('MorphingPopover', () => {
@@ -11,14 +10,14 @@ describe('MorphingPopover', () => {
   it('should have proper default props', () => {
     const wrapper = mount(MorphingPopover, {
       props: {
-        defaultOpen: true
+        defaultOpen: true,
       },
       slots: {
         default: '<button>Trigger</button>',
-        content: '<div>Content</div>'
-      }
+        content: '<div>Content</div>',
+      },
     })
-    
+
     expect(wrapper.props().mode).toBe('click')
     expect(wrapper.props().dismissible).toBe(true)
   })
@@ -27,19 +26,19 @@ describe('MorphingPopover', () => {
     const customVariants = {
       initial: { opacity: 0, scale: 0.5 },
       animate: { opacity: 1, scale: 1 },
-      exit: { opacity: 0, scale: 0.5 }
+      exit: { opacity: 0, scale: 0.5 },
     }
 
     const wrapper = mount(MorphingPopover, {
       props: {
-        variants: customVariants
+        variants: customVariants,
       },
       slots: {
         default: '<button>Trigger</button>',
-        content: '<div>Content</div>'
-      }
+        content: '<div>Content</div>',
+      },
     })
-    
+
     expect(wrapper.props().variants).toEqual(customVariants)
   })
 })

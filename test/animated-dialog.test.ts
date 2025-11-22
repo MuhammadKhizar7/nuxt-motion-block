@@ -1,6 +1,5 @@
 import { describe, it, expect } from 'vitest'
 import { mount } from '@vue/test-utils'
-import { ref } from 'vue'
 import AnimatedDialog from '../src/runtime/components/AnimatedDialog.vue'
 
 describe('AnimatedDialog', () => {
@@ -11,14 +10,14 @@ describe('AnimatedDialog', () => {
   it('should have proper default props', () => {
     const wrapper = mount(AnimatedDialog, {
       props: {
-        defaultOpen: true
+        defaultOpen: true,
       },
       slots: {
         default: '<button>Trigger</button>',
-        body: '<div>Content</div>'
-      }
+        body: '<div>Content</div>',
+      },
     })
-    
+
     expect(wrapper.props().overlay).toBe(true)
     expect(wrapper.props().dismissible).toBe(true)
     expect(wrapper.props().modal).toBe(true)
@@ -28,19 +27,19 @@ describe('AnimatedDialog', () => {
     const customVariants = {
       initial: { opacity: 0, scale: 0.5 },
       animate: { opacity: 1, scale: 1 },
-      exit: { opacity: 0, scale: 0.5 }
+      exit: { opacity: 0, scale: 0.5 },
     }
 
     const wrapper = mount(AnimatedDialog, {
       props: {
-        variants: customVariants
+        variants: customVariants,
       },
       slots: {
         default: '<button>Trigger</button>',
-        body: '<div>Content</div>'
-      }
+        body: '<div>Content</div>',
+      },
     })
-    
+
     expect(wrapper.props().variants).toEqual(customVariants)
   })
 
@@ -48,31 +47,31 @@ describe('AnimatedDialog', () => {
     const customTransition = {
       type: 'spring',
       bounce: 0.2,
-      duration: 0.5
+      duration: 0.5,
     }
 
     const wrapper = mount(AnimatedDialog, {
       props: {
-        transitionOptions: customTransition
+        transitionOptions: customTransition,
       },
       slots: {
         default: '<button>Trigger</button>',
-        body: '<div>Content</div>'
-      }
+        body: '<div>Content</div>',
+      },
     })
-    
+
     expect(wrapper.props().transitionOptions).toEqual(customTransition)
   })
 
   it('should emit update:open event when open state changes', async () => {
     const wrapper = mount(AnimatedDialog, {
       props: {
-        open: false
+        open: false,
       },
       slots: {
         default: '<button>Trigger</button>',
-        body: '<div>Content</div>'
-      }
+        body: '<div>Content</div>',
+      },
     })
 
     await wrapper.setProps({ open: true })

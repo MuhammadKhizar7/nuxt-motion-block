@@ -1,9 +1,9 @@
 <template>
-  <MInView 
+  <MInView
     :transition="{ duration: 0.8, ease: 'easeInOut' }"
     :variants="{
       initial: { opacity: 0, y: 20 },
-      animate: { opacity: 1, y: 0 }
+      animate: { opacity: 1, y: 0 },
     }"
   >
     <div class="p-4 bg-primary rounded">

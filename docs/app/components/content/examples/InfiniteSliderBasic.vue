@@ -1,7 +1,9 @@
 <template>
   <div class="p-8 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900 rounded-xl max-w-4xl mx-auto">
     <div class="text-center mb-10">
-      <h3 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">Infinite Slider</h3>
+      <h3 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">
+        Infinite Slider
+      </h3>
       <p class="text-gray-600 dark:text-gray-400 text-lg">
         Seamless continuous scrolling of content elements
       </p>
@@ -14,14 +16,24 @@
         :class="item.bgClass"
       >
         <div class="text-center">
-          <UIcon :name="item.icon" class="w-10 h-10 mx-auto mb-3" />
+          <UIcon
+            :name="item.icon"
+            class="w-10 h-10 mx-auto mb-3"
+          />
           <span class="text-sm font-medium">{{ item.label }}</span>
         </div>
       </div>
     </MInfiniteSlider>
     <div class="mt-10 text-center">
-      <UButton color="primary" variant="solid" size="lg">
-        <UIcon name="i-lucide-play" class="w-5 h-5 mr-2" />
+      <UButton
+        color="primary"
+        variant="solid"
+        size="lg"
+      >
+        <UIcon
+          name="i-lucide-play"
+          class="w-5 h-5 mr-2"
+        />
         Start Scrolling
       </UButton>
     </div>
@@ -39,6 +51,6 @@ const items = [
   { id: 7, label: 'Scale', icon: 'i-lucide-maximize', bgClass: 'bg-gradient-to-br from-cyan-400 to-cyan-600' },
   { id: 8, label: 'Secure', icon: 'i-lucide-shield', bgClass: 'bg-gradient-to-br from-indigo-400 to-indigo-600' },
   { id: 9, label: 'Connect', icon: 'i-lucide-link', bgClass: 'bg-gradient-to-br from-rose-400 to-rose-600' },
-  { id: 10, label: 'Innovate', icon: 'i-lucide-lightbulb', bgClass: 'bg-gradient-to-br from-emerald-400 to-emerald-600' }
+  { id: 10, label: 'Innovate', icon: 'i-lucide-lightbulb', bgClass: 'bg-gradient-to-br from-emerald-400 to-emerald-600' },
 ]
 </script>

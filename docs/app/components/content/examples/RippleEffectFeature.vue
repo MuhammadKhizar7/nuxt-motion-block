@@ -1,17 +1,20 @@
 <template>
   <section class="relative py-20 bg-gray-900 text-white overflow-hidden">
-    <MBackgroundRippleEffect 
+    <MBackgroundRippleEffect
       class="absolute inset-0 z-0"
       :colors="['#93c5fd', '#60a5fa', '#a5b4fc']"
     />
-    
+
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <MAnimatedGroup
         preset="slide"
         :stagger-children="0.1"
       >
         <div class="inline-flex items-center gap-2 mb-4 px-4 py-2 rounded-full text-sm font-medium bg-white/10 backdrop-blur-sm">
-          <UIcon name="i-heroicons-waveform" class="w-4 h-4" />
+          <UIcon
+            name="i-heroicons-waveform"
+            class="w-4 h-4"
+          />
           Featured Effect
         </div>
         <h2 class="text-3xl md:text-4xl font-bold mb-4">

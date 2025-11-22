@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-parsing-error -->
 <template>
   <div
     class="relative"
@@ -106,6 +107,7 @@ const pathVariants = {
 }
 
 // Transition logic becomes a computed function
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const getTransition = (index: number): Transition => {
   const duration = props.svgOptions?.duration || 10
   const delay = Math.floor(Math.random() * 10)

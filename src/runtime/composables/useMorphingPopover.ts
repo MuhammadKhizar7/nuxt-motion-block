@@ -13,7 +13,7 @@ interface UseMorphingPopoverReturn {
 
 /**
  * A composable for managing MorphingPopover state
- * 
+ *
  * @param options - Configuration options
  * @returns Object with popover state and control methods
  */
@@ -36,7 +36,7 @@ export const useMorphingPopover = (options: UseMorphingPopoverOptions = {}): Use
     isOpen,
     open,
     close,
-    toggle
+    toggle,
   }
 }
 

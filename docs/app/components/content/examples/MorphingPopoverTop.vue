@@ -1,16 +1,20 @@
 <template>
   <div class="flex justify-center">
     <MMorphingPopover>
-        <UButton color="secondary">Top Popover</UButton>
-      
+      <UButton color="secondary">
+        Top Popover
+      </UButton>
+
       <template #content>
         <div class="p-4 w-64">
           <div class="flex justify-between items-start mb-2">
-            <h3 class="font-bold text-lg">Top Popover</h3>
-            <UButton 
-              color="neutral" 
-              variant="ghost" 
-              size="xs" 
+            <h3 class="font-bold text-lg">
+              Top Popover
+            </h3>
+            <UButton
+              color="neutral"
+              variant="ghost"
+              size="xs"
               icon="i-lucide-x"
             />
           </div>

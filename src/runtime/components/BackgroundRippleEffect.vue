@@ -35,6 +35,7 @@ interface ClickedCell {
   col: number
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = defineProps({
   rows: {
     type: Number,

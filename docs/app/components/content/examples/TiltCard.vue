@@ -6,7 +6,9 @@
           <span class="text-white text-2xl font-bold">TEAL GRADIENT</span>
         </div>
         <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">Theme-Aligned Tilt</h3>
+          <h3 class="text-xl font-bold mb-2">
+            Theme-Aligned Tilt
+          </h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
             This card uses theme-consistent teal colors with a subtle tilt effect.
           </p>

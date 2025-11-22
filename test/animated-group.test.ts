@@ -8,20 +8,20 @@ describe('AnimatedGroup', () => {
       props: {
         staggerChildren: 0.1,
         as: 'div',
-        asChild: 'div'
+        asChild: 'div',
       },
       slots: {
-        default: '<div>Child 1</div><div>Child 2</div><div>Child 3</div>'
-      }
+        default: '<div>Child 1</div><div>Child 2</div><div>Child 3</div>',
+      },
     })
 
     // Check that the component renders
     expect(wrapper.exists()).toBe(true)
-    
+
     // Check that children are rendered
     const children = wrapper.findAll('div div')
     expect(children.length).toBe(3)
-    
+
     // Check that the staggerChildren prop is set correctly
     expect(wrapper.props().staggerChildren).toBe(0.1)
   })
@@ -32,11 +32,11 @@ describe('AnimatedGroup', () => {
         staggerChildren: 0.1,
         staggerDirection: -1,
         as: 'div',
-        asChild: 'div'
+        asChild: 'div',
       },
       slots: {
-        default: '<div>Child 1</div><div>Child 2</div><div>Child 3</div>'
-      }
+        default: '<div>Child 1</div><div>Child 2</div><div>Child 3</div>',
+      },
     })
 
     // Check that the staggerDirection prop is set correctly

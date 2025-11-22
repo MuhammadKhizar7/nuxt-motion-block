@@ -6,7 +6,7 @@
   >
     <!-- Using UCard with data-id attributes for hover tracking -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <UCard 
+      <UCard
         v-for="(item, index) in ITEMS"
         :key="index"
         :data-id="`card-${index}`"
@@ -22,7 +22,7 @@
         </div>
       </UCard>
     </div>
-    
+
     <!-- Using custom tab implementation with data-id attributes -->
     <div class="mt-6">
       <div class="mt-4 rounded-lg p-1 bg-zinc-100 dark:bg-zinc-800">
@@ -42,7 +42,7 @@
           </UButton>
         </div>
       </div>
-      
+
       <!-- Tab content -->
       <div class="mt-4 p-4 bg-white dark:bg-zinc-700 rounded-md shadow">
         <p>{{ getTabContent() }}</p>
@@ -60,51 +60,51 @@ const ITEMS = [
   {
     id: 1,
     title: 'Dialog',
-    description: 'Enhances modal presentations.'
+    description: 'Enhances modal presentations.',
   },
   {
     id: 2,
     title: 'Popover',
-    description: 'For small interactive overlays.'
+    description: 'For small interactive overlays.',
   },
   {
     id: 3,
     title: 'Accordion',
-    description: 'Collapsible sections for more content.'
+    description: 'Collapsible sections for more content.',
   },
   {
     id: 4,
     title: 'Collapsible',
-    description: 'Collapsible sections for more content.'
+    description: 'Collapsible sections for more content.',
   },
   {
     id: 5,
     title: 'Drag to Reorder',
-    description: 'Reorder items with drag and drop.'
+    description: 'Reorder items with drag and drop.',
   },
   {
     id: 6,
     title: 'Swipe to Delete',
-    description: 'Delete items with swipe gestures.'
-  }
+    description: 'Delete items with swipe gestures.',
+  },
 ]
 
 const tabItems = [
   {
     label: 'Overview',
     content: 'Overview content',
-    id: 'overview'
+    id: 'overview',
   },
   {
     label: 'Settings',
     content: 'Settings content',
-    id: 'settings'
+    id: 'settings',
   },
   {
     label: 'Advanced',
     content: 'Advanced content',
-    id: 'advanced'
-  }
+    id: 'advanced',
+  },
 ]
 
 function getTabContent() {

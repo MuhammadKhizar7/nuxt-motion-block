@@ -19,7 +19,7 @@
         {{ item.label }}
       </UButton>
     </div>
-    
+
     <!-- Tab content -->
     <div class="mt-4 p-4">
       <p>{{ tabItems[activeTab].content }}</p>
@@ -36,17 +36,17 @@ const tabItems = [
   {
     label: 'Tab 1',
     content: 'Content for Tab 1',
-    id: 'tab1'
+    id: 'tab1',
   },
   {
     label: 'Tab 2',
     content: 'Content for Tab 2',
-    id: 'tab2'
+    id: 'tab2',
   },
   {
     label: 'Tab 3',
     content: 'Content for Tab 3',
-    id: 'tab3'
-  }
+    id: 'tab3',
+  },
 ]
 </script>

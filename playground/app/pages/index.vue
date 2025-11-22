@@ -326,57 +326,9 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { motion } from 'motion-v'
 // No script needed for this page
 // Basic demo values
-const basicValue = ref(0)
-const nextBasicValue = ref(1234)
 const refreshKey = ref(0)
-
-function updateBasicValue() {
-  const temp = basicValue.value
-  basicValue.value = nextBasicValue.value
-  nextBasicValue.value = temp === 0 ? 1234 : temp + 567
-}
-
-const sections = [
-  {
-    title: 'Introduction',
-    content: 'This is the first section with a tracing beam that follows your scroll. The beam will animate along the content as you scroll through the page, creating a beautiful visual guide.',
-    button: {
-      icon: 'i-heroicons-information-circle',
-      color: 'blue',
-      text: 'Learn More',
-    },
-  },
-  {
-    title: 'Features',
-    content: 'The tracing beam component provides visual feedback as users scroll through content. It features a gradient line that moves smoothly and a dot that changes color based on scroll position.',
-    button: {
-      icon: 'i-heroicons-sparkles',
-      color: 'green',
-      text: 'View Features',
-    },
-  },
-  {
-    title: 'Implementation',
-    content: 'Built with Vue 3, Nuxt, and motion-v for smooth animations. The component is fully responsive and works seamlessly with dark mode.',
-    button: {
-      icon: 'i-heroicons-code-bracket',
-      color: 'purple',
-      text: 'See Code',
-    },
-  },
-  {
-    title: 'Customization',
-    content: 'Easily customize the colors, sizes, and behavior of the tracing beam to match your design system and user experience requirements.',
-    button: {
-      icon: 'i-heroicons-cog',
-      color: 'orange',
-      text: 'Customize',
-    },
-  },
-]
 
 const imageCards = [
   {

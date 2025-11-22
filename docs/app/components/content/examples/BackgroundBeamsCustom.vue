@@ -7,7 +7,9 @@
       :gradient-colors="['#ff0000', '#ff0000', '#00ff00', '#0000ff']"
     />
     <div class="relative z-10 h-full flex items-center justify-center">
-      <h3 class="text-xl font-bold text-gray-900 dark:text-white">Custom Background Beams</h3>
+      <h3 class="text-xl font-bold text-gray-900 dark:text-white">
+        Custom Background Beams
+      </h3>
     </div>
   </div>
 </template>

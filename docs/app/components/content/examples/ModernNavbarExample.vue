@@ -119,21 +119,21 @@ const navigationItems = [
         label: 'UI Components',
         id: 'ui-components',
         description: 'Beautiful animated components',
-        to: '#'
+        to: '#',
       },
       {
         label: 'Templates',
         id: 'templates',
         description: 'Pre-built website templates',
-        to: '#'
+        to: '#',
       },
       {
         label: 'Icons',
         id: 'icons',
         description: 'Animated icon library',
-        to: '#'
-      }
-    ]
+        to: '#',
+      },
+    ],
   },
   {
     label: 'Solutions',
@@ -143,21 +143,21 @@ const navigationItems = [
         label: 'For Developers',
         id: 'for-developers',
         description: 'Tools and components for developers',
-        to: '#'
+        to: '#',
       },
       {
         label: 'For Designers',
         id: 'for-designers',
         description: 'Design systems and UI kits',
-        to: '#'
+        to: '#',
       },
       {
         label: 'For Teams',
         id: 'for-teams',
         description: 'Collaboration and workflow tools',
-        to: '#'
-      }
-    ]
+        to: '#',
+      },
+    ],
   },
   {
     label: 'Resources',
@@ -166,30 +166,30 @@ const navigationItems = [
       {
         label: 'Documentation',
         id: 'documentation',
-        to: '#'
+        to: '#',
       },
       {
         label: 'Tutorials',
         id: 'tutorials',
-        to: '#'
+        to: '#',
       },
       {
         label: 'Blog',
         id: 'blog',
-        to: '#'
+        to: '#',
       },
       {
         label: 'Community',
         id: 'community',
-        to: '#'
-      }
-    ]
+        to: '#',
+      },
+    ],
   },
   {
     label: 'Pricing',
     id: 'pricing',
-    to: '#'
-  }
+    to: '#',
+  },
 ]
 
 const userMenuItems = [
@@ -197,30 +197,30 @@ const userMenuItems = [
     {
       label: 'Dashboard',
       icon: 'i-heroicons-chart-bar',
-      to: '#'
+      to: '#',
     },
     {
       label: 'Profile',
       icon: 'i-heroicons-user',
-      to: '#'
+      to: '#',
     },
     {
       label: 'Settings',
       icon: 'i-heroicons-cog-6-tooth',
-      to: '#'
+      to: '#',
     },
     {
       label: 'Billing',
       icon: 'i-heroicons-credit-card',
-      to: '#'
-    }
+      to: '#',
+    },
   ],
   [
     {
       label: 'Sign out',
       icon: 'i-heroicons-arrow-left-on-rectangle',
-      to: '#'
-    }
-  ]
+      to: '#',
+    },
+  ],
 ]
 </script>

@@ -9,7 +9,9 @@
       :interactive="true"
     >
       <div class="relative z-10 h-full flex flex-col items-center justify-center text-white space-y-4">
-        <h3 class="text-2xl font-bold">Custom Colors</h3>
+        <h3 class="text-2xl font-bold">
+          Custom Colors
+        </h3>
         <p class="text-center max-w-md">
           Gradient animation with custom color scheme
         </p>

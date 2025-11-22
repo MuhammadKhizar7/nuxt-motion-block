@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('docs'))
 const { data: files } = useLazyAsyncData('search', () => queryCollectionSearchSections('docs'), {
-  server: false
+  server: false,
 })
 
 provide('navigation', navigation)

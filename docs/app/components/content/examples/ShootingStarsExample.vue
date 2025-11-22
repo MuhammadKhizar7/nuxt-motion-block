@@ -3,8 +3,12 @@
     <MShootingStars />
     <MStarsBackground />
     <div class="relative z-10 h-full flex flex-col items-center justify-center text-center p-4">
-      <h3 class="text-2xl font-bold text-white mb-2">Shooting Stars</h3>
-      <p class="text-gray-300">Animated shooting stars with trails</p>
+      <h3 class="text-2xl font-bold text-white mb-2">
+        Shooting Stars
+      </h3>
+      <p class="text-gray-300">
+        Animated shooting stars with trails
+      </p>
     </div>
   </div>
 </template>

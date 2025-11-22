@@ -1,9 +1,21 @@
 <template>
   <div class="p-4 bg-gray-50 dark:bg-gray-900 rounded-lg">
-    <h3 class="text-lg font-bold mb-4 text-gray-900 dark:text-white">Multi-Select Drag and Drop</h3>
+    <h3 class="text-lg font-bold mb-4 text-gray-900 dark:text-white">
+      Multi-Select Drag and Drop
+    </h3>
     <div class="mb-4 flex gap-2">
-      <UButton @click="clearSelection" size="sm">Clear Selection</UButton>
-      <UButton @click="selectAll" size="sm">Select All</UButton>
+      <UButton
+        size="sm"
+        @click="clearSelection"
+      >
+        Clear Selection
+      </UButton>
+      <UButton
+        size="sm"
+        @click="selectAll"
+      >
+        Select All
+      </UButton>
     </div>
     <MDragAndDrop
       ref="dragDropRef"
@@ -20,10 +32,17 @@
             class="mr-3"
             @update:model-value="() => {}"
           />
-          <UIcon name="i-lucide-grip-vertical" class="w-4 h-4 text-gray-400 mr-2" />
+          <UIcon
+            name="i-lucide-grip-vertical"
+            class="w-4 h-4 text-gray-400 mr-2"
+          />
           <div>
-            <div class="font-medium text-gray-900 dark:text-white">{{ item.name }}</div>
-            <div class="text-sm text-gray-500 dark:text-gray-400">{{ item.status }}</div>
+            <div class="font-medium text-gray-900 dark:text-white">
+              {{ item.name }}
+            </div>
+            <div class="text-sm text-gray-500 dark:text-gray-400">
+              {{ item.status }}
+            </div>
           </div>
         </div>
       </template>

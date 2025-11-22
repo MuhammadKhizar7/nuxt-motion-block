@@ -1,6 +1,5 @@
 import { describe, it, expect } from 'vitest'
 import { mount } from '@vue/test-utils'
-import { Motion } from 'motion-v'
 import AnimatedGroup from '../src/runtime/components/AnimatedGroup.vue'
 
 describe('AnimatedGroup Stagger Functionality', () => {
@@ -10,16 +9,16 @@ describe('AnimatedGroup Stagger Functionality', () => {
       props: {
         staggerChildren: staggerValue,
         as: 'div',
-        asChild: 'div'
+        asChild: 'div',
       },
       slots: {
-        default: '<div>Child 1</div><div>Child 2</div><div>Child 3</div>'
-      }
+        default: '<div>Child 1</div><div>Child 2</div><div>Child 3</div>',
+      },
     })
 
     // Check that the component renders
     expect(wrapper.exists()).toBe(true)
-    
+
     // Check that the staggerChildren prop is set correctly
     expect(wrapper.props().staggerChildren).toBe(staggerValue)
   })
@@ -30,16 +29,16 @@ describe('AnimatedGroup Stagger Functionality', () => {
         staggerChildren: 0.1,
         staggerDirection: -1,
         as: 'div',
-        asChild: 'div'
+        asChild: 'div',
       },
       slots: {
-        default: '<div>Child 1</div><div>Child 2</div>'
-      }
+        default: '<div>Child 1</div><div>Child 2</div>',
+      },
     })
 
     // Check that the component renders
     expect(wrapper.exists()).toBe(true)
-    
+
     // Check that the staggerDirection prop is set correctly
     expect(wrapper.props().staggerDirection).toBe(-1)
   })
@@ -49,16 +48,16 @@ describe('AnimatedGroup Stagger Functionality', () => {
       props: {
         staggerChildren: 0.1,
         as: 'div',
-        asChild: 'div'
+        asChild: 'div',
       },
       slots: {
-        default: '<div>Child 1</div><div>Child 2</div><div>Child 3</div>'
-      }
+        default: '<div>Child 1</div><div>Child 2</div><div>Child 3</div>',
+      },
     })
 
     // Check that the component renders
     expect(wrapper.exists()).toBe(true)
-    
+
     // Check that children are rendered (we can't easily test the actual Motion components)
     const html = wrapper.html()
     expect(html).toContain('Child 1')

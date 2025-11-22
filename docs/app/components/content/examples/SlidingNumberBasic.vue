@@ -8,84 +8,115 @@
         Real-time statistics with smooth sliding animations
       </p>
     </div>
-    
+
     <div class="space-y-8">
       <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6 border border-gray-200 dark:border-gray-700">
         <div class="flex justify-between items-center mb-4">
           <div>
-            <h4 class="font-bold text-gray-900 dark:text-white">Response Time</h4>
-            <p class="text-sm text-gray-500 dark:text-gray-400">Milliseconds</p>
+            <h4 class="font-bold text-gray-900 dark:text-white">
+              Response Time
+            </h4>
+            <p class="text-sm text-gray-500 dark:text-gray-400">
+              Milliseconds
+            </p>
           </div>
-          <UBadge color="primary" variant="soft">ms</UBadge>
+          <UBadge
+            color="primary"
+            variant="soft"
+          >
+            ms
+          </UBadge>
         </div>
         <div class="text-5xl font-bold text-gray-900 dark:text-white">
           <MSlidingNumber :value="responseTime" />
         </div>
         <div class="mt-2 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-          <div 
-            class="h-full bg-primary rounded-full" 
+          <div
+            class="h-full bg-primary rounded-full"
             :style="{ width: `${Math.min(100, responseTime / 5)}%` }"
-          ></div>
+          />
         </div>
       </div>
-      
+
       <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6 border border-gray-200 dark:border-gray-700">
         <div class="flex justify-between items-center mb-4">
           <div>
-            <h4 class="font-bold text-gray-900 dark:text-white">Uptime</h4>
-            <p class="text-sm text-gray-500 dark:text-gray-400">Service availability</p>
+            <h4 class="font-bold text-gray-900 dark:text-white">
+              Uptime
+            </h4>
+            <p class="text-sm text-gray-500 dark:text-gray-400">
+              Service availability
+            </p>
           </div>
-          <UBadge color="green" variant="soft">%</UBadge>
+          <UBadge
+            color="green"
+            variant="soft"
+          >
+            %
+          </UBadge>
         </div>
         <div class="text-5xl font-bold text-gray-900 dark:text-white">
-          <MSlidingNumber :value="uptime" :decimal-places="1" />
+          <MSlidingNumber
+            :value="uptime"
+            :decimal-places="1"
+          />
         </div>
         <div class="mt-2 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-          <div 
-            class="h-full bg-green-500 rounded-full" 
+          <div
+            class="h-full bg-green-500 rounded-full"
             :style="{ width: `${uptime}%` }"
-          ></div>
+          />
         </div>
       </div>
-      
+
       <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6 border border-gray-200 dark:border-gray-700">
         <div class="flex justify-between items-center mb-4">
           <div>
-            <h4 class="font-bold text-gray-900 dark:text-white">Active Users</h4>
-            <p class="text-sm text-gray-500 dark:text-gray-400">Current online</p>
+            <h4 class="font-bold text-gray-900 dark:text-white">
+              Active Users
+            </h4>
+            <p class="text-sm text-gray-500 dark:text-gray-400">
+              Current online
+            </p>
           </div>
         </div>
         <div class="text-5xl font-bold text-gray-900 dark:text-white">
           <MSlidingNumber :value="activeUsers" />
         </div>
         <div class="mt-2 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-          <div 
-            class="h-full bg-blue-500 rounded-full" 
+          <div
+            class="h-full bg-blue-500 rounded-full"
             :style="{ width: `${Math.min(100, activeUsers / 2000 * 100)}%` }"
-          ></div>
+          />
         </div>
       </div>
     </div>
-    
+
     <div class="mt-10 flex flex-col sm:flex-row gap-4">
-      <UButton 
-        color="primary" 
-        variant="solid" 
+      <UButton
+        color="primary"
+        variant="solid"
         size="lg"
-        @click="updateMetrics"
         block
+        @click="updateMetrics"
       >
-        <UIcon name="i-lucide-refresh-cw" class="w-5 h-5 mr-2" />
+        <UIcon
+          name="i-lucide-refresh-cw"
+          class="w-5 h-5 mr-2"
+        />
         Refresh Data
       </UButton>
-      <UButton 
-        color="neutral" 
-        variant="outline" 
+      <UButton
+        color="neutral"
+        variant="outline"
         size="lg"
-        @click="resetMetrics"
         block
+        @click="resetMetrics"
       >
-        <UIcon name="i-lucide-rotate-ccw" class="w-5 h-5 mr-2" />
+        <UIcon
+          name="i-lucide-rotate-ccw"
+          class="w-5 h-5 mr-2"
+        />
         Reset
       </UButton>
     </div>
