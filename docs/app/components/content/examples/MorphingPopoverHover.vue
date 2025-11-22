@@ -1,9 +1,7 @@
 <template>
   <div class="flex justify-center min-h-48 items-center">
     <MMorphingPopover mode="hover" :open-delay="300" :close-delay="200">
-      <MMorphingPopoverTrigger>
         <UButton color="secondary">Hover Popover</UButton>
-      </MMorphingPopoverTrigger>
       
       <template #content>
         <div class="p-4 w-64">

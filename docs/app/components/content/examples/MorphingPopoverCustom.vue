@@ -1,9 +1,7 @@
 <template>
   <div class="flex justify-center min-h-48 items-center">
     <MMorphingPopover :variants="customVariants" :transition="customTransition">
-      <MMorphingPopoverTrigger>
         <UButton color="tertiary">Custom Animation</UButton>
-      </MMorphingPopoverTrigger>
       
       <template #content>
         <div class="p-4 w-64">

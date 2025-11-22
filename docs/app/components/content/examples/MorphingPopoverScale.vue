@@ -1,9 +1,7 @@
 <template>
   <div class="flex justify-center min-h-48 items-center">
     <MMorphingPopover :scale="0.9">
-      <MMorphingPopoverTrigger>
         <UButton color="secondary">Strong Morph</UButton>
-      </MMorphingPopoverTrigger>
       
       <template #content>
         <div class="p-4 w-64">

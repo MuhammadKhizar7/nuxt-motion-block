@@ -1,9 +1,7 @@
 <template>
   <div class="flex justify-center min-h-48">
     <MMorphingPopover>
-      <MMorphingPopoverTrigger>
         <UButton color="primary" variant="outline">Styled Popover</UButton>
-      </MMorphingPopoverTrigger>
       
       <template #content>
         <div class="p-6 w-80 bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-lg">
