@@ -1,13 +1,24 @@
 <template>
   <div class="w-full h-fit relative group">
     <!-- refesh button -->
-    <UButton
+    <div class="flex gap-2 absolute -top-2 -right-2 z-10">
+      <UButton
       size="sm"
       variant="neutral"
       icon="i-lucide-rotate-ccw"
-      class="absolute -top-2 -right-2 z-10 hidden group-hover:block"
+      class="hidden group-hover:block"
+      title="Refresh"
       @click="key++"
     />
+    <UButton
+      size="sm"
+      variant="neutral"
+      icon="i-lucide-arrow-up-right"
+      class="hidden group-hover:block"
+      title="Open in new tab"
+      @click="openInNewTab"
+    />
+    </div>
     <div class="p-4">
       <component
         :is="exampleComponent"
@@ -45,4 +56,9 @@ const exampleComponent = computed(() => {
   }
   return null
 })
+
+const openInNewTab = () => {
+  const url = `/examples/${props.name}`
+  window.open(url, '_blank')
+}
 </script>
