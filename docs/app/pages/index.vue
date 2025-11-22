@@ -14,14 +14,35 @@ useSeoMeta({
   description,
   ogDescription: description,
   ogImage: '/docs-light.png',
-  twitterImage: '/docs-light.png',
+  twitterImage: '/docs-light.png'
 })
+
+const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('docs'))
+const { data: files } = useLazyAsyncData('search', () => queryCollectionSearchSections('docs'), {
+  server: false,
+})
+
+provide('navigation', navigation)
 </script>
 
 <template>
-  <ContentRenderer
-    v-if="page"
-    :value="page"
-    :prose="false"
-  />
+  <div>
+    <AppHeader />
+    <UMain>
+      <UPage>
+        <ContentRenderer
+          v-if="page"
+          :value="page"
+          :prose="false"
+        />
+      </UPage>
+    </UMain>
+    <AppFooter />
+    <ClientOnly>
+      <LazyUContentSearch
+        :files="files"
+        :navigation="navigation"
+      />
+    </ClientOnly>
+  </div>
 </template>
