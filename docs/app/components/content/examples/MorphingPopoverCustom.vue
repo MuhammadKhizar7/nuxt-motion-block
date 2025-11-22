@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center min-h-48 items-center">
+  <div class="flex justify-center items-center">
     <MMorphingPopover :variants="customVariants" :transition="customTransition">
         <UButton color="tertiary">Custom Animation</UButton>
       

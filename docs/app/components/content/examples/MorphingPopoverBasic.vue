@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center min-h-96 items-center">
+  <div class="flex justify-center items-center">
     <MMorphingPopover>
         <UButton color="primary" size="lg">
           <UIcon name="i-lucide-help-circle" class="w-5 h-5 mr-2" />
