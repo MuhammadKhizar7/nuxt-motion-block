@@ -1,7 +1,7 @@
 <template>
   <div
     ref="containerRef"
-    :class="['relative overflow-hidden', containerClass]"
+    :class="['relative', containerClass]"
     @click="handleClick"
     @mouseover="handleMouseOver"
     @mouseleave="handleMouseLeave"

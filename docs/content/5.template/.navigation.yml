@@ -1,4 +1,8 @@
 title: Template
 description: Ready to use templates for your next Nuxt UI project
 navigation:
-  icon: false
+  icon: i-lucide-layout
+  items:
+    - title: Complete Landing Page
+      to: /template/complete-landing-page
+      icon: i-lucide-layout

@@ -1,3 +1,25 @@
+---
+title: Complete Landing Page
+description: A full landing page example combining multiple nuxt-motion-block components.
+navigation:
+  icon: i-lucide-layout
+---
+
+# Complete Landing Page
+
+A full landing page example combining multiple nuxt-motion-block components to create a cohesive, animated website.
+
+## Usage
+
+::code-preview
+---
+label: Preview
+---
+  :::div{class="w-full h-full"}
+    <component-example name="complete-landing-page" />
+  :::
+#code
+```vue
 <template>
   <div>
     <div class="relative p-4">
@@ -101,8 +123,8 @@
       <!-- Hero Section -->
       <section class="w-full min-h-screen flex flex-col items-center justify-center overflow-hidden">
         <MBackgroundGradientAnimation
-          gradient-background-start="rgb(20, 184, 166)"
-          gradient-background-end="rgb(13, 148, 136)"
+          gradient-background-start="rgb(8, 110, 98)"
+          gradient-background-end="rgb(25, 90, 85)"
           first-color="20, 184, 166"
           second-color="13, 148, 136"
           third-color="8, 145, 178"
@@ -513,3 +535,6 @@ const navigationItems = [
   }
 ]
 </script>
+
+```
+::

@@ -53,7 +53,3 @@ navigation:
           to: '/blocks/featured-components/animated-gradient'
         - title: 'Ripple Effect'
           to: '/blocks/featured-components/ripple-effect'
-    - title: 'Complete Examples'
-      items:
-        - title: 'Landing Page'
-          to: '/blocks/complete-landing-page'
