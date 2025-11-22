@@ -6,9 +6,7 @@
     </div>
     
     <MMorphingPopover v-model:open="open">
-      <MMorphingPopoverTrigger>
         <UButton color="primary">Controlled Popover</UButton>
-      </MMorphingPopoverTrigger>
       
       <template #content="{ close }">
         <div class="p-4 w-80">
