@@ -16,7 +16,7 @@
         Create mesmerizing vortex animations that draw users into your content with dynamic spiral motions
       </p>
       <UButton
-        color="white"
+        color="neutral"
         variant="solid"
         size="md"
       >

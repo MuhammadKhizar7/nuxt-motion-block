@@ -9,6 +9,31 @@ navigation:
 
 The Vortex component creates an animated particle vortex effect using canvas-based rendering. It features customizable particle count, colors, speed, and radius with smooth animations and glow effects.
 
+::warning
+This component requires the `simplex-noise` package to be installed in your project.
+::
+
+::code-group
+
+```bash [pnpm]
+pnpm add simplex-noise
+```
+
+```bash [yarn]
+yarn add simplex-noise
+```
+
+```bash [npm]
+npm install simplex-noise
+```
+
+```bash [bun]
+bun add simplex-noise
+```
+
+::
+
+
 ## Usage
 
 ::code-preview

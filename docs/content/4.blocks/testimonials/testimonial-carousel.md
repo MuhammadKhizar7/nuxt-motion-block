@@ -2,7 +2,7 @@
 title: Testimonial Carousel
 description: A responsive testimonial section with carousel support for mobile.
 navigation:
-  icon: i-lucide-chat-bubble
+  icon: i-lucide-messages-square
 ---
 
 # Testimonial Carousel

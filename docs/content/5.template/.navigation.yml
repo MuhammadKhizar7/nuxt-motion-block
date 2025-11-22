@@ -4,5 +4,5 @@ navigation:
   icon: i-lucide-layout
   items:
     - title: Complete Landing Page
-      to: /template/complete-landing-page
+      to: /template/landing-page_001
       icon: i-lucide-layout

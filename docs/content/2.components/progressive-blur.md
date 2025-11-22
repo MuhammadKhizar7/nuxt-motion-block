@@ -2,7 +2,7 @@
 title: Progressive Blur
 description: Component that creates a progressive blur effect in a specified direction.
 navigation:
-  icon: i-lucide-blur
+  icon: i-lucide-triangle-dashed
 ---
 
 # Progressive Blur

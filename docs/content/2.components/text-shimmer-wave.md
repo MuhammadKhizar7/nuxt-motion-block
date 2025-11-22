@@ -2,7 +2,7 @@
 title: Text Shimmer Wave
 description: Text with a wave-like shimmer animation effect.
 navigation:
-  icon: i-lucide-wave
+  icon: i-lucide-audio-waveform
 ---
 
 # Text Shimmer Wave
