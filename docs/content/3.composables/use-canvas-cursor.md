@@ -13,7 +13,10 @@ The useCanvasCursor composable provides a custom cursor implementation with canv
 
 ```vue
 <template>
-  <canvas ref="canvasRef" class="fixed inset-0 pointer-events-none z-50" />
+    <canvas
+      ref="canvasRef"
+      class="absolute w-full h-full inset-0"
+    />
 </template>
 
 <script setup>
@@ -21,9 +24,41 @@ import { ref } from 'vue'
 import { useCanvasCursor } from '#imports'
 
 const canvasRef = ref()
+
 useCanvasCursor(canvasRef, { color: 'primary' })
 </script>
 ```
+
+## Preview
+
+::code-preview
+---
+label: Preview
+---
+  :::div{class="flex justify-center w-full h-full"}
+    <component-example name="cursor-example" />
+  :::
+#code
+```vue
+<template>
+  <div class="min-h-screen relative overflow-hidden">
+    <canvas
+      ref="canvasRef"
+      class="absolute w-full h-full inset-0"
+    />
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import { useCanvasCursor } from '#imports'
+
+const canvasRef = ref()
+
+useCanvasCursor(canvasRef, { color: 'primary' })
+</script>
+```
+::
 
 ## Parameters
 
@@ -53,36 +88,4 @@ const config = {
   dampening: 0.25,
   tension: 0.98
 }
-```
-
-## Example
-
-```vue
-<template>
-  <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-    <canvas ref="canvasRef" class="fixed inset-0 pointer-events-none z-50" />
-    <div class="container mx-auto px-4 py-8">
-      <h1 class="text-3xl font-bold mb-4">Canvas Cursor Demo</h1>
-      <p class="mb-4">Move your cursor around to see the fluid trail effect.</p>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
-          <h2 class="text-xl font-semibold mb-2">Feature 1</h2>
-          <p>Content with smooth cursor effects.</p>
-        </div>
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
-          <h2 class="text-xl font-semibold mb-2">Feature 2</h2>
-          <p>More content with cursor interactions.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
-<script setup>
-import { ref } from 'vue'
-import { useCanvasCursor } from '#imports'
-
-const canvasRef = ref()
-useCanvasCursor(canvasRef, { color: 'primary' })
-</script>
 ```

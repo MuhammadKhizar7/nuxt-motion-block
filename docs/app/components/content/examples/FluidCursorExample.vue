@@ -9,9 +9,9 @@
 
 <script setup>
 import { ref } from 'vue'
-import { useCanvasCursor } from '#imports'
+import { useFluidCursor } from '#imports'
 
 const canvasRef = ref()
 
-useCanvasCursor(canvasRef, { color: 'primary' })
+useFluidCursor(canvasRef, { color: 'primary' })
 </script>

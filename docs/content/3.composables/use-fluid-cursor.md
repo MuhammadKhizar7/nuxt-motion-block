@@ -13,7 +13,7 @@ The useFluidCursor composable provides advanced fluid simulation cursor effects 
 
 ```vue
 <template>
-  <canvas ref="canvasRef" class="fixed inset-0 pointer-events-none z-50" />
+  <canvas ref="canvasRef" class="absolute inset-0 w-full h-full" />
 </template>
 
 <script setup>
@@ -24,6 +24,38 @@ const canvasRef = ref()
 useFluidCursor(canvasRef, { color: 'secondary' })
 </script>
 ```
+
+## Preview
+
+::code-preview
+---
+label: Preview
+---
+  :::div{class="flex justify-center w-full h-full"}
+    <component-example name="fluid-cursor-example" />
+  :::
+#code
+```vue
+<template>
+  <div class="min-h-screen relative overflow-hidden">
+    <canvas
+      ref="canvasRef"
+      class="absolute inset-0 w-full h-full"
+    />
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import { useFluidCursor } from '#imports'
+
+const canvasRef = ref()
+
+useFluidCursor(canvasRef, { color: 'primary' })
+</script>
+
+```
+::
 
 ## Parameters
 
@@ -63,40 +95,4 @@ const config = {
   BACK_COLOR: { r: 0.5, g: 0, b: 0 },
   TRANSPARENT: true
 }
-```
-
-## Example
-
-```vue
-<template>
-  <div class="min-h-screen bg-gray-900 text-white">
-    <canvas ref="canvasRef" class="fixed inset-0 pointer-events-none z-50" />
-    <div class="container mx-auto px-4 py-8 relative z-10">
-      <h1 class="text-4xl font-bold mb-6">Fluid Cursor Demo</h1>
-      <p class="text-xl mb-8">Move your cursor to create fluid dynamics effects</p>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-gray-800 p-6 rounded-lg">
-          <h2 class="text-2xl font-semibold mb-3">Realistic Physics</h2>
-          <p>Experience fluid dynamics with realistic viscosity and movement.</p>
-        </div>
-        <div class="bg-gray-800 p-6 rounded-lg">
-          <h2 class="text-2xl font-semibold mb-3">Interactive</h2>
-          <p>Every cursor movement creates unique fluid interactions.</p>
-        </div>
-        <div class="bg-gray-800 p-6 rounded-lg">
-          <h2 class="text-2xl font-semibold mb-3">Customizable</h2>
-          <p>Adjust colors and physics parameters for different effects.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
-<script setup>
-import { ref } from 'vue'
-import { useFluidCursor } from '#imports'
-
-const canvasRef = ref()
-useFluidCursor(canvasRef, { color: 'primary' })
-</script>
 ```
