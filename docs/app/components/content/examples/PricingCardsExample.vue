@@ -17,13 +17,17 @@
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-        <motion.div
+      <MAnimatedGroup
+        :stagger-children="0.1"
+        :initial="{ opacity: 0, y: 20 }"
+        :animate="{ opacity: 1, y: 0 }"
+        :transition="{ duration: 0.5 }"
+        as="div"
+        class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto"
+      >
+        <div
           v-for="(plan, index) in plans"
           :key="index"
-          :initial="{ opacity: 0, y: 20 }"
-          :animate="{ opacity: 1, y: 0 }"
-          :transition="{ duration: 0.5, delay: index * 0.1 }"
           class="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 relative"
           :class="{ 'ring-2 ring-primary-500 border-primary-500': plan.popular }"
         >
@@ -75,14 +79,14 @@
           >
             {{ plan.cta.label }}
           </UButton>
-        </motion.div>
-      </div>
+        </div>
+      </MAnimatedGroup>
     </div>
   </section>
 </template>
 
 <script setup>
-import { motion } from 'motion-v'
+import { ref } from 'vue'
 
 const plans = [
   {
