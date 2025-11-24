@@ -1,0 +1,9 @@
+items:
+  - title: E-commerce
+    items:
+      - title: Product Grid
+        href: /blocks/e-commerce/product-grid
+        icon: i-heroicons-shopping-bag
+      - title: Shopping Cart
+        href: /blocks/e-commerce/shopping-cart
+        icon: i-heroicons-shopping-cart

@@ -1,0 +1,9 @@
+items:
+  - title: Landing Page
+    items:
+      - title: Feature Showcase
+        href: /blocks/landing-page/feature-showcase
+        icon: i-heroicons-sparkles
+      - title: Testimonial Carousel
+        href: /blocks/landing-page/testimonial-carousel
+        icon: i-heroicons-chat-bubble-left-right

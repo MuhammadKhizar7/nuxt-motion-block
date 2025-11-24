@@ -1,0 +1,9 @@
+items:
+  - title: Portfolio
+    items:
+      - title: Project Gallery
+        href: /blocks/portfolio/project-gallery
+        icon: i-heroicons-photo
+      - title: Case Study
+        href: /blocks/portfolio/case-study
+        icon: i-heroicons-document-magnifying-glass

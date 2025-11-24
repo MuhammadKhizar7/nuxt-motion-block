@@ -1,0 +1,9 @@
+items:
+  - title: Dashboard Components
+    items:
+      - title: Analytics Dashboard
+        href: /blocks/dashboard-components/analytics-dashboard
+        icon: i-heroicons-chart-bar
+      - title: User Management Table
+        href: /blocks/dashboard-components/user-management
+        icon: i-heroicons-user-group

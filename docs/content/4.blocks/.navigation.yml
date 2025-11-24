@@ -3,6 +3,36 @@ description: Collection of reusable UI components and blocks.
 navigation:
   icon: i-lucide-layout-grid
   items:
+    - title: 'Dashboard Components'
+      items:
+        - title: 'Analytics Dashboard'
+          to: '/blocks/dashboard-components/analytics-dashboard'
+        - title: 'User Management Table'
+          to: '/blocks/dashboard-components/user-management'
+    - title: 'E-commerce'
+      items:
+        - title: 'Product Grid'
+          to: '/blocks/e-commerce/product-grid'
+        - title: 'Shopping Cart'
+          to: '/blocks/e-commerce/shopping-cart'
+    - title: 'Landing Page'
+      items:
+        - title: 'Feature Showcase'
+          to: '/blocks/landing-page/feature-showcase'
+        - title: 'Testimonial Carousel'
+          to: '/blocks/landing-page/testimonial-carousel'
+    - title: 'Blog'
+      items:
+        - title: 'Blog Listing'
+          to: '/blocks/blog/blog-listing'
+        - title: 'Article Page'
+          to: '/blocks/blog/article-page'
+    - title: 'Portfolio'
+      items:
+        - title: 'Project Gallery'
+          to: '/blocks/portfolio/project-gallery'
+        - title: 'Case Study'
+          to: '/blocks/portfolio/case-study'
     - title: 'Hero Sections'
       items:
         - title: 'Gradient Hero'

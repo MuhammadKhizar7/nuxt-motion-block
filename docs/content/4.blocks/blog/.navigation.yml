@@ -1,0 +1,9 @@
+items:
+  - title: Blog
+    items:
+      - title: Blog Listing
+        href: /blocks/blog/blog-listing
+        icon: i-heroicons-newspaper
+      - title: Article Page
+        href: /blocks/blog/article-page
+        icon: i-heroicons-document-text
