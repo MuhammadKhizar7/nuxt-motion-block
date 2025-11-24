@@ -36,13 +36,17 @@ label: Preview
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <motion.div
+      <MAnimatedGroup
+        :stagger-children="0.1"
+        :initial="{ opacity: 0, y: 20 }"
+        :animate="{ opacity: 1, y: 0 }"
+        :transition="{ duration: 0.5 }"
+        as="div"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+      >
+        <div
           v-for="(testimonial, index) in testimonials"
           :key="index"
-          :initial="{ opacity: 0, y: 20 }"
-          :animate="{ opacity: 1, y: 0 }"
-          :transition="{ duration: 0.5, delay: index * 0.1 }"
           class="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700"
         >
           <div class="flex items-center mb-4">
@@ -72,14 +76,14 @@ label: Preview
               class="w-5 h-5 text-yellow-400"
             />
           </div>
-        </motion.div>
-      </div>
+        </div>
+      </MAnimatedGroup>
     </div>
   </section>
 </template>
 
 <script setup>
-import { motion } from 'motion-v'
+import { ref } from 'vue'
 
 const testimonials = [
   {
