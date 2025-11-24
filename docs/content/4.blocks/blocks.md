@@ -58,11 +58,6 @@ Showcase of individual components from the nuxt-motion-block library.
 - [Animated Gradient](/blocks/featured-components/animated-gradient) - Dynamic gradient background with smooth transitions
 - [Ripple Effect](/blocks/featured-components/ripple-effect) - Calming ripple effect for backgrounds
 
-## Complete Examples
-
-Full page examples combining multiple components to create cohesive designs.
-
-- [Landing Page](/blocks/complete-landing-page) - A complete landing page example
 
 ## Usage
 

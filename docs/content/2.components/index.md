@@ -53,7 +53,7 @@ The components are organized into several categories based on their functionalit
 - [ScrollProgress](/components/scroll-progress) - Progress bar that tracks scroll position
 
 ### Composables
-- [useCanvasCursor](/components/use-canvas-cursor) - Custom cursor implementation with canvas-based effects
-- [useFluidCursor](/components/use-fluid-cursor) - Fluid cursor effects with particle systems
+- [useCanvasCursor](/composables/use-canvas-cursor) - Custom cursor implementation with canvas-based effects
+- [useFluidCursor](/composables/use-fluid-cursor) - Fluid cursor effects with particle systems
 
 All components are built with performance in mind and follow accessibility best practices. They can be easily customized through props, slots, and CSS classes.
