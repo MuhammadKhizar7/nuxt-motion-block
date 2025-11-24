@@ -1,6 +1,83 @@
 # Changelog
 
 
+## v0.0.2
+
+[compare changes](https://github.com/MuhammadKhizar7/nuxt-motion-block/compare/v0.0.1...v0.0.2)
+
+### 🚀 Enhancements
+
+- Implement TextGlitchNew and TrueFocus components with animation effects ([2f6638a](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/2f6638a))
+- Add ScrollVelocity component with animated text effect ([570ea70](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/570ea70))
+- Add VariableProximity component for animated text effects ([3de96b8](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/3de96b8))
+- Add BackgroundGradientAnimation and BackgroundRippleEffect components with animations ([0b0ba05](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/0b0ba05))
+- **ui:** Add new animated background components to index page ([736577d](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/736577d))
+- Add GlowingStarsCard and Meteors components with animations ([f50145c](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/f50145c))
+- **tracing-beam:** Add new TracingBeam component and demo page ([d60003b](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/d60003b))
+- **playground:** Add new card components and dynamic content ([f694fb3](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/f694fb3))
+- **ui:** Enhance cards with hover effects and layout improvements ([d2310f1](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/d2310f1))
+- **examples:** Enhance animated UI examples with rich content and layout ([b9fab08](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/b9fab08))
+- **text-morph:** Enhance text morph examples with advanced controls and presets ([d609202](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/d609202))
+- **morphing-popover:** Add support for custom animation variants and transitions ([fab7c15](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/fab7c15))
+- **ui:** Add animated dialog demo and update grid layout ([328cf15](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/328cf15))
+- **glare-card:** Add customizable glare colors and rainbow background effects ([e4d316b](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/e4d316b))
+- **docs:** Add header, footer and lazy content search to index page ([d9effbf](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/d9effbf))
+
+### 🩹 Fixes
+
+- **image-comparison:** Prevent autoPlay interval from running on server ([42ab65a](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/42ab65a))
+- **docs:** Update meta image URLs to use relative paths - Change ogImage URL from absolute to relative path - Change twitterImage URL from absolute to relative path - Ensure consistency in documentation page metadata images ([c882336](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/c882336))
+- **components:** Fix background gradient size to fill full container ([effccc5](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/effccc5))
+
+### 💅 Refactors
+
+- **playground:** Comment out multiple UCard and container elements ([62f944d](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/62f944d))
+- **docs:** Update 3D card styling and clean navigation content ([a6398ad](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/a6398ad))
+- **docs:** Enhance examples and update BoxesCore component styling ([4b0f344](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/4b0f344))
+- **focus-cards:** Rename image property to src and improve formatting ([5edca8c](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/5edca8c))
+- **examples:** Replace static elements with dynamic navigation and tabs ([5b262a8](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/5b262a8))
+- **animated-group:** Simplify examples and improve stagger animation handling ([6dde99a](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/6dde99a))
+- **landing-page:** Replace manual navbar with UHeader component ([f19323f](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/f19323f))
+- **gradient-hero:** Replace motion-v with MInView for animations ([c0e62cc](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/c0e62cc))
+- **docs:** Restructure layout and enhance component example controls ([2899649](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/2899649))
+- **examples:** Remove unnecessary MMorphingPopoverTrigger wrapper ([1b7485e](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/1b7485e))
+- **examples:** Simplify MorphingPopover usage by removing triggers ([feb0948](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/feb0948))
+- **examples:** Remove min-height from MorphingPopover containers ([84a1c3a](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/84a1c3a))
+- **ui:** Improve formatting and markup consistency in various components ([eef1827](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/eef1827))
+- **template:** Remove Complete Landing Page example and related docs ([59e9987](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/59e9987))
+
+### 📖 Documentation
+
+- **components:** Update component examples and refactor navigation structure ([6a8c807](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/6a8c807))
+- **tracing-beam:** Replace inline examples with component examples ([a2a2d8f](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/a2a2d8f))
+- **layout:** Add full width and height wrapper to component previews ([70d8475](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/70d8475))
+- **glow-effect:** Enhance glow effect documentation and update examples ([87cf8b0](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/87cf8b0))
+- **examples:** Enhance animated number examples with controls and styling ([8413b2b](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/8413b2b))
+- **morphing-popover:** Add MorphingPopover component and usage examples ([33d423b](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/33d423b))
+- **animated-dialog:** Update documentation and examples with improved content and usage ([15e9ea9](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/15e9ea9))
+- **animated-dialog:** Add comprehensive documentation for AnimatedDialog component ([c9f769b](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/c9f769b))
+- **template:** Remove templates documentation file ([3bd4714](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/3bd4714))
+
+### 🏡 Chore
+
+- **release:** V0.0.1 ([ff30921](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/ff30921))
+- Clean up changelog by removing redundant release entries and unused docs ([ba4d0bb](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/ba4d0bb))
+
+### ✅ Tests
+
+- **playground:** Add basic test for 3D card component ([d13a135](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/d13a135))
+
+### 🎨 Styles
+
+- **text-loop:** Improve layout and animation container styling ([ce7baac](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/ce7baac))
+- **animated-group:** Update layout and spacing in animated group examples ([14c950f](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/14c950f))
+- **BorderTrail:** Add rounded-lg style to UCard body ui property ([edc6d47](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/edc6d47))
+- **docs:** Reformat and improve readability in example components ([9b63c54](https://github.com/MuhammadKhizar7/nuxt-motion-block/commit/9b63c54))
+
+### ❤️ Contributors
+
+- MuhammadKhizar7 <muhammadkhizar7@gmail.com>
+
 ## v0.0.1
 
 
