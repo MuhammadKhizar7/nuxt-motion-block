@@ -9,24 +9,13 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "baseUrl": ".",
-    "types": [
-      "nuxt",
-      "node"
-    ],
+    "jsx": "preserve",
+    "types": ["nuxt", "node"],
     "paths": {
-      "#imports": [
-        ".nuxt/imports"
-      ],
-      "#app": [
-        "node_modules/nuxt/dist/app"
-      ]
+      "#imports": ["../../.nuxt/imports"],
+      "#app": ["node_modules/nuxt/dist/app"]
     }
   },
-  "exclude": [
-    "dist",
-    "node_modules",
-    "playground",
-    ".nuxt",
-    ".output"
-  ]
+  "include": ["./**/*"],
+  "exclude": ["node_modules"]
 }

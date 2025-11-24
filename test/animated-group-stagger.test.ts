@@ -1,6 +1,14 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
 import AnimatedGroup from '../src/runtime/components/AnimatedGroup.vue'
+
+// Mock the Motion component from motion-v
+vi.mock('motion-v', () => ({
+  Motion: {
+    name: 'Motion',
+    template: '<div><slot /></div>',
+  },
+}))
 
 describe('AnimatedGroup Stagger Functionality', () => {
   it('should apply staggerChildren to container variants', async () => {
@@ -13,6 +21,13 @@ describe('AnimatedGroup Stagger Functionality', () => {
       },
       slots: {
         default: '<div>Child 1</div><div>Child 2</div><div>Child 3</div>',
+      },
+      global: {
+        stubs: {
+          Motion: {
+            template: '<div><slot /></div>',
+          },
+        },
       },
     })
 
@@ -34,6 +49,13 @@ describe('AnimatedGroup Stagger Functionality', () => {
       slots: {
         default: '<div>Child 1</div><div>Child 2</div>',
       },
+      global: {
+        stubs: {
+          Motion: {
+            template: '<div><slot /></div>',
+          },
+        },
+      },
     })
 
     // Check that the component renders
@@ -52,6 +74,13 @@ describe('AnimatedGroup Stagger Functionality', () => {
       },
       slots: {
         default: '<div>Child 1</div><div>Child 2</div><div>Child 3</div>',
+      },
+      global: {
+        stubs: {
+          Motion: {
+            template: '<div><slot /></div>',
+          },
+        },
       },
     })
 

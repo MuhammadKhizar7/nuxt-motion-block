@@ -14,7 +14,7 @@ useSeoMeta({
   description,
   ogDescription: description,
   ogImage: '/docs-light.png',
-  twitterImage: '/docs-light.png'
+  twitterImage: '/docs-light.png',
 })
 
 const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('docs'))

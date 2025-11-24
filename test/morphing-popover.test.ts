@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { mount } from '@vue/test-utils'
-import { MorphingPopover } from '../src/runtime/components/MorphingPopover/MorphingPopoverIndex'
+import MorphingPopover from '../src/runtime/components/MorphingPopover.vue'
 
 describe('MorphingPopover', () => {
   it('should render the component', () => {
