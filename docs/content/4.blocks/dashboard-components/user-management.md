@@ -40,7 +40,7 @@ label: Preview
       </div>
       <USelectMenu
         v-model="roleFilter"
-        :options="roleOptions"
+        :items="roleOptions"
         placeholder="Filter by role"
         size="lg"
       />
@@ -139,7 +139,7 @@ label: Preview
             <span class="text-sm text-gray-500 dark:text-gray-400">Rows per page:</span>
             <USelect
               v-model="rowsPerPage"
-              :options="[5, 10, 20, 50]"
+              :items="[5, 10, 20, 50]"
               size="xs"
               class="w-20"
             />

@@ -1,5 +1,6 @@
 <template>
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <MTracingBeam :beam-color="['#FF0000', '#00FF00', '#0000FF']" >
     <!-- Article Header -->
     <header class="mb-12">
       <MInView
@@ -72,15 +73,9 @@
       <!-- Main Content -->
       <main class="lg:w-3/4">
         <!-- Article Content -->
-        <MAnimatedGroup
-          :stagger-children="0.1"
-          preset="fade"
-          initial="hidden"
-          animate="visible"
-          class="prose prose-lg dark:prose-invert max-w-none"
-        >
+        <div class="prose prose-lg dark:prose-invert max-w-none">
           <div v-html="article.content"></div>
-        </MAnimatedGroup>
+        </div>
         
         <!-- Tags -->
         <MInView
@@ -126,7 +121,7 @@
                   <UButton
                     v-if="article.author.twitter"
                     :to="article.author.twitter"
-                    color="gray"
+                    color="secondary"
                     variant="ghost"
                     icon="i-simple-icons-twitter"
                     size="sm"
@@ -134,7 +129,7 @@
                   <UButton
                     v-if="article.author.linkedin"
                     :to="article.author.linkedin"
-                    color="gray"
+                    color="secondary"
                     variant="ghost"
                     icon="i-simple-icons-linkedin"
                     size="sm"
@@ -142,7 +137,7 @@
                   <UButton
                     v-if="article.author.github"
                     :to="article.author.github"
-                    color="gray"
+                    color="secondary"
                     variant="ghost"
                     icon="i-simple-icons-github"
                     size="sm"
@@ -192,7 +187,7 @@
                   </div>
                   <div class="mt-2 ml-2">
                     <UButton
-                      color="gray"
+                      color="secondary"
                       variant="ghost"
                       size="xs"
                       icon="i-heroicons-arrow-up-tray"
@@ -236,13 +231,7 @@
       <!-- Sidebar -->
       <aside class="lg:w-1/4">
         <!-- Table of Contents -->
-        <MAnimatedGroup
-          :stagger-children="0.05"
-          preset="fade"
-          initial="hidden"
-          animate="visible"
-          class="sticky top-8"
-        >
+        <div class="sticky top-8">
           <UCard class="mb-8">
             <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-4">
               Table of Contents
@@ -254,7 +243,7 @@
               >
                 <a
                   :href="`#${heading.id}`"
-                  class="text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
+                  class="text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors block py-1"
                   :class="{ 'font-medium text-primary-500 dark:text-primary-400': activeHeading === heading.id }"
                 >
                   {{ heading.text }}
@@ -292,9 +281,10 @@
               </li>
             </ul>
           </UCard>
-        </MAnimatedGroup>
+        </div>
       </aside>
     </div>
+  </MTracingBeam>
   </div>
 </template>
 
@@ -467,12 +457,12 @@ const comments = ref([
 
 const getCategoryColor = (category: string) => {
   switch (category) {
-    case 'Technology': return 'blue'
-    case 'Design': return 'purple'
-    case 'Business': return 'green'
-    case 'Lifestyle': return 'pink'
-    case 'Travel': return 'amber'
-    default: return 'gray'
+    case 'Technology': return 'primary'
+    case 'Design': return 'secondary'
+    case 'Business': return 'success'
+    case 'Lifestyle': return 'warning'
+    case 'Travel': return 'info'
+    default: return 'neutral'
   }
 }
 

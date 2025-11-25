@@ -18,72 +18,77 @@
             <UButton class="mt-6" to="/products">Continue Shopping</UButton>
           </div>
 
-          <MAnimatedGroup
+          <div
             v-else
-            :stagger-children="0.1"
-            preset="slide"
-            initial="hidden"
-            animate="visible"
+            class="space-y-6"
           >
             <div
-              v-for="item in cartItems"
+              v-for="(item, index) in cartItems"
               :key="item.id"
-              class="flex py-6 border-b border-gray-200 dark:border-gray-800 last:border-0"
+              class="flex flex-col sm:flex-row items-start p-4 rounded-lg border border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors gap-4"
             >
-              <!-- Product Image -->
-              <div class="flex-shrink-0 w-24 h-24 rounded-md overflow-hidden">
-                <img
-                  :src="item.image"
-                  :alt="item.name"
-                  class="w-full h-full object-cover"
-                >
-              </div>
-
-              <!-- Product Details -->
-              <div class="ml-4 flex-1 flex flex-col">
-                <div>
-                  <div class="flex justify-between text-base font-medium text-gray-900 dark:text-white">
-                    <h3>{{ item.name }}</h3>
-                    <p class="ml-4">${{ (item.price * item.quantity).toFixed(2) }}</p>
-                  </div>
-                  <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">{{ item.category }}</p>
+              <MInView
+                :variants="{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }"
+                :transition="{ duration: 0.3, delay: index * 0.05 }"
+                class="w-full flex flex-col sm:flex-row gap-4"
+              >
+                <!-- Product Image -->
+                <div class="flex-shrink-0 w-full sm:w-24 h-24 rounded-md overflow-hidden bg-gray-100 dark:bg-gray-800">
+                  <img
+                    :src="item.image"
+                    :alt="item.name"
+                    class="w-full h-full object-cover"
+                  >
                 </div>
 
-                <div class="flex-1 flex items-end justify-between text-sm">
-                  <div class="flex items-center">
-                    <span class="text-gray-500 dark:text-gray-400 mr-2">Qty:</span>
-                    <div class="flex items-center border rounded-md">
-                      <UButton
-                        icon="i-heroicons-minus"
-                        variant="ghost"
-                        size="xs"
-                        :disabled="item.quantity <= 1"
-                        @click="updateQuantity(item.id, item.quantity - 1)"
-                      />
-                      <span class="px-2">{{ item.quantity }}</span>
-                      <UButton
-                        icon="i-heroicons-plus"
-                        variant="ghost"
-                        size="xs"
-                        @click="updateQuantity(item.id, item.quantity + 1)"
-                      />
+                <!-- Product Details -->
+                <div class="flex-1 min-w-0 w-full">
+                  <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
+                    <div class="min-w-0">
+                      <h3 class="text-base font-semibold text-gray-900 dark:text-white truncate">{{ item.name }}</h3>
+                      <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">{{ item.category }}</p>
                     </div>
+                    <p class="text-base font-semibold text-gray-900 dark:text-white whitespace-nowrap">
+                      $<MAnimatedNumber :value="item.price * item.quantity" :decimals="2" />
+                    </p>
                   </div>
 
-                  <div class="flex">
+                  <div class="mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div class="flex items-center">
+                      <span class="text-gray-500 dark:text-gray-400 mr-3 text-sm">Qty:</span>
+                      <div class="flex items-center border rounded-md bg-white dark:bg-gray-800">
+                        <UButton
+                          icon="i-heroicons-minus"
+                          variant="ghost"
+                          size="xs"
+                          :disabled="item.quantity <= 1"
+                          @click="updateQuantity(item.id, item.quantity - 1)"
+                        />
+                        <span class="px-3 py-1 text-sm font-medium">{{ item.quantity }}</span>
+                        <UButton
+                          icon="i-heroicons-plus"
+                          variant="ghost"
+                          size="xs"
+                          @click="updateQuantity(item.id, item.quantity + 1)"
+                        />
+                      </div>
+                    </div>
+
                     <UButton
-                      color="red"
+                      color="error"
                       variant="ghost"
                       size="sm"
+                      class="self-start sm:self-auto"
                       @click="removeItem(item.id)"
                     >
+                      <UIcon name="i-heroicons-trash" class="w-4 h-4 mr-1" />
                       Remove
                     </UButton>
                   </div>
                 </div>
-              </div>
+              </MInView>
             </div>
-          </MAnimatedGroup>
+          </div>
         </UCard>
       </div>
 
@@ -97,23 +102,23 @@
           <div class="space-y-4">
             <div class="flex justify-between">
               <span class="text-gray-600 dark:text-gray-400">Subtotal</span>
-              <span class="font-medium">${{ subtotal.toFixed(2) }}</span>
+              <span class="font-medium">$<MAnimatedNumber :value="subtotal" :decimals="2" /></span>
             </div>
             <div class="flex justify-between">
               <span class="text-gray-600 dark:text-gray-400">Shipping</span>
-              <span class="font-medium">${{ shippingCost.toFixed(2) }}</span>
+              <span class="font-medium">$<MAnimatedNumber :value="shippingCost" :decimals="2" /></span>
             </div>
             <div class="flex justify-between">
               <span class="text-gray-600 dark:text-gray-400">Tax</span>
-              <span class="font-medium">${{ tax.toFixed(2) }}</span>
+              <span class="font-medium">$<MAnimatedNumber :value="tax" :decimals="2" /></span>
             </div>
             <div v-if="discount > 0" class="flex justify-between text-green-600 dark:text-green-400">
               <span>Discount</span>
-              <span>-${{ discount.toFixed(2) }}</span>
+              <span>-$<MAnimatedNumber :value="discount" :decimals="2" /></span>
             </div>
             <div class="border-t border-gray-200 dark:border-gray-800 pt-4 flex justify-between text-base font-medium">
               <span>Total</span>
-              <span>${{ total.toFixed(2) }}</span>
+              <span>$<MAnimatedNumber :value="total" :decimals="2" /></span>
             </div>
           </div>
 
@@ -276,8 +281,7 @@ const checkout = () => {
   useToast().add({
     title: 'Checkout',
     description: 'Proceeding to secure checkout...',
-    icon: 'i-heroicons-credit-card',
-    timeout: 3000
+    icon: 'i-heroicons-credit-card'
   })
 }
 </script>

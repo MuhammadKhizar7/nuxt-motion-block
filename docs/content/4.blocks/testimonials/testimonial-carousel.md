@@ -36,55 +36,51 @@ label: Preview
         </p>
       </div>
 
-      <MAnimatedGroup
-        :stagger-children="0.1"
-        :initial="{ opacity: 0, y: 20 }"
-        :animate="{ opacity: 1, y: 0 }"
-        :transition="{ duration: 0.5 }"
-        as="div"
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-      >
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div
           v-for="(testimonial, index) in testimonials"
           :key="index"
           class="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700"
         >
-          <div class="flex items-center mb-4">
-            <UAvatar
-              :src="testimonial.author.avatar"
-              :alt="testimonial.author.name"
-              size="md"
-              class="mr-3"
-            />
-            <div>
-              <h4 class="font-semibold text-gray-900 dark:text-white">
-                {{ testimonial.author.name }}
-              </h4>
-              <p class="text-sm text-gray-600 dark:text-gray-400">
-                {{ testimonial.author.role }}
-              </p>
+          <MInView
+            :variants="{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }"
+            :transition="{ duration: 0.5, delay: index * 0.1 }"
+          >
+            <div class="flex items-center mb-4">
+              <UAvatar
+                :src="testimonial.author.avatar"
+                :alt="testimonial.author.name"
+                size="md"
+                class="mr-3"
+              />
+              <div>
+                <h4 class="font-semibold text-gray-900 dark:text-white">
+                  {{ testimonial.author.name }}
+                </h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                  {{ testimonial.author.role }}
+                </p>
+              </div>
             </div>
-          </div>
-          <p class="text-gray-700 dark:text-gray-300 mb-4">
-            {{ testimonial.content }}
-          </p>
-          <div class="flex">
-            <UIcon
-              v-for="i in 5"
-              :key="i"
-              :name="i <= testimonial.rating ? 'i-heroicons-star-solid' : 'i-heroicons-star'"
-              class="w-5 h-5 text-yellow-400"
-            />
-          </div>
+            <p class="text-gray-700 dark:text-gray-300 mb-4">
+              {{ testimonial.content }}
+            </p>
+            <div class="flex">
+              <UIcon
+                v-for="i in 5"
+                :key="i"
+                :name="i <= testimonial.rating ? 'i-heroicons-star-solid' : 'i-heroicons-star'"
+                class="w-5 h-5 text-yellow-400"
+              />
+            </div>
+          </MInView>
         </div>
-      </MAnimatedGroup>
+      </div>
     </div>
   </section>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-
 const testimonials = [
   {
     content: 'These components have completely transformed how we build our UI. The animations are smooth and the customization options are endless.',

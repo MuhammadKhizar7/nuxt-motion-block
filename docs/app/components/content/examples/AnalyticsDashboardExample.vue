@@ -21,7 +21,7 @@
               />
             </div>
             <div class="p-3 rounded-full bg-green-100 dark:bg-green-900/30">
-              <UIcon name="i-heroicons-currency-dollar" class="w-6 h-6 text-green-600 dark:text-green-400" />
+              <UIcon name="i-heroicons-currency-dollar" class="w-6 h-6 text-green-600 dark:text-green-400 flex justify-center items-center" />
             </div>
           </div>
           <div class="mt-4 flex items-center text-sm">
@@ -45,7 +45,7 @@
               />
             </div>
             <div class="p-3 rounded-full bg-blue-100 dark:bg-blue-900/30">
-              <UIcon name="i-heroicons-users" class="w-6 h-6 text-blue-600 dark:text-blue-400" />
+              <UIcon name="i-heroicons-users" class="w-6 h-6 text-blue-600 dark:text-blue-400 flex justify-center items-center" />
             </div>
           </div>
           <div class="mt-4 flex items-center text-sm">
@@ -69,7 +69,7 @@
               />
             </div>
             <div class="p-3 rounded-full bg-amber-100 dark:bg-amber-900/30">
-              <UIcon name="i-heroicons-shopping-cart" class="w-6 h-6 text-amber-600 dark:text-amber-400" />
+              <UIcon name="i-heroicons-shopping-cart" class="w-6 h-6 text-amber-600 dark:text-amber-400 flex justify-center items-center" />
             </div>
           </div>
           <div class="mt-4 flex items-center text-sm">
@@ -94,7 +94,7 @@
               />
             </div>
             <div class="p-3 rounded-full bg-purple-100 dark:bg-purple-900/30">
-              <UIcon name="i-heroicons-arrow-path" class="w-6 h-6 text-purple-600 dark:text-purple-400" />
+              <UIcon name="i-heroicons-arrow-path" class="w-6 h-6 text-purple-600 dark:text-purple-400 flex justify-center items-center" />
             </div>
           </div>
           <div class="mt-4 flex items-center text-sm">
@@ -148,28 +148,29 @@
       <template #header>
         <h3 class="font-semibold">Recent Activity</h3>
       </template>
-      <div class="divide-y divide-gray-200 dark:divide-gray-800">
+      <div>
         <MAnimatedGroup
           :stagger-children="0.1"
           preset="slide"
           initial="hidden"
           animate="visible"
+          class="divide-y divide-gray-200 dark:divide-gray-800"
         >
           <div
             v-for="(activity, index) in recentActivities"
             :key="index"
-            class="py-4 flex items-start"
+            class="py-4"
           >
-            <div class="flex-shrink-0">
+            <div class="flex justify-between">
               <div class="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
                 <UIcon :name="activity.icon" class="w-5 h-5 text-blue-600 dark:text-blue-400" />
-              </div>
             </div>
             <div class="ml-4 flex-1">
               <p class="text-sm font-medium text-gray-900 dark:text-white">{{ activity.title }}</p>
               <p class="text-sm text-gray-500 dark:text-gray-400">{{ activity.description }}</p>
               <p class="text-xs text-gray-400 dark:text-gray-500 mt-1">{{ activity.time }}</p>
             </div>
+          </div>
           </div>
         </MAnimatedGroup>
       </div>

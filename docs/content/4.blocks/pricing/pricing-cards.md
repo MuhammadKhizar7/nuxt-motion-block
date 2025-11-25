@@ -36,71 +36,70 @@ label: Preview
         </p>
       </div>
 
-      <MAnimatedGroup
-        :stagger-children="0.1"
-        :initial="{ opacity: 0, y: 20 }"
-        :animate="{ opacity: 1, y: 0 }"
-        :transition="{ duration: 0.5 }"
-        as="div"
-        class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto"
-      >
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
         <div
           v-for="(plan, index) in plans"
           :key="index"
           class="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 relative"
           :class="{ 'ring-2 ring-primary-500 border-primary-500': plan.popular }"
         >
-          <div v-if="plan.popular" class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <span class="bg-primary-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
-              Most Popular
-            </span>
-          </div>
-          <div class="text-center mb-6">
-            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">
-              {{ plan.name }}
-            </h3>
-            <p class="text-gray-600 dark:text-gray-400 mb-4">
-              {{ plan.description }}
-            </p>
-            <div class="mb-6">
-              <span class="text-4xl font-bold text-gray-900 dark:text-white">
-                {{ plan.monthlyPrice }}
-              </span>
-              <span class="text-gray-600 dark:text-gray-400">
-                /month
+          <MInView
+            :variants="{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }"
+            :transition="{ duration: 0.5, delay: index * 0.1 }"
+          >
+            <div
+              v-if="plan.popular"
+              class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+            >
+              <span class="bg-primary-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                Most Popular
               </span>
             </div>
-          </div>
-          <ul class="space-y-3 mb-8">
-            <li 
-              v-for="(feature, featureIndex) in plan.features" 
-              :key="featureIndex"
-              class="flex items-center"
+            <div class="text-center mb-6">
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                {{ plan.name }}
+              </h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">
+                {{ plan.description }}
+              </p>
+              <div class="mb-6">
+                <span class="text-4xl font-bold text-gray-900 dark:text-white">
+                  {{ plan.monthlyPrice }}
+                </span>
+                <span class="text-gray-600 dark:text-gray-400">
+                  /month
+                </span>
+              </div>
+            </div>
+            <ul class="space-y-3 mb-8">
+              <li 
+                v-for="(feature, featureIndex) in plan.features" 
+                :key="featureIndex"
+                class="flex items-center"
+              >
+                <UIcon name="i-heroicons-check-circle-solid" class="w-5 h-5 text-green-500 mr-2" />
+                <span class="text-gray-700 dark:text-gray-300">
+                  {{ feature }}
+                </span>
+              </li>
+            </ul>
+            <UButton
+              :to="plan.cta.to"
+              :color="plan.popular ? 'primary' : 'neutral'"
+              :variant="plan.popular ? 'solid' : 'outline'"
+              size="lg"
+              block
             >
-              <UIcon name="i-heroicons-check-circle-solid" class="w-5 h-5 text-green-500 mr-2" />
-              <span class="text-gray-700 dark:text-gray-300">
-                {{ feature }}
-              </span>
-            </li>
-          </ul>
-          <UButton
-            :to="plan.cta.to"
-            :color="plan.popular ? 'primary' : 'neutral'"
-            :variant="plan.popular ? 'solid' : 'outline'"
-            size="lg"
-            block
-          >
-            {{ plan.cta.label }}
-          </UButton>
+              {{ plan.cta.label }}
+            </UButton>
+          </MInView>
         </div>
-      </MAnimatedGroup>
+      </div>
     </div>
   </section>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-
 const plans = [
   {
     name: 'Starter',

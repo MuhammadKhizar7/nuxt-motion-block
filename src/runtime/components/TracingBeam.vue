@@ -12,7 +12,7 @@
         :animate="{
           boxShadow: scrollProgress > 0 ? 'none' : 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
         }"
-        class="border-netural-200 ml-[27px] flex h-4 w-4 items-center justify-center rounded-full border shadow-sm"
+        class="border-neutral-200 ml-[27px] flex h-4 w-4 items-center justify-center rounded-full border shadow-sm"
       >
         <motion.div
           :transition="{
@@ -20,8 +20,8 @@
             delay: 0.5,
           }"
           :animate="{
-            backgroundColor: scrollProgress > 0 ? 'white' : '#10b981',
-            borderColor: scrollProgress > 0 ? 'white' : '#059669',
+            backgroundColor: scrollProgress > 0 ? 'rgb(255, 255, 255)' : 'rgb(16, 185, 129)',
+            borderColor: scrollProgress > 0 ? 'rgb(255, 255, 255)' : 'rgb(5, 150, 105)',
           }"
           class="h-2 w-2 rounded-full border border-neutral-300 bg-white"
         />
@@ -36,7 +36,7 @@
         <motion.path
           :d="`M 1 0V -36 l 18 24 V ${svgHeight * 0.8} l -18 24V ${svgHeight}`"
           fill="none"
-          stroke="#9091A0"
+          stroke="rgb(144, 145, 160)"
           stroke-opacity="0.16"
           :transition="{
             duration: 10,
