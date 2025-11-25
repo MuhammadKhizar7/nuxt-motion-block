@@ -18,16 +18,16 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-        <div
-          v-for="(plan, index) in plans"
+        <MInView
+         v-for="(plan, index) in plans"
           :key="index"
-          class="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 relative"
+          :variants="{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }"
+          :transition="{ duration: 0.5, delay: index * 0.1 }"
+        >
+        <div
+          class="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 relative h-full flex flex-col"
           :class="{ 'ring-2 ring-primary-500 border-primary-500': plan.popular }"
         >
-          <MInView
-            :variants="{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }"
-            :transition="{ duration: 0.5, delay: index * 0.1 }"
-          >
             <div
               v-if="plan.popular"
               class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
@@ -73,11 +73,12 @@
               :variant="plan.popular ? 'solid' : 'outline'"
               size="lg"
               block
+              class="mt-auto"
             >
               {{ plan.cta.label }}
             </UButton>
-          </MInView>
-        </div>
+          </div>
+        </MInView>
       </div>
     </div>
   </section>
