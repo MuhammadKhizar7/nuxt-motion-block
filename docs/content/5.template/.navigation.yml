@@ -6,3 +6,12 @@ navigation:
     - title: Complete Landing Page
       to: /template/landing-page_001
       icon: i-lucide-layout
+    - title: SaaS Landing Page
+      to: /template/saas-landing-page
+      icon: i-heroicons-cloud-arrow-up
+    - title: E-commerce Landing Page
+      to: /template/ecommerce-landing-page
+      icon: i-heroicons-shopping-bag
+    - title: Creative Agency Landing Page
+      to: /template/creative-agency-landing-page
+      icon: i-heroicons-paint-brush
