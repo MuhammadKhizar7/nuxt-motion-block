@@ -3,8 +3,8 @@ description: Ready to use templates for your next Nuxt UI project
 navigation:
   icon: i-lucide-layout
   items:
-    - title: Complete Landing Page
-      to: /template/landing-page_001
+    - title: Basic Landing Page
+      to: /template/basic-landing-page
       icon: i-lucide-layout
     - title: SaaS Landing Page
       to: /template/saas-landing-page
