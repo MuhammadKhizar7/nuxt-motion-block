@@ -63,7 +63,7 @@
         <UBadge
           v-for="tag in allTags"
           :key="tag"
-          :color="activeTags.includes(tag) ? 'primary' : 'gray'"
+          :color="activeTags.includes(tag) ? 'primary' : 'neutral'"
           variant="soft"
           class="cursor-pointer"
           @click="toggleTag(tag)"
@@ -88,7 +88,7 @@
       >
         <UCard
           class="h-full flex flex-col group hover:shadow-xl transition-all duration-300 overflow-hidden"
-          :ui="{ body: { base: 'flex-1 flex flex-col p-6' } }"
+          :ui="{ body: { root: 'flex-1 flex flex-col p-6' } }"
         >
           <div class="relative overflow-hidden rounded-lg mb-4">
             <img
@@ -98,8 +98,8 @@
             >
             <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
               <UButton
-                :to="`/portfolio/${project.slug}`"
-                color="white"
+                :to="`/#portfolio/${project.slug}`"
+                color="neutral"
                 variant="solid"
                 size="sm"
                 class="opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300"
@@ -239,7 +239,7 @@ const projects = ref([
       avatar: 'https://randomuser.me/api/portraits/men/32.jpg'
     },
     tags: ['Vue.js', 'Tailwind CSS', 'Figma', 'Firebase'],
-    slug: 'ecommerce-platform-redesign'
+    slug: '#ecommerce-platform-redesign'
   },
   {
     id: 2,
@@ -253,7 +253,7 @@ const projects = ref([
       avatar: 'https://randomuser.me/api/portraits/women/44.jpg'
     },
     tags: ['React Native', 'Node.js', 'GraphQL', 'Biometrics'],
-    slug: 'mobile-banking-application'
+    slug: '#mobile-banking-application'
   },
   {
     id: 3,
@@ -281,7 +281,7 @@ const projects = ref([
       avatar: 'https://randomuser.me/api/portraits/women/68.jpg'
     },
     tags: ['Figma', 'Data Visualization', 'User Research', 'Prototyping'],
-    slug: 'health-fitness-dashboard'
+    slug: '#health-fitness-dashboard'
   },
   {
     id: 5,
@@ -295,7 +295,7 @@ const projects = ref([
       avatar: 'https://randomuser.me/api/portraits/men/56.jpg'
     },
     tags: ['React', 'Node.js', 'MongoDB', 'D3.js', 'WebSocket'],
-    slug: 'saas-analytics-platform'
+    slug: '#saas-analytics-platform'
   },
   {
     id: 6,
@@ -309,7 +309,7 @@ const projects = ref([
       avatar: 'https://randomuser.me/api/portraits/women/32.jpg'
     },
     tags: ['Vue.js', 'Firebase', 'Twilio', 'Stripe'],
-    slug: 'restaurant-booking-system'
+    slug: '#restaurant-booking-system'
   },
   {
     id: 7,
@@ -323,7 +323,7 @@ const projects = ref([
       avatar: 'https://randomuser.me/api/portraits/men/78.jpg'
     },
     tags: ['Flutter', 'Firebase', 'Gamification', 'Animation'],
-    slug: 'educational-mobile-app'
+    slug: '#educational-mobile-app'
   },
   {
     id: 8,
@@ -337,7 +337,7 @@ const projects = ref([
       avatar: 'https://randomuser.me/api/portraits/women/23.jpg'
     },
     tags: ['Nuxt.js', 'Tailwind CSS', 'Accessibility', 'Donation Integration'],
-    slug: 'nonprofit-website-redesign'
+    slug: '#nonprofit-website-redesign'
   }
 ])
 

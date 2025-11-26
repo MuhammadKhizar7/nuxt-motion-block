@@ -9,7 +9,7 @@
       >
         <div class="flex items-center gap-2 mb-4">
           <UBadge
-            :color="getCategoryColor(article.category)"
+            color="primary"
             variant="subtle"
           >
             {{ article.category }}
@@ -263,7 +263,7 @@
                 :key="related.id"
               >
                 <NuxtLink
-                  :to="`/blog/${related.slug}`"
+                  :to="`#${related.slug}`"
                   class="block group"
                 >
                   <img
@@ -454,17 +454,6 @@ const comments = ref([
     date: '2023-05-16T14:15:00Z'
   }
 ])
-
-const getCategoryColor = (category: string) => {
-  switch (category) {
-    case 'Technology': return 'primary'
-    case 'Design': return 'secondary'
-    case 'Business': return 'success'
-    case 'Lifestyle': return 'warning'
-    case 'Travel': return 'info'
-    default: return 'neutral'
-  }
-}
 
 const formatDate = (dateString: string) => {
   const date = new Date(dateString)

@@ -54,7 +54,6 @@
     >
       <UCard
         class="overflow-hidden group hover:shadow-xl transition-shadow duration-300"
-        :ui="{ body: { base: 'p-0 sm:p-0' } }"
       >
         <div class="flex flex-col md:flex-row">
           <div class="md:w-2/3">
@@ -67,7 +66,7 @@
           <div class="md:w-1/3 p-6 sm:p-8 flex flex-col justify-center">
             <div class="flex items-center gap-2 mb-4">
               <UBadge
-                :color="getCategoryColor(featuredPost.category)"
+                color="primary"
                 variant="subtle"
               >
                 {{ featuredPost.category }}
@@ -91,7 +90,7 @@
                 <span class="text-gray-700 dark:text-gray-300 text-sm">{{ featuredPost.author.name }}</span>
               </div>
               <UButton
-                :to="`/blog/${featuredPost.slug}`"
+                :to="`#${featuredPost.slug}`"
                 color="primary"
                 variant="solid"
                 size="sm"
@@ -118,7 +117,6 @@
       >
         <UCard
           class="h-full flex flex-col group hover:shadow-xl transition-shadow duration-300"
-          :ui="{ body: { base: 'flex-1 flex flex-col' } }"
         >
           <div class="relative overflow-hidden rounded-t-lg">
             <img
@@ -128,7 +126,7 @@
             >
             <div class="absolute top-4 left-4">
               <UBadge
-                :color="getCategoryColor(post.category)"
+                color="primary"
                 variant="solid"
               >
                 {{ post.category }}
@@ -162,7 +160,7 @@
                 <span class="text-gray-700 dark:text-gray-300 text-sm">{{ post.author.name }}</span>
               </div>
               <UButton
-                :to="`/blog/${post.slug}`"
+                :to="`#${post.slug}`"
                 color="primary"
                 variant="ghost"
                 size="sm"
@@ -381,17 +379,6 @@ const endIndex = computed(() => startIndex.value + postsPerPage)
 const paginatedPosts = computed(() => {
   return filteredPosts.value.slice(startIndex.value, endIndex.value)
 })
-
-const getCategoryColor = (category: string) => {
-  switch (category) {
-    case 'Technology': return 'blue'
-    case 'Design': return 'purple'
-    case 'Business': return 'green'
-    case 'Lifestyle': return 'pink'
-    case 'Travel': return 'amber'
-    default: return 'gray'
-  }
-}
 
 const resetFilters = () => {
   searchQuery.value = ''

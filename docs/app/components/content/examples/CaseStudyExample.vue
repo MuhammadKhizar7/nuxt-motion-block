@@ -332,7 +332,7 @@
                 :key="related.id"
               >
                 <NuxtLink
-                  :to="`/portfolio/${related.slug}`"
+                  :to="`/#portfolio/${related.slug}`"
                   class="block group"
                 >
                   <img
@@ -426,21 +426,21 @@ const relatedProjects = [
     title: 'Mobile Banking Application',
     category: 'Mobile App',
     image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-    slug: 'mobile-banking-application'
+    slug: '#mobile-banking-application'
   },
   {
     id: 3,
     title: 'Corporate Brand Identity',
     category: 'Branding',
     image: 'https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-    slug: 'corporate-brand-identity'
+    slug: '#corporate-brand-identity'
   },
   {
     id: 4,
     title: 'Health & Fitness Dashboard',
     category: 'UI/UX',
     image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-    slug: 'health-fitness-dashboard'
+    slug: '#health-fitness-dashboard'
   }
 ]
 

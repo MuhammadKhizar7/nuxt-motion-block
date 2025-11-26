@@ -15,7 +15,7 @@
             <UIcon name="i-heroicons-shopping-cart" class="w-16 h-16 mx-auto text-gray-400 dark:text-gray-500" />
             <h3 class="mt-4 text-lg font-medium text-gray-900 dark:text-white">Your cart is empty</h3>
             <p class="mt-1 text-gray-500 dark:text-gray-400">Add some items to your cart to get started</p>
-            <UButton class="mt-6" to="/products">Continue Shopping</UButton>
+            <UButton class="mt-6" to="/#products">Continue Shopping</UButton>
           </div>
 
           <div
@@ -158,7 +158,7 @@
           <UButton
             variant="ghost"
             class="mt-3 w-full"
-            to="/products"
+            to="/#products"
           >
             Continue Shopping
           </UButton>
