@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.9.0",
+    "@nuxtjs/sitemap": "^7.4.8",
     "better-sqlite3": "^12.4.1",
     "eslint": "^9.36.0",
     "typescript": "^5.9.2",

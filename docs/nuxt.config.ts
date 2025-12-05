@@ -1,4 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
 export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
@@ -6,6 +7,7 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxt/content',
     'nuxt-og-image',
+    '@nuxtjs/sitemap',
     'nuxt-llms',
     '../src/module',
   ],
@@ -80,5 +82,9 @@ export default defineNuxtConfig({
 
   motionBlock: {
     prefix: 'M',
+  },
+
+  site: {
+    url: process.env.NUXT_PUBLIC_SITE_URL || 'https://nuxt-motion-block.pages.dev',
   },
 })
