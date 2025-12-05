@@ -34,9 +34,9 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       routes: [
-        '/',
+        // '/',
       ],
-      crawlLinks: true,
+      crawlLinks: false,
       autoSubfolderIndex: false,
     },
   },
@@ -75,6 +75,27 @@ export default defineNuxtConfig({
         contentCollection: 'docs',
         contentFilters: [
           { field: 'path', operator: 'LIKE', value: '/components%' },
+        ],
+      },
+      {
+        title: 'Composables',
+        contentCollection: 'docs',
+        contentFilters: [
+          { field: 'path', operator: 'LIKE', value: '/composables%' },
+        ],
+      },
+      {
+        title: 'Blocks',
+        contentCollection: 'docs',
+        contentFilters: [
+          { field: 'path', operator: 'LIKE', value: '/blocks%' },
+        ],
+      },
+      {
+        title: 'Template',
+        contentCollection: 'docs',
+        contentFilters: [
+          { field: 'path', operator: 'LIKE', value: '/template%' },
         ],
       },
     ],
