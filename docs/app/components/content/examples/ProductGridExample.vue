@@ -2,8 +2,12 @@
   <div class="p-6 max-w-7xl mx-auto">
     <!-- Header -->
     <div class="mb-8">
-      <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Our Products</h1>
-      <p class="text-gray-600 dark:text-gray-400 mt-2">Discover our latest collection</p>
+      <h1 class="text-3xl font-bold text-gray-900 dark:text-white">
+        Our Products
+      </h1>
+      <p class="text-gray-600 dark:text-gray-400 mt-2">
+        Discover our latest collection
+      </p>
     </div>
 
     <!-- Filters -->
@@ -65,7 +69,10 @@
                 @click="toggleFavorite(product.id)"
               />
             </div>
-            <div v-if="product.badge" class="absolute top-3 left-3">
+            <div
+              v-if="product.badge"
+              class="absolute top-3 left-3"
+            >
               <UBadge
                 :color="product.badge.color"
                 variant="solid"
@@ -78,21 +85,35 @@
           <!-- Product Info -->
           <div class="flex-1 flex flex-col p-4">
             <div class="flex-1">
-              <h3 class="font-semibold text-lg text-gray-900 dark:text-white">{{ product.name }}</h3>
-              <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">{{ product.category }}</p>
-              <p class="text-gray-700 dark:text-gray-300 mt-2 text-sm line-clamp-2">{{ product.description }}</p>
+              <h3 class="font-semibold text-lg text-gray-900 dark:text-white">
+                {{ product.name }}
+              </h3>
+              <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">
+                {{ product.category }}
+              </p>
+              <p class="text-gray-700 dark:text-gray-300 mt-2 text-sm line-clamp-2">
+                {{ product.description }}
+              </p>
             </div>
 
             <div class="mt-4 flex items-center justify-between">
               <div>
-                <p class="text-lg font-bold text-gray-900 dark:text-white">${{ product.price }}</p>
-                <div v-if="product.originalPrice" class="flex items-center">
+                <p class="text-lg font-bold text-gray-900 dark:text-white">
+                  ${{ product.price }}
+                </p>
+                <div
+                  v-if="product.originalPrice"
+                  class="flex items-center"
+                >
                   <span class="text-sm text-gray-500 dark:text-gray-400 line-through">${{ product.originalPrice }}</span>
                   <span class="text-sm text-red-500 ml-2">-{{ product.discount }}%</span>
                 </div>
               </div>
               <div class="flex items-center">
-                <UIcon name="i-heroicons-star-solid" class="w-4 h-4 text-amber-400" />
+                <UIcon
+                  name="i-heroicons-star-solid"
+                  class="w-4 h-4 text-amber-400"
+                />
                 <span class="text-sm text-gray-600 dark:text-gray-400 ml-1">{{ product.rating }}</span>
               </div>
             </div>
@@ -128,8 +149,12 @@
         name="i-heroicons-shopping-bag"
         class="w-16 h-16 mx-auto text-gray-400 dark:text-gray-500"
       />
-      <h3 class="mt-4 text-lg font-medium text-gray-900 dark:text-white">No products found</h3>
-      <p class="mt-1 text-gray-500 dark:text-gray-400">Try adjusting your search or filter criteria</p>
+      <h3 class="mt-4 text-lg font-medium text-gray-900 dark:text-white">
+        No products found
+      </h3>
+      <p class="mt-1 text-gray-500 dark:text-gray-400">
+        Try adjusting your search or filter criteria
+      </p>
       <UButton
         class="mt-6"
         @click="resetFilters"
@@ -151,7 +176,7 @@ const categories = [
   { label: 'Clothing', value: 'Clothing' },
   { label: 'Home & Garden', value: 'Home & Garden' },
   { label: 'Sports', value: 'Sports' },
-  { label: 'Books', value: 'Books' }
+  { label: 'Books', value: 'Books' },
 ]
 
 const sortOptions = [
@@ -159,7 +184,7 @@ const sortOptions = [
   { label: 'Price: Low to High', value: 'price-asc' },
   { label: 'Price: High to Low', value: 'price-desc' },
   { label: 'Customer Rating', value: 'rating' },
-  { label: 'Newest', value: 'newest' }
+  { label: 'Newest', value: 'newest' },
 ]
 
 const products = ref([
@@ -175,7 +200,7 @@ const products = ref([
     rating: 4.8,
     reviews: 124,
     isFavorite: false,
-    badge: { text: 'Sale', color: 'red' }
+    badge: { text: 'Sale', color: 'red' },
   },
   {
     id: 2,
@@ -187,7 +212,7 @@ const products = ref([
     rating: 4.6,
     reviews: 89,
     isFavorite: true,
-    badge: null
+    badge: null,
   },
   {
     id: 3,
@@ -201,7 +226,7 @@ const products = ref([
     rating: 4.3,
     reviews: 56,
     isFavorite: false,
-    badge: { text: 'New', color: 'green' }
+    badge: { text: 'New', color: 'green' },
   },
   {
     id: 4,
@@ -213,7 +238,7 @@ const products = ref([
     rating: 4.7,
     reviews: 203,
     isFavorite: false,
-    badge: null
+    badge: null,
   },
   {
     id: 5,
@@ -225,7 +250,7 @@ const products = ref([
     rating: 4.5,
     reviews: 78,
     isFavorite: true,
-    badge: { text: 'Eco', color: 'emerald' }
+    badge: { text: 'Eco', color: 'emerald' },
   },
   {
     id: 6,
@@ -237,7 +262,7 @@ const products = ref([
     rating: 4.9,
     reviews: 312,
     isFavorite: false,
-    badge: null
+    badge: null,
   },
   {
     id: 7,
@@ -251,7 +276,7 @@ const products = ref([
     rating: 4.4,
     reviews: 67,
     isFavorite: false,
-    badge: { text: 'Sale', color: 'red' }
+    badge: { text: 'Sale', color: 'red' },
   },
   {
     id: 8,
@@ -263,28 +288,28 @@ const products = ref([
     rating: 4.6,
     reviews: 92,
     isFavorite: false,
-    badge: null
-  }
+    badge: null,
+  },
 ])
 
 const filteredProducts = computed(() => {
   let result = [...products.value]
-  
+
   // Apply search filter
   if (searchQuery.value) {
     const query = searchQuery.value.toLowerCase()
-    result = result.filter(product => 
-      product.name.toLowerCase().includes(query) || 
-      product.description.toLowerCase().includes(query) ||
-      product.category.toLowerCase().includes(query)
+    result = result.filter(product =>
+      product.name.toLowerCase().includes(query)
+      || product.description.toLowerCase().includes(query)
+      || product.category.toLowerCase().includes(query),
     )
   }
-  
+
   // Apply category filter
   if (categoryFilter.value) {
     result = result.filter(product => product.category === categoryFilter.value)
   }
-  
+
   // Apply sorting
   switch (sortOption.value) {
     case 'price-asc':
@@ -303,7 +328,7 @@ const filteredProducts = computed(() => {
       // Featured - keep original order
       break
   }
-  
+
   return result
 })
 
@@ -322,7 +347,7 @@ const addToCart = (product: any) => {
     title: 'Added to cart',
     description: `${product.name} has been added to your cart`,
     icon: 'i-heroicons-shopping-cart',
-    timeout: 3000
+    timeout: 3000,
   })
 }
 

@@ -80,9 +80,9 @@
     <!-- Hero Section -->
     <section class="relative py-20 md:py-28 overflow-hidden">
       <div class="absolute inset-0 z-0">
-        <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 dark:from-primary/10 dark:to-secondary/10"></div>
-        <div class="absolute top-0 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 dark:from-primary/10 dark:to-secondary/10" />
+        <div class="absolute top-0 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
       </div>
       <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -175,7 +175,7 @@
               :transition="{ duration: 0.5, delay: 0.2 }"
             >
               <div class="relative rounded-2xl overflow-hidden shadow-xl border border-default bg-elevated">
-                <div class="absolute inset-0 bg-gradient-to-br from-purple-50/50 to-indigo-50/50 dark:from-purple-900/5 dark:to-indigo-900/5"></div>
+                <div class="absolute inset-0 bg-gradient-to-br from-purple-50/50 to-indigo-50/50 dark:from-purple-900/5 dark:to-indigo-900/5" />
                 <div class="relative p-8">
                   <div class="mb-8">
                     <div class="flex items-center mb-6">
@@ -194,21 +194,49 @@
                         </div>
                       </div>
                     </div>
-                    
+
                     <div class="relative rounded-xl overflow-hidden h-48 mb-6">
                       <div class="absolute inset-0 bg-gradient-to-r from-purple-500 to-indigo-500 flex items-center justify-center">
                         <div class="text-white text-center p-4">
-                          <div class="text-2xl font-bold mb-2">Featured Project</div>
-                          <div class="text-lg">Brand Identity Redesign</div>
+                          <div class="text-2xl font-bold mb-2">
+                            Featured Project
+                          </div>
+                          <div class="text-lg">
+                            Brand Identity Redesign
+                          </div>
                         </div>
                       </div>
                     </div>
-                    
+
                     <div class="flex flex-wrap gap-2 mb-6">
-                      <UBadge variant="subtle" color="purple" size="sm">Branding</UBadge>
-                      <UBadge variant="subtle" color="indigo" size="sm">UI/UX</UBadge>
-                      <UBadge variant="subtle" color="purple" size="sm">Web Design</UBadge>
-                      <UBadge variant="subtle" color="indigo" size="sm">Animation</UBadge>
+                      <UBadge
+                        variant="subtle"
+                        color="purple"
+                        size="sm"
+                      >
+                        Branding
+                      </UBadge>
+                      <UBadge
+                        variant="subtle"
+                        color="indigo"
+                        size="sm"
+                      >
+                        UI/UX
+                      </UBadge>
+                      <UBadge
+                        variant="subtle"
+                        color="purple"
+                        size="sm"
+                      >
+                        Web Design
+                      </UBadge>
+                      <UBadge
+                        variant="subtle"
+                        color="indigo"
+                        size="sm"
+                      >
+                        Animation
+                      </UBadge>
                     </div>
                   </div>
 
@@ -218,31 +246,55 @@
                     </div>
                     <div class="space-y-3">
                       <div class="flex items-start">
-                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-purple-500 text-white flex items-center justify-center text-xs font-bold mr-3 mt-0.5">1</div>
+                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-purple-500 text-white flex items-center justify-center text-xs font-bold mr-3 mt-0.5">
+                          1
+                        </div>
                         <div>
-                          <div class="font-medium text-default">Discovery & Research</div>
-                          <div class="text-xs text-muted">Understanding your brand and audience</div>
+                          <div class="font-medium text-default">
+                            Discovery & Research
+                          </div>
+                          <div class="text-xs text-muted">
+                            Understanding your brand and audience
+                          </div>
                         </div>
                       </div>
                       <div class="flex items-start">
-                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-indigo-500 text-white flex items-center justify-center text-xs font-bold mr-3 mt-0.5">2</div>
+                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-indigo-500 text-white flex items-center justify-center text-xs font-bold mr-3 mt-0.5">
+                          2
+                        </div>
                         <div>
-                          <div class="font-medium text-default">Concept & Strategy</div>
-                          <div class="text-xs text-muted">Developing creative solutions</div>
+                          <div class="font-medium text-default">
+                            Concept & Strategy
+                          </div>
+                          <div class="text-xs text-muted">
+                            Developing creative solutions
+                          </div>
                         </div>
                       </div>
                       <div class="flex items-start">
-                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-purple-500 text-white flex items-center justify-center text-xs font-bold mr-3 mt-0.5">3</div>
+                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-purple-500 text-white flex items-center justify-center text-xs font-bold mr-3 mt-0.5">
+                          3
+                        </div>
                         <div>
-                          <div class="font-medium text-default">Design & Execution</div>
-                          <div class="text-xs text-muted">Bringing ideas to life</div>
+                          <div class="font-medium text-default">
+                            Design & Execution
+                          </div>
+                          <div class="text-xs text-muted">
+                            Bringing ideas to life
+                          </div>
                         </div>
                       </div>
                       <div class="flex items-start">
-                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-indigo-500 text-white flex items-center justify-center text-xs font-bold mr-3 mt-0.5">4</div>
+                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-indigo-500 text-white flex items-center justify-center text-xs font-bold mr-3 mt-0.5">
+                          4
+                        </div>
                         <div>
-                          <div class="font-medium text-default">Delivery & Support</div>
-                          <div class="text-xs text-muted">Launch and ongoing assistance</div>
+                          <div class="font-medium text-default">
+                            Delivery & Support
+                          </div>
+                          <div class="text-xs text-muted">
+                            Launch and ongoing assistance
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -272,7 +324,10 @@
                       class="font-medium"
                     >
                       View Details
-                      <UIcon name="i-heroicons-arrow-right-20-solid" class="w-4 h-4 ml-1" />
+                      <UIcon
+                        name="i-heroicons-arrow-right-20-solid"
+                        class="w-4 h-4 ml-1"
+                      />
                     </UButton>
                   </div>
                 </div>
@@ -762,24 +817,24 @@
 const navigationItems = [
   {
     label: 'Work',
-    to: '#'
+    to: '#',
   },
   {
     label: 'Services',
-    to: '#'
+    to: '#',
   },
   {
     label: 'About',
-    to: '#'
+    to: '#',
   },
   {
     label: 'Blog',
-    to: '#'
+    to: '#',
   },
   {
     label: 'Contact',
-    to: '#'
-  }
+    to: '#',
+  },
 ]
 
 const services = [
@@ -787,38 +842,38 @@ const services = [
     title: 'Web Design',
     description: 'Beautiful, responsive websites that engage your audience and drive conversions.',
     icon: 'i-heroicons-computer-desktop',
-    link: '#'
+    link: '#',
   },
   {
     title: 'Branding',
     description: 'Comprehensive brand identity solutions that make your business memorable.',
     icon: 'i-heroicons-paint-brush',
-    link: '#'
+    link: '#',
   },
   {
     title: 'Marketing',
     description: 'Data-driven digital marketing strategies that deliver measurable results.',
     icon: 'i-heroicons-megaphone',
-    link: '#'
+    link: '#',
   },
   {
     title: 'Development',
     description: 'Custom web applications and platforms built with the latest technologies.',
     icon: 'i-heroicons-code-bracket',
-    link: '#'
+    link: '#',
   },
   {
     title: 'UI/UX Design',
     description: 'User-centered design that creates intuitive and delightful experiences.',
     icon: 'i-heroicons-pencil-square',
-    link: '#'
+    link: '#',
   },
   {
     title: 'Consulting',
     description: 'Strategic guidance to help your business grow and succeed in the digital landscape.',
     icon: 'i-heroicons-light-bulb',
-    link: '#'
-  }
+    link: '#',
+  },
 ]
 
 const projects = [
@@ -827,29 +882,29 @@ const projects = [
     description: 'Sustainable living made simple with our comprehensive mobile application.',
     image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
     category: { name: 'Mobile App', color: 'blue' },
-    link: '#'
+    link: '#',
   },
   {
     title: 'FinTech Dashboard',
     description: 'Modern financial dashboard for real-time analytics and reporting.',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
     category: { name: 'Web Design', color: 'primary' },
-    link: '#'
+    link: '#',
   },
   {
     title: 'Brewery Branding',
     description: 'Complete brand identity for a craft brewery with packaging design.',
     image: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
     category: { name: 'Branding', color: 'amber' },
-    link: '#'
-  }
+    link: '#',
+  },
 ]
 
 const stats = [
   { value: 250, label: 'Projects Completed', suffix: '+' },
   { value: 98, label: 'Client Satisfaction', suffix: '%' },
   { value: 42, label: 'Team Members', suffix: '+' },
-  { value: 5, label: 'Years Experience', suffix: '+' }
+  { value: 5, label: 'Years Experience', suffix: '+' },
 ]
 
 const team = [
@@ -860,8 +915,8 @@ const team = [
     avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
     social: [
       { icon: 'i-simple-icons-dribbble', link: '#' },
-      { icon: 'i-simple-icons-linkedin', link: '#' }
-    ]
+      { icon: 'i-simple-icons-linkedin', link: '#' },
+    ],
   },
   {
     name: 'Sarah Williams',
@@ -870,8 +925,8 @@ const team = [
     avatar: 'https://randomuser.me/api/portraits/women/44.jpg',
     social: [
       { icon: 'i-simple-icons-dribbble', link: '#' },
-      { icon: 'i-simple-icons-behance', link: '#' }
-    ]
+      { icon: 'i-simple-icons-behance', link: '#' },
+    ],
   },
   {
     name: 'Michael Chen',
@@ -880,8 +935,8 @@ const team = [
     avatar: 'https://randomuser.me/api/portraits/men/22.jpg',
     social: [
       { icon: 'i-simple-icons-github', link: '#' },
-      { icon: 'i-simple-icons-linkedin', link: '#' }
-    ]
+      { icon: 'i-simple-icons-linkedin', link: '#' },
+    ],
   },
   {
     name: 'Emma Davis',
@@ -890,9 +945,9 @@ const team = [
     avatar: 'https://randomuser.me/api/portraits/women/68.jpg',
     social: [
       { icon: 'i-simple-icons-twitter', link: '#' },
-      { icon: 'i-simple-icons-linkedin', link: '#' }
-    ]
-  }
+      { icon: 'i-simple-icons-linkedin', link: '#' },
+    ],
+  },
 ]
 
 const testimonials = [
@@ -901,35 +956,35 @@ const testimonials = [
     author: {
       name: 'Robert Garcia',
       role: 'CEO, TechStart Inc.',
-      avatar: 'https://randomuser.me/api/portraits/men/56.jpg'
+      avatar: 'https://randomuser.me/api/portraits/men/56.jpg',
     },
-    rating: 5
+    rating: 5,
   },
   {
     content: 'Working with PixelCraft was a game-changer for our brand. Their attention to detail and creative approach resulted in a brand identity that perfectly represents who we are.',
     author: {
       name: 'Jennifer Lee',
       role: 'Marketing Director, EcoLife',
-      avatar: 'https://randomuser.me/api/portraits/women/32.jpg'
+      avatar: 'https://randomuser.me/api/portraits/women/32.jpg',
     },
-    rating: 5
+    rating: 5,
   },
   {
     content: 'The team at PixelCraft is incredibly talented and professional. They delivered our project on time and within budget, with exceptional quality. Highly recommended!',
     author: {
       name: 'David Wilson',
       role: 'Founder, BrewCraft',
-      avatar: 'https://randomuser.me/api/portraits/men/78.jpg'
+      avatar: 'https://randomuser.me/api/portraits/men/78.jpg',
     },
-    rating: 4
-  }
+    rating: 4,
+  },
 ]
 
 const socialLinks = [
   { label: 'Dribbble', to: '#', icon: 'i-simple-icons-dribbble' },
   { label: 'Behance', to: '#', icon: 'i-simple-icons-behance' },
   { label: 'Instagram', to: '#', icon: 'i-simple-icons-instagram' },
-  { label: 'LinkedIn', to: '#', icon: 'i-simple-icons-linkedin' }
+  { label: 'LinkedIn', to: '#', icon: 'i-simple-icons-linkedin' },
 ]
 
 const footerLinks = [
@@ -939,8 +994,8 @@ const footerLinks = [
       { label: 'Web Design', to: '#' },
       { label: 'Branding', to: '#' },
       { label: 'Marketing', to: '#' },
-      { label: 'Development', to: '#' }
-    ]
+      { label: 'Development', to: '#' },
+    ],
   },
   {
     title: 'Company',
@@ -948,8 +1003,8 @@ const footerLinks = [
       { label: 'About Us', to: '#' },
       { label: 'Our Team', to: '#' },
       { label: 'Careers', to: '#' },
-      { label: 'Contact', to: '#' }
-    ]
+      { label: 'Contact', to: '#' },
+    ],
   },
   {
     title: 'Resources',
@@ -957,8 +1012,8 @@ const footerLinks = [
       { label: 'Blog', to: '#' },
       { label: 'Case Studies', to: '#' },
       { label: 'Portfolio', to: '#' },
-      { label: 'FAQs', to: '#' }
-    ]
-  }
+      { label: 'FAQs', to: '#' },
+    ],
+  },
 ]
 </script>

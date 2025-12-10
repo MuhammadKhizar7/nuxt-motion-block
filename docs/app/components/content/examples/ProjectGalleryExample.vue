@@ -10,7 +10,7 @@
           Our Work
         </h1>
       </MInView>
-      
+
       <MInView
         :variants="{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }"
         :transition="{ duration: 0.5, delay: 0.1 }"
@@ -20,7 +20,7 @@
         </p>
       </MInView>
     </div>
-    
+
     <!-- Filters and Search -->
     <MInView
       :variants="{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }"
@@ -52,7 +52,7 @@
         </div>
       </div>
     </MInView>
-    
+
     <!-- Filter Tags -->
     <MInView
       :variants="{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }"
@@ -72,7 +72,7 @@
         </UBadge>
       </div>
     </MInView>
-    
+
     <!-- Projects Grid -->
     <MAnimatedGroup
       v-if="filteredProjects.length > 0"
@@ -116,16 +116,16 @@
               </UBadge>
             </div>
           </div>
-          
+
           <div class="flex-1">
             <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
               {{ project.title }}
             </h3>
-            
+
             <p class="text-gray-600 dark:text-gray-400 mb-4 flex-1 line-clamp-2">
               {{ project.description }}
             </p>
-            
+
             <div class="flex flex-wrap gap-1 mb-4">
               <UBadge
                 v-for="tag in project.tags.slice(0, 3)"
@@ -144,7 +144,7 @@
               </UBadge>
             </div>
           </div>
-          
+
           <div class="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-800">
             <div class="flex items-center">
               <UAvatar
@@ -162,7 +162,7 @@
         </UCard>
       </div>
     </MAnimatedGroup>
-    
+
     <!-- Empty State -->
     <MInView
       v-if="filteredProjects.length === 0"
@@ -174,8 +174,12 @@
         name="i-heroicons-photo"
         class="w-16 h-16 mx-auto text-gray-400 dark:text-gray-500"
       />
-      <h3 class="mt-4 text-lg font-medium text-gray-900 dark:text-white">No projects found</h3>
-      <p class="mt-1 text-gray-500 dark:text-gray-400">Try adjusting your search or filter criteria</p>
+      <h3 class="mt-4 text-lg font-medium text-gray-900 dark:text-white">
+        No projects found
+      </h3>
+      <p class="mt-1 text-gray-500 dark:text-gray-400">
+        Try adjusting your search or filter criteria
+      </p>
       <UButton
         class="mt-6"
         @click="resetFilters"
@@ -183,7 +187,7 @@
         Reset Filters
       </UButton>
     </MInView>
-    
+
     <!-- Pagination -->
     <MInView
       v-if="filteredProjects.length > 0"
@@ -214,14 +218,14 @@ const categories = [
   { label: 'Mobile App', value: 'Mobile App' },
   { label: 'Branding', value: 'Branding' },
   { label: 'UI/UX', value: 'UI/UX' },
-  { label: 'Development', value: 'Development' }
+  { label: 'Development', value: 'Development' },
 ]
 
 const sortOptions = [
   { label: 'Newest First', value: 'date-desc' },
   { label: 'Oldest First', value: 'date-asc' },
   { label: 'Title A-Z', value: 'title-asc' },
-  { label: 'Title Z-A', value: 'title-desc' }
+  { label: 'Title Z-A', value: 'title-desc' },
 ]
 
 const allTags = ['Vue.js', 'React', 'Tailwind CSS', 'Figma', 'Node.js', 'TypeScript', 'GraphQL', 'Firebase', 'Next.js', 'Nuxt.js']
@@ -236,10 +240,10 @@ const projects = ref([
     image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
     client: {
       name: 'TechCorp Inc.',
-      avatar: 'https://randomuser.me/api/portraits/men/32.jpg'
+      avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
     },
     tags: ['Vue.js', 'Tailwind CSS', 'Figma', 'Firebase'],
-    slug: '#ecommerce-platform-redesign'
+    slug: '#ecommerce-platform-redesign',
   },
   {
     id: 2,
@@ -250,10 +254,10 @@ const projects = ref([
     image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
     client: {
       name: 'FinanceGlobal',
-      avatar: 'https://randomuser.me/api/portraits/women/44.jpg'
+      avatar: 'https://randomuser.me/api/portraits/women/44.jpg',
     },
     tags: ['React Native', 'Node.js', 'GraphQL', 'Biometrics'],
-    slug: '#mobile-banking-application'
+    slug: '#mobile-banking-application',
   },
   {
     id: 3,
@@ -264,10 +268,10 @@ const projects = ref([
     image: 'https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
     client: {
       name: 'StartupXYZ',
-      avatar: 'https://randomuser.me/api/portraits/men/22.jpg'
+      avatar: 'https://randomuser.me/api/portraits/men/22.jpg',
     },
     tags: ['Illustrator', 'Photoshop', 'Brand Guidelines', 'Typography'],
-    slug: 'corporate-brand-identity'
+    slug: 'corporate-brand-identity',
   },
   {
     id: 4,
@@ -278,10 +282,10 @@ const projects = ref([
     image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
     client: {
       name: 'Wellness Co.',
-      avatar: 'https://randomuser.me/api/portraits/women/68.jpg'
+      avatar: 'https://randomuser.me/api/portraits/women/68.jpg',
     },
     tags: ['Figma', 'Data Visualization', 'User Research', 'Prototyping'],
-    slug: '#health-fitness-dashboard'
+    slug: '#health-fitness-dashboard',
   },
   {
     id: 5,
@@ -292,10 +296,10 @@ const projects = ref([
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
     client: {
       name: 'DataInsights Ltd.',
-      avatar: 'https://randomuser.me/api/portraits/men/56.jpg'
+      avatar: 'https://randomuser.me/api/portraits/men/56.jpg',
     },
     tags: ['React', 'Node.js', 'MongoDB', 'D3.js', 'WebSocket'],
-    slug: '#saas-analytics-platform'
+    slug: '#saas-analytics-platform',
   },
   {
     id: 6,
@@ -306,10 +310,10 @@ const projects = ref([
     image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
     client: {
       name: 'Fine Dining Group',
-      avatar: 'https://randomuser.me/api/portraits/women/32.jpg'
+      avatar: 'https://randomuser.me/api/portraits/women/32.jpg',
     },
     tags: ['Vue.js', 'Firebase', 'Twilio', 'Stripe'],
-    slug: '#restaurant-booking-system'
+    slug: '#restaurant-booking-system',
   },
   {
     id: 7,
@@ -320,10 +324,10 @@ const projects = ref([
     image: 'https://images.unsplash.com/photo-1536924940846-227afb31e2a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
     client: {
       name: 'EduTech Solutions',
-      avatar: 'https://randomuser.me/api/portraits/men/78.jpg'
+      avatar: 'https://randomuser.me/api/portraits/men/78.jpg',
     },
     tags: ['Flutter', 'Firebase', 'Gamification', 'Animation'],
-    slug: '#educational-mobile-app'
+    slug: '#educational-mobile-app',
   },
   {
     id: 8,
@@ -334,39 +338,39 @@ const projects = ref([
     image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
     client: {
       name: 'Charity Foundation',
-      avatar: 'https://randomuser.me/api/portraits/women/23.jpg'
+      avatar: 'https://randomuser.me/api/portraits/women/23.jpg',
     },
     tags: ['Nuxt.js', 'Tailwind CSS', 'Accessibility', 'Donation Integration'],
-    slug: '#nonprofit-website-redesign'
-  }
+    slug: '#nonprofit-website-redesign',
+  },
 ])
 
 const filteredProjects = computed(() => {
   let result = [...projects.value]
-  
+
   // Apply search filter
   if (searchQuery.value) {
     const query = searchQuery.value.toLowerCase()
-    result = result.filter(project => 
-      project.title.toLowerCase().includes(query) || 
-      project.description.toLowerCase().includes(query) ||
-      project.category.toLowerCase().includes(query) ||
-      project.tags.some(tag => tag.toLowerCase().includes(query))
+    result = result.filter(project =>
+      project.title.toLowerCase().includes(query)
+      || project.description.toLowerCase().includes(query)
+      || project.category.toLowerCase().includes(query)
+      || project.tags.some(tag => tag.toLowerCase().includes(query)),
     )
   }
-  
+
   // Apply category filter
   if (categoryFilter.value) {
     result = result.filter(project => project.category === categoryFilter.value)
   }
-  
+
   // Apply tag filters
   if (activeTags.value.length > 0) {
-    result = result.filter(project => 
-      activeTags.value.every(tag => project.tags.includes(tag))
+    result = result.filter(project =>
+      activeTags.value.every(tag => project.tags.includes(tag)),
     )
   }
-  
+
   // Apply sorting
   switch (sortBy.value) {
     case 'date-desc':
@@ -382,7 +386,7 @@ const filteredProjects = computed(() => {
       result.sort((a, b) => b.title.localeCompare(a.title))
       break
   }
-  
+
   return result
 })
 
@@ -409,7 +413,8 @@ const getCategoryColor = (category: string) => {
 const toggleTag = (tag: string) => {
   if (activeTags.value.includes(tag)) {
     activeTags.value = activeTags.value.filter(t => t !== tag)
-  } else {
+  }
+  else {
     activeTags.value.push(tag)
   }
   page.value = 1

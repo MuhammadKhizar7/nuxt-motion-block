@@ -10,7 +10,7 @@
           Our Blog
         </h1>
       </MInView>
-      
+
       <MInView
         :variants="{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }"
         :transition="{ duration: 0.5, delay: 0.1 }"
@@ -133,22 +133,22 @@
               </UBadge>
             </div>
           </div>
-          
+
           <div class="flex-1 flex flex-col p-6">
             <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
               <span>{{ post.date }}</span>
               <span class="mx-2">•</span>
               <span>{{ post.readTime }} min read</span>
             </div>
-            
+
             <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
               {{ post.title }}
             </h3>
-            
+
             <p class="text-gray-600 dark:text-gray-400 mb-4 flex-1 line-clamp-3">
               {{ post.excerpt }}
             </p>
-            
+
             <div class="flex items-center justify-between mt-auto">
               <div class="flex items-center">
                 <UAvatar
@@ -198,8 +198,12 @@
         name="i-heroicons-newspaper"
         class="w-16 h-16 mx-auto text-gray-400 dark:text-gray-500"
       />
-      <h3 class="mt-4 text-lg font-medium text-gray-900 dark:text-white">No articles found</h3>
-      <p class="mt-1 text-gray-500 dark:text-gray-400">Try adjusting your search or filter criteria</p>
+      <h3 class="mt-4 text-lg font-medium text-gray-900 dark:text-white">
+        No articles found
+      </h3>
+      <p class="mt-1 text-gray-500 dark:text-gray-400">
+        Try adjusting your search or filter criteria
+      </p>
       <UButton
         class="mt-6"
         @click="resetFilters"
@@ -222,7 +226,7 @@ const categories = [
   { label: 'Design', value: 'Design' },
   { label: 'Business', value: 'Business' },
   { label: 'Lifestyle', value: 'Lifestyle' },
-  { label: 'Travel', value: 'Travel' }
+  { label: 'Travel', value: 'Travel' },
 ]
 
 const posts = ref([
@@ -236,9 +240,9 @@ const posts = ref([
     image: 'https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
     author: {
       name: 'Alex Johnson',
-      avatar: 'https://randomuser.me/api/portraits/men/32.jpg'
+      avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
     },
-    slug: 'getting-started-with-vue-3-composition-api'
+    slug: 'getting-started-with-vue-3-composition-api',
   },
   {
     id: 2,
@@ -250,9 +254,9 @@ const posts = ref([
     image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
     author: {
       name: 'Sarah Williams',
-      avatar: 'https://randomuser.me/api/portraits/women/44.jpg'
+      avatar: 'https://randomuser.me/api/portraits/women/44.jpg',
     },
-    slug: 'the-future-of-web-design-in-2023'
+    slug: 'the-future-of-web-design-in-2023',
   },
   {
     id: 3,
@@ -264,9 +268,9 @@ const posts = ref([
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
     author: {
       name: 'Michael Chen',
-      avatar: 'https://randomuser.me/api/portraits/men/22.jpg'
+      avatar: 'https://randomuser.me/api/portraits/men/22.jpg',
     },
-    slug: 'building-a-successful-saas-business'
+    slug: 'building-a-successful-saas-business',
   },
   {
     id: 4,
@@ -278,9 +282,9 @@ const posts = ref([
     image: 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
     author: {
       name: 'Emma Davis',
-      avatar: 'https://randomuser.me/api/portraits/women/68.jpg'
+      avatar: 'https://randomuser.me/api/portraits/women/68.jpg',
     },
-    slug: 'minimalism-in-modern-living'
+    slug: 'minimalism-in-modern-living',
   },
   {
     id: 5,
@@ -292,9 +296,9 @@ const posts = ref([
     image: 'https://images.unsplash.com/photo-1501555088652-021faa106b9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
     author: {
       name: 'James Wilson',
-      avatar: 'https://randomuser.me/api/portraits/men/56.jpg'
+      avatar: 'https://randomuser.me/api/portraits/men/56.jpg',
     },
-    slug: 'top-destinations-for-digital-nomads'
+    slug: 'top-destinations-for-digital-nomads',
   },
   {
     id: 6,
@@ -306,9 +310,9 @@ const posts = ref([
     image: 'https://images.unsplash.com/photo-1632571401005-458e9d244591?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
     author: {
       name: 'Olivia Brown',
-      avatar: 'https://randomuser.me/api/portraits/women/32.jpg'
+      avatar: 'https://randomuser.me/api/portraits/women/32.jpg',
     },
-    slug: 'advanced-css-techniques-you-should-know'
+    slug: 'advanced-css-techniques-you-should-know',
   },
   {
     id: 7,
@@ -320,9 +324,9 @@ const posts = ref([
     image: 'https://images.unsplash.com/photo-1547891654-e66ed7ebb968?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
     author: {
       name: 'Daniel Taylor',
-      avatar: 'https://randomuser.me/api/portraits/men/78.jpg'
+      avatar: 'https://randomuser.me/api/portraits/men/78.jpg',
     },
-    slug: 'the-psychology-of-color-in-design'
+    slug: 'the-psychology-of-color-in-design',
   },
   {
     id: 8,
@@ -334,10 +338,10 @@ const posts = ref([
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
     author: {
       name: 'Sophia Martinez',
-      avatar: 'https://randomuser.me/api/portraits/women/23.jpg'
+      avatar: 'https://randomuser.me/api/portraits/women/23.jpg',
     },
-    slug: 'remote-work-productivity-tips'
-  }
+    slug: 'remote-work-productivity-tips',
+  },
 ])
 
 const featuredPost = computed(() => {
@@ -347,27 +351,27 @@ const featuredPost = computed(() => {
 
 const filteredPosts = computed(() => {
   let result = [...posts.value]
-  
+
   // Remove featured post from listing when not filtering
   if (!searchQuery.value && !categoryFilter.value && result.length > 0) {
     result = result.slice(1)
   }
-  
+
   // Apply search filter
   if (searchQuery.value) {
     const query = searchQuery.value.toLowerCase()
-    result = result.filter(post => 
-      post.title.toLowerCase().includes(query) || 
-      post.excerpt.toLowerCase().includes(query) ||
-      post.category.toLowerCase().includes(query)
+    result = result.filter(post =>
+      post.title.toLowerCase().includes(query)
+      || post.excerpt.toLowerCase().includes(query)
+      || post.category.toLowerCase().includes(query),
     )
   }
-  
+
   // Apply category filter
   if (categoryFilter.value) {
     result = result.filter(post => post.category === categoryFilter.value)
   }
-  
+
   return result
 })
 

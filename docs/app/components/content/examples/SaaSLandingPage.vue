@@ -100,9 +100,9 @@
     <!-- Hero Section -->
     <section class="relative py-20 md:py-28 overflow-hidden">
       <div class="absolute inset-0 z-0">
-        <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 dark:from-primary/10 dark:to-secondary/10"></div>
-        <div class="absolute top-0 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 dark:from-primary/10 dark:to-secondary/10" />
+        <div class="absolute top-0 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
       </div>
       <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -169,16 +169,28 @@
             >
               <div class="grid grid-cols-3 gap-8 mt-12">
                 <div class="text-center">
-                  <div class="text-3xl font-bold text-default mb-2">99.9%</div>
-                  <div class="text-sm text-muted">Uptime</div>
+                  <div class="text-3xl font-bold text-default mb-2">
+                    99.9%
+                  </div>
+                  <div class="text-sm text-muted">
+                    Uptime
+                  </div>
                 </div>
                 <div class="text-center">
-                  <div class="text-3xl font-bold text-default mb-2">24/7</div>
-                  <div class="text-sm text-muted">Support</div>
+                  <div class="text-3xl font-bold text-default mb-2">
+                    24/7
+                  </div>
+                  <div class="text-sm text-muted">
+                    Support
+                  </div>
                 </div>
                 <div class="text-center">
-                  <div class="text-3xl font-bold text-default mb-2">ISO 27001</div>
-                  <div class="text-sm text-muted">Certified</div>
+                  <div class="text-3xl font-bold text-default mb-2">
+                    ISO 27001
+                  </div>
+                  <div class="text-sm text-muted">
+                    Certified
+                  </div>
                 </div>
               </div>
             </MInView>
@@ -189,7 +201,7 @@
               :transition="{ duration: 0.5, delay: 0.2 }"
             >
               <div class="relative rounded-2xl overflow-hidden shadow-xl border border-default bg-elevated">
-                <div class="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-cyan-50/50 dark:from-blue-900/5 dark:to-cyan-900/5"></div>
+                <div class="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-cyan-50/50 dark:from-blue-900/5 dark:to-cyan-900/5" />
                 <div class="relative p-8">
                   <div class="flex items-center justify-between mb-8">
                     <div class="flex items-center">
@@ -230,17 +242,29 @@
                       <div class="flex items-center justify-between p-4 bg-blue-50 dark:bg-blue-900/10 rounded-xl">
                         <div class="flex items-center">
                           <div class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/20 flex items-center justify-center mr-3">
-                            <UIcon name="i-heroicons-arrow-trending-up" class="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                            <UIcon
+                              name="i-heroicons-arrow-trending-up"
+                              class="w-5 h-5 text-blue-600 dark:text-blue-400"
+                            />
                           </div>
                           <div>
-                            <div class="font-medium text-default">Revenue Growth</div>
-                            <div class="text-xs text-muted">Monthly increase</div>
+                            <div class="font-medium text-default">
+                              Revenue Growth
+                            </div>
+                            <div class="text-xs text-muted">
+                              Monthly increase
+                            </div>
                           </div>
                         </div>
                         <div class="text-right">
-                          <div class="text-xl font-bold text-blue-600 dark:text-blue-400">24%</div>
+                          <div class="text-xl font-bold text-blue-600 dark:text-blue-400">
+                            24%
+                          </div>
                           <div class="flex items-center justify-end text-xs text-green-500">
-                            <UIcon name="i-heroicons-arrow-up" class="w-3 h-3 mr-1" />
+                            <UIcon
+                              name="i-heroicons-arrow-up"
+                              class="w-3 h-3 mr-1"
+                            />
                             <span>+5%</span>
                           </div>
                         </div>
@@ -248,17 +272,29 @@
                       <div class="flex items-center justify-between p-4 bg-cyan-50 dark:bg-cyan-900/10 rounded-xl">
                         <div class="flex items-center">
                           <div class="w-10 h-10 rounded-lg bg-cyan-100 dark:bg-cyan-900/20 flex items-center justify-center mr-3">
-                            <UIcon name="i-heroicons-user-group" class="w-5 h-5 text-cyan-600 dark:text-cyan-400" />
+                            <UIcon
+                              name="i-heroicons-user-group"
+                              class="w-5 h-5 text-cyan-600 dark:text-cyan-400"
+                            />
                           </div>
                           <div>
-                            <div class="font-medium text-default">Customer Retention</div>
-                            <div class="text-xs text-muted">Quarterly rate</div>
+                            <div class="font-medium text-default">
+                              Customer Retention
+                            </div>
+                            <div class="text-xs text-muted">
+                              Quarterly rate
+                            </div>
                           </div>
                         </div>
                         <div class="text-right">
-                          <div class="text-xl font-bold text-cyan-600 dark:text-cyan-400">87%</div>
+                          <div class="text-xl font-bold text-cyan-600 dark:text-cyan-400">
+                            87%
+                          </div>
                           <div class="flex items-center justify-end text-xs text-green-500">
-                            <UIcon name="i-heroicons-arrow-up" class="w-3 h-3 mr-1" />
+                            <UIcon
+                              name="i-heroicons-arrow-up"
+                              class="w-3 h-3 mr-1"
+                            />
                             <span>+12%</span>
                           </div>
                         </div>
@@ -266,17 +302,29 @@
                       <div class="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-800/10 rounded-xl">
                         <div class="flex items-center">
                           <div class="w-10 h-10 rounded-lg bg-gray-100 dark:bg-gray-800/20 flex items-center justify-center mr-3">
-                            <UIcon name="i-heroicons-building-office" class="w-5 h-5 text-gray-600 dark:text-gray-400" />
+                            <UIcon
+                              name="i-heroicons-building-office"
+                              class="w-5 h-5 text-gray-600 dark:text-gray-400"
+                            />
                           </div>
                           <div>
-                            <div class="font-medium text-default">Operational Cost</div>
-                            <div class="text-xs text-muted">Reduced this month</div>
+                            <div class="font-medium text-default">
+                              Operational Cost
+                            </div>
+                            <div class="text-xs text-muted">
+                              Reduced this month
+                            </div>
                           </div>
                         </div>
                         <div class="text-right">
-                          <div class="text-xl font-bold text-gray-600 dark:text-gray-400">42%</div>
+                          <div class="text-xl font-bold text-gray-600 dark:text-gray-400">
+                            42%
+                          </div>
                           <div class="flex items-center justify-end text-xs text-green-500">
-                            <UIcon name="i-heroicons-arrow-up" class="w-3 h-3 mr-1" />
+                            <UIcon
+                              name="i-heroicons-arrow-up"
+                              class="w-3 h-3 mr-1"
+                            />
                             <span>+8%</span>
                           </div>
                         </div>
@@ -308,7 +356,10 @@
                       class="font-medium"
                     >
                       View Report
-                      <UIcon name="i-heroicons-arrow-right-20-solid" class="w-4 h-4 ml-1" />
+                      <UIcon
+                        name="i-heroicons-arrow-right-20-solid"
+                        class="w-4 h-4 ml-1"
+                      />
                     </UButton>
                   </div>
                 </div>
@@ -673,19 +724,19 @@ const navigationItems = [
       {
         label: 'Features',
         description: 'Explore all features',
-        to: '#'
+        to: '#',
       },
       {
         label: 'Integrations',
         description: 'Connect with your tools',
-        to: '#'
+        to: '#',
       },
       {
         label: 'Roadmap',
         description: 'Upcoming features',
-        to: '#'
-      }
-    ]
+        to: '#',
+      },
+    ],
   },
   {
     label: 'Solutions',
@@ -693,19 +744,19 @@ const navigationItems = [
       {
         label: 'Marketing',
         description: 'Boost your marketing efforts',
-        to: '#'
+        to: '#',
       },
       {
         label: 'Sales',
         description: 'Close more deals',
-        to: '#'
+        to: '#',
       },
       {
         label: 'HR',
         description: 'Manage your team',
-        to: '#'
-      }
-    ]
+        to: '#',
+      },
+    ],
   },
   {
     label: 'Resources',
@@ -713,24 +764,24 @@ const navigationItems = [
       {
         label: 'Documentation',
         description: 'Learn how to use SaaSFlow',
-        to: '#'
+        to: '#',
       },
       {
         label: 'Blog',
         description: 'Latest updates and tips',
-        to: '#'
+        to: '#',
       },
       {
         label: 'Community',
         description: 'Join our community',
-        to: '#'
-      }
-    ]
+        to: '#',
+      },
+    ],
   },
   {
     label: 'Pricing',
-    to: '#'
-  }
+    to: '#',
+  },
 ]
 
 const logos = [
@@ -739,47 +790,47 @@ const logos = [
   'Wayne',
   'Stark',
   'Oscorp',
-  'Daily'
+  'Daily',
 ]
 
 const features = [
   {
     title: 'Workflow Automation',
     description: 'Automate repetitive tasks and streamline your processes with our intuitive workflow builder.',
-    icon: 'i-heroicons-arrow-path'
+    icon: 'i-heroicons-arrow-path',
   },
   {
     title: 'Real-time Analytics',
     description: 'Gain valuable insights with real-time dashboards and customizable reports.',
-    icon: 'i-heroicons-chart-bar'
+    icon: 'i-heroicons-chart-bar',
   },
   {
     title: 'Team Collaboration',
     description: 'Work seamlessly with your team through shared workspaces and real-time collaboration.',
-    icon: 'i-heroicons-user-group'
+    icon: 'i-heroicons-user-group',
   },
   {
     title: 'Secure Data Storage',
     description: 'Enterprise-grade security with end-to-end encryption and compliance certifications.',
-    icon: 'i-heroicons-lock-closed'
+    icon: 'i-heroicons-lock-closed',
   },
   {
     title: 'Integrations',
     description: 'Connect with 100+ popular tools including Slack, Google Workspace, and Microsoft 365.',
-    icon: 'i-heroicons-plug'
+    icon: 'i-heroicons-plug',
   },
   {
     title: 'Customizable',
     description: 'Tailor the platform to your specific needs with custom fields, views, and automations.',
-    icon: 'i-heroicons-adjustments-horizontal'
-  }
+    icon: 'i-heroicons-adjustments-horizontal',
+  },
 ]
 
 const stats = [
   { value: 10000, label: 'Active Users' },
   { value: 99.9, label: 'Uptime %' },
   { value: 42, label: 'Average % Savings' },
-  { value: 24, label: 'Hours Saved/Week' }
+  { value: 24, label: 'Hours Saved/Week' },
 ]
 
 const testimonials = [
@@ -788,35 +839,35 @@ const testimonials = [
     author: {
       name: 'Alex Johnson',
       role: 'Operations Manager',
-      avatar: 'https://randomuser.me/api/portraits/men/32.jpg'
+      avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
     },
-    rating: 5
+    rating: 5,
   },
   {
     content: 'The automation features alone are worth the investment. We\'ve automated over 200 recurring tasks, freeing up our team to focus on strategic work.',
     author: {
       name: 'Sarah Williams',
       role: 'CTO',
-      avatar: 'https://randomuser.me/api/portraits/women/44.jpg'
+      avatar: 'https://randomuser.me/api/portraits/women/44.jpg',
     },
-    rating: 5
+    rating: 5,
   },
   {
     content: 'Implementation was seamless and the support team is exceptional. We were up and running in just two weeks with minimal training required.',
     author: {
       name: 'Michael Chen',
       role: 'IT Director',
-      avatar: 'https://randomuser.me/api/portraits/men/22.jpg'
+      avatar: 'https://randomuser.me/api/portraits/men/22.jpg',
     },
-    rating: 4
-  }
+    rating: 4,
+  },
 ]
 
 const socialLinks = [
   { label: 'Twitter', to: '#', icon: 'i-simple-icons-x' },
   { label: 'GitHub', to: '#', icon: 'i-simple-icons-github' },
   { label: 'LinkedIn', to: '#', icon: 'i-simple-icons-linkedin' },
-  { label: 'Facebook', to: '#', icon: 'i-simple-icons-facebook' }
+  { label: 'Facebook', to: '#', icon: 'i-simple-icons-facebook' },
 ]
 
 const footerLinks = [
@@ -826,8 +877,8 @@ const footerLinks = [
       { label: 'Features', to: '#' },
       { label: 'Solutions', to: '#' },
       { label: 'Pricing', to: '#' },
-      { label: 'Changelog', to: '#' }
-    ]
+      { label: 'Changelog', to: '#' },
+    ],
   },
   {
     title: 'Resources',
@@ -835,8 +886,8 @@ const footerLinks = [
       { label: 'Documentation', to: '#' },
       { label: 'Tutorials', to: '#' },
       { label: 'Blog', to: '#' },
-      { label: 'Support', to: '#' }
-    ]
+      { label: 'Support', to: '#' },
+    ],
   },
   {
     title: 'Company',
@@ -844,8 +895,8 @@ const footerLinks = [
       { label: 'About', to: '#' },
       { label: 'Careers', to: '#' },
       { label: 'Contact', to: '#' },
-      { label: 'Partners', to: '#' }
-    ]
-  }
+      { label: 'Partners', to: '#' },
+    ],
+  },
 ]
 </script>

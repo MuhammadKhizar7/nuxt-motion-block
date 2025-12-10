@@ -16,7 +16,7 @@
           <span class="text-gray-500 dark:text-gray-400">{{ project.date }}</span>
         </div>
       </MInView>
-      
+
       <MInView
         :variants="{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }"
         :transition="{ duration: 0.5, delay: 0.1 }"
@@ -25,7 +25,7 @@
           {{ project.title }}
         </h1>
       </MInView>
-      
+
       <MInView
         :variants="{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }"
         :transition="{ duration: 0.5, delay: 0.2 }"
@@ -34,7 +34,7 @@
           {{ project.description }}
         </p>
       </MInView>
-      
+
       <MInView
         :variants="{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }"
         :transition="{ duration: 0.5, delay: 0.3 }"
@@ -48,11 +48,15 @@
             class="mr-4"
           />
           <div>
-            <p class="font-medium text-gray-900 dark:text-white">{{ project.client.name }}</p>
-            <p class="text-gray-500 dark:text-gray-400 text-sm">{{ project.client.industry }}</p>
+            <p class="font-medium text-gray-900 dark:text-white">
+              {{ project.client.name }}
+            </p>
+            <p class="text-gray-500 dark:text-gray-400 text-sm">
+              {{ project.client.industry }}
+            </p>
           </div>
         </div>
-        
+
         <div class="flex items-center">
           <div class="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 text-center min-w-[120px]">
             <MAnimatedNumber
@@ -60,10 +64,12 @@
               :options="{ decimalPlaces: 0 }"
               class="text-2xl font-bold text-primary-500"
             />
-            <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">Conversion Increase</p>
+            <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">
+              Conversion Increase
+            </p>
           </div>
         </div>
-        
+
         <div class="flex items-center">
           <div class="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 text-center min-w-[120px]">
             <MAnimatedNumber
@@ -71,12 +77,14 @@
               :options="{ prefix: '$', decimalPlaces: 0 }"
               class="text-2xl font-bold text-primary-500"
             />
-            <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">Revenue Generated</p>
+            <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">
+              Revenue Generated
+            </p>
           </div>
         </div>
       </MInView>
     </header>
-    
+
     <!-- Project Image -->
     <MInView
       :variants="{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }"
@@ -89,7 +97,7 @@
         class="w-full h-96 object-cover rounded-xl"
       >
     </MInView>
-    
+
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
       <!-- Main Content -->
       <main class="lg:col-span-2">
@@ -116,7 +124,7 @@
             </div>
           </MAnimatedGroup>
         </section>
-        
+
         <!-- Solution Section -->
         <section class="mb-16">
           <MAnimatedGroup
@@ -138,7 +146,7 @@
             >
               {{ paragraph }}
             </div>
-            
+
             <!-- Solution Steps -->
             <div class="mt-8">
               <MAnimatedGroup
@@ -171,7 +179,7 @@
             </div>
           </MAnimatedGroup>
         </section>
-        
+
         <!-- Results Section -->
         <section class="mb-16">
           <MAnimatedGroup
@@ -193,7 +201,7 @@
             >
               {{ paragraph }}
             </div>
-            
+
             <!-- Key Metrics -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
               <MAnimatedGroup
@@ -220,7 +228,7 @@
             </div>
           </MAnimatedGroup>
         </section>
-        
+
         <!-- Testimonial -->
         <section class="mb-16">
           <MInView
@@ -253,7 +261,7 @@
           </MInView>
         </section>
       </main>
-      
+
       <!-- Sidebar -->
       <aside class="lg:col-span-1">
         <MAnimatedGroup
@@ -287,7 +295,7 @@
               </li>
             </ul>
           </UCard>
-          
+
           <!-- Table of Contents -->
           <UCard class="mb-8">
             <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-4">
@@ -320,7 +328,7 @@
               </li>
             </ul>
           </UCard>
-          
+
           <!-- Related Projects -->
           <UCard>
             <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-4">
@@ -370,54 +378,54 @@ const project = {
   client: {
     name: 'TechCorp Inc.',
     avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
-    industry: 'Technology'
+    industry: 'Technology',
   },
   challenge: [
     'TechCorp Inc. was experiencing a significant drop in conversion rates on their e-commerce platform, with users abandoning their carts at a rate of 72%. The existing platform had a cluttered interface, slow loading times, and an outdated checkout process that was causing friction in the customer journey.',
-    'User research revealed that customers found the navigation confusing, product search was inefficient, and the mobile experience was particularly poor. The client needed a complete redesign to modernize their platform and improve business metrics.'
+    'User research revealed that customers found the navigation confusing, product search was inefficient, and the mobile experience was particularly poor. The client needed a complete redesign to modernize their platform and improve business metrics.',
   ],
   solution: [
     'We conducted extensive user research including surveys, interviews, and usability testing to understand the pain points. Our approach focused on simplifying the user journey, streamlining the checkout process, and implementing a more intuitive navigation system.',
-    'The design system was rebuilt using Tailwind CSS for consistency and maintainability. We implemented a mobile-first approach to ensure optimal performance across all devices. Key features included a smart search with filters, personalized product recommendations, and a one-page checkout process.'
+    'The design system was rebuilt using Tailwind CSS for consistency and maintainability. We implemented a mobile-first approach to ensure optimal performance across all devices. Key features included a smart search with filters, personalized product recommendations, and a one-page checkout process.',
   ],
   solutionSteps: [
     {
       title: 'Research & Discovery',
-      description: 'Conducted user research, competitive analysis, and technical audit to identify key pain points and opportunities.'
+      description: 'Conducted user research, competitive analysis, and technical audit to identify key pain points and opportunities.',
     },
     {
       title: 'Design & Prototyping',
-      description: 'Created wireframes, high-fidelity mockups, and interactive prototypes to visualize the new user experience.'
+      description: 'Created wireframes, high-fidelity mockups, and interactive prototypes to visualize the new user experience.',
     },
     {
       title: 'Development',
-      description: 'Built the new platform using Vue.js and Firebase, implementing responsive design and performance optimizations.'
+      description: 'Built the new platform using Vue.js and Firebase, implementing responsive design and performance optimizations.',
     },
     {
       title: 'Testing & Launch',
-      description: 'Conducted extensive QA testing, A/B testing, and user acceptance testing before the successful launch.'
-    }
+      description: 'Conducted extensive QA testing, A/B testing, and user acceptance testing before the successful launch.',
+    },
   ],
   results: {
     increase: 45,
     revenue: 2450000,
     description: [
       'The redesigned platform resulted in a 45% increase in conversion rates and generated an additional $2.45M in revenue within the first six months. Cart abandonment decreased from 72% to 38%, and page load times improved by 65%.',
-      'User satisfaction scores increased significantly, with positive feedback on the simplified navigation and checkout process. The mobile experience saw the most dramatic improvements, with mobile conversion rates increasing by 58%.'
+      'User satisfaction scores increased significantly, with positive feedback on the simplified navigation and checkout process. The mobile experience saw the most dramatic improvements, with mobile conversion rates increasing by 58%.',
     ],
     metrics: [
       { value: 45, options: { suffix: '%', decimalPlaces: 0 }, label: 'Conversion Increase' },
       { value: 38, options: { suffix: '%', decimalPlaces: 0 }, label: 'Cart Abandonment' },
       { value: 65, options: { suffix: '%', decimalPlaces: 0 }, label: 'Faster Load Times' },
-      { value: 58, options: { suffix: '%', decimalPlaces: 0 }, label: 'Mobile Conversion' }
-    ]
+      { value: 58, options: { suffix: '%', decimalPlaces: 0 }, label: 'Mobile Conversion' },
+    ],
   },
   testimonial: {
     name: 'Sarah Johnson',
     role: 'Product Director',
     avatar: 'https://randomuser.me/api/portraits/women/44.jpg',
-    quote: 'The team delivered beyond our expectations. The new platform has transformed our business, and the results speak for themselves. We\'ve seen incredible improvements in user engagement and revenue.'
-  }
+    quote: 'The team delivered beyond our expectations. The new platform has transformed our business, and the results speak for themselves. We\'ve seen incredible improvements in user engagement and revenue.',
+  },
 }
 
 const relatedProjects = [
@@ -426,22 +434,22 @@ const relatedProjects = [
     title: 'Mobile Banking Application',
     category: 'Mobile App',
     image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-    slug: '#mobile-banking-application'
+    slug: '#mobile-banking-application',
   },
   {
     id: 3,
     title: 'Corporate Brand Identity',
     category: 'Branding',
     image: 'https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-    slug: '#corporate-brand-identity'
+    slug: '#corporate-brand-identity',
   },
   {
     id: 4,
     title: 'Health & Fitness Dashboard',
     category: 'UI/UX',
     image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-    slug: '#health-fitness-dashboard'
-  }
+    slug: '#health-fitness-dashboard',
+  },
 ]
 
 const getCategoryColor = (category: string) => {

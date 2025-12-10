@@ -10,7 +10,7 @@
           Trusted by thousands of users
         </h1>
       </MInView>
-      
+
       <MInView
         :variants="{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }"
         :transition="{ duration: 0.5, delay: 0.1 }"
@@ -50,7 +50,7 @@
               "{{ item.quote }}"
             </p>
           </div>
-          
+
           <div class="mt-8 flex flex-col items-center">
             <UAvatar
               :src="item.avatar"
@@ -59,8 +59,12 @@
               class="mb-4"
             />
             <div>
-              <p class="font-semibold text-gray-900 dark:text-white">{{ item.author }}</p>
-              <p class="text-gray-600 dark:text-gray-400">{{ item.position }} at {{ item.company }}</p>
+              <p class="font-semibold text-gray-900 dark:text-white">
+                {{ item.author }}
+              </p>
+              <p class="text-gray-600 dark:text-gray-400">
+                {{ item.position }} at {{ item.company }}
+              </p>
             </div>
           </div>
         </UCard>
@@ -84,7 +88,9 @@
             class="text-3xl font-bold text-gray-900 dark:text-white mb-2"
             :format="stat.format || ((value) => Math.round(value).toLocaleString())"
           />
-          <p class="text-gray-600 dark:text-gray-400">{{ stat.label }}</p>
+          <p class="text-gray-600 dark:text-gray-400">
+            {{ stat.label }}
+          </p>
         </div>
       </div>
     </MInView>
@@ -94,32 +100,32 @@
 <script setup lang="ts">
 const testimonials = ref([
   {
-    quote: "This platform has completely transformed how we manage our business operations. The intuitive interface and powerful features have saved us countless hours every week.",
-    author: "Sarah Johnson",
-    position: "CEO",
-    company: "Tech Innovations",
-    avatar: "https://randomuser.me/api/portraits/women/32.jpg"
+    quote: 'This platform has completely transformed how we manage our business operations. The intuitive interface and powerful features have saved us countless hours every week.',
+    author: 'Sarah Johnson',
+    position: 'CEO',
+    company: 'Tech Innovations',
+    avatar: 'https://randomuser.me/api/portraits/women/32.jpg',
   },
   {
-    quote: "I've tried many similar solutions, but nothing comes close to the seamless experience this platform provides. The customer support is exceptional too!",
-    author: "Michael Chen",
-    position: "Product Manager",
-    company: "Global Solutions",
-    avatar: "https://randomuser.me/api/portraits/men/22.jpg"
+    quote: 'I\'ve tried many similar solutions, but nothing comes close to the seamless experience this platform provides. The customer support is exceptional too!',
+    author: 'Michael Chen',
+    position: 'Product Manager',
+    company: 'Global Solutions',
+    avatar: 'https://randomuser.me/api/portraits/men/22.jpg',
   },
   {
-    quote: "Since implementing this solution, our team productivity has increased by 40%. The automation features alone are worth the investment.",
-    author: "Emma Rodriguez",
-    position: "Operations Director",
-    company: "Future Enterprises",
-    avatar: "https://randomuser.me/api/portraits/women/44.jpg"
-  }
+    quote: 'Since implementing this solution, our team productivity has increased by 40%. The automation features alone are worth the investment.',
+    author: 'Emma Rodriguez',
+    position: 'Operations Director',
+    company: 'Future Enterprises',
+    avatar: 'https://randomuser.me/api/portraits/women/44.jpg',
+  },
 ])
 
 const stats = ref([
-  { value: 98, label: "Customer Satisfaction", format: (value) => `${Math.round(value)}%` },
-  { value: 10000, label: "Active Users" },
-  { value: 4.9, label: "Average Rating", format: (value) => `${value.toFixed(1)}/5` },
-  { value: 24, label: "Hours Saved Weekly" }
+  { value: 98, label: 'Customer Satisfaction', format: value => `${Math.round(value)}%` },
+  { value: 10000, label: 'Active Users' },
+  { value: 4.9, label: 'Average Rating', format: value => `${value.toFixed(1)}/5` },
+  { value: 24, label: 'Hours Saved Weekly' },
 ])
 </script>

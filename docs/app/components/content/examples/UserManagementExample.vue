@@ -19,8 +19,8 @@
         </p>
       </div>
     </MAnimatedGroup>
-  <!-- Stats Section with Animated Numbers -->
-  <MAnimatedGroup
+    <!-- Stats Section with Animated Numbers -->
+    <MAnimatedGroup
       :stagger-children="0.1"
       preset="fade"
       initial="hidden"
@@ -30,10 +30,15 @@
       <UCard class="transition-all duration-300 hover:shadow-lg">
         <div class="flex items-center">
           <div class="p-3 rounded-lg bg-blue-100 dark:bg-blue-900/30 mr-4">
-            <UIcon name="i-heroicons-user-group" class="w-6 h-6 text-blue-600 dark:text-blue-400" />
+            <UIcon
+              name="i-heroicons-user-group"
+              class="w-6 h-6 text-blue-600 dark:text-blue-400"
+            />
           </div>
           <div>
-            <p class="text-sm text-gray-500 dark:text-gray-400">Total Users</p>
+            <p class="text-sm text-gray-500 dark:text-gray-400">
+              Total Users
+            </p>
             <MAnimatedNumber
               :value="userStats.total"
               class="text-2xl font-bold"
@@ -45,10 +50,15 @@
       <UCard class="transition-all duration-300 hover:shadow-lg">
         <div class="flex items-center">
           <div class="p-3 rounded-lg bg-green-100 dark:bg-green-900/30 mr-4">
-            <UIcon name="i-heroicons-check-circle" class="w-6 h-6 text-green-600 dark:text-green-400" />
+            <UIcon
+              name="i-heroicons-check-circle"
+              class="w-6 h-6 text-green-600 dark:text-green-400"
+            />
           </div>
           <div>
-            <p class="text-sm text-gray-500 dark:text-gray-400">Active Users</p>
+            <p class="text-sm text-gray-500 dark:text-gray-400">
+              Active Users
+            </p>
             <MAnimatedNumber
               :value="userStats.active"
               class="text-2xl font-bold"
@@ -60,10 +70,15 @@
       <UCard class="transition-all duration-300 hover:shadow-lg">
         <div class="flex items-center">
           <div class="p-3 rounded-lg bg-amber-100 dark:bg-amber-900/30 mr-4">
-            <UIcon name="i-heroicons-clock" class="w-6 h-6 text-amber-600 dark:text-amber-400" />
+            <UIcon
+              name="i-heroicons-clock"
+              class="w-6 h-6 text-amber-600 dark:text-amber-400"
+            />
           </div>
           <div>
-            <p class="text-sm text-gray-500 dark:text-gray-400">Pending Invites</p>
+            <p class="text-sm text-gray-500 dark:text-gray-400">
+              Pending Invites
+            </p>
             <MAnimatedNumber
               :value="userStats.pending"
               class="text-2xl font-bold"
@@ -113,12 +128,13 @@
       </div>
     </MAnimatedGroup>
 
-   
     <!-- Users Table with Enhanced Animations -->
     <UCard class="transition-all duration-300 hover:shadow-lg">
       <template #header>
         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-          <h3 class="font-semibold text-lg">Users</h3>
+          <h3 class="font-semibold text-lg">
+            Users
+          </h3>
           <div class="flex items-center gap-2">
             <span class="text-sm text-gray-500 dark:text-gray-400">
               {{ filteredUsers.length }} users
@@ -150,8 +166,12 @@
               />
             </div>
             <div>
-              <p class="font-medium">{{ row.original.name }}</p>
-              <p class="text-sm text-gray-500 dark:text-gray-400">{{ row.original.email }}</p>
+              <p class="font-medium">
+                {{ row.original.name }}
+              </p>
+              <p class="text-sm text-gray-500 dark:text-gray-400">
+                {{ row.original.email }}
+              </p>
             </div>
           </MAnimatedGroup>
         </template>
@@ -168,10 +188,10 @@
 
         <template #status-cell="{ row }">
           <div class="flex items-center">
-            <div 
-              class="w-2 h-2 rounded-full mr-2 transition-all duration-300" 
+            <div
+              class="w-2 h-2 rounded-full mr-2 transition-all duration-300"
               :class="row.original.status === 'Active' ? 'bg-green-500' : 'bg-gray-400'"
-            ></div>
+            />
             <span>{{ row.original.status }}</span>
           </div>
         </template>
@@ -231,94 +251,108 @@
     <!-- Add User Modal -->
     <UModal v-model:open="showAddUserModal">
       <template #content>
-      <UCard class="max-w-2xl">
-        <template #header>
-          <div class="flex items-center justify-between">
-            <h3 class="text-base font-semibold leading-6 text-gray-900 dark:text-white">
-              Add New User
-            </h3>
-            <UButton
-              color="neutral"
-              variant="ghost"
-              icon="i-heroicons-x-mark-20-solid"
-              @click="showAddUserModal = false"
-            />
-          </div>
-        </template>
-
-        <UForm
-          id="user-form"
-          :state="newUser"
-          @submit="onAddUser"
-        >
-          <div class="flex flex-col gap-4 w-full">
-            <UFormGroup label="Name" name="name" required>
-              <UInput
-                v-model="newUser.name"
-                placeholder="Enter user name"
-                autocomplete="name"
-                class="w-full"
+        <UCard class="max-w-2xl">
+          <template #header>
+            <div class="flex items-center justify-between">
+              <h3 class="text-base font-semibold leading-6 text-gray-900 dark:text-white">
+                Add New User
+              </h3>
+              <UButton
+                color="neutral"
+                variant="ghost"
+                icon="i-heroicons-x-mark-20-solid"
+                @click="showAddUserModal = false"
               />
-            </UFormGroup>
+            </div>
+          </template>
 
-            <UFormGroup label="Email" name="email" required>
-              <UInput
-                v-model="newUser.email"
-                type="email"
-                placeholder="Enter user email"
-                autocomplete="email"
-                class="w-full"  
-              />
-            </UFormGroup>
+          <UForm
+            id="user-form"
+            :state="newUser"
+            @submit="onAddUser"
+          >
+            <div class="flex flex-col gap-4 w-full">
+              <UFormGroup
+                label="Name"
+                name="name"
+                required
+              >
+                <UInput
+                  v-model="newUser.name"
+                  placeholder="Enter user name"
+                  autocomplete="name"
+                  class="w-full"
+                />
+              </UFormGroup>
 
-            <UFormGroup label="Role" name="role" required>
-              <USelectMenu
-                v-model="newUser.role"
-                :items="roleOptions.filter(option => option.value !== '')"
-                placeholder="Select role"
-                value-key="value"
-                class="w-full"
-              />
-            </UFormGroup>
+              <UFormGroup
+                label="Email"
+                name="email"
+                required
+              >
+                <UInput
+                  v-model="newUser.email"
+                  type="email"
+                  placeholder="Enter user email"
+                  autocomplete="email"
+                  class="w-full"
+                />
+              </UFormGroup>
 
-            <UFormGroup label="Avatar URL" name="avatar">
-              <UInput
-                v-model="newUser.avatar"
-                placeholder="Enter avatar URL"
-                type="url"
-                class="w-full"  
-              />
-            </UFormGroup>
-          </div>
-        </UForm>
+              <UFormGroup
+                label="Role"
+                name="role"
+                required
+              >
+                <USelectMenu
+                  v-model="newUser.role"
+                  :items="roleOptions.filter(option => option.value !== '')"
+                  placeholder="Select role"
+                  value-key="value"
+                  class="w-full"
+                />
+              </UFormGroup>
 
-        <template #footer>
-          <div class="flex justify-end gap-2">
-            <UButton
-              color="neutral"
-              variant="ghost"
-              @click="showAddUserModal = false"
-            >
-              Cancel
-            </UButton>
-            <UButton
-              color="primary"
-              type="submit"
-              :loading="addingUser"
-            >
-              Add User
-            </UButton>
-          </div>
-        </template>
-      </UCard>
+              <UFormGroup
+                label="Avatar URL"
+                name="avatar"
+              >
+                <UInput
+                  v-model="newUser.avatar"
+                  placeholder="Enter avatar URL"
+                  type="url"
+                  class="w-full"
+                />
+              </UFormGroup>
+            </div>
+          </UForm>
+
+          <template #footer>
+            <div class="flex justify-end gap-2">
+              <UButton
+                color="neutral"
+                variant="ghost"
+                @click="showAddUserModal = false"
+              >
+                Cancel
+              </UButton>
+              <UButton
+                color="primary"
+                type="submit"
+                :loading="addingUser"
+              >
+                Add User
+              </UButton>
+            </div>
+          </template>
+        </UCard>
       </template>
     </UModal>
   </div>
 </template>
 
 <script setup lang="ts">
-import type { TableColumn } from '@nuxt/ui'
-import type { Form } from '@nuxt/ui'
+import type { TableColumn, Form } from '@nuxt/ui'
 
 interface User {
   id: number
@@ -355,7 +389,7 @@ const newUser = ref({
   name: '',
   email: '',
   avatar: '',
-  role: ''
+  role: '',
 })
 
 // Role options for filtering and selection
@@ -364,31 +398,31 @@ const roleOptions = [
   { label: 'Admin', value: 'Admin' },
   { label: 'Editor', value: 'Editor' },
   { label: 'Viewer', value: 'Viewer' },
-  { label: 'Guest', value: 'Guest' }
+  { label: 'Guest', value: 'Guest' },
 ]
 
 // Define columns with proper typing
 const columns: TableColumn<User>[] = [
-  { 
-    accessorKey: 'name', 
-    header: 'User'
+  {
+    accessorKey: 'name',
+    header: 'User',
   },
-  { 
-    accessorKey: 'role', 
-    header: 'Role'
+  {
+    accessorKey: 'role',
+    header: 'Role',
   },
-  { 
-    accessorKey: 'status', 
-    header: 'Status'
+  {
+    accessorKey: 'status',
+    header: 'Status',
   },
-  { 
-    accessorKey: 'lastActive', 
-    header: 'Last Active'
+  {
+    accessorKey: 'lastActive',
+    header: 'Last Active',
   },
-  { 
+  {
     id: 'actions',
-    header: 'Actions'
-  }
+    header: 'Actions',
+  },
 ]
 
 // Sample user data
@@ -403,8 +437,8 @@ const users = ref<User[]>([
     lastActive: '2 hours ago',
     actions: [
       { label: 'Edit', icon: 'i-heroicons-pencil', color: 'primary', variant: 'ghost' },
-      { label: 'Delete', icon: 'i-heroicons-trash', color: 'error', variant: 'ghost' }
-    ]
+      { label: 'Delete', icon: 'i-heroicons-trash', color: 'error', variant: 'ghost' },
+    ],
   },
   {
     id: 2,
@@ -416,8 +450,8 @@ const users = ref<User[]>([
     lastActive: '5 hours ago',
     actions: [
       { label: 'Edit', icon: 'i-heroicons-pencil', color: 'primary', variant: 'ghost' },
-      { label: 'Delete', icon: 'i-heroicons-trash', color: 'error', variant: 'ghost' }
-    ]
+      { label: 'Delete', icon: 'i-heroicons-trash', color: 'error', variant: 'ghost' },
+    ],
   },
   {
     id: 3,
@@ -429,8 +463,8 @@ const users = ref<User[]>([
     lastActive: '1 day ago',
     actions: [
       { label: 'Edit', icon: 'i-heroicons-pencil', color: 'primary', variant: 'ghost' },
-      { label: 'Delete', icon: 'i-heroicons-trash', color: 'error', variant: 'ghost' }
-    ]
+      { label: 'Delete', icon: 'i-heroicons-trash', color: 'error', variant: 'ghost' },
+    ],
   },
   {
     id: 4,
@@ -442,8 +476,8 @@ const users = ref<User[]>([
     lastActive: '3 days ago',
     actions: [
       { label: 'Edit', icon: 'i-heroicons-pencil', color: 'primary', variant: 'ghost' },
-      { label: 'Delete', icon: 'i-heroicons-trash', color: 'error', variant: 'ghost' }
-    ]
+      { label: 'Delete', icon: 'i-heroicons-trash', color: 'error', variant: 'ghost' },
+    ],
   },
   {
     id: 5,
@@ -455,8 +489,8 @@ const users = ref<User[]>([
     lastActive: 'Just now',
     actions: [
       { label: 'Edit', icon: 'i-heroicons-pencil', color: 'primary', variant: 'ghost' },
-      { label: 'Delete', icon: 'i-heroicons-trash', color: 'error', variant: 'ghost' }
-    ]
+      { label: 'Delete', icon: 'i-heroicons-trash', color: 'error', variant: 'ghost' },
+    ],
   },
   {
     id: 6,
@@ -468,8 +502,8 @@ const users = ref<User[]>([
     lastActive: '1 hour ago',
     actions: [
       { label: 'Edit', icon: 'i-heroicons-pencil', color: 'primary', variant: 'ghost' },
-      { label: 'Delete', icon: 'i-heroicons-trash', color: 'error', variant: 'ghost' }
-    ]
+      { label: 'Delete', icon: 'i-heroicons-trash', color: 'error', variant: 'ghost' },
+    ],
   },
   {
     id: 7,
@@ -481,8 +515,8 @@ const users = ref<User[]>([
     lastActive: '1 week ago',
     actions: [
       { label: 'Edit', icon: 'i-heroicons-pencil', color: 'primary', variant: 'ghost' },
-      { label: 'Delete', icon: 'i-heroicons-trash', color: 'error', variant: 'ghost' }
-    ]
+      { label: 'Delete', icon: 'i-heroicons-trash', color: 'error', variant: 'ghost' },
+    ],
   },
   {
     id: 8,
@@ -494,26 +528,26 @@ const users = ref<User[]>([
     lastActive: '3 hours ago',
     actions: [
       { label: 'Edit', icon: 'i-heroicons-pencil', color: 'primary', variant: 'ghost' },
-      { label: 'Delete', icon: 'i-heroicons-trash', color: 'error', variant: 'ghost' }
-    ]
-  }
+      { label: 'Delete', icon: 'i-heroicons-trash', color: 'error', variant: 'ghost' },
+    ],
+  },
 ])
 
 // User statistics with animated numbers
 const userStats = ref({
   total: 1248,
   active: 987,
-  pending: 24
+  pending: 24,
 })
 
 // Computed properties for filtering and pagination
 const filteredUsers = computed(() => {
-  return users.value.filter(user => {
-    const matchesSearch = user.name.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
-      user.email.toLowerCase().includes(searchQuery.value.toLowerCase())
-    
+  return users.value.filter((user) => {
+    const matchesSearch = user.name.toLowerCase().includes(searchQuery.value.toLowerCase())
+      || user.email.toLowerCase().includes(searchQuery.value.toLowerCase())
+
     const matchesRole = !roleFilter.value || user.role === roleFilter.value
-    
+
     return matchesSearch && matchesRole
   })
 })
@@ -545,7 +579,7 @@ const openAddUserModal = () => {
     name: '',
     email: '',
     avatar: '',
-    role: ''
+    role: '',
   }
   showAddUserModal.value = true
 }
@@ -563,7 +597,7 @@ const addUser = () => {
   }
 
   addingUser.value = true
-  
+
   // Simulate API call
   setTimeout(() => {
     const newUserObj: User = {
@@ -576,16 +610,16 @@ const addUser = () => {
       lastActive: 'Just now',
       actions: [
         { label: 'Edit', icon: 'i-heroicons-pencil', color: 'primary', variant: 'ghost' },
-        { label: 'Delete', icon: 'i-heroicons-trash', color: 'error', variant: 'ghost' }
-      ]
+        { label: 'Delete', icon: 'i-heroicons-trash', color: 'error', variant: 'ghost' },
+      ],
     }
 
     users.value.unshift(newUserObj)
-    
+
     // Update stats
     userStats.value.total += 1
     userStats.value.active += 1
-    
+
     // Close modal and reset form
     showAddUserModal.value = false
     addingUser.value = false

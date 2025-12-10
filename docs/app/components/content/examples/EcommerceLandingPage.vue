@@ -119,9 +119,9 @@
     <!-- Hero Section -->
     <section class="relative py-20 md:py-28 overflow-hidden">
       <div class="absolute inset-0 z-0">
-        <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 dark:from-primary/10 dark:to-secondary/10"></div>
-        <div class="absolute top-0 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 dark:from-primary/10 dark:to-secondary/10" />
+        <div class="absolute top-0 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
       </div>
       <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -186,15 +186,24 @@
             >
               <div class="flex items-center gap-4">
                 <div class="flex items-center">
-                  <UIcon name="i-heroicons-truck" class="w-5 h-5 text-rose-500 mr-2" />
+                  <UIcon
+                    name="i-heroicons-truck"
+                    class="w-5 h-5 text-rose-500 mr-2"
+                  />
                   <span class="text-sm text-muted">Free Shipping</span>
                 </div>
                 <div class="flex items-center">
-                  <UIcon name="i-heroicons-arrow-path" class="w-5 h-5 text-rose-500 mr-2" />
+                  <UIcon
+                    name="i-heroicons-arrow-path"
+                    class="w-5 h-5 text-rose-500 mr-2"
+                  />
                   <span class="text-sm text-muted">30-Day Returns</span>
                 </div>
                 <div class="flex items-center">
-                  <UIcon name="i-heroicons-shield-check" class="w-5 h-5 text-rose-500 mr-2" />
+                  <UIcon
+                    name="i-heroicons-shield-check"
+                    class="w-5 h-5 text-rose-500 mr-2"
+                  />
                   <span class="text-sm text-muted">Secure Payment</span>
                 </div>
               </div>
@@ -206,7 +215,7 @@
               :transition="{ duration: 0.5, delay: 0.2 }"
             >
               <div class="relative rounded-2xl overflow-hidden shadow-xl border border-default bg-elevated">
-                <div class="absolute inset-0 bg-gradient-to-br from-rose-50/50 to-amber-50/50 dark:from-rose-900/5 dark:to-amber-900/5"></div>
+                <div class="absolute inset-0 bg-gradient-to-br from-rose-50/50 to-amber-50/50 dark:from-rose-900/5 dark:to-amber-900/5" />
                 <div class="relative p-8">
                   <div class="text-center mb-8">
                     <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-rose-100 dark:bg-rose-900/20 mb-4 mx-auto">
@@ -236,44 +245,72 @@
                       <div class="bg-rose-50 dark:bg-rose-900/10 rounded-xl p-4 transition-all hover:shadow-md">
                         <div class="flex items-start">
                           <div class="w-10 h-10 rounded-lg bg-rose-100 dark:bg-rose-900/20 flex items-center justify-center mr-3">
-                            <UIcon name="i-heroicons-user" class="w-5 h-5 text-rose-600 dark:text-rose-400" />
+                            <UIcon
+                              name="i-heroicons-user"
+                              class="w-5 h-5 text-rose-600 dark:text-rose-400"
+                            />
                           </div>
                           <div>
-                            <div class="font-medium text-default">Women's Fashion</div>
-                            <div class="text-xs text-muted mt-1">24% off</div>
+                            <div class="font-medium text-default">
+                              Women's Fashion
+                            </div>
+                            <div class="text-xs text-muted mt-1">
+                              24% off
+                            </div>
                           </div>
                         </div>
                       </div>
                       <div class="bg-amber-50 dark:bg-amber-900/10 rounded-xl p-4 transition-all hover:shadow-md">
                         <div class="flex items-start">
                           <div class="w-10 h-10 rounded-lg bg-amber-100 dark:bg-amber-900/20 flex items-center justify-center mr-3">
-                            <UIcon name="i-heroicons-user-group" class="w-5 h-5 text-amber-600 dark:text-amber-400" />
+                            <UIcon
+                              name="i-heroicons-user-group"
+                              class="w-5 h-5 text-amber-600 dark:text-amber-400"
+                            />
                           </div>
                           <div>
-                            <div class="font-medium text-default">Men's Collection</div>
-                            <div class="text-xs text-muted mt-1">18% off</div>
+                            <div class="font-medium text-default">
+                              Men's Collection
+                            </div>
+                            <div class="text-xs text-muted mt-1">
+                              18% off
+                            </div>
                           </div>
                         </div>
                       </div>
                       <div class="bg-gray-50 dark:bg-gray-800/10 rounded-xl p-4 transition-all hover:shadow-md">
                         <div class="flex items-start">
                           <div class="w-10 h-10 rounded-lg bg-gray-100 dark:bg-gray-800/20 flex items-center justify-center mr-3">
-                            <UIcon name="i-heroicons-backpack" class="w-5 h-5 text-gray-600 dark:text-gray-400" />
+                            <UIcon
+                              name="i-heroicons-backpack"
+                              class="w-5 h-5 text-gray-600 dark:text-gray-400"
+                            />
                           </div>
                           <div>
-                            <div class="font-medium text-default">Accessories</div>
-                            <div class="text-xs text-muted mt-1">30% off</div>
+                            <div class="font-medium text-default">
+                              Accessories
+                            </div>
+                            <div class="text-xs text-muted mt-1">
+                              30% off
+                            </div>
                           </div>
                         </div>
                       </div>
                       <div class="bg-rose-50 dark:bg-rose-900/10 rounded-xl p-4 transition-all hover:shadow-md">
                         <div class="flex items-start">
                           <div class="w-10 h-10 rounded-lg bg-rose-100 dark:bg-rose-900/20 flex items-center justify-center mr-3">
-                            <UIcon name="i-heroicons-home" class="w-5 h-5 text-rose-600 dark:text-rose-400" />
+                            <UIcon
+                              name="i-heroicons-home"
+                              class="w-5 h-5 text-rose-600 dark:text-rose-400"
+                            />
                           </div>
                           <div>
-                            <div class="font-medium text-default">Home Decor</div>
-                            <div class="text-xs text-muted mt-1">15% off</div>
+                            <div class="font-medium text-default">
+                              Home Decor
+                            </div>
+                            <div class="text-xs text-muted mt-1">
+                              15% off
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -283,8 +320,12 @@
                   <div class="bg-gradient-to-r from-rose-500 to-amber-500 rounded-xl p-5 text-white">
                     <div class="flex items-center justify-between">
                       <div>
-                        <div class="font-bold text-lg">Flash Sale</div>
-                        <div class="text-sm opacity-90">Limited time offer - Up to 50% off</div>
+                        <div class="font-bold text-lg">
+                          Flash Sale
+                        </div>
+                        <div class="text-sm opacity-90">
+                          Limited time offer - Up to 50% off
+                        </div>
                       </div>
                       <UButton
                         to="#"
@@ -345,7 +386,7 @@
               :alt="category.name"
               class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
             >
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
             <div class="absolute bottom-0 left-0 right-0 p-6">
               <h3 class="text-xl font-bold text-white mb-2">
                 {{ category.name }}
@@ -513,20 +554,36 @@
             >
               <div class="flex items-center mb-8">
                 <div class="bg-white/20 rounded-lg p-4 mr-4">
-                  <div class="text-3xl font-bold">02</div>
-                  <div class="text-sm">Days</div>
+                  <div class="text-3xl font-bold">
+                    02
+                  </div>
+                  <div class="text-sm">
+                    Days
+                  </div>
                 </div>
                 <div class="bg-white/20 rounded-lg p-4 mr-4">
-                  <div class="text-3xl font-bold">18</div>
-                  <div class="text-sm">Hours</div>
+                  <div class="text-3xl font-bold">
+                    18
+                  </div>
+                  <div class="text-sm">
+                    Hours
+                  </div>
                 </div>
                 <div class="bg-white/20 rounded-lg p-4 mr-4">
-                  <div class="text-3xl font-bold">45</div>
-                  <div class="text-sm">Minutes</div>
+                  <div class="text-3xl font-bold">
+                    45
+                  </div>
+                  <div class="text-sm">
+                    Minutes
+                  </div>
                 </div>
                 <div class="bg-white/20 rounded-lg p-4">
-                  <div class="text-3xl font-bold">30</div>
-                  <div class="text-sm">Seconds</div>
+                  <div class="text-3xl font-bold">
+                    30
+                  </div>
+                  <div class="text-sm">
+                    Seconds
+                  </div>
                 </div>
               </div>
             </MInView>
@@ -557,7 +614,7 @@
                   background: 'bg-white/10',
                   ring: 'ring-0',
                   rounded: 'rounded-xl',
-                  shadow: 'shadow-lg'
+                  shadow: 'shadow-lg',
                 }"
               >
                 <div class="p-6">
@@ -838,47 +895,47 @@
 const navigationItems = [
   {
     label: 'Women',
-    to: '#'
+    to: '#',
   },
   {
     label: 'Men',
-    to: '#'
+    to: '#',
   },
   {
     label: 'Accessories',
-    to: '#'
+    to: '#',
   },
   {
     label: 'Collections',
-    to: '#'
+    to: '#',
   },
   {
     label: 'Sale',
-    to: '#'
-  }
+    to: '#',
+  },
 ]
 
 const categories = [
   {
     name: 'Women\'s Fashion',
     image: 'https://images.unsplash.com/photo-1496747611176-843222e1e57c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-    link: '#'
+    link: '#',
   },
   {
     name: 'Men\'s Collection',
     image: 'https://images.unsplash.com/photo-1534030347209-467a5b0ad3e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-    link: '#'
+    link: '#',
   },
   {
     name: 'Accessories',
     image: 'https://images.unsplash.com/photo-1591561954557-26941169b49e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-    link: '#'
+    link: '#',
   },
   {
     name: 'Footwear',
     image: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-    link: '#'
-  }
+    link: '#',
+  },
 ]
 
 const products = [
@@ -889,14 +946,14 @@ const products = [
     originalPrice: 39.99,
     rating: 4,
     image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-    badge: { text: 'Sale', color: 'red' }
+    badge: { text: 'Sale', color: 'red' },
   },
   {
     name: 'Designer Jeans',
     category: 'Men\'s Bottoms',
     price: 89.99,
     rating: 5,
-    image: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
+    image: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
   },
   {
     name: 'Leather Handbag',
@@ -905,15 +962,15 @@ const products = [
     originalPrice: 159.99,
     rating: 5,
     image: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-    badge: { text: 'New', color: 'green' }
+    badge: { text: 'New', color: 'green' },
   },
   {
     name: 'Running Shoes',
     category: 'Footwear',
     price: 119.99,
     rating: 4,
-    image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
-  }
+    image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+  },
 ]
 
 const testimonials = [
@@ -922,35 +979,35 @@ const testimonials = [
     author: {
       name: 'Emma Davis',
       role: 'Fashion Blogger',
-      avatar: 'https://randomuser.me/api/portraits/women/32.jpg'
+      avatar: 'https://randomuser.me/api/portraits/women/32.jpg',
     },
-    rating: 5
+    rating: 5,
   },
   {
     content: 'Fast shipping and excellent customer service. I had a question about sizing and they responded within hours with detailed guidance. Will definitely shop here again.',
     author: {
       name: 'James Wilson',
       role: 'Customer',
-      avatar: 'https://randomuser.me/api/portraits/men/44.jpg'
+      avatar: 'https://randomuser.me/api/portraits/men/44.jpg',
     },
-    rating: 5
+    rating: 5,
   },
   {
     content: 'The summer collection is absolutely stunning. I love how they combine style with sustainability. The pieces are versatile and can be dressed up or down.',
     author: {
       name: 'Sophia Martinez',
       role: 'Style Influencer',
-      avatar: 'https://randomuser.me/api/portraits/women/68.jpg'
+      avatar: 'https://randomuser.me/api/portraits/women/68.jpg',
     },
-    rating: 4
-  }
+    rating: 4,
+  },
 ]
 
 const socialLinks = [
   { label: 'Instagram', to: '#', icon: 'i-simple-icons-instagram' },
   { label: 'Pinterest', to: '#', icon: 'i-simple-icons-pinterest' },
   { label: 'Twitter', to: '#', icon: 'i-simple-icons-x' },
-  { label: 'Facebook', to: '#', icon: 'i-simple-icons-facebook' }
+  { label: 'Facebook', to: '#', icon: 'i-simple-icons-facebook' },
 ]
 
 const footerLinks = [
@@ -961,8 +1018,8 @@ const footerLinks = [
       { label: 'Men', to: '#' },
       { label: 'Accessories', to: '#' },
       { label: 'New Arrivals', to: '#' },
-      { label: 'Sale', to: '#' }
-    ]
+      { label: 'Sale', to: '#' },
+    ],
   },
   {
     title: 'Help',
@@ -971,8 +1028,8 @@ const footerLinks = [
       { label: 'Track Order', to: '#' },
       { label: 'Returns & Exchanges', to: '#' },
       { label: 'Shipping Info', to: '#' },
-      { label: 'FAQs', to: '#' }
-    ]
+      { label: 'FAQs', to: '#' },
+    ],
   },
   {
     title: 'About',
@@ -981,8 +1038,8 @@ const footerLinks = [
       { label: 'Careers', to: '#' },
       { label: 'Sustainability', to: '#' },
       { label: 'Press', to: '#' },
-      { label: 'Contact', to: '#' }
-    ]
-  }
+      { label: 'Contact', to: '#' },
+    ],
+  },
 ]
 </script>
