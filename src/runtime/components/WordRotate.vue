@@ -2,7 +2,7 @@
   <Motion
     ref="containerRef"
     :class="['inline-block overflow-hidden', containerClass]"
-    v-bind="props"
+    v-bind="$attrs"
   >
     <!-- @vue-ignore -->
     <Motion
@@ -175,6 +175,9 @@ const shouldStart = computed(() => {
 function startAnimation() {
   if (!shouldStart.value) return
 
+  // Only run on client side
+  if (typeof window === 'undefined') return
+
   hasAnimated.value = true
 
   intervalId = setInterval(() => {
@@ -189,7 +192,6 @@ function startAnimation() {
     }, props.pauseDuration)
   }, props.duration + props.pauseDuration)
 }
-
 // Clean up intervals and timeouts
 onUnmounted(() => {
   if (intervalId) {
@@ -203,11 +205,12 @@ onUnmounted(() => {
 // Watch for when the component comes into view
 watch(isInView, (newValue) => {
   if (newValue && props.startOnView) {
-    startAnimation()
+    // Only run on client side
+    if (typeof window !== 'undefined') {
+      startAnimation()
+    }
   }
-})
-
-// Start immediately if startOnView is false
+})// Start immediately if startOnView is false
 onMounted(() => {
   if (!props.startOnView) {
     startAnimation()

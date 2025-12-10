@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, onMounted, onUnmounted, nextTick } from 'vue'
+import { ref, watch, onMounted, nextTick } from 'vue'
 import { Motion } from 'motion-v'
 
 interface TextScrambleProps {
@@ -42,6 +42,9 @@ let intervalId: ReturnType<typeof setInterval> | null = null
 const component = ref(props.as)
 
 const scramble = async () => {
+  // Only run on client side
+  if (typeof window === 'undefined') return
+
   if (isAnimating.value) return
   isAnimating.value = true
 
@@ -118,16 +121,10 @@ watch(() => props.trigger, (newValue) => {
   }
 })
 
-// Clean up interval on unmount
-onUnmounted(() => {
-  if (intervalId) {
-    clearInterval(intervalId)
-  }
-})
-
 // Start on mount if trigger is true
 onMounted(() => {
-  if (props.trigger) {
+  // Only run on client side
+  if (typeof window !== 'undefined' && props.trigger) {
     scramble()
   }
 })

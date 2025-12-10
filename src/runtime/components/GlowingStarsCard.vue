@@ -85,12 +85,15 @@ const mouseEnter = ref(false)
 const glowingStars = ref<number[]>([])
 
 onMounted(() => {
-  const interval = setInterval(() => {
-    glowingStars.value = Array.from({ length: 5 }, () => Math.floor(Math.random() * 108))
-  }, 3000)
+  // Only run on client side
+  if (typeof window !== 'undefined') {
+    const interval = setInterval(() => {
+      glowingStars.value = Array.from({ length: 5 }, () => Math.floor(Math.random() * 108))
+    }, 3000)
 
-  onUnmounted(() => {
-    clearInterval(interval)
-  })
+    onUnmounted(() => {
+      clearInterval(interval)
+    })
+  }
 })
 </script>

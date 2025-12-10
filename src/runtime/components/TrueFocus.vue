@@ -6,7 +6,7 @@
     <span
       v-for="(word, index) in words"
       :key="index"
-      :ref="el => { wordRefs[index] = el }"
+      :ref="(el) => { wordRefs[index] = el as HTMLElement | null }"
       class="relative text-[3rem] font-black cursor-pointer"
       :style="{
         filter: manualMode
@@ -69,7 +69,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted, watch, nextTick } from 'vue'
 import { motion } from 'motion-v'
 
@@ -105,13 +105,13 @@ const props = defineProps({
 })
 
 const words = computed(() => props.sentence.split(' '))
-const currentIndex = ref(0)
-const lastActiveIndex = ref(null)
-const containerRef = ref(null)
-const wordRefs = ref([])
+const currentIndex = ref<number>(0)
+const lastActiveIndex = ref<number | null>(null)
+const containerRef = ref<HTMLElement | null>(null)
+const wordRefs = ref<(HTMLElement | null)[]>([])
 const focusRect = ref({ x: 0, y: 0, width: 0, height: 0 })
 
-let interval
+let interval: ReturnType<typeof setInterval> | null = null
 
 const updateFocusRect = async () => {
   if (currentIndex.value === null || currentIndex.value === -1) return
@@ -119,8 +119,13 @@ const updateFocusRect = async () => {
 
   await nextTick()
 
-  const parentRect = containerRef.value.getBoundingClientRect()
-  const activeRect = wordRefs.value[currentIndex.value].getBoundingClientRect()
+  const container = containerRef.value
+  const activeElement = wordRefs.value[currentIndex.value]
+
+  if (!container || !activeElement) return
+
+  const parentRect = container.getBoundingClientRect()
+  const activeRect = activeElement.getBoundingClientRect()
 
   focusRect.value = {
     x: activeRect.left - parentRect.left,
@@ -130,7 +135,7 @@ const updateFocusRect = async () => {
   }
 }
 
-const handleMouseEnter = (index) => {
+const handleMouseEnter = (index: number) => {
   if (props.manualMode) {
     lastActiveIndex.value = index
     currentIndex.value = index
@@ -139,7 +144,7 @@ const handleMouseEnter = (index) => {
 
 const handleMouseLeave = () => {
   if (props.manualMode) {
-    currentIndex.value = lastActiveIndex.value
+    currentIndex.value = lastActiveIndex.value ?? 0
   }
 }
 
@@ -158,7 +163,8 @@ watch(() => props.manualMode, (newVal) => {
 watch(currentIndex, updateFocusRect)
 
 const startAutoAnimation = () => {
-  if (props.manualMode) return
+  // Only run on client side
+  if (typeof window === 'undefined' || props.manualMode) return
 
   interval = setInterval(() => {
     currentIndex.value = (currentIndex.value + 1) % words.value.length
@@ -166,7 +172,8 @@ const startAutoAnimation = () => {
 }
 
 onMounted(() => {
-  if (!props.manualMode) {
+  // Only initialize on client side
+  if (typeof window !== 'undefined' && !props.manualMode) {
     startAutoAnimation()
   }
   updateFocusRect()

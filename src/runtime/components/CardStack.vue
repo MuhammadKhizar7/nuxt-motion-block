@@ -1,7 +1,6 @@
-<!-- components/CardStack.vue -->
 <template>
   <div :class="['relative', props.class]">
-    <motion.div
+    <Motion
       v-for="(card, index) in cards"
       :key="card.id"
       class="absolute w-full h-full"
@@ -79,12 +78,12 @@
           </slot>
         </template>
       </UCard>
-    </motion.div>
+    </Motion>
   </div>
 </template>
 
 <script setup lang="ts">
-import { motion } from 'motion-v'
+import { Motion } from 'motion-v'
 import { onMounted, onUnmounted, ref } from 'vue'
 
 interface Card {
@@ -96,16 +95,14 @@ interface Card {
   [key: string]: any
 }
 
-interface Props {
+const props = withDefaults(defineProps<{
   items: Card[]
   offset?: number
   scaleFactor?: number
   autoRotate?: boolean
   rotateInterval?: number
   class?: string
-}
-
-const props = withDefaults(defineProps<Props>(), {
+}>(), {
   offset: 10,
   scaleFactor: 0.06,
   autoRotate: true,
@@ -120,17 +117,28 @@ const SCALE_FACTOR = ref(props.scaleFactor)
 
 // Initialize cards
 onMounted(() => {
-  cards.value = [...props.items]
-  if (props.autoRotate) {
-    startFlipping()
+  // Only initialize on client side
+  if (typeof window !== 'undefined') {
+    // Initialize cards with props items
+    cards.value = [...props.items]
+
+    if (props.autoRotate) {
+      startFlipping()
+    }
   }
 })
 
 // Auto-rotation
-let interval: NodeJS.Timeout
+let interval: NodeJS.Timeout | null = null
 
 const startFlipping = () => {
+  // Only run on client side
+  if (typeof window === 'undefined') return
+
   interval = setInterval(() => {
+    // Only run on client side
+    if (typeof window === 'undefined') return
+
     const newArray = [...cards.value]
     newArray.unshift(newArray.pop()!)
     cards.value = newArray
@@ -140,6 +148,7 @@ const startFlipping = () => {
 const stopFlipping = () => {
   if (interval) {
     clearInterval(interval)
+    interval = null
   }
 }
 

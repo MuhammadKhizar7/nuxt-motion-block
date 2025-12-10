@@ -18,6 +18,7 @@
           verticalAlign: 'baseline',
         }"
         @motionstart="onMotionStart"
+        @motioncomplete="onMotionComplete"
       >
         {{ currentItem }}
       </Motion>
@@ -71,6 +72,7 @@ const currentIndex = ref(0)
 const direction = ref(1)
 const containerHeight = ref('auto')
 const measureRef = ref<HTMLElement | null>(null)
+const isAnimating = ref(false)
 let intervalId: ReturnType<typeof setInterval> | null = null
 
 const currentItem = computed(() => {
@@ -102,7 +104,9 @@ const computedVariants = computed(() => {
     }
   }
 
-  // Default variants
+  // Default variants with shorter duration for fast intervals
+  const duration = props.interval < 1 ? 0.3 : 0.5
+
   return {
     initial: {
       y: -dir * 20,
@@ -115,12 +119,14 @@ const computedVariants = computed(() => {
       rotateX: 0,
       opacity: 1,
       filter: 'blur(0px)',
+      transition: { duration },
     },
     exit: {
       y: -dir * 20,
       rotateX: -dir * 90,
       opacity: 0,
       filter: 'blur(4px)',
+      transition: { duration },
     },
   }
 })
@@ -142,12 +148,23 @@ function measureTextHeight() {
 
 // Set up the interval for cycling through items
 function startInterval() {
+  // Clear any existing interval
+  if (intervalId) {
+    clearInterval(intervalId)
+    intervalId = null
+  }
+
   if (!props.trigger || props.items.length <= 1) return
 
-  clearInterval(intervalId as ReturnType<typeof setInterval>)
+  // Only run on client side
+  if (typeof window === 'undefined') return
 
-  const intervalMs = props.interval * 1000
+  // Ensure minimum interval to prevent transition conflicts
+  const intervalMs = Math.max(props.interval * 1000, 1000)
   intervalId = setInterval(() => {
+    // Don't start a new animation if one is already in progress
+    if (isAnimating.value) return
+
     // Update direction
     direction.value = 1
 
@@ -160,10 +177,16 @@ function startInterval() {
 
 // Handle motion start event
 function onMotionStart() {
+  isAnimating.value = true
   // Ensure container height is updated when motion starts
   nextTick(() => {
     measureTextHeight()
   })
+}
+
+// Handle motion complete event
+function onMotionComplete() {
+  isAnimating.value = false
 }
 
 // Clean up interval on unmount
@@ -175,21 +198,32 @@ onUnmounted(() => {
 
 // Initialize the interval on mount (client-side only)
 onMounted(() => {
-  // Measure text height after component is mounted
-  nextTick(() => {
-    measureTextHeight()
-  })
+  // Only initialize on client side
+  if (typeof window !== 'undefined') {
+    // Measure text height after component is mounted
+    nextTick(() => {
+      measureTextHeight()
+    })
 
-  startInterval()
+    startInterval()
+  }
 })
 
 // Watch for changes to trigger or items
 watch(() => [props.trigger, props.items], () => {
+  // Only run on client side
+  if (typeof window === 'undefined') return
+
   // Re-measure text height when items change
   nextTick(() => {
     measureTextHeight()
   })
 
+  startInterval()
+}, { flush: 'post' })
+
+// Watch for interval changes
+watch(() => props.interval, () => {
   startInterval()
 })
 </script>

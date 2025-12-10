@@ -7,7 +7,7 @@
   >
     <div class="relative flex w-full flex-1 scale-y-125 items-center justify-center isolate z-0">
       <!-- Left Gradient -->
-      <motion.div
+      <Motion
         :initial="{ opacity: 0.5, width: '15rem' }"
         :while-in-view="{ opacity: 1, width: '30rem' }"
         :transition="{
@@ -20,10 +20,10 @@
       >
         <div class="absolute w-[100%] left-0 bg-default h-40 bottom-0 z-20 [mask-image:linear-gradient(to_top,white,transparent)]" />
         <div class="absolute w-40 h-[100%] left-0 bg-default bottom-0 z-20 [mask-image:linear-gradient(to_right,white,transparent)]" />
-      </motion.div>
+      </Motion>
 
       <!-- Right Gradient -->
-      <motion.div
+      <Motion
         :initial="{ opacity: 0.5, width: '15rem' }"
         :while-in-view="{ opacity: 1, width: '30rem' }"
         :transition="{
@@ -36,7 +36,7 @@
       >
         <div class="absolute w-40 h-[100%] right-0 bg-default bottom-0 z-20 [mask-image:linear-gradient(to_left,white,transparent)]" />
         <div class="absolute w-[100%] right-0 bg-default h-40 bottom-0 z-20 [mask-image:linear-gradient(to_top,white,transparent)]" />
-      </motion.div>
+      </Motion>
 
       <!-- Background Effects -->
       <div class="absolute top-1/2 h-48 w-full translate-y-12 scale-x-150 bg-default blur-2xl" />
@@ -47,7 +47,7 @@
       />
 
       <!-- Animated Elements -->
-      <motion.div
+      <Motion
         :initial="{ width: '8rem' }"
         :while-in-view="{ width: '16rem' }"
         :transition="{
@@ -59,7 +59,7 @@
         :style="glowColorStyle"
       />
 
-      <motion.div
+      <Motion
         :initial="{ width: '15rem' }"
         :while-in-view="{ width: '30rem' }"
         :transition="{
@@ -81,7 +81,7 @@
 </template>
 
 <script setup lang="ts">
-import { motion } from 'motion-v'
+import { Motion } from 'motion-v'
 import { computed } from 'vue'
 
 interface LampContainerProps {

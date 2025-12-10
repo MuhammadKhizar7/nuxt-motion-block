@@ -80,7 +80,8 @@ const handleMouseMove = (e: MouseEvent) => {
   const element = tiltRef.value
   if (!element) return
 
-  const rect = element.getBoundingClientRect()
+  // @ts-ignore
+  const rect = element.$el.getBoundingClientRect()
   const width = rect.width
   const height = rect.height
   const mouseX = e.clientX - rect.left

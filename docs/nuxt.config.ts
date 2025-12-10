@@ -37,7 +37,7 @@ export default defineNuxtConfig({
       routes: [
         // '/',
       ],
-      crawlLinks: false,
+      crawlLinks: true,
       autoSubfolderIndex: false
     },
     // Optimization settings to reduce build size
@@ -50,7 +50,7 @@ export default defineNuxtConfig({
       ]
     },
     // Only include necessary presets
-    // preset: process.env.NITRO_PRESET || 'static'
+    preset: process.env.NITRO_PRESET || 'static'
   },
 
   vite: {
@@ -82,7 +82,7 @@ export default defineNuxtConfig({
     quality: 80,
     format: ['webp', 'avif'],
     // Provider configuration for optimized image delivery
-    provider: 'static',
+    provider: 'ipx',
     screens: {
       'xs': 320,
       'sm': 640,
@@ -92,9 +92,7 @@ export default defineNuxtConfig({
       'xxl': 1536,
       '2xl': 1536
     }
-  },
-
-  llms: {
+  },  llms: {
     domain: 'https://nuxt-motion-block.pages.dev/',
     title: 'Nuxt Motion Block',
     description: 'A streamlined UI library that extends Nuxt UI with motion capabilities powered by motion-v.',
