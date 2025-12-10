@@ -352,7 +352,7 @@
 </template>
 
 <script setup lang="ts">
-import type { TableColumn, Form } from '@nuxt/ui'
+import type { TableColumn } from '@nuxt/ui'
 
 interface User {
   id: number
@@ -368,11 +368,6 @@ interface User {
     color: string
     variant: string
   }>
-}
-
-interface SelectOption {
-  label: string
-  value: string
 }
 
 // Reactive state
