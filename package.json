@@ -38,28 +38,28 @@
     "docs:preview": "pnpm --filter nuxt-motion-block-docs preview"
   },
   "dependencies": {
-    "@nuxt/ui": "^4.0.0",
+    "@nuxt/ui": "^4.3.0",
     "defu": "^6.1.4",
-    "motion-v": "^1.7.2",
+    "motion-v": "^1.9.0",
     "simplex-noise": "^4.0.3"
   },
   "devDependencies": {
-    "@nuxt/devtools": "^2.6.5",
-    "@nuxt/eslint-config": "^1.9.0",
-    "@nuxt/kit": "^4.1.2",
+    "@nuxt/devtools": "^2.7.0",
+    "@nuxt/eslint-config": "^1.12.1",
+    "@nuxt/kit": "^4.2.2",
     "@nuxt/module-builder": "^1.0.2",
-    "@nuxt/schema": "^4.1.2",
-    "@nuxt/test-utils": "^3.19.2",
+    "@nuxt/schema": "^4.2.2",
+    "@nuxt/test-utils": "^3.23.0",
     "@types/node": "latest",
-    "@vitejs/plugin-vue": "^6.0.2",
+    "@vitejs/plugin-vue": "^6.0.3",
     "@vue/test-utils": "^2.4.6",
     "changelogen": "^0.6.2",
-    "eslint": "^9.36.0",
-    "jsdom": "^27.2.0",
-    "nuxt": "^4.1.2",
-    "typescript": "~5.9.2",
+    "eslint": "^9.39.2",
+    "jsdom": "^27.4.0",
+    "nuxt": "^4.2.2",
+    "typescript": "~5.9.3",
     "vitest": "^3.2.4",
-    "vue-tsc": "^3.0.8"
+    "vue-tsc": "^3.2.2"
   },
   "resolutions": {
     "unimport": "4.1.1"
